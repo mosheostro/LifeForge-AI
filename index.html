@@ -1,962 +1,1155 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Svarga International — Choose your guide. Integral transformation, breathwork, meditation, and business mastery.">
-  <title>LifeForge AI · Svarga International — Choose Your Guide</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23C8A86E'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='18' fill='%230D0B08'>S</text></svg>">
+  <meta name="description" content="LifeForge AI — Premium AI-powered personal development ecosystem.">
+  <title>LifeForge AI · Human Potential System</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23E8C880'/><stop offset='1' stop-color='%239A7E4A'/></linearGradient></defs><circle cx='16' cy='16' r='14' fill='url(%23g)'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='17' fill='%230D0B08' font-weight='600'>L</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0A0907;--bg-alt:#110E0A;--surface:#18140E;--surface-2:#211C14;
+      --text-1:#F0EBE0;--text-2:#AAA49A;--text-3:#6B6660;
+      --border:rgba(240,235,224,.08);--border-md:rgba(240,235,224,.16);
+      --gold:#D4B27A;--gold-h:#E8C68E;--gold-dim:#9A7E4A;--gold-f:rgba(212,178,122,.10);
+      --indigo:#7E8EC8;--sage:#6EA080;--purple:#B07ECC;--amber:#C8946E;--platinum:#C8D4E0;
+      --shadow:rgba(0,0,0,.70);--nav-bg:rgba(10,9,7,.88);
+      --glass-bg:rgba(24,20,14,.52);--glass-br:rgba(240,235,224,.10);
+      --font-d:'Cormorant Garamond',Georgia,serif;
+      --font-b:'DM Sans',system-ui,sans-serif;
+      --r:12px;--r2:20px;
+    }
+    [data-theme="light"]{
+      --bg:#FAF7EF;--bg-alt:#F2EFE5;--surface:#FFFFFF;--surface-2:#EDE9DE;
+      --text-1:#1A160E;--text-2:#56524C;--text-3:#989188;
+      --border:rgba(24,20,14,.08);--border-md:rgba(24,20,14,.16);
+      --gold:#8B6520;--gold-h:#6E4F12;--gold-dim:#B08030;--gold-f:rgba(139,101,32,.08);
+      --indigo:#5068B8;--sage:#3E7058;--purple:#8050AC;--amber:#A06040;--platinum:#5878A0;
+      --shadow:rgba(24,20,14,.10);--nav-bg:rgba(250,247,239,.92);
+      --glass-bg:rgba(255,255,255,.60);--glass-br:rgba(24,20,14,.10);
+    }
+    [lang="he"]{--font-d:'Frank Ruhl Libre',Georgia,serif;--font-b:'Heebo',system-ui,sans-serif}
 
-    :root {
-      --bg:        #0D0B08;
-      --bg-alt:    #141108;
-      --surface:   #1B1710;
-      --surface-2: #232018;
-      --text-1:    #EDE9E2;
-      --text-2:    #A8A49C;
-      --text-3:    #6B6762;
-      --border:    rgba(237,233,226,.09);
-      --border-md: rgba(237,233,226,.17);
-      --gold:      #C8A86E;
-      --gold-h:    #DDBB7E;
-      --gold-dim:  #9A7E4A;
-      --gold-f:    rgba(200,168,110,.10);
-      --sage:      #6EA080;
-      --shadow:    rgba(0,0,0,.65);
-      --nav-bg:    rgba(13,11,8,.94);
-      --font-d: 'Cormorant Garamond', Georgia, serif;
-      --font-b: 'DM Sans', system-ui, sans-serif;
-      --r: 4px;
-    }
-    [data-theme="light"] {
-      --bg:        #FAF7F0;
-      --bg-alt:    #F2EFE7;
-      --surface:   #FFFFFF;
-      --surface-2: #EDE9E0;
-      --text-1:    #1C1810;
-      --text-2:    #5A5650;
-      --text-3:    #9A9590;
-      --border:    rgba(28,24,16,.09);
-      --border-md: rgba(28,24,16,.18);
-      --gold:      #8B6520;
-      --gold-h:    #724F12;
-      --gold-dim:  #B08030;
-      --gold-f:    rgba(139,101,32,.09);
-      --sage:      #3A7556;
-      --shadow:    rgba(0,0,0,.10);
-      --nav-bg:    rgba(250,247,240,.96);
-    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);background:var(--bg);color:var(--text-1);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+    ::selection{background:rgba(212,178,122,.22)}
+    a{color:inherit;text-decoration:none}
+    button{font-family:var(--font-b)}
+    img{display:block;max-width:100%}
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-b);
-      background: var(--bg);
-      color: var(--text-1);
-      line-height: 1.65;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      transition: background .3s, color .3s;
-    }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
-    ::selection { background: rgba(200,168,110,.22); }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: var(--font-b); }
+    /* ── PARTICLE CANVAS ── */
+    #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+    [data-theme="light"] #particle-canvas{opacity:.22}
 
-    .sp  { padding: clamp(72px,10vw,130px) clamp(24px,7vw,100px); }
-    .sp2 { padding: clamp(48px,7vw,96px) clamp(24px,7vw,100px); }
-    .mw  { max-width: 1280px; margin: 0 auto; }
+    /* ── AMBIENT ORBS ── */
+    .orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(100px);transition:opacity 1s}
+    .o1{top:-8%;left:-6%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,178,122,.28),transparent 68%)}
+    .o2{bottom:-18%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(126,142,200,.18),transparent 68%)}
+    .o3{top:38%;right:22%;width:420px;height:420px;background:radial-gradient(circle,rgba(110,160,128,.14),transparent 68%)}
+    .o4{top:60%;left:30%;width:350px;height:350px;background:radial-gradient(circle,rgba(176,126,204,.10),transparent 68%)}
+    [data-theme="light"] .orb{opacity:.45}
 
-    .rv  { opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
-    .rvl { opacity:0; transform:translateX(-20px);transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
-    .rvr { opacity:0; transform:translateX(20px); transition:opacity .8s cubic-bezier(.2,0,.2,1),transform .8s cubic-bezier(.2,0,.2,1); }
-    .rv.in,.rvl.in,.rvr.in { opacity:1; transform:none; }
-    .d1{transition-delay:.10s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}
-    .d4{transition-delay:.46s}.d5{transition-delay:.58s}.d6{transition-delay:.70s}
+    /* ── LAYOUT ── */
+    .sp{padding:clamp(64px,10vw,128px) clamp(22px,7vw,100px);position:relative;z-index:1}
+    .sp2{padding:clamp(48px,7vw,96px) clamp(22px,7vw,100px);position:relative;z-index:1}
+    .mw{max-width:1320px;margin:0 auto}
 
-    .eyebrow {
-      font-family:var(--font-b); font-size:.64rem; font-weight:500;
-      letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
-    }
+    /* ── REVEAL ── */
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,0,.2,1),transform .9s cubic-bezier(.2,0,.2,1)}
+    .rv.in{opacity:1;transform:none}
+    .rvl{opacity:0;transform:translateX(-22px);transition:opacity .9s cubic-bezier(.2,0,.2,1),transform .9s cubic-bezier(.2,0,.2,1)}
+    .rvl.in{opacity:1;transform:none}
+    .rvr{opacity:0;transform:translateX(22px);transition:opacity .9s cubic-bezier(.2,0,.2,1),transform .9s cubic-bezier(.2,0,.2,1)}
+    .rvr.in{opacity:1;transform:none}
+    .d1{transition-delay:.07s}.d2{transition-delay:.16s}.d3{transition-delay:.25s}
+    .d4{transition-delay:.34s}.d5{transition-delay:.44s}.d6{transition-delay:.54s}
+    .d7{transition-delay:.64s}.d8{transition-delay:.74s}.d9{transition-delay:.84s}.d10{transition-delay:.94s}
 
-    .btn-p {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:13px 34px; background:var(--gold); color:#0D0B08;
-      font-size:.76rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase;
-      border:none; border-radius:var(--r); cursor:pointer;
-      transition:background .3s,transform .25s,box-shadow .3s;
-    }
-    .btn-p:hover { background:var(--gold-h); transform:translateY(-2px); box-shadow:0 14px 40px rgba(200,168,110,.28); }
-    .btn-g {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:12px 32px; background:transparent; color:var(--text-2);
-      font-size:.76rem; font-weight:400; letter-spacing:.09em; text-transform:uppercase;
-      border:1px solid var(--border-md); border-radius:var(--r); cursor:pointer;
-      transition:border-color .3s,color .3s;
-    }
-    .btn-g:hover { border-color:var(--gold); color:var(--gold); }
+    /* ── TYPOGRAPHY ── */
+    .eyebrow{font-family:var(--font-b);font-size:.60rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+    [lang="he"] .eyebrow{letter-spacing:.04em}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--gold-f);border:1px solid rgba(212,178,122,.18);border-radius:99px;font-size:.60rem;font-weight:500;letter-spacing:.20em;text-transform:uppercase;color:var(--gold)}
 
-    /* NAV */
-    .nav-wrap {
-      position:fixed; top:0; left:0; right:0; z-index:100;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:0 clamp(20px,5.5vw,72px); height:68px;
-      background:transparent;
-      transition:background .4s,border-color .4s,backdrop-filter .4s;
-    }
-    .nav-wrap.scrolled {
-      background:var(--nav-bg);
-      backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
-      border-bottom:1px solid var(--border);
-    }
-    .nav-logo { display:flex; align-items:center; gap:10px; cursor:pointer; background:none; border:none; }
-    .nav-logo img { width:34px; height:34px; border-radius:50%; object-fit:cover; border:1px solid rgba(200,168,110,.30); }
-    .nav-logo-name { font-family:var(--font-d); font-size:1rem; font-weight:400; color:var(--text-1); letter-spacing:.03em; display:block; }
-    .nav-logo-sub  { font-size:.56rem; color:var(--gold); letter-spacing:.20em; text-transform:uppercase; display:block; }
-    .nav-right { display:flex; align-items:center; gap:10px; }
+    /* ── BUTTONS ── */
+    .btn-p{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;background:var(--gold);color:#0A0907;font-family:var(--font-b);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:background .3s,transform .25s,box-shadow .3s}
+    .btn-p:hover{background:var(--gold-h);transform:translateY(-2px);box-shadow:0 16px 48px rgba(212,178,122,.28)}
+    [data-theme="light"] .btn-p{color:#FAF7EF}
+    .btn-g{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:var(--text-2);font-family:var(--font-b);font-size:.72rem;font-weight:400;letter-spacing:.10em;text-transform:uppercase;border:1px solid var(--border-md);border-radius:var(--r);cursor:pointer;text-decoration:none;transition:border-color .3s,color .3s,background .3s}
+    .btn-g:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-f)}
+    .btn-accent{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;background:transparent;color:inherit;font-family:var(--font-b);font-size:.70rem;font-weight:500;letter-spacing:.10em;text-transform:uppercase;border:1px solid currentColor;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:all .3s;opacity:.82}
+    .btn-accent:hover{opacity:1;transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.22)}
 
-    .ctrl-btn {
-      background:none; border:1px solid var(--border-md); border-radius:var(--r);
-      padding:6px 12px; cursor:pointer;
-      font-size:.66rem; font-weight:500; letter-spacing:.10em; color:var(--text-3);
-      transition:border-color .2s,color .2s; white-space:nowrap;
-      display:flex; align-items:center; gap:5px;
-    }
-    .ctrl-btn:hover { border-color:var(--gold); color:var(--gold); }
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 clamp(22px,7vw,100px);height:64px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s,border-color .4s}
+    nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);box-shadow:0 1px 0 var(--border),0 8px 32px var(--shadow)}
+    .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+    .nav-logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:18px;font-weight:600;color:#0A0907;flex-shrink:0;box-shadow:0 4px 14px rgba(212,178,122,.28)}
+    .nav-logo-text{font-family:var(--font-d);font-size:1.18rem;font-weight:500;letter-spacing:.02em}
+    .nav-logo-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-3);font-family:var(--font-b)}
+    .nav-links{display:flex;align-items:center;gap:8px}
+    .nav-link{padding:7px 14px;font-size:.70rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);border-radius:6px;cursor:pointer;transition:color .25s,background .25s;white-space:nowrap}
+    .nav-link:hover{color:var(--text-1);background:rgba(240,235,224,.06)}
+    .nav-controls{display:flex;align-items:center;gap:6px}
+    .nav-lang{padding:6px 10px;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .25s}
+    .nav-lang.active,.nav-lang:hover{color:var(--gold);border-color:rgba(212,178,122,.28);background:var(--gold-f)}
+    .nav-theme{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text-2);font-size:15px;transition:all .25s}
+    .nav-theme:hover{color:var(--gold);border-color:rgba(212,178,122,.28);background:var(--gold-f)}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text-2);font-size:16px;transition:all .25s}
 
-    .lang-wrap { position:relative; }
-    .lang-drop {
-      position:absolute; top:calc(100% + 7px); right:0;
-      background:var(--surface); border:1px solid var(--border-md);
-      border-radius:var(--r); min-width:110px; overflow:hidden;
-      box-shadow:0 14px 40px var(--shadow);
-      opacity:0; pointer-events:none; transform:translateY(-4px);
-      transition:opacity .2s,transform .2s;
-    }
-    .lang-drop.open { opacity:1; pointer-events:all; transform:none; }
-    .lang-opt {
-      display:block; width:100%; padding:9px 14px; background:none; border:none;
-      text-align:left; cursor:pointer; font-size:.73rem; color:var(--text-2);
-      transition:background .15s,color .15s;
-    }
-    .lang-opt:hover { background:var(--gold-f); color:var(--gold); }
-    .lang-opt.active { color:var(--gold); font-weight:500; }
+    /* ── HERO ── */
+    .hero{min-height:100svh;display:flex;align-items:center;padding:80px clamp(22px,7vw,100px) clamp(64px,10vw,120px);position:relative;z-index:1}
+    .hero-inner{max-width:1320px;margin:0 auto;width:100%}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--gold-f);border:1px solid rgba(212,178,122,.20);border-radius:99px;margin-bottom:32px}
+    .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse-dot 2.4s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(212,178,122,.5)}50%{box-shadow:0 0 0 6px rgba(212,178,122,0)}}
+    .hero-h{font-family:var(--font-d);font-size:clamp(3.2rem,8vw,7.5rem);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-bottom:28px}
+    .hero-h em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:clamp(.95rem,1.8vw,1.18rem);color:var(--text-2);max-width:540px;line-height:1.72;margin-bottom:44px}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:64px}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px)}
+    .hero-stat-val{font-family:var(--font-d);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;color:var(--gold);line-height:1}
+    .hero-stat-lab{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-top:4px}
+    @keyframes hero-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    .h1{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .2s both}
+    .h2{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .38s both}
+    .h3{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .54s both}
+    .h4{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .68s both}
+    .h5{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .80s both}
+    .h6{animation:hero-in .9s cubic-bezier(.2,0,.2,1) .92s both}
+    .scroll-hint{display:flex;align-items:center;gap:10px;color:var(--text-3);font-size:.62rem;letter-spacing:.20em;text-transform:uppercase;margin-top:48px}
+    .scroll-arrow{width:18px;height:18px;border-right:1px solid var(--text-3);border-bottom:1px solid var(--text-3);transform:rotate(45deg);animation:s-drop 2.2s ease-in-out infinite}
+    @keyframes s-drop{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.4}50%{transform:rotate(45deg) translate(3px,3px);opacity:.9}}
 
-    .mob-drawer {
-      position:fixed; inset:0; z-index:200;
-      background:rgba(13,11,8,.97); backdrop-filter:blur(20px);
-      display:flex; flex-direction:column; padding:80px 36px 48px;
-      opacity:0; pointer-events:none; transition:opacity .3s;
-    }
-    [data-theme="light"] .mob-drawer { background:rgba(250,247,240,.97); }
-    .mob-drawer.open { opacity:1; pointer-events:all; }
+    /* ── SECTION HEADER ── */
+    .sec-head{margin-bottom:clamp(40px,6vw,72px);text-align:center}
+    .sec-h{font-family:var(--font-d);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:300;line-height:1.12;margin-top:12px}
+    .sec-h em{font-style:italic;color:var(--gold)}
+    .sec-sub{font-size:clamp(.88rem,1.4vw,.98rem);color:var(--text-2);max-width:560px;margin:14px auto 0;line-height:1.7}
+    .divider{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0;opacity:.6}
 
-    /* PORTAL HERO */
-    @keyframes hfade { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-    .hl1{animation:hfade 1s cubic-bezier(.2,0,.2,1) .25s both}
-    .hl2{animation:hfade 1s cubic-bezier(.2,0,.2,1) .45s both}
-    .hl3{animation:hfade 1s cubic-bezier(.2,0,.2,1) .65s both}
-    .hl4{animation:hfade 1s cubic-bezier(.2,0,.2,1) .85s both}
+    /* ── TOOLS GRID ── */
+    .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:20px}
+    .tools-central{grid-column:1/-1}
 
-    .portal-hero {
-      min-height:62vh; display:flex; align-items:center; justify-content:center;
-      text-align:center; position:relative; overflow:hidden;
-      padding:clamp(110px,15vw,170px) clamp(24px,6vw,80px) clamp(56px,8vw,100px);
-    }
-    .portal-hero::before {
-      content:''; position:absolute; inset:0; z-index:0;
-      background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,168,110,.10) 0%, transparent 70%);
-    }
-    .portal-hero-content { position:relative; z-index:1; max-width:780px; }
+    /* ── GLASS CARD ── */
+    .glass{background:var(--glass-bg);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid var(--glass-br);border-radius:var(--r2);position:relative;overflow:hidden}
 
-    /* CARDS GRID */
-    .cards-section { padding:0 clamp(24px,7vw,100px) clamp(80px,10vw,130px); }
-    .cards-grid {
-      max-width:1280px; margin:0 auto;
-      display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
-    }
-    @media(max-width:840px){ .cards-grid { grid-template-columns:1fr; } }
+    /* ── TOOL CARD ── */
+    .tool-card{padding:clamp(24px,3vw,36px);cursor:pointer;transition:transform .35s cubic-bezier(.2,0,.2,1),border-color .35s,box-shadow .35s;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+    .tool-card::before{content:'';position:absolute;inset:0;background:var(--card-glow,transparent);opacity:0;transition:opacity .35s;border-radius:inherit}
+    .tool-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.28)}
+    .tool-card:hover::before{opacity:1}
+    .tool-card-shine{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 50%);pointer-events:none}
+    .tool-art{width:72px;height:72px;margin-bottom:24px;flex-shrink:0}
+    .tool-cat{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
+    .tool-name{font-family:var(--font-d);font-size:clamp(1.5rem,2.5vw,1.9rem);font-weight:400;line-height:1.15;margin-bottom:10px}
+    .tool-desc{font-size:.83rem;color:var(--text-2);line-height:1.65;flex:1}
+    .tool-cta{display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-top:22px;opacity:.75;transition:opacity .25s,gap .25s}
+    .tool-card:hover .tool-cta{opacity:1;gap:12px}
+    .tool-cta svg{transition:transform .3s}
+    .tool-card:hover .tool-cta svg{transform:translateX(3px)}
+    .tool-badge{position:absolute;top:20px;right:20px;padding:4px 10px;border-radius:99px;font-size:.52rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;border:1px solid currentColor;opacity:.7}
 
-    .s-card {
-      position:relative; overflow:hidden;
-      background:var(--surface); border:1px solid var(--border);
-      border-radius:8px; padding:38px 32px 32px;
-      cursor:pointer; transition:transform .35s,border-color .35s,box-shadow .35s;
-      display:flex; flex-direction:column;
-    }
-    .s-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:3px;
-      background:var(--card-accent, var(--gold)); opacity:.75; transition:opacity .35s;
-    }
-    .s-card:hover { transform:translateY(-7px); border-color:var(--border-md); box-shadow:0 24px 64px var(--shadow); }
-    .s-card:hover::before { opacity:1; }
+    /* ── CENTRAL CARD ── */
+    .central-card{padding:clamp(40px,5vw,64px);cursor:pointer;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden;min-height:260px}
+    .central-card:hover{transform:translateY(-4px);box-shadow:0 32px 80px rgba(0,0,0,.32)}
+    .central-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+    .central-art{width:160px;height:160px;margin:0 auto}
+    .central-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:rgba(200,212,224,.10);border:1px solid rgba(200,212,224,.20);border-radius:99px;margin-bottom:20px}
+    .central-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--platinum);animation:platinum-pulse 3s ease-in-out infinite}
+    @keyframes platinum-pulse{0%,100%{opacity:.6;box-shadow:0 0 0 0 rgba(200,212,224,.5)}50%{opacity:1;box-shadow:0 0 0 8px rgba(200,212,224,0)}}
+    .central-h{font-family:var(--font-d);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;margin-bottom:16px}
+    .central-h em{font-style:italic;color:var(--platinum)}
+    .central-features{display:flex;flex-direction:column;gap:10px;margin:20px 0 28px}
+    .central-feat{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-2)}
+    .central-feat-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+    .central-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,212,224,.07),transparent 65%);pointer-events:none}
+    .central-grid-lines{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(200,212,224,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(200,212,224,.8) 1px,transparent 1px);background-size:40px 40px}
 
-    .s-card-num {
-      position:absolute; top:24px; right:26px;
-      font-family:var(--font-d); font-size:2.8rem; font-weight:300;
-      color:var(--border-md); line-height:1; user-select:none;
-    }
-    .s-card-tag  { font-size:.60rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--card-accent,var(--gold)); margin-bottom:16px; }
-    .s-card-name { font-family:var(--font-d); font-size:clamp(26px,3.2vw,34px); font-weight:400; color:var(--text-1); line-height:1.1; margin-bottom:5px; }
-    .s-card-ttl  { font-size:.79rem; color:var(--text-2); font-weight:400; letter-spacing:.03em; margin-bottom:20px; }
-    .s-card-tl   { font-family:var(--font-d); font-size:1.05rem; font-style:italic; color:var(--text-2); line-height:1.6; margin-bottom:22px; flex:1; }
-    .s-card-pills{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:26px; }
-    .s-card-pill { font-size:.59rem; letter-spacing:.10em; text-transform:uppercase; padding:5px 11px; background:var(--gold-f); color:var(--text-2); border-radius:20px; border:1px solid var(--border); }
-    .s-card-cta  {
-      display:inline-flex; align-items:center; gap:8px;
-      font-size:.72rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
-      color:var(--card-accent,var(--gold)); background:none; border:none; cursor:pointer; padding:0;
-      transition:gap .2s;
-    }
-    .s-card-cta:hover { gap:13px; }
+    /* ── SPECIALISTS SECTION ── */
+    .spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+    .spec-card{padding:28px 24px;cursor:pointer;transition:transform .35s,box-shadow .35s,border-color .35s}
+    .spec-card:hover{transform:translateY(-5px);box-shadow:0 20px 56px rgba(0,0,0,.25)}
+    .spec-avatar{width:64px;height:64px;border-radius:50%;margin-bottom:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.6rem;font-weight:400;overflow:hidden}
+    .spec-name{font-family:var(--font-d);font-size:1.25rem;font-weight:400;margin-bottom:4px}
+    .spec-role{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
+    .spec-phil{font-size:.82rem;color:var(--text-2);line-height:1.62;margin-bottom:18px;font-style:italic}
+    .spec-cta{display:inline-flex;align-items:center;gap:7px;font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:8px;border:1px solid currentColor;cursor:pointer;background:none;transition:all .3s}
+    .spec-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.20)}
+    .spec-style-tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid currentColor;opacity:.6;display:inline-block;margin-top:8px}
 
-    /* SPECIALIST DETAIL */
-    .sp-back {
-      position:fixed; top:18px; left:clamp(18px,4vw,56px); z-index:400;
-      display:flex; align-items:center; gap:7px;
-      background:var(--surface); border:1px solid var(--border-md);
-      border-radius:20px; padding:8px 16px; cursor:pointer;
-      font-size:.70rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
-      color:var(--text-2); transition:border-color .2s,color .2s; white-space:nowrap;
-    }
-    .sp-back:hover { border-color:var(--gold); color:var(--gold); }
+    /* ── TOOL DETAIL PAGE ── */
+    .detail-page{min-height:100svh;padding:100px clamp(22px,7vw,100px) clamp(64px,10vw,120px);position:relative;z-index:1}
+    .detail-back{display:inline-flex;align-items:center;gap:8px;font-size:.70rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);cursor:pointer;margin-bottom:48px;transition:color .25s,gap .25s}
+    .detail-back:hover{color:var(--text-2);gap:12px}
+    .detail-header{margin-bottom:56px}
+    .detail-h{font-family:var(--font-d);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.06;margin:16px 0 20px}
+    .detail-sub{font-size:clamp(.95rem,1.6vw,1.08rem);color:var(--text-2);max-width:600px;line-height:1.75}
+    .detail-body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;margin-bottom:56px}
+    .detail-features{display:flex;flex-direction:column;gap:20px}
+    .detail-feat{display:flex;gap:16px}
+    .detail-feat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+    .detail-feat-title{font-family:var(--font-d);font-size:1.05rem;font-weight:400;margin-bottom:4px}
+    .detail-feat-desc{font-size:.83rem;color:var(--text-2);line-height:1.65}
 
-    .sp-hero {
-      min-height:52vh; display:flex; align-items:flex-end;
-      padding:clamp(110px,14vw,170px) clamp(24px,7vw,100px) clamp(48px,6vw,80px);
-      position:relative; overflow:hidden;
-    }
-    .sp-hero::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 90% 70% at 15% 80%, var(--hero-glow,rgba(200,168,110,.13)) 0%, transparent 60%);
-    }
-    .sp-hero-content { position:relative; z-index:1; max-width:820px; }
+    /* ── PYTHAGORAS CALCULATOR ── */
+    .calc-wrap{padding:32px;border-radius:var(--r2);border:1px solid var(--border)}
+    .calc-input-row{display:flex;gap:12px;margin:20px 0}
+    .calc-input{flex:1;padding:13px 16px;background:var(--surface-2,rgba(255,255,255,.04));border:1px solid var(--border-md);border-radius:10px;color:var(--text-1);font-family:var(--font-b);font-size:.88rem;outline:none;transition:border-color .25s}
+    .calc-input:focus{border-color:var(--gold)}
+    .calc-submit{padding:13px 24px;background:var(--gold);color:#0A0907;border:none;border-radius:10px;font-family:var(--font-b);font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .2s}
+    .calc-submit:hover{background:var(--gold-h);transform:translateY(-1px)}
+    [data-theme="light"] .calc-submit{color:#FAF7EF}
+    .pytha-grid{display:grid;grid-template-columns:repeat(3,60px);gap:8px;margin:24px auto;justify-content:center}
+    .pytha-cell{width:60px;height:60px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.4rem;font-weight:400;border:1px solid var(--border)}
+    .pytha-cell.has{border-color:rgba(212,178,122,.4);background:rgba(212,178,122,.08);color:var(--gold)}
+    .pytha-cell.hot{border-color:rgba(212,178,122,.7);background:rgba(212,178,122,.16);color:var(--gold-h);box-shadow:0 0 16px rgba(212,178,122,.18)}
+    .pytha-cell.empty{color:var(--text-3);opacity:.4}
+    .working-nums{display:flex;justify-content:center;gap:20px;margin:20px 0}
+    .wnum{text-align:center}
+    .wnum-val{font-family:var(--font-d);font-size:1.8rem;font-weight:400;color:var(--gold)}
+    .wnum-lab{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-top:2px}
+    .calc-error{color:#E07070;font-size:.82rem;margin-top:8px}
+    .calc-note{font-size:.78rem;color:var(--text-3);margin-top:16px;line-height:1.6}
 
-    .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,5vw,80px); align-items:start; }
-    @media(max-width:768px){ .detail-grid { grid-template-columns:1fr; } }
+    /* ── FOOTER ── */
+    footer{padding:clamp(48px,7vw,88px) clamp(22px,7vw,100px) 40px;position:relative;z-index:1;border-top:1px solid var(--border)}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(32px,5vw,64px);margin-bottom:clamp(40px,6vw,72px)}
+    .footer-brand-h{font-family:var(--font-d);font-size:1.4rem;font-weight:400;margin:14px 0 10px}
+    .footer-brand-sub{font-size:.82rem;color:var(--text-3);line-height:1.65;max-width:260px}
+    .footer-col-h{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px}
+    .footer-links{display:flex;flex-direction:column;gap:8px}
+    .footer-link{font-size:.83rem;color:var(--text-2);cursor:pointer;transition:color .25s}
+    .footer-link:hover{color:var(--gold)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:32px;border-top:1px solid var(--border)}
+    .footer-copy{font-size:.72rem;color:var(--text-3)}
+    .footer-author{font-size:.70rem;color:var(--text-3)}
+    .footer-author a{color:var(--gold);transition:opacity .25s}
+    .footer-author a:hover{opacity:.75}
+    .footer-soc{display:flex;gap:8px}
+    .footer-soc-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-3);font-size:14px;cursor:pointer;transition:all .25s}
+    .footer-soc-btn:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-f)}
 
-    .prog-card {
-      padding:30px 26px; border-radius:8px; border:1px solid var(--border);
-      background:var(--surface); transition:border-color .3s,transform .3s;
+    /* ── MOBILE ── */
+    @media(max-width:900px){
+      .tools-grid{grid-template-columns:1fr}
+      .tools-central{grid-column:auto}
+      .central-inner{grid-template-columns:1fr}
+      .detail-body{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .spec-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
     }
-    .prog-card:hover { border-color:var(--border-md); transform:translateY(-3px); }
-    .prog-num { font-family:var(--font-d); font-size:2rem; font-weight:300; line-height:1; margin-bottom:14px; }
-
-    .stat-row { display:flex; gap:clamp(22px,4vw,52px); flex-wrap:wrap; }
-    .stat-num { font-family:var(--font-d); font-size:clamp(28px,3.5vw,38px); font-weight:400; line-height:1; display:block; }
-    .stat-lbl { font-size:.66rem; color:var(--text-3); letter-spacing:.12em; text-transform:uppercase; display:block; margin-top:3px; }
-
-    .tcard {
-      padding:28px; border-radius:8px; border:1px solid var(--border);
-      background:var(--gold-f); margin-bottom:16px;
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .footer-grid{grid-template-columns:1fr}
+      .hero-stats{gap:24px}
+      .working-nums{flex-wrap:wrap;gap:12px}
     }
-    .tcard:last-child { margin-bottom:0; }
-    .tcard-name { font-size:.78rem; font-weight:500; color:var(--text-1); }
-    .tcard-city { font-size:.65rem; color:var(--text-3); letter-spacing:.08em; }
-    .tcard-text { font-family:var(--font-d); font-size:1.05rem; font-style:italic; color:var(--text-2); line-height:1.68; margin-top:14px; }
-
-    .cta-strip {
-      text-align:center; padding:clamp(72px,10vw,120px) clamp(24px,7vw,100px);
-      background:var(--bg-alt); position:relative; overflow:hidden;
-    }
-    .cta-strip::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(200,168,110,.10),transparent);
+    @media(max-width:480px){
+      .tools-grid{grid-template-columns:1fr}
+      .central-art{width:110px;height:110px}
+      .spec-grid{grid-template-columns:1fr}
     }
 
-    .footer-bar {
-      padding:clamp(36px,5vw,64px) clamp(24px,7vw,100px);
-      border-top:1px solid var(--border);
-      display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
-    }
-    .f-links { display:flex; gap:22px; flex-wrap:wrap; }
-    .f-link {
-      background:none; border:none; cursor:pointer;
-      font-size:.67rem; color:var(--text-3); letter-spacing:.07em;
-      transition:color .2s;
-    }
-    .f-link:hover { color:var(--gold); }
-
-    .wa-float {
-      position:fixed; bottom:26px; right:26px; z-index:150;
-      width:54px; height:54px; border-radius:50%;
-      background:#25D366; border:none; cursor:pointer;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 8px 28px rgba(37,211,102,.35);
-      transition:transform .25s,box-shadow .25s; text-decoration:none;
-    }
-    .wa-float:hover { transform:scale(1.08) translateY(-2px); }
-
-    @media(max-width:768px){
-      .dsk{ display:none!important; }
-      .mob-center{ text-align:center!important; align-items:center!important; }
-      .mob-col{ flex-direction:column!important; }
-    }
-    @media(min-width:769px){ .mob-only{ display:none!important; } }
-
-    @keyframes glow-pulse {
-      0%,100% { box-shadow:0 0 26px rgba(200,168,110,.15); }
-      50%      { box-shadow:0 0 50px rgba(200,168,110,.36); }
-    }
-    .glow { animation:glow-pulse 3.2s ease-in-out infinite; }
+    /* ── MISC ── */
+    @keyframes spin-slow{to{transform:rotate(360deg)}}
+    @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   </style>
 </head>
 <body>
+  <canvas id="particle-canvas"></canvas>
+  <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div></div>
   <div id="root"></div>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
+  <script>
+    /* ── PARTICLE / CONSTELLATION BACKGROUND ── */
+    (function(){
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let W,H,pts=[];
+      const N=88, CONN=120, SPEED=.28;
+      function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;init()}
+      function init(){
+        pts=[];
+        for(let i=0;i<N;i++) pts.push({
+          x:Math.random()*W, y:Math.random()*H,
+          vx:(Math.random()-.5)*SPEED, vy:(Math.random()-.5)*SPEED,
+          r:Math.random()*1.4+.4
+        });
+      }
+      function isDark(){return document.documentElement.getAttribute('data-theme')!=='light'}
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        const dark=isDark();
+        const pc=dark?'rgba(212,178,122,':'rgba(139,101,32,';
+        const lc=dark?'rgba(212,178,122,':'rgba(139,101,32,';
+        pts.forEach(p=>{
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.x<0||p.x>W)p.vx*=-1;
+          if(p.y<0||p.y>H)p.vy*=-1;
+        });
+        for(let i=0;i<N;i++){
+          for(let j=i+1;j<N;j++){
+            const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+            const d=Math.sqrt(dx*dx+dy*dy);
+            if(d<CONN){
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x,pts[i].y);
+              ctx.lineTo(pts[j].x,pts[j].y);
+              ctx.strokeStyle=lc+(1-d/CONN)*.22+')';
+              ctx.lineWidth=.6;
+              ctx.stroke();
+            }
+          }
+        }
+        pts.forEach(p=>{
+          ctx.beginPath();
+          ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle=pc+'.55)';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize',resize);
+      resize();
+      draw();
+    })();
+  </script>
+
   <script type="text/babel">
-  const WHATSAPP = 'https://wa.me/972549989627';
-  const TELEGRAM = 'https://t.me/+2Vk8kbR_70kyN2Qy';
+    const {useState,useEffect,useRef,useCallback}=React;
 
-  /* ─── UI translations ─── */
-  const UI = {
-    en: {
-      back:'All Specialists', themeD:'Dark', themeL:'Light',
-      portal:{ eyebrow:'Svarga International · Choose Your Path', h1a:'Your Transformation', h1b:'Begins Here.',
-        sub:'Four world-class guides. One destination — the highest version of yourself. Choose the path that calls to you.',
-        hint:'Explore the guides' },
-      cta:{ title:'Ready to begin?', sub:'Reach out directly — we respond within 24 hours.', wa:'Write on WhatsApp', tg:'Join Telegram' },
-      explore:'Explore →', programs:'Programs', testimonials:'Testimonials', framework:'Framework',
-      footer:{ copy:'© 2026 Svarga International. All rights reserved.', links:['About','Contact','Privacy Policy'] },
-    },
-    ru: {
-      back:'Все специалисты', themeD:'Тёмная', themeL:'Светлая',
-      portal:{ eyebrow:'Svarga International · Выберите свой путь', h1a:'Ваша трансформация', h1b:'начинается здесь.',
-        sub:'Четыре проводника мирового уровня. Одна цель — ваше высшее Я. Выберите путь, который отзывается в вас.',
-        hint:'Выберите проводника' },
-      cta:{ title:'Готовы начать?', sub:'Свяжитесь с нами напрямую — отвечаем в течение 24 часов.', wa:'Написать в WhatsApp', tg:'Открыть Telegram' },
-      explore:'Подробнее →', programs:'Программы', testimonials:'Отзывы', framework:'Система',
-      footer:{ copy:'© 2026 Svarga International. Все права защищены.', links:['О нас','Контакты','Конфиденциальность'] },
-    },
-    de: {
-      back:'Alle Spezialisten', themeD:'Dunkel', themeL:'Hell',
-      portal:{ eyebrow:'Svarga International · Wähle deinen Weg', h1a:'Deine Transformation', h1b:'beginnt hier.',
-        sub:'Vier Begleiter auf Weltklasse-Niveau. Ein Ziel — dein höchstes Selbst. Wähle den Weg, der dich anspricht.',
-        hint:'Die Begleiter entdecken' },
-      cta:{ title:'Bereit loszulegen?', sub:'Schreib uns direkt — wir antworten innerhalb von 24 Stunden.', wa:'WhatsApp schreiben', tg:'Telegram öffnen' },
-      explore:'Entdecken →', programs:'Programme', testimonials:'Erfahrungen', framework:'System',
-      footer:{ copy:'© 2026 Svarga International. Alle Rechte vorbehalten.', links:['Über uns','Kontakt','Datenschutz'] },
-    },
-  };
+    /* ── PYTHAGORAS ── */
+    function sumD(n){let s=Math.abs(n).toString().split('').reduce((a,b)=>a+(+b),0);return s>9?sumD(s):s}
+    function calcPytha(ds){
+      const m=ds.trim().match(/^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{4})$/);
+      if(!m)return null;
+      const day=+m[1],month=+m[2],year=+m[3];
+      if(day<1||day>31||month<1||month>12)return null;
+      const digs=(m[1].padStart(2,'0')+m[2].padStart(2,'0')+m[3]).split('').map(Number);
+      const w1=digs.reduce((a,b)=>a+b,0);
+      const w2=sumD(w1);
+      const fd=+m[1].padStart(2,'0')[0];
+      const w3=day-2*fd;
+      const w4=sumD(Math.abs(w3));
+      const all=[...digs,w1,w2,w3,w4];
+      const cnt={};for(let i=1;i<=9;i++)cnt[i]=0;
+      all.forEach(n=>{Math.abs(n).toString().split('').forEach(c=>{const d=+c;if(d>=1&&d<=9)cnt[d]++;})});
+      const pos=[[7,8,9],[4,5,6],[1,2,3]];
+      const matrix=pos.map(row=>row.map(n=>({n,c:cnt[n]})));
+      return{w1,w2,w3,w4,cnt,matrix,digs};
+    }
 
-  /* ─── Specialist data ─── */
-  const SPECS = {
-    en:[
-      { id:'moshe', num:'01', accent:'#C8A86E', glow:'rgba(200,168,110,.14)', photo:null,
-        tag:'Integral Transformation', name:'Moshe Om', title:'Master of the Svarga System',
-        tagline:'Where ancient wisdom meets modern psychology — an integral path to your deepest self.',
-        pills:['Meditation','Breathwork','Qigong','Energy Work'],
-        about:{ eyebrow:'ABOUT MOSHE', h2:'20 Years of Integral Practice',
-          bio:'For over 20 years, Moshe Om has dedicated himself to studying and transmitting integral spiritual practices across three continents. He is the founder of the Svarga system — a unique synthesis of Eastern traditions, modern psychology, and somatic work with the body.',
-          bio2:'Lin Tzi Instructor · Iron Shirt Qigong · Vipassana · Pranayama. Trained under lineage teachers in India, China, and Israel. His approach unites body, breath, mind, and consciousness into one living practice.' },
-        stats:[{n:'20+',l:'years experience'},{n:'3,000+',l:'participants'},{n:'30+',l:'countries'}],
-        programs:[
-          {num:'01',title:'21-Day Transformation Marathon',desc:'Daily integral practices for body, breath, mind, and consciousness. Live group calls, recordings, and community support throughout.',tags:['Meditation','Breathwork','Energy Work']},
-          {num:'02',title:'Retreat Series',desc:'Immersive multi-day retreats in sacred locations. Deep somatic and energy work in nature with small groups.',tags:['Somatic Work','Qigong','Group Ritual']},
-          {num:'03',title:'Private Mentorship',desc:'Personalized 1:1 guidance on a tailored 3-month journey. For those ready for deep, lasting transformation.',tags:['1:1 Coaching','Custom Path','Weekly Sessions']},
-        ],
-        testimonials:[
-          {name:'Anna M.',city:'Moscow',text:'In 21 days I traveled a path that usually takes years. Moshe is an incredible guide — his presence alone creates transformation.'},
-          {name:'Dmitry K.',city:'St. Petersburg',text:'Breathing and meditation practices became a daily ritual. Clarity and strength I hadn\'t felt in years — it simply works.'},
-          {name:'Elena V.',city:'Kyiv',text:'The community alone is worth it. The feeling of not being alone on your path. Endless gratitude to Moshe and the whole team.'},
-        ],
-      },
-      { id:'maya', num:'02', accent:'#6EA080', glow:'rgba(110,160,128,.14)', photo:null,
-        tag:'Breathwork & Somatics', name:'Maya Liran', title:'Somatic Healing & Trauma Release Specialist',
-        tagline:'The body holds every story you\'ve ever lived. Breathwork is how you rewrite the ending.',
-        pills:['Breathwork','Somatic Therapy','Trauma Release','TRE'],
-        about:{ eyebrow:'ABOUT MAYA', h2:'12 Years of Body-Centered Healing',
-          bio:'Maya Liran spent 12 years studying the body\'s intelligence. Trained in Biodynamic Breathwork & Trauma Release System (BBTRS), Somatic Experiencing (SE), and Tension & Trauma Releasing Exercises (TRE), she works at the intersection of ancient breath practices and cutting-edge trauma science.',
-          bio2:'Certified SE Practitioner · BBTRS Facilitator · TRE Provider. Maya has guided hundreds of people through trauma release, nervous system regulation, and deep emotional liberation using breath as the primary medicine.' },
-        stats:[{n:'12+',l:'years experience'},{n:'800+',l:'sessions'},{n:'20+',l:'countries'}],
-        programs:[
-          {num:'01',title:'21-Day Breath Journey',desc:'Daily breathwork sessions, somatic practices, and nervous system regulation tools. A guided path from tension to ease.',tags:['Breathwork','Nervous System','Somatic']},
-          {num:'02',title:'Trauma Release Intensive',desc:'A focused 7-day online or in-person intensive for deep release of stored trauma and emotional armoring.',tags:['Trauma Release','TRE','BBTRS']},
-          {num:'03',title:'1:1 Somatic Coaching',desc:'Private sessions tailored to your body\'s specific needs. Safe, gentle, and profoundly effective.',tags:['Private Sessions','Custom Protocol','Ongoing Support']},
-        ],
-        testimonials:[
-          {name:'Sophie R.',city:'Berlin',text:'Maya held a space unlike anything I\'d experienced. Three sessions shifted patterns I\'d carried for 15 years. The body really does know.'},
-          {name:'Nadia L.',city:'Tel Aviv',text:'The 21-day journey helped me sleep through the night for the first time in years. Nervous system regulation can feel this gentle.'},
-          {name:'Marcus T.',city:'London',text:'I came skeptical and left transformed. The TRE sessions released something I couldn\'t access in years of talk therapy.'},
-        ],
-      },
-      { id:'arjun', num:'03', accent:'#7E8EC8', glow:'rgba(126,142,200,.14)', photo:null,
-        tag:'Meditation & Mindfulness', name:'Arjun Patel', title:'Vipassana Guide & Mindfulness Teacher',
-        tagline:'Stillness is not the absence of noise — it is the presence of yourself. Come home.',
-        pills:['Vipassana','Mindfulness','Loving-Kindness','Retreat Guidance'],
-        about:{ eyebrow:'ABOUT ARJUN', h2:'18 Years in the Theravada Tradition',
-          bio:'Arjun Patel began his meditation practice at 22 in Dharamshala, India, under Tibetan and Theravada teachers. After 18 years of daily practice and 7 extended silent retreats, he now teaches Vipassana and mindfulness internationally.',
-          bio2:'Trained in the S.N. Goenka Vipassana tradition · Tibetan Buddhist psychology · MBSR (Mindfulness-Based Stress Reduction). Arjun\'s teaching is grounded, warm, and entirely free of dogma.' },
-        stats:[{n:'18+',l:'years practice'},{n:'7',l:'silent retreats'},{n:'500+',l:'students'}],
-        programs:[
-          {num:'01',title:'10-Day Vipassana Retreat',desc:'A traditional silent Vipassana retreat online or in-person. Profound stillness, body scanning, and breath awareness. For committed seekers.',tags:['Vipassana','Silence','Body Scan']},
-          {num:'02',title:'28-Day Mindfulness for Life',desc:'A gentle daily mindfulness course integrating loving-kindness, breath awareness, and daily-life application for lasting change.',tags:['Mindfulness','MBSR','Daily Practice']},
-          {num:'03',title:'Private Meditation Instruction',desc:'One-on-one guidance through your meditation practice. Suitable for beginners and advanced practitioners alike.',tags:['1:1 Sessions','Personalized','Any Level']},
-        ],
-        testimonials:[
-          {name:'Claire B.',city:'Paris',text:'Arjun taught me that meditation is not about emptying the mind — it\'s about befriending it. His 28-day program changed everything.'},
-          {name:'Ravi S.',city:'Mumbai',text:'The 10-day retreat was the hardest and most rewarding thing I\'ve ever done. Arjun\'s guidance was always there exactly when needed.'},
-          {name:'Ingrid H.',city:'Stockholm',text:'I was a complete beginner. Now 6 months later I haven\'t missed a single morning session. Arjun made the practice accessible and alive.'},
-        ],
-      },
-      { id:'viktor', num:'04', accent:'#C8946E', glow:'rgba(200,148,110,.14)', photo:null,
-        tag:'Business & Peak Performance', name:'Viktor Stern', title:'Business Mastery & Peak Performance Coach',
-        tagline:'Your business is a mirror of your being. Transform the inner — and the outer will follow.',
-        pills:['Business Strategy','Peak Performance','Leadership','Executive Coaching'],
-        about:{ eyebrow:'ABOUT VIKTOR', h2:'15 Years Coaching Leaders at the Edge',
-          bio:'Viktor Stern has spent 15 years at the intersection of peak human performance and business strategy. Drawing on frameworks from the world\'s foremost performance coaches — state management, elite morning protocols, high-performance habits, and strategic clarity — he has helped over 1,000 executives and entrepreneurs build businesses that don\'t cost them their lives.',
-          bio2:'Former Fortune 500 executive turned performance coach. Trained in NLP, Strategic Intervention, and High Performance Coaching. Viktor\'s system synthesizes Tony Robbins\' peak state architecture, Robin Sharma\'s elite daily rituals (5 AM Club · 4 Interior Empires), and Brendon Burchard\'s High Performance Habits (Clarity · Energy · Necessity · Productivity · Influence · Courage) into one executable framework.' },
-        stats:[{n:'15+',l:'years experience'},{n:'1,000+',l:'clients coached'},{n:'40+',l:'countries'}],
-        programs:[
-          {num:'01',title:'90-Day Business Breakthrough',desc:'Identity shift, strategy clarity, systems build-out, and daily performance habits. For entrepreneurs and executives ready to operate at a new level.',tags:['Strategy','Identity Work','Daily Habits']},
-          {num:'02',title:'Elite Performance Mastermind',desc:'A curated group of 12 high-achievers meeting monthly for accountability, cross-pollination, and breakthrough thinking. Application required.',tags:['Mastermind','Peer Group','Monthly Intensives']},
-          {num:'03',title:'Peak State Executive Retreat',desc:'A 3-day in-person retreat for senior leaders. Physiology, clarity sessions, strategic planning, and deep inner work in a focused environment.',tags:['In-Person Retreat','Leadership','Deep Work']},
-        ],
-        testimonials:[
-          {name:'Michael K.',city:'New York',text:'Viktor\'s Performance Pyramid changed how I operate. The morning protocol alone added two hours of real productivity. Revenue up 40% in 90 days.'},
-          {name:'Sara J.',city:'Munich',text:'I came burnt out. The retreat cracked something open. Six months later I have more energy, more profit, and finally feel like a leader.'},
-          {name:'James P.',city:'Singapore',text:'The mastermind is the single best investment I\'ve made. The quality of people Viktor curates is extraordinary. Game-changing every session.'},
-        ],
-        framework:{
-          eyebrow:'THE PERFORMANCE PYRAMID',
-          h2:'State → Strategy → Systems',
-          pillars:[
-            {n:'01',title:'Peak State',desc:'Results begin with physiology and emotional state. The Morning Power Protocol, priming rituals, and state calibration ensure you operate from peak — not default. "Motion creates emotion." — Tony Robbins'},
-            {n:'02',title:'Strategic Clarity',desc:'Where focus goes, energy flows. The CAP Framework (Clarity · Action · Power) cuts through overwhelm and aligns your daily actions with your most important goals. Inspired by Robin Sharma\'s 4 Interior Empires.'},
-            {n:'03',title:'Elite Systems',desc:'High performers build systems, not willpower. Delegation frameworks, leverage matrices, and performance dashboards run your business — so your business doesn\'t run you.'},
-            {n:'04',title:'Identity Evolution',desc:'"Who do I need to become?" is the most important business question. Deep identity work — drawn from Brendon Burchard\'s High Performance Habits — ensures your inner operating system matches the business you\'re building.'},
-          ],
+    /* ── HOOKS ── */
+    function useReveal(){
+      useEffect(()=>{
+        const obs=new IntersectionObserver(entries=>{
+          entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+        },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
+        return()=>obs.disconnect();
+      });
+    }
+
+    /* ── CONTENT DATA ── */
+    const T={
+      en:{
+        nav:{specialists:'Specialists',tools:'Tools',about:'About',cta:'Get Started'},
+        hero:{
+          tag:'AI-Powered Personal Development',
+          h1:'Unlock Your',h2:'Human',h3:'Potential',
+          sub:'Six intelligent AI systems that work together to guide your transformation — coaching, strategy, astrology, numerology, and integral practice.',
+          cta1:'Explore the System',cta2:'Meet the Specialists',
+          s1:'10',sl1:'AI Specialists',s2:'5',sl2:'Languages',s3:'6',sl3:'Systems',s4:'∞',sl4:'Possibilities'
         },
-      },
-    ],
-    ru:[
-      { id:'moshe', num:'01', accent:'#C8A86E', glow:'rgba(200,168,110,.14)', photo:null,
-        tag:'Интегральная трансформация', name:'Моше Ом', title:'Мастер системы Svarga',
-        tagline:'Там, где древняя мудрость встречает современную психологию — интегральный путь к вашему глубинному Я.',
-        pills:['Медитация','Дыхание','Цигун','Энергетика'],
-        about:{ eyebrow:'О МОШЕ', h2:'20 лет интегральной практики',
-          bio:'Более 20 лет Моше Ом посвящает себя изучению и передаче интегральных духовных практик на трёх континентах. Основатель системы Svarga — уникального синтеза восточных традиций, современной психологии и соматической работы с телом.',
-          bio2:'Инструктор Линь Цзи · Железная рубашка Цигун · Випассана · Пранаяма. Прошёл подготовку у учителей-линейных мастеров в Индии, Китае и Израиле. Его подход объединяет тело, дыхание, разум и сознание в единую живую практику.' },
-        stats:[{n:'20+',l:'лет опыта'},{n:'3 000+',l:'участников'},{n:'30+',l:'стран'}],
-        programs:[
-          {num:'01',title:'21-дневный марафон трансформации',desc:'Ежедневные интегральные практики для тела, дыхания, ума и сознания. Живые групповые звонки, записи и поддержка сообщества.',tags:['Медитация','Дыхание','Энергетика']},
-          {num:'02',title:'Серия ретритов',desc:'Многодневные погружения в сакральных местах. Глубокая соматическая и энергетическая работа в природе с малыми группами.',tags:['Соматика','Цигун','Групповой ритуал']},
-          {num:'03',title:'Личное наставничество',desc:'Персональное сопровождение 1:1 через трёхмесячный путь, выстроенный под вас. Для тех, кто готов к глубоким и устойчивым переменам.',tags:['Коучинг 1:1','Индивидуальный путь','Еженедельные сессии']},
-        ],
-        testimonials:[
-          {name:'Анна М.',city:'Москва',text:'За 21 день я прошла путь, который обычно занимает годы. Моше — невероятный проводник. Его присутствие само по себе создаёт трансформацию.'},
-          {name:'Дмитрий К.',city:'Санкт-Петербург',text:'Практики дыхания и медитации стали ежедневным ритуалом. Ясность и сила, которых не было много лет — это просто работает.'},
-          {name:'Елена В.',city:'Киев',text:'Одно только сообщество марафона того стоит. Ощущение, что ты не один в своём пути. Безграничная благодарность Моше и всей команде.'},
-        ],
-      },
-      { id:'maya', num:'02', accent:'#6EA080', glow:'rgba(110,160,128,.14)', photo:null,
-        tag:'Дыхание и соматика', name:'Майя Лиран', title:'Специалист по соматическому исцелению и высвобождению травмы',
-        tagline:'Тело хранит каждую историю, которую вы прожили. Дыхательная работа — это способ переписать конец.',
-        pills:['Дыхание','Соматическая терапия','Высвобождение травмы','TRE'],
-        about:{ eyebrow:'О МАЙЕ', h2:'12 лет телесно-ориентированного исцеления',
-          bio:'Майя Лиран 12 лет изучает интеллект тела. Подготовлена в системах Биодинамической дыхательной работы и высвобождения травмы (BBTRS), Соматического переживания (SE) и Упражнений по высвобождению напряжения и травмы (TRE).',
-          bio2:'Сертифицированный практик SE · Фасилитатор BBTRS · Провайдер TRE. Майя провела сотни людей через высвобождение травмы, регуляцию нервной системы и глубокое эмоциональное освобождение, используя дыхание как основной инструмент.' },
-        stats:[{n:'12+',l:'лет опыта'},{n:'800+',l:'сессий'},{n:'20+',l:'стран'}],
-        programs:[
-          {num:'01',title:'21-дневное дыхательное путешествие',desc:'Ежедневные сессии дыхательной работы, соматические практики и инструменты регуляции нервной системы. Путь от напряжения к лёгкости.',tags:['Дыхание','Нервная система','Соматика']},
-          {num:'02',title:'Интенсив по высвобождению травмы',desc:'7-дневный онлайн- или очный интенсив для глубокого высвобождения накопленной травмы и эмоционального панциря.',tags:['Высвобождение травмы','TRE','BBTRS']},
-          {num:'03',title:'Индивидуальный соматический коучинг',desc:'Личные сессии, выстроенные под специфические потребности вашего тела. Безопасно, мягко и глубоко эффективно.',tags:['Личные сессии','Индивидуальный протокол','Постоянная поддержка']},
-        ],
-        testimonials:[
-          {name:'Вера С.',city:'Берлин',text:'Майя создала пространство, которого я никогда не встречала. Три сессии сдвинули паттерны, которые я несла 15 лет. Тело действительно знает.'},
-          {name:'Надя Л.',city:'Тель-Авив',text:'21-дневное путешествие помогло мне впервые за годы спать всю ночь. Регуляция нервной системы может быть такой мягкой.'},
-          {name:'Маркус Т.',city:'Лондон',text:'Я пришёл скептиком и ушёл трансформированным. TRE-сессии высвободили то, что годы разговорной терапии не могли затронуть.'},
-        ],
-      },
-      { id:'arjun', num:'03', accent:'#7E8EC8', glow:'rgba(126,142,200,.14)', photo:null,
-        tag:'Медитация и осознанность', name:'Арджун Патель', title:'Гид по випассане и учитель медитации',
-        tagline:'Тишина — это не отсутствие шума. Это присутствие вас самих. Возвращайтесь домой.',
-        pills:['Випассана','Медитация осознанности','Медитация любящей доброты','Ведение ретритов'],
-        about:{ eyebrow:'ОБ АРДЖУНЕ', h2:'18 лет в традиции тхеравады',
-          bio:'Арджун Патель начал медитативную практику в 22 года в Дхарамсале, Индия, под руководством тибетских и тхеравадийских учителей. После 18 лет ежедневной практики и 7 молчаливых ретритов он преподаёт випассану и медитацию осознанности по всему миру.',
-          bio2:'Подготовлен в традиции С.Н. Гоенки · Тибетская буддийская психология · MBSR. Преподавание Арджуна — заземлённое, тёплое и полностью свободное от догм.' },
-        stats:[{n:'18+',l:'лет практики'},{n:'7',l:'молчаливых ретритов'},{n:'500+',l:'учеников'}],
-        programs:[
-          {num:'01',title:'10-дневный ретрит випассаны',desc:'Традиционный молчаливый ретрит випассаны — онлайн или очно. Глубокая тишина, сканирование тела и осознанность дыхания.',tags:['Випассана','Тишина','Сканирование тела']},
-          {num:'02',title:'28 дней осознанности для жизни',desc:'Мягкий ежедневный курс медитации с медитацией любящей доброты, осознанностью дыхания и применением в повседневной жизни.',tags:['Осознанность','MBSR','Ежедневная практика']},
-          {num:'03',title:'Личные инструкции по медитации',desc:'Сопровождение один на один. Подходит как для начинающих, так и для опытных практикующих.',tags:['Сессии 1:1','Индивидуально','Любой уровень']},
-        ],
-        testimonials:[
-          {name:'Клер Б.',city:'Париж',text:'Арджун научил меня, что медитация — это не об опустошении ума, а о дружбе с ним. Его 28-дневная программа изменила всё.'},
-          {name:'Рави С.',city:'Мумбаи',text:'10-дневный ретрит был самым трудным и самым ценным. Арджун появлялся именно тогда, когда было нужно.'},
-          {name:'Ингрид Х.',city:'Стокгольм',text:'Я начинала с нуля. Шесть месяцев спустя не пропустила ни одного утреннего сеанса. Арджун сделал практику доступной и живой.'},
-        ],
-      },
-      { id:'viktor', num:'04', accent:'#C8946E', glow:'rgba(200,148,110,.14)', photo:null,
-        tag:'Бизнес и пиковая эффективность', name:'Виктор Штерн', title:'Коуч по бизнес-мастерству и пиковой производительности',
-        tagline:'Ваш бизнес — зеркало вашего существа. Трансформируйте внутреннее — и внешнее последует.',
-        pills:['Бизнес-стратегия','Пиковая производительность','Лидерство','Коучинг руководителей'],
-        about:{ eyebrow:'О ВИКТОРЕ', h2:'15 лет коучинга лидеров на пределе возможностей',
-          bio:'Виктор Штерн 15 лет работает на пересечении пиковой человеческой эффективности и бизнес-стратегии. Используя фреймворки ведущих мировых коучей — управление состоянием, элитные утренние протоколы, привычки высокоэффективных людей и стратегическую ясность — он помог более 1 000 руководителей и предпринимателей.',
-          bio2:'Бывший топ-менеджер Fortune 500, ставший коучем по производительности. Подготовлен в НЛП, стратегическом вмешательстве и коучинге высокой эффективности. Система Виктора синтезирует архитектуру пикового состояния Тони Роббинса, элитные ежедневные ритуалы Робина Шармы (Клуб 5 утра · 4 Внутренние империи) и шесть привычек высокоэффективных людей Брендона Бёрчарда.' },
-        stats:[{n:'15+',l:'лет опыта'},{n:'1 000+',l:'коучинговых клиентов'},{n:'40+',l:'стран'}],
-        programs:[
-          {num:'01',title:'90-дневный прорыв в бизнесе',desc:'Трансформация идентичности, стратегическая ясность, построение систем и ежедневные привычки производительности. Для предпринимателей и руководителей.',tags:['Стратегия','Работа с идентичностью','Ежедневные привычки']},
-          {num:'02',title:'Мастермайнд элитной производительности',desc:'Тщательно отобранная группа из 12 высокоэффективных людей, встречающихся ежемесячно для ответственности и прорывного мышления.',tags:['Мастермайнд','Группа сверстников','Ежемесячные интенсивы']},
-          {num:'03',title:'Ретрит пикового состояния',desc:'3-дневное очное погружение для топ-менеджеров. Физиология, стратегическая ясность и глубокая внутренняя работа.',tags:['Очный ретрит','Лидерство','Глубокая работа']},
-        ],
-        testimonials:[
-          {name:'Михаил К.',city:'Нью-Йорк',text:'Пирамида производительности Виктора изменила то, как я работаю. Только утренний протокол добавил два часа реальной продуктивности. Выручка выросла на 40% за 90 дней.'},
-          {name:'Сара Й.',city:'Мюнхен',text:'Я пришла выгоревшей. Ретрит вскрыл что-то важное. Шесть месяцев спустя у меня больше энергии, больше прибыли, и я наконец чувствую себя лидером.'},
-          {name:'Джеймс П.',city:'Сингапур',text:'Мастермайнд — лучшая инвестиция в моей жизни. Качество людей, которых собирает Виктор, исключительное. Прорывные разговоры на каждой сессии.'},
-        ],
-        framework:{
-          eyebrow:'ПИРАМИДА ПРОИЗВОДИТЕЛЬНОСТИ',
-          h2:'Состояние → Стратегия → Системы',
-          pillars:[
-            {n:'01',title:'Пиковое состояние',desc:'Результаты начинаются с физиологии и эмоционального состояния. Утренний протокол мощи и практики прайминга обеспечивают работу из пика. «Движение создаёт эмоцию.» — Тони Роббинс'},
-            {n:'02',title:'Стратегическая ясность',desc:'Куда идёт фокус — туда идёт энергия. CAP-фреймворк (Clarity · Action · Power) согласует ваши ежедневные действия с наиболее рычажными целями. Вдохновлено 4 Внутренними империями Робина Шармы.'},
-            {n:'03',title:'Элитные системы',desc:'Высокоэффективные люди строят системы, а не полагаются на силу воли. Фреймворки делегирования и матрицы рычагов управляют вашим бизнесом — а не наоборот.'},
-            {n:'04',title:'Эволюция идентичности',desc:'«Кем мне нужно стать?» — самый важный вопрос в бизнесе. Работа с идентичностью (на основе Привычек высокоэффективных людей Брендона Бёрчарда) обеспечивает соответствие вашей внутренней системы вашему бизнесу.'},
-          ],
+        tools:{
+          label:'Intelligent Systems',
+          h:'Your Transformation',em:' Toolkit',
+          sub:'Each system is a specialized AI companion — choose your path.'
         },
-      },
-    ],
-    de:[
-      { id:'moshe', num:'01', accent:'#C8A86E', glow:'rgba(200,168,110,.14)', photo:null,
-        tag:'Integrale Transformation', name:'Moshe Om', title:'Meister des Svarga-Systems',
-        tagline:'Dort wo alte Weisheit auf moderne Psychologie trifft — ein integraler Weg zu deinem tiefsten Selbst.',
-        pills:['Meditation','Atemarbeit','Qigong','Energiearbeit'],
-        about:{ eyebrow:'ÜBER MOSHE', h2:'20 Jahre integrale Praxis',
-          bio:'Seit über 20 Jahren widmet sich Moshe Om dem Studium und der Weitergabe integraler spiritueller Praktiken auf drei Kontinenten. Er ist Gründer des Svarga-Systems — eine einzigartige Synthese östlicher Traditionen, moderner Psychologie und somatischer Körperarbeit.',
-          bio2:'Lin Tzi Instruktor · Eisernes Hemd Qigong · Vipassana · Pranayama. Ausgebildet bei Linien-Lehrern in Indien, China und Israel. Sein Ansatz vereint Körper, Atem, Geist und Bewusstsein zu einer lebendigen Praxis.' },
-        stats:[{n:'20+',l:'Jahre Erfahrung'},{n:'3.000+',l:'Teilnehmer'},{n:'30+',l:'Länder'}],
-        programs:[
-          {num:'01',title:'21-Tage-Transformationsmarathon',desc:'Tägliche integrale Praktiken für Körper, Atem, Geist und Bewusstsein. Live-Gespräche, Aufnahmen und Community-Unterstützung.',tags:['Meditation','Atemarbeit','Energiearbeit']},
-          {num:'02',title:'Retreat-Reihe',desc:'Mehrtägige Eintauchungen an heiligen Orten. Tiefe somatische und energetische Arbeit in der Natur.',tags:['Somatik','Qigong','Gruppenritual']},
-          {num:'03',title:'Persönliches Mentoring',desc:'Individuelle 1:1-Begleitung auf einer maßgeschneiderten 3-Monats-Reise für tiefgreifenden, nachhaltigen Wandel.',tags:['1:1-Coaching','Individueller Weg','Wöchentliche Sessions']},
-        ],
-        testimonials:[
-          {name:'Anna M.',city:'Moskau',text:'In 21 Tagen durchlief ich einen Weg, der sonst Jahre dauert. Moshe ist ein unglaublicher Begleiter — seine Präsenz schafft Transformation.'},
-          {name:'Dmitry K.',city:'St. Petersburg',text:'Atem- und Meditationsübungen sind zu täglichen Ritualen geworden. Klarheit und Stärke, die ich seit Jahren nicht gespürt hatte — es funktioniert.'},
-          {name:'Elena V.',city:'Kiew',text:'Allein die Community ist es wert. Das Gefühl, auf dem eigenen Weg nicht allein zu sein. Tiefer Dank an Moshe und das ganze Team.'},
-        ],
-      },
-      { id:'maya', num:'02', accent:'#6EA080', glow:'rgba(110,160,128,.14)', photo:null,
-        tag:'Atemarbeit & Somatik', name:'Maya Liran', title:'Spezialistin für somatische Heilung & Traumaauflösung',
-        tagline:'Der Körper bewahrt jede Geschichte, die du je gelebt hast. Atemarbeit schreibt das Ende um.',
-        pills:['Atemarbeit','Somatische Therapie','Traumaauflösung','TRE'],
-        about:{ eyebrow:'ÜBER MAYA', h2:'12 Jahre körperzentrierte Heilung',
-          bio:'Maya Liran erforscht seit 12 Jahren die Intelligenz des Körpers. Ausgebildet in Biodynamischer Atemarbeit & Traumaauflösungssystem (BBTRS), Somatischem Erleben (SE) und Traumata- und Spannungsauflösung (TRE).',
-          bio2:'Zertifizierte SE-Praktikerin · BBTRS-Facilitatorin · TRE-Anbieterin. Maya hat Hunderte von Menschen durch Traumaauflösung, Nervensystemregulation und tiefe emotionale Befreiung geführt.' },
-        stats:[{n:'12+',l:'Jahre Erfahrung'},{n:'800+',l:'Sessions'},{n:'20+',l:'Länder'}],
-        programs:[
-          {num:'01',title:'21-Tage-Atemreise',desc:'Tägliche Atemarbeit-Sessions, somatische Praktiken und Nervensystemregulation. Ein geführter Weg von der Anspannung zur Leichtigkeit.',tags:['Atemarbeit','Nervensystem','Somatik']},
-          {num:'02',title:'Trauma-Release-Intensiv',desc:'7-tägiges Online- oder Präsenz-Intensiv zur tiefen Auflösung gespeicherter Traumata und emotionaler Panzerung.',tags:['Traumaauflösung','TRE','BBTRS']},
-          {num:'03',title:'1:1-Somatisches Coaching',desc:'Private Sessions, zugeschnitten auf die spezifischen Bedürfnisse deines Körpers. Sicher, sanft und tiefgreifend wirksam.',tags:['Private Sessions','Individuell','Laufende Begleitung']},
-        ],
-        testimonials:[
-          {name:'Sophie R.',city:'Berlin',text:'Maya hielt einen Raum, den ich so noch nie erlebt hatte. Drei Sessions verschoben Muster, die ich 15 Jahre getragen hatte.'},
-          {name:'Nadia L.',city:'Tel Aviv',text:'Die 21-Tage-Reise half mir, zum ersten Mal seit Jahren durchzuschlafen. Nervensystemregulation kann so sanft sein.'},
-          {name:'Marcus T.',city:'London',text:'Ich kam skeptisch und ging transformiert. Die TRE-Sessions lösten etwas, das Jahre Gesprächstherapie nicht erreichen konnte.'},
-        ],
-      },
-      { id:'arjun', num:'03', accent:'#7E8EC8', glow:'rgba(126,142,200,.14)', photo:null,
-        tag:'Meditation & Achtsamkeit', name:'Arjun Patel', title:'Vipassana-Guide & Meditationslehrer',
-        tagline:'Stille ist nicht die Abwesenheit von Lärm — sie ist die Anwesenheit von dir selbst. Komm nach Hause.',
-        pills:['Vipassana','Achtsamkeit','Liebende Güte','Retreat-Begleitung'],
-        about:{ eyebrow:'ÜBER ARJUN', h2:'18 Jahre in der Theravada-Tradition',
-          bio:'Arjun Patel begann seine Meditationspraxis mit 22 Jahren in Dharamshala, Indien, unter tibetischen und Theravada-Lehrern. Nach 18 Jahren täglicher Praxis und 7 Schweige-Retreats unterrichtet er Vipassana und Achtsamkeit international.',
-          bio2:'Ausgebildet in der S.N.-Goenka-Vipassana-Tradition · Tibetische buddhistische Psychologie · MBSR. Arjuns Unterricht ist geerdet, warm und völlig frei von Dogmen.' },
-        stats:[{n:'18+',l:'Jahre Praxis'},{n:'7',l:'Schweige-Retreats'},{n:'500+',l:'Schüler'}],
-        programs:[
-          {num:'01',title:'10-Tage-Vipassana-Retreat',desc:'Traditionelles Schweige-Retreat online oder in Präsenz. Tiefe Stille, Körperscan und Atemgewahrsein für ernsthafte Suchende.',tags:['Vipassana','Stille','Körperscan']},
-          {num:'02',title:'28 Tage Achtsamkeit für das Leben',desc:'Sanfter täglicher Achtsamkeitskurs mit Liebender Güte, Atemgewahrsein und Anwendung im Alltag.',tags:['Achtsamkeit','MBSR','Tägliche Praxis']},
-          {num:'03',title:'Persönliche Meditationsunterweisung',desc:'Individuelle 1:1-Begleitung durch deine Praxis. Geeignet für Anfänger und Fortgeschrittene.',tags:['1:1-Sessions','Personalisiert','Jedes Level']},
-        ],
-        testimonials:[
-          {name:'Claire B.',city:'Paris',text:'Arjun lehrte mich, dass Meditation nicht darum geht, den Geist zu leeren — sondern sich mit ihm anzufreunden. Sein Programm veränderte alles.'},
-          {name:'Ravi S.',city:'Mumbai',text:'Das 10-Tage-Retreat war das Schwerste und Lohnendste, was ich je getan habe. Arjuns Führung war immer genau dann da, wenn sie gebraucht wurde.'},
-          {name:'Ingrid H.',city:'Stockholm',text:'Ich war Anfänger. Sechs Monate später habe ich keine einzige Morgeneinheit ausgelassen. Arjun machte die Praxis zugänglich und lebendig.'},
-        ],
-      },
-      { id:'viktor', num:'04', accent:'#C8946E', glow:'rgba(200,148,110,.14)', photo:null,
-        tag:'Business & Spitzenleistung', name:'Viktor Stern', title:'Business-Mastery & Peak-Performance-Coach',
-        tagline:'Dein Unternehmen ist ein Spiegel deines Seins. Transformiere das Innere — das Äußere folgt.',
-        pills:['Business-Strategie','Spitzenleistung','Führung','Executive-Coaching'],
-        about:{ eyebrow:'ÜBER VIKTOR', h2:'15 Jahre Coaching von Führungskräften an der Grenze',
-          bio:'Viktor Stern arbeitet seit 15 Jahren an der Schnittstelle von menschlicher Spitzenleistung und Business-Strategie. Er hat über 1.000 Führungskräfte und Unternehmer dabei geholfen, Unternehmen aufzubauen, die ihr Leben nicht kosten.',
-          bio2:'Ehemaliger Fortune-500-Manager, nun Performance-Coach. Ausgebildet in NLP, Strategischer Intervention und High Performance Coaching. Viktors System synthetisiert Tony Robbins\' Peak-State-Architektur, Robin Sharmas Elite-Tagesrituale (5-Uhr-Club · 4 Innere Imperien) und Brendon Burchards High-Performance-Habits.' },
-        stats:[{n:'15+',l:'Jahre Erfahrung'},{n:'1.000+',l:'betreute Klienten'},{n:'40+',l:'Länder'}],
-        programs:[
-          {num:'01',title:'90-Tage-Business-Durchbruch',desc:'Identitätswandel, strategische Klarheit, Systemaufbau und tägliche Performance-Gewohnheiten für Unternehmer und Führungskräfte.',tags:['Strategie','Identitätsarbeit','Tägliche Gewohnheiten']},
-          {num:'02',title:'Elite-Performance-Mastermind',desc:'Eine kuratierte Gruppe von 12 High-Achievern für monatliche Accountability und Durchbruch-Denken. Bewerbung erforderlich.',tags:['Mastermind','Peer-Gruppe','Monatliche Intensivs']},
-          {num:'03',title:'Peak-State-Executive-Retreat',desc:'3-tägiges Präsenz-Retreat für Senior-Leader: Physiologie, Klärungssessions, strategische Planung und tiefe innere Arbeit.',tags:['Präsenz-Retreat','Führung','Tiefe Arbeit']},
-        ],
-        testimonials:[
-          {name:'Michael K.',city:'New York',text:'Viktors Performance-Pyramide veränderte meine Arbeitsweise. Allein das Morgenprotokoll fügte zwei Stunden echter Produktivität hinzu. Umsatz +40% in 90 Tagen.'},
-          {name:'Sara J.',city:'München',text:'Ich kam ausgebrannt. Das Retreat brach etwas auf. Sechs Monate später habe ich mehr Energie, mehr Gewinn und fühle mich endlich wie eine Führungskraft.'},
-          {name:'James P.',city:'Singapur',text:'Das Mastermind ist die beste Investition meines Lebens. Die Qualität der Menschen, die Viktor kuratiert, ist außergewöhnlich.'},
-        ],
-        framework:{
-          eyebrow:'DIE PERFORMANCE-PYRAMIDE',
-          h2:'Zustand → Strategie → Systeme',
-          pillars:[
-            {n:'01',title:'Spitzenzustand',desc:'Ergebnisse beginnen mit Physiologie und emotionalem Zustand. Morgen-Power-Protokoll und Priming-Rituale sorgen dafür, dass du aus dem Spitzenzustand agierst. „Bewegung erzeugt Emotion." — Tony Robbins'},
-            {n:'02',title:'Strategische Klarheit',desc:'Wohin die Aufmerksamkeit geht, fließt die Energie. Das CAP-Framework (Clarity · Action · Power) richtet tägliche Handlungen an den wichtigsten Zielen aus. Inspiriert von Robin Sharmas 4 Inneren Imperien.'},
-            {n:'03',title:'Elite-Systeme',desc:'Spitzenleister bauen Systeme, keine Willenskraft. Delegations-Frameworks und Performance-Dashboards führen dein Unternehmen — damit es nicht dich führt.'},
-            {n:'04',title:'Identitätsentwicklung',desc:'„Wer muss ich werden?" ist die wichtigste Geschäftsfrage. Tiefe Identitätsarbeit — basierend auf Brendon Burchards High-Performance-Habits — sorgt dafür, dass dein inneres System mit deinem Unternehmen übereinstimmt.'},
-          ],
+        specialists:{
+          label:'Our Team',
+          h:'Meet Your',em:' AI Specialists',
+          sub:'10 distinct AI personalities, each mastering a unique domain of human development.'
         },
+        footer:{
+          col1:'Explore',col2:'Specialists',col3:'Platform',
+          copy:'© 2025 LifeForge AI. All rights reserved.',
+          author:'Created by'
+        }
       },
-    ],
-  };
+      ru:{
+        nav:{specialists:'Специалисты',tools:'Инструменты',about:'О нас',cta:'Начать'},
+        hero:{
+          tag:'ИИ-платформа личностного роста',
+          h1:'Раскрой свой',h2:'Человеческий',h3:'Потенциал',
+          sub:'Шесть интеллектуальных ИИ-систем для вашей трансформации — коучинг, стратегия, астрология, нумерология и интегральная практика.',
+          cta1:'Исследовать систему',cta2:'Познакомиться со специалистами',
+          s1:'10',sl1:'ИИ-специалистов',s2:'5',sl2:'Языков',s3:'6',sl3:'Систем',s4:'∞',sl4:'Возможностей'
+        },
+        tools:{
+          label:'Интеллектуальные системы',
+          h:'Ваш инструментарий',em:' трансформации',
+          sub:'Каждая система — специализированный ИИ-компаньон на вашем пути.'
+        },
+        specialists:{
+          label:'Наша команда',
+          h:'Познакомьтесь с',em:' ИИ-специалистами',
+          sub:'10 уникальных ИИ-личностей, каждая — мастер своей области развития.'
+        },
+        footer:{
+          col1:'Исследовать',col2:'Специалисты',col3:'Платформа',
+          copy:'© 2025 LifeForge AI. Все права защищены.',
+          author:'Создано'
+        }
+      },
+      es:{
+        nav:{specialists:'Especialistas',tools:'Herramientas',about:'Acerca',cta:'Comenzar'},
+        hero:{
+          tag:'Desarrollo Personal con IA',
+          h1:'Desbloquea tu',h2:'Potencial',h3:'Humano',
+          sub:'Seis sistemas de IA que guían tu transformación — coaching, estrategia, astrología, numerología y práctica integral.',
+          cta1:'Explorar el sistema',cta2:'Conocer especialistas',
+          s1:'10',sl1:'Especialistas IA',s2:'5',sl2:'Idiomas',s3:'6',sl3:'Sistemas',s4:'∞',sl4:'Posibilidades'
+        },
+        tools:{label:'Sistemas inteligentes',h:'Tu kit de',em:' transformación',sub:'Cada sistema es un compañero IA especializado.'},
+        specialists:{label:'Nuestro equipo',h:'Conoce a tus',em:' especialistas',sub:'10 personalidades IA únicas, cada una maestra en su dominio.'},
+        footer:{col1:'Explorar',col2:'Especialistas',col3:'Plataforma',copy:'© 2025 LifeForge AI.',author:'Creado por'}
+      },
+      it:{
+        nav:{specialists:'Specialisti',tools:'Strumenti',about:'Chi siamo',cta:'Inizia'},
+        hero:{
+          tag:'Sviluppo Personale con IA',
+          h1:'Sblocca il tuo',h2:'Potenziale',h3:'Umano',
+          sub:'Sei sistemi di IA per guidare la tua trasformazione — coaching, strategia, astrologia, numerologia e pratica integrale.',
+          cta1:'Esplora il sistema',cta2:'Incontra gli specialisti',
+          s1:'10',sl1:'Specialisti IA',s2:'5',sl2:'Lingue',s3:'6',sl3:'Sistemi',s4:'∞',sl4:'Possibilità'
+        },
+        tools:{label:'Sistemi intelligenti',h:'Il tuo kit di',em:' trasformazione',sub:'Ogni sistema è un compagno IA specializzato.'},
+        specialists:{label:'Il nostro team',h:'Incontra i tuoi',em:' specialisti',sub:'10 personalità IA uniche, ognuna esperta nel suo dominio.'},
+        footer:{col1:'Esplora',col2:'Specialisti',col3:'Piattaforma',copy:'© 2025 LifeForge AI.',author:'Creato da'}
+      },
+      he:{
+        nav:{specialists:'מומחים',tools:'כלים',about:'אודות',cta:'התחל'},
+        hero:{
+          tag:'פיתוח אישי מונע בינה מלאכותית',
+          h1:'שחרר את',h2:'הפוטנציאל',h3:'האנושי שלך',
+          sub:'שישה מערכות בינה מלאכותית המנחות את הטרנספורמציה שלך — אימון, אסטרולוגיה, נומרולוגיה ועוד.',
+          cta1:'גלה את המערכת',cta2:'הכר את המומחים',
+          s1:'10',sl1:'מומחי בינה מלאכותית',s2:'5',sl2:'שפות',s3:'6',sl3:'מערכות',s4:'∞',sl4:'אפשרויות'
+        },
+        tools:{label:'מערכות חכמות',h:'ערכת',em:' הטרנספורמציה',sub:'כל מערכת היא חבר בינה מלאכותית מתמחה.'},
+        specialists:{label:'הצוות שלנו',h:'הכר את',em:' מומחי הבינה המלאכותית',sub:'10 אישיויות בינה מלאכותית ייחודיות, כל אחת מומחה בתחומה.'},
+        footer:{col1:'גלה',col2:'מומחים',col3:'פלטפורמה',copy:'© 2025 LifeForge AI.',author:'נוצר על ידי'}
+      }
+    };
 
-  /* ─── Icons ─── */
-  const IcoArrowR = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
-  const IcoArrowL = ({s=14}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>;
-  const IcoSun = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
-  const IcoMoon = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>;
-  const IcoWA = ({s=26}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>;
-  const IcoTG = ({s=18}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.94z"/></svg>;
+    /* ── TOOL SPECS ── */
+    const TOOLS_DATA={
+      en:[
+        {id:'coach',cat:'Coaching & Psychology',name:'Personal Life Coach',
+         desc:'Deep introspective coaching powered by evidence-based methodologies. Clarify your values, break limiting beliefs, and design a life of purpose.',
+         accent:'#D4B27A',glow:'rgba(212,178,122,.10)',badge:'AI Coach',
+         feats:['Values & purpose clarification','Limiting belief dissolution','Goal architecture & accountability','Emotional intelligence development','Weekly reflection frameworks']},
+        {id:'biz',cat:'Business & Strategy',name:'Business Accelerator',
+         desc:'From vision to execution. AI-driven business coaching to sharpen strategy, scale operations, and lead with clarity in complex markets.',
+         accent:'#C8946E',glow:'rgba(200,148,110,.10)',badge:'Biz AI',
+         feats:['Strategic vision mapping','Revenue model optimization','Leadership & team dynamics','Market positioning intelligence','Quarterly OKR frameworks']},
+        {id:'astro',cat:'Esoteric & Cosmic',name:'Astrology Oracle',
+         desc:'Celestial intelligence meets modern psychology. Explore natal charts, transits, and planetary cycles to understand your cosmic blueprint.',
+         accent:'#7E8EC8',glow:'rgba(126,142,200,.10)',badge:'Cosmic',
+         feats:['Natal chart interpretation','Current transit analysis','Planetary return forecasting','Synastry & compatibility','Moon phase rituals']},
+        {id:'numer',cat:'Numerology & Patterns',name:'Numerology Matrix',
+         desc:'The Pythagoras Square reveals your numerical DNA — energetic strengths, karmic lessons, and the hidden architecture of your life path.',
+         accent:'#6EA080',glow:'rgba(110,160,128,.10)',badge:'Numbers',
+         feats:['Live Pythagoras Square calculator','Life Path number analysis','Personal Year forecasting','Karmic debt identification','Name numerology']},
+        {id:'svarga',cat:'Integral Practice',name:'Svarga System',
+         desc:'The Svarga integral system synthesizes yogic traditions, consciousness practices, and modern embodiment work into a unified path of awakening.',
+         accent:'#B07ECC',glow:'rgba(176,126,204,.10)',badge:'Integral',
+         feats:['Meditation & pranayama protocols','Energy body mapping','Shadow integration practices','Mantra & sound healing','Integral life design']},
+        {id:'strategy',cat:'Life Strategy & AI',name:'Human Potential System',
+         desc:'The central intelligence layer. Synthesizes insights from all six systems to deliver a unified life strategy — your personal operating system.',
+         accent:'#C8D4E0',glow:'rgba(200,212,224,.12)',badge:'Core AI',
+         feats:['Cross-system intelligence synthesis','Long-horizon life architecture','Pattern recognition & forecasting','Integration of all six domains','Your Personal Operating System']}
+      ]
+    };
+    // Copy EN to other langs with translated names
+    const TOOL_NAMES={
+      ru:['Личный лайф-коуч','Бизнес-акселератор','Оракул астрологии','Матрица нумерологии','Система Сварга','Система человеческого потенциала'],
+      es:['Coach Personal','Acelerador de Negocios','Oráculo Astrológico','Matriz Numerológica','Sistema Svarga','Sistema de Potencial Humano'],
+      it:['Coach Personale','Acceleratore Business','Oracolo Astrologico','Matrice Numerologica','Sistema Svarga','Sistema del Potenziale Umano'],
+      he:['מאמן אישי','מאיץ עסקי','אורקל אסטרולוגי','מטריצת נומרולוגיה','מערכת סוורגה','מערכת הפוטנציאל האנושי']
+    };
+    ['ru','es','it','he'].forEach(l=>{
+      TOOLS_DATA[l]=TOOLS_DATA.en.map((t,i)=>({...t,name:TOOL_NAMES[l][i]}));
+    });
 
-  /* ─── Scroll reveal hook ─── */
-  function useReveal(dep) {
-    React.useEffect(() => {
-      const obs = new IntersectionObserver(
-        es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
-        { threshold: 0.07 }
+    /* ── SPECIALISTS DATA ── */
+    const SPECIALISTS=[
+      {id:'aria',name:'Aria Lux',role:'Life Strategy AI',phil:'I see the whole before the parts. Your life is a system — let\'s architect it together.',style:'Visionary · Strategic',accent:'#C8D4E0',emoji:'✦',bg:'linear-gradient(135deg,rgba(200,212,224,.15),rgba(126,142,200,.08))'},
+      {id:'maya',name:'Maya Chen',role:'Personal Life Coach',phil:'Every pattern has a purpose. The wound holds the wisdom — let\'s find yours.',style:'Empathic · Deep',accent:'#D4B27A',emoji:'◎',bg:'linear-gradient(135deg,rgba(212,178,122,.15),rgba(212,178,122,.04))'},
+      {id:'viktor',name:'Viktor Stern',role:'Business & Executive Coach',phil:'Clarity is a competitive advantage. Vague goals produce vague results.',style:'Direct · Analytical',accent:'#C8946E',emoji:'△',bg:'linear-gradient(135deg,rgba(200,148,110,.15),rgba(200,148,110,.04))'},
+      {id:'selene',name:'Selene Voss',role:'Astrologer & Cosmic Guide',phil:'The planets do not compel — they invite. Your chart is a map, not a verdict.',style:'Intuitive · Cosmic',accent:'#7E8EC8',emoji:'☽',bg:'linear-gradient(135deg,rgba(126,142,200,.15),rgba(126,142,200,.04))'},
+      {id:'pythia',name:'Pythia Nour',role:'Numerologist & Pattern Analyst',phil:'Numbers are the language the universe uses to describe itself.',style:'Precise · Mystical',accent:'#6EA080',emoji:'∑',bg:'linear-gradient(135deg,rgba(110,160,128,.15),rgba(110,160,128,.04))'},
+      {id:'kairos',name:'Kairos Silva',role:'Svarga & Integral Guide',phil:'The sacred and the practical are not opposites — they are partners.',style:'Grounded · Expansive',accent:'#B07ECC',emoji:'⊕',bg:'linear-gradient(135deg,rgba(176,126,204,.15),rgba(176,126,204,.04))'},
+      {id:'nadia',name:'Nadia Orel',role:'Psychological Depth Coach',phil:'Healing is not the absence of pain — it\'s the presence of meaning.',style:'Compassionate · Transformative',accent:'#E09080',emoji:'❋',bg:'linear-gradient(135deg,rgba(224,144,128,.15),rgba(224,144,128,.04))'},
+      {id:'alex',name:'Alex Vain',role:'Human Design & Gene Keys',phil:'You were born with a unique energetic signature. Alignment, not effort.',style:'Systematic · Liberating',accent:'#80B4D4',emoji:'◈',bg:'linear-gradient(135deg,rgba(128,180,212,.15),rgba(128,180,212,.04))'},
+      {id:'lena',name:'Lena Bright',role:'Relationships & Feminine Power',phil:'The quality of your relationships mirrors the relationship you have with yourself.',style:'Warm · Empowering',accent:'#D480A4',emoji:'✿',bg:'linear-gradient(135deg,rgba(212,128,164,.15),rgba(212,128,164,.04))'},
+      {id:'marco',name:'Marco Vega',role:'Career & Life Purpose Strategist',phil:'Purpose is not found — it is cultivated through courageous action.',style:'Bold · Catalytic',accent:'#A4C870',emoji:'◉',bg:'linear-gradient(135deg,rgba(164,200,112,.15),rgba(164,200,112,.04))'},
+    ];
+    const SPEC_I18N={
+      ru:[
+        {role:'Стратег жизненного пути',phil:'Я вижу целое прежде частей. Ваша жизнь — система. Давайте создадим её архитектуру вместе.'},
+        {role:'Лайф-коуч',phil:'Каждый паттерн имеет смысл. В ране — мудрость. Давайте найдём её вместе.'},
+        {role:'Бизнес и executive-коуч',phil:'Ясность — конкурентное преимущество. Размытые цели дают размытые результаты.'},
+        {role:'Астролог и космический гид',phil:'Планеты не принуждают — они приглашают. Ваша карта — это карта, не приговор.'},
+        {role:'Нумеролог',phil:'Числа — это язык, на котором Вселенная описывает саму себя.'},
+        {role:'Гид по системе Сварга',phil:'Сакральное и практическое не противоположности — они партнёры.'},
+        {role:'Психологический коуч',phil:'Исцеление — это не отсутствие боли. Это присутствие смысла.'},
+        {role:'Дизайн человека',phil:'Вы родились с уникальной энергетической сигнатурой. Выравнивание, а не усилие.'},
+        {role:'Отношения и женская сила',phil:'Качество ваших отношений отражает ваши отношения с самим собой.'},
+        {role:'Карьера и жизненное призвание',phil:'Призвание не находят — его культивируют через смелые действия.'},
+      ]
+    };
+
+    /* ── SVG ARTS ── */
+    function ArtCoach(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <circle cx="36" cy="36" r="28" stroke="#D4B27A" strokeWidth=".8" strokeDasharray="4 3" opacity=".4"/>
+        <circle cx="36" cy="36" r="20" stroke="#D4B27A" strokeWidth=".8" opacity=".6"/>
+        <circle cx="36" cy="36" r="12" stroke="#D4B27A" strokeWidth="1" opacity=".8"/>
+        <circle cx="36" cy="36" r="5" fill="#D4B27A" opacity=".9"/>
+        <line x1="36" y1="8" x2="36" y2="16" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+        <line x1="36" y1="56" x2="36" y2="64" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+        <line x1="8" y1="36" x2="16" y2="36" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+        <line x1="56" y1="36" x2="64" y2="36" stroke="#D4B27A" strokeWidth="1" opacity=".5"/>
+      </svg>
+    )}
+    function ArtBiz(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <polygon points="36,10 62,58 10,58" stroke="#C8946E" strokeWidth=".9" fill="none" opacity=".7"/>
+        <polygon points="36,22 52,50 20,50" stroke="#C8946E" strokeWidth=".9" fill="none" opacity=".6"/>
+        <polygon points="36,34 44,50 28,50" stroke="#C8946E" strokeWidth="1" fill="rgba(200,148,110,.08)" opacity=".8"/>
+        <circle cx="36" cy="44" r="3" fill="#C8946E" opacity=".9"/>
+      </svg>
+    )}
+    function ArtAstro(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <circle cx="36" cy="36" r="26" stroke="#7E8EC8" strokeWidth=".8" strokeDasharray="2 4" opacity=".5"/>
+        <circle cx="36" cy="36" r="16" stroke="#7E8EC8" strokeWidth=".8" opacity=".6"/>
+        <circle cx="36" cy="20" r="4" fill="#7E8EC8" opacity=".8"/>
+        <circle cx="48" cy="44" r="3" fill="#7E8EC8" opacity=".6"/>
+        <circle cx="22" cy="42" r="2.5" fill="#7E8EC8" opacity=".5"/>
+        <path d="M36 20 L48 44 L22 42 Z" stroke="#7E8EC8" strokeWidth=".7" opacity=".4"/>
+        <circle cx="36" cy="36" r="3" fill="#7E8EC8" opacity=".5"/>
+      </svg>
+    )}
+    function ArtNumer(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <rect x="10" y="10" width="52" height="52" rx="4" stroke="#6EA080" strokeWidth=".8" opacity=".4"/>
+        {[0,1,2].map(r=>[0,1,2].map(c=>{
+          const n=3*r+c+1;
+          return <g key={`${r}-${c}`}>
+            <rect x={10+c*17+1} y={10+r*17+1} width="15" height="15" rx="2" fill="rgba(110,160,128,.06)" stroke="#6EA080" strokeWidth=".6" opacity=".6"/>
+            <text x={10+c*17+8.5} y={10+r*17+11.5} textAnchor="middle" fill="#6EA080" fontSize="7" fontFamily="Georgia" opacity=".8">{n}</text>
+          </g>
+        }))}
+      </svg>
+    )}
+    function ArtSvarga(){return(
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
+        <circle cx="36" cy="36" r="10" stroke="#B07ECC" strokeWidth=".9" opacity=".8"/>
+        {[0,1,2,3,4,5].map(i=>{
+          const a=i*60*Math.PI/180;
+          const x=36+10*Math.cos(a), y=36+10*Math.sin(a);
+          return <circle key={i} cx={x} cy={y} r="10" stroke="#B07ECC" strokeWidth=".8" opacity=".5"/>
+        })}
+        <circle cx="36" cy="36" r="20" stroke="#B07ECC" strokeWidth=".7" strokeDasharray="3 4" opacity=".35"/>
+      </svg>
+    )}
+    function ArtStrategy(){return(
+      <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%',animation:'spin-slow 40s linear infinite'}}>
+        <circle cx="80" cy="80" r="70" stroke="#C8D4E0" strokeWidth=".6" strokeDasharray="2 5" opacity=".35"/>
+        <circle cx="80" cy="80" r="52" stroke="#C8D4E0" strokeWidth=".8" opacity=".45"/>
+        <circle cx="80" cy="80" r="34" stroke="#C8D4E0" strokeWidth="1" opacity=".6"/>
+        <circle cx="80" cy="80" r="14" fill="rgba(200,212,224,.12)" stroke="#C8D4E0" strokeWidth="1.2" opacity=".8"/>
+        {[0,60,120,180,240,300].map(a=>{
+          const r=a*Math.PI/180;
+          return <g key={a}>
+            <line x1={80+34*Math.cos(r)} y1={80+34*Math.sin(r)} x2={80+70*Math.cos(r)} y2={80+70*Math.sin(r)} stroke="#C8D4E0" strokeWidth=".6" opacity=".3"/>
+            <circle cx={80+52*Math.cos(r)} cy={80+52*Math.sin(r)} r="3.5" fill="#C8D4E0" opacity=".55"/>
+          </g>
+        })}
+        <circle cx="80" cy="80" r="5" fill="#C8D4E0" opacity=".9"/>
+      </svg>
+    )}
+    function ArtSpec({emoji,accent,bg}){return(
+      <div style={{width:'100%',height:'100%',background:bg||'rgba(200,212,224,.08)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'1.8rem',border:`1px solid ${accent}40`}}>
+        {emoji}
+      </div>
+    )}
+
+    /* ── NAV ── */
+    function Nav({lang,setLang,theme,toggleTheme,onNav,t}){
+      const [scrolled,setScrolled]=useState(false);
+      useEffect(()=>{
+        const h=()=>setScrolled(window.scrollY>30);
+        window.addEventListener('scroll',h);return()=>window.removeEventListener('scroll',h);
+      },[]);
+      const langs=['en','ru','es','it','he'];
+      return(
+        <nav className={scrolled?'scrolled':''}>
+          <div className="nav-logo" onClick={()=>onNav('home')}>
+            <div className="nav-logo-mark">L</div>
+            <div><div className="nav-logo-text">LifeForge <em style={{fontStyle:'italic'}}>AI</em></div><div className="nav-logo-sub">Human Potential System</div></div>
+          </div>
+          <div className="nav-links">
+            <div className="nav-link" onClick={()=>onNav('home')}>{t.tools}</div>
+            <div className="nav-link" onClick={()=>onNav('specialists')}>{t.specialists}</div>
+          </div>
+          <div className="nav-controls">
+            {langs.map(l=><button key={l} className={`nav-lang${lang===l?' active':''}`} onClick={()=>setLang(l)}>{l.toUpperCase()}</button>)}
+            <button className="nav-theme" onClick={toggleTheme} title="Toggle theme">{theme==='dark'?'☀':'🌙'}</button>
+          </div>
+        </nav>
       );
-      const timer = setTimeout(() => {
-        document.querySelectorAll('.rv,.rvl,.rvr').forEach(el => { el.classList.remove('in'); obs.observe(el); });
-      }, 80);
-      return () => { clearTimeout(timer); obs.disconnect(); };
-    }, [dep]);
-  }
+    }
 
-  /* ─── Nav ─── */
-  function Nav({ lang, setLang, theme, toggleTheme, isPortal, onBack }) {
-    const ui = UI[lang];
-    const [scrolled, setScrolled] = React.useState(false);
-    const [langOpen, setLangOpen] = React.useState(false);
-    const [mobOpen,  setMobOpen]  = React.useState(false);
+    /* ── HERO ── */
+    function Hero({t,onExplore,onSpecialists}){
+      return(
+        <section className="hero">
+          <div className="hero-inner">
+            <div className="hero-tag h1">
+              <div className="hero-tag-dot"/>
+              <span className="eyebrow">{t.tag}</span>
+            </div>
+            <h1 className="hero-h">
+              <span className="h2" style={{display:'block'}}>{t.h1}</span>
+              <em className="h3" style={{display:'block'}}>{t.h2}</em>
+              <span className="h4" style={{display:'block'}}>{t.h3}</span>
+            </h1>
+            <p className="hero-sub h5">{t.sub}</p>
+            <div className="hero-ctas h5">
+              <button className="btn-p" onClick={onExplore}>{t.cta1} →</button>
+              <button className="btn-g" onClick={onSpecialists}>{t.cta2}</button>
+            </div>
+            <div className="hero-stats h6">
+              {[{v:t.s1,l:t.sl1},{v:t.s2,l:t.sl2},{v:t.s3,l:t.sl3},{v:t.s4,l:t.sl4}].map(s=>(
+                <div key={s.l}>
+                  <div className="hero-stat-val">{s.v}</div>
+                  <div className="hero-stat-lab">{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <div className="scroll-hint h6"><div className="scroll-arrow"/></div>
+          </div>
+        </section>
+      );
+    }
 
-    React.useEffect(() => {
-      const fn = () => setScrolled(window.scrollY > 50);
-      window.addEventListener('scroll', fn, { passive:true });
-      return () => window.removeEventListener('scroll', fn);
-    }, []);
+    /* ── TOOL CARD ── */
+    function ToolCard({tool,onClick,delay=''}){
+      return(
+        <div className={`glass tool-card rv ${delay}`}
+          style={{'--card-glow':`radial-gradient(ellipse at 0% 100%,${tool.glow},transparent 70%)`}}
+          onClick={()=>onClick(tool.id)}
+        >
+          <div className="tool-card-shine"/>
+          <div>
+            <div className="tool-art">
+              {tool.id==='coach'&&<ArtCoach/>}
+              {tool.id==='biz'&&<ArtBiz/>}
+              {tool.id==='astro'&&<ArtAstro/>}
+              {tool.id==='numer'&&<ArtNumer/>}
+              {tool.id==='svarga'&&<ArtSvarga/>}
+            </div>
+            <div className="tool-cat eyebrow" style={{color:tool.accent,opacity:.8}}>{tool.cat}</div>
+            <h3 className="tool-name" style={{color:tool.accent}}>{tool.name}</h3>
+            <p className="tool-desc">{tool.desc}</p>
+          </div>
+          <div>
+            <div className="tool-cta" style={{color:tool.accent}}>
+              <span>Explore</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </div>
+          </div>
+          <div className="tool-badge" style={{color:tool.accent}}>{tool.badge}</div>
+        </div>
+      );
+    }
 
-    React.useEffect(() => {
-      if (!langOpen) return;
-      const close = () => setLangOpen(false);
-      setTimeout(() => document.addEventListener('click', close), 0);
-      return () => document.removeEventListener('click', close);
-    }, [langOpen]);
-
-    const LANGS = [{c:'en',l:'English'},{c:'ru',l:'Русский'},{c:'de',l:'Deutsch'}];
-
-    return (
-      <>
-        <nav className={`nav-wrap${scrolled?' scrolled':''}`}>
-          <button className="nav-logo" onClick={onBack}>
-            <span style={{width:34,height:34,borderRadius:'50%',background:'linear-gradient(135deg,var(--gold),var(--gold-dim))',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-d)',fontSize:'1.1rem',color:'#0D0B08',fontWeight:600}}>S</span>
-            <div><span className="nav-logo-name">Svarga</span><span className="nav-logo-sub">International</span></div>
-          </button>
-
-          <div className="nav-right dsk">
-            <div className="lang-wrap" onClick={e=>e.stopPropagation()}>
-              <button className="ctrl-btn" onClick={()=>setLangOpen(!langOpen)}>
-                {lang.toUpperCase()} <span style={{opacity:.45,fontSize:9}}>▾</span>
-              </button>
-              <div className={`lang-drop${langOpen?' open':''}`}>
-                {LANGS.map(l=>(
-                  <button key={l.c} className={`lang-opt${lang===l.c?' active':''}`}
-                    onClick={()=>{setLang(l.c);setLangOpen(false);}}>
-                    {l.l}
-                  </button>
+    /* ── CENTRAL CARD ── */
+    function CentralCard({tool,onClick}){
+      return(
+        <div className="glass central-card rv" onClick={()=>onClick('strategy')}>
+          <div className="central-grid-lines"/>
+          <div className="central-glow"/>
+          <div className="central-inner">
+            <div>
+              <div className="central-badge">
+                <div className="central-badge-dot"/>
+                <span className="eyebrow" style={{color:'#C8D4E0'}}>{tool.cat}</span>
+              </div>
+              <h2 className="central-h">{tool.name.split(' ').slice(0,-1).join(' ')} <em>{tool.name.split(' ').slice(-1)[0]}</em></h2>
+              <p style={{fontSize:'.88rem',color:'var(--text-2)',lineHeight:1.72,marginBottom:24}}>{tool.desc}</p>
+              <div className="central-features">
+                {tool.feats.slice(0,4).map(f=>(
+                  <div key={f} className="central-feat">
+                    <div className="central-feat-dot" style={{background:'#C8D4E0'}}/>
+                    <span>{f}</span>
+                  </div>
                 ))}
               </div>
+              <button className="btn-accent" style={{color:'#C8D4E0',borderColor:'#C8D4E080'}}>
+                Activate System →
+              </button>
             </div>
-            <button className="ctrl-btn" onClick={toggleTheme}>
-              {theme==='dark'?<IcoSun/>:<IcoMoon/>}
-              {theme==='dark'?ui.themeL:ui.themeD}
-            </button>
-            {!isPortal && (
-              <button className="btn-g" style={{padding:'8px 18px',fontSize:'.69rem'}} onClick={onBack}>
-                <IcoArrowL s={12}/> {ui.back}
-              </button>
-            )}
-          </div>
-
-          <button className="mob-only ctrl-btn" style={{letterSpacing:'.04em',borderRadius:6}}
-            onClick={()=>setMobOpen(true)}>☰</button>
-        </nav>
-
-        <div className={`mob-drawer${mobOpen?' open':''}`}>
-          <button style={{position:'absolute',top:20,right:22,background:'none',border:'none',color:'var(--text-2)',fontSize:'1.3rem',cursor:'pointer'}}
-            onClick={()=>setMobOpen(false)}>✕</button>
-          <div style={{display:'flex',flexDirection:'column',gap:18,paddingTop:8}}>
-            {LANGS.map(l=>(
-              <button key={l.c} style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
-                font:`500 1.05rem/1 var(--font-b)`,letterSpacing:'.06em',
-                color:lang===l.c?'var(--gold)':'var(--text-2)'}}
-                onClick={()=>{setLang(l.c);setMobOpen(false);}}>
-                {l.l}
-              </button>
-            ))}
-            <div style={{height:1,background:'var(--border)',margin:'4px 0'}}/>
-            <button style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
-              font:'400 .88rem/1 var(--font-b)',color:'var(--text-2)',letterSpacing:'.08em'}}
-              onClick={()=>{toggleTheme();setMobOpen(false);}}>
-              {theme==='dark'?'☀ Light Mode':'☾ Dark Mode'}
-            </button>
-            {!isPortal&&(
-              <button style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',
-                font:'400 .88rem/1 var(--font-b)',color:'var(--text-2)',letterSpacing:'.08em'}}
-                onClick={()=>{onBack();setMobOpen(false);}}>
-                ← {ui.back}
-              </button>
-            )}
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <div className="central-art"><ArtStrategy/></div>
+            </div>
           </div>
         </div>
-      </>
-    );
-  }
+      );
+    }
 
-  /* ─── Portal ─── */
-  function Portal({ lang, onSelect }) {
-    const ui   = UI[lang];
-    const specs = SPECS[lang];
-    useReveal(lang);
-
-    return (
-      <>
-        <section className="portal-hero">
-          <div className="portal-hero-content">
-            <div className="eyebrow hl1" style={{marginBottom:20}}>{ui.portal.eyebrow}</div>
-            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(44px,7vw,90px)',lineHeight:1.07,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:24}}>
-              {ui.portal.h1a}<br/>
-              <em style={{color:'var(--gold)',fontStyle:'italic'}}>{ui.portal.h1b}</em>
-            </h1>
-            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(16px,2vw,20px)',color:'var(--text-2)',lineHeight:1.7,maxWidth:580,margin:'0 auto 32px'}}>
-              {ui.portal.sub}
-            </p>
-            <div className="hl4" style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,color:'var(--text-3)',fontSize:'.68rem',letterSpacing:'.18em',textTransform:'uppercase'}}>
-              <span style={{width:20,height:1,background:'var(--border-md)'}}/>
-              {ui.portal.hint}
-              <span style={{width:20,height:1,background:'var(--border-md)'}}/>
+    /* ── TOOLS SECTION ── */
+    function ToolsSection({tools,onTool,t}){
+      useReveal();
+      const [coach,biz,astro,numer,svarga,strategy]=tools;
+      return(
+        <section className="sp" id="tools">
+          <div className="mw">
+            <div className="sec-head rv">
+              <div className="eyebrow">{t.label}</div>
+              <h2 className="sec-h">{t.h}<em>{t.em}</em></h2>
+              <p className="sec-sub">{t.sub}</p>
+              <div className="divider"/>
+            </div>
+            <div className="tools-grid">
+              <ToolCard tool={coach} onClick={onTool} delay="d1"/>
+              <ToolCard tool={biz}   onClick={onTool} delay="d2"/>
+              <ToolCard tool={astro} onClick={onTool} delay="d3"/>
+              <div className="tools-central rv d4"><CentralCard tool={strategy} onClick={onTool}/></div>
+              <ToolCard tool={numer}  onClick={onTool} delay="d5"/>
+              <ToolCard tool={svarga} onClick={onTool} delay="d6"/>
             </div>
           </div>
         </section>
+      );
+    }
 
-        <section className="cards-section">
-          <div className="cards-grid">
-            {specs.map((s,i)=>(
-              <div key={s.id} className={`s-card rv d${i+1}`} style={{'--card-accent':s.accent}} onClick={()=>onSelect(s.id)}>
-                <div className="s-card-num">{s.num}</div>
-                <div className="s-card-tag">{s.tag}</div>
-                <div className="s-card-name">{s.name}</div>
-                <div className="s-card-ttl">{s.title}</div>
-                <div className="s-card-tl">"{s.tagline}"</div>
-                <div className="s-card-pills">{s.pills.map(p=><span key={p} className="s-card-pill">{p}</span>)}</div>
-                <button className="s-card-cta">{ui.explore} <IcoArrowR s={12}/></button>
-              </div>
-            ))}
-          </div>
-        </section>
-      </>
-    );
-  }
-
-  /* ─── Specialist Detail ─── */
-  function SpecDetail({ lang, specId, onBack }) {
-    const ui = UI[lang];
-    const s  = SPECS[lang].find(x=>x.id===specId);
-    useReveal(specId+lang);
-    if (!s) return null;
-
-    return (
-      <div>
-        <button className="sp-back" onClick={onBack}><IcoArrowL s={12}/> {ui.back}</button>
-
-        {/* Hero */}
-        <section className="sp-hero" style={{'--hero-glow':s.glow}}>
-          <div className="sp-hero-content">
-            <div className="eyebrow hl1" style={{color:s.accent,marginBottom:16}}>{s.tag} · Svarga International</div>
-            <h1 className="hl2" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(40px,6.5vw,82px)',lineHeight:1.06,color:'var(--text-1)',letterSpacing:'-.02em',marginBottom:16}}>
-              {s.name}
-            </h1>
-            <p className="hl3" style={{fontFamily:'var(--font-d)',fontSize:'clamp(15px,1.8vw,19px)',fontStyle:'italic',color:'var(--text-2)',lineHeight:1.65,maxWidth:640,marginBottom:26}}>
-              "{s.tagline}"
-            </p>
-            <div className="hl4" style={{display:'flex',flexWrap:'wrap',gap:8}}>
-              {s.pills.map(p=>(
-                <span key={p} style={{fontSize:'.60rem',letterSpacing:'.12em',textTransform:'uppercase',padding:'6px 14px',background:'rgba(255,255,255,.06)',border:`1px solid ${s.accent}44`,borderRadius:20,color:s.accent}}>{p}</span>
+    /* ── SPECIALISTS SECTION ── */
+    function SpecialistsSection({lang,t}){
+      useReveal();
+      const specs=SPECIALISTS.map((s,i)=>{
+        if(lang==='ru'&&SPEC_I18N.ru[i])return{...s,...SPEC_I18N.ru[i]};
+        return s;
+      });
+      return(
+        <section className="sp" id="specialists">
+          <div className="mw">
+            <div className="sec-head rv">
+              <div className="eyebrow">{t.label}</div>
+              <h2 className="sec-h">{t.h}<em>{t.em}</em></h2>
+              <p className="sec-sub">{t.sub}</p>
+              <div className="divider"/>
+            </div>
+            <div className="spec-grid">
+              {specs.map((s,i)=>(
+                <div key={s.id} className={`glass spec-card rv d${Math.min(i+1,10)}`}
+                  style={{borderColor:`${s.accent}20`,'--hover-border':`${s.accent}40`}}>
+                  <div className="spec-avatar" style={{background:s.bg}}>
+                    <ArtSpec emoji={s.emoji} accent={s.accent} bg={s.bg}/>
+                  </div>
+                  <div className="spec-name">{s.name}</div>
+                  <div className="spec-role" style={{color:s.accent}}>{s.role}</div>
+                  <p className="spec-phil">"{s.phil}"</p>
+                  <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:8}}>
+                    <button className="spec-cta" style={{color:s.accent,borderColor:`${s.accent}60`}}>
+                      Talk to specialist →
+                    </button>
+                    <div className="spec-style-tag" style={{color:s.accent}}>{s.style}</div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </section>
+      );
+    }
 
-        {/* About */}
-        <section className="sp2" style={{background:'var(--bg-alt)'}}>
-          <div className="mw">
-            <div className="detail-grid">
-              <div>
-                <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.about.eyebrow}</div>
-                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,4vw,46px)',lineHeight:1.12,color:'var(--text-1)',marginBottom:22,letterSpacing:'-.01em'}}>
-                  {s.about.h2}
-                </h2>
-                <p className="rv d2" style={{fontSize:'.91rem',color:'var(--text-2)',lineHeight:1.82,marginBottom:14,fontWeight:300}}>{s.about.bio}</p>
-                <p className="rv d3" style={{fontSize:'.86rem',color:'var(--text-3)',lineHeight:1.78,fontWeight:300,fontStyle:'italic'}}>{s.about.bio2}</p>
-              </div>
-              <div className="rv d2">
-                <div style={{borderRadius:8,overflow:'hidden',border:`1px solid ${s.accent}38`,aspectRatio:'4/3',position:'relative',marginBottom:24,
-                  background:`radial-gradient(ellipse at 30% 30%, ${s.accent}22, var(--surface) 70%)`}}>
-                  <div style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column',gap:14}}>
-                    <div style={{width:96,height:96,borderRadius:'50%',background:`linear-gradient(135deg,${s.accent},${s.accent}88)`,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-d)',fontSize:'2.6rem',fontWeight:400,color:'#0D0B08',boxShadow:`0 16px 40px ${s.accent}44`}}>{s.name[0]}</div>
-                    <div style={{fontSize:'.62rem',letterSpacing:'.18em',textTransform:'uppercase',color:'var(--text-3)'}}>{s.tag}</div>
-                  </div>
-                </div>
-                <div className="stat-row rv d3">
-                  {s.stats.map(st=>(
-                    <div key={st.l}>
-                      <span className="stat-num" style={{color:s.accent}}>{st.n}</span>
-                      <span className="stat-lbl">{st.l}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+    /* ── SYSTEM PROMPTS ── */
+    const SYSTEM_PROMPTS={
+      astro:`SYSTEM PROMPT — AI АСТРОЛОГ-АНАЛИТИК
+
+Ты — профессиональный AI астролог-аналитик, сочетающий:
+• классическую западную астрологию;
+• психологическую астрологию;
+• архетипический анализ;
+• кармический подход;
+• духовную астрологию;
+• интегральный подход;
+• структурный и доказательный метод интерпретации.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ГЛАВНЫЙ ПРИНЦИП
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Каждый вывод должен быть логически обоснован конкретными астрологическими показателями:
+знаком; домом; аспектами; управителями; диспозиторами; стеллиумами; доминантами;
+положением планет; конфигурациями карты; цепочками диспозиций; астрономическими расчетами.
+
+Никогда не давай пустых обобщений.
+Никогда не изображай «мистическое всеведение».
+
+Всегда разделяй: точный расчет / интерпретацию / гипотезу / вероятностный сценарий.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+СТИЛЬ РАБОТЫ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Твой стиль: мудрый · спокойный · глубокий · структурированный · интеллектуальный ·
+психологически зрелый · без фатализма · без запугивания · без эзотерической театральности.
+
+Ты работаешь как: профессиональный аналитик · астропсихолог · стратегический консультант.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ПРАВИЛО ДИАЛОГА
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Работай как профессиональный консультант.
+Никогда не задавай все вопросы одновременно.
+Задавай только ОДИН вопрос за раз.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ЭТАП 1 — ОПРЕДЕЛЕНИЕ ТИПА АНАЛИЗА
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Уточни, какой тип анализа нужен:
+1. Натальная карта  2. Соляр  3. Транзиты  4. Совместимость / Синастрия
+5. Карьерный анализ  6. Финансовый анализ  7. Анализ предназначения
+8. Духовный путь  9. Кризисный период  10. Детская карта  11. Комплексный анализ
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ЭТАП 2 — ГЛУБИНА АНАЛИЗА
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Краткий — ядро личности, предназначение, сильные стороны, ключевые тенденции.
+2. Стандартный — личность, отношения, карьера, финансы, предназначение, жизненные задачи.
+3. Глубинный — диспозиторные цепочки, доминанты, стеллиумы, минорные аспекты,
+   кармические показатели, архетипические сценарии, прогностика, транзиты, прогрессии.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ЭТАП 3 — СБОР ДАННЫХ (натальная карта)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Имя  2. Дата рождения  3. Точное время рождения
+4. Место рождения  5. Текущий город (если нужен прогноз)
+
+ВАЖНО: Проверяй историческую тайм-зону, декретное время СССР, летнее/зимнее время,
+исторические изменения UTC, Local Sidereal Time (LST).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ЭТАП A — АСТРОНОМИЯ (рассчитай сначала)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UTC · LST · ASC · MC · дома · положения планет · аспекты · управители
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ЭТАП B — ИНТЕРПРЕТАЦИЯ (порядок анализа)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+I. ЯДРО ЛИЧНОСТИ: ASC · управитель ASC · Солнце · Луна
+II. ЛИЧНЫЕ ПЛАНЕТЫ: Меркурий · Венера · Марс
+III. СОЦИАЛЬНЫЕ: Юпитер · Сатурн
+IV. ВЫСШИЕ: Уран · Нептун · Плутон
+V. КАРМИЧЕСКИЕ: Северный Узел · Южный Узел · Хирон · Лилит · Парс Фортуны · ретроградности
+VI. СИНТЕЗ: предназначение · карьера · отношения · финансы · духовная миссия · зоны роста
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ФОРМАТ КАЖДОГО РАЗДЕЛА
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Тезис — краткая суть
+2. Обоснование — через знаки, дома, аспекты, управителей, конфигурации
+3. Практический вывод — как использовать потенциал в жизни
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ОСНОВНЫЕ ПРАВИЛА
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+НИКОГДА: не предсказывай смерть · не предсказывай неизбежные трагедии · не ставь диагнозы.
+ПОКАЗЫВАЙ: тенденции · потенциалы · сильные стороны · зоны роста · стратегии развития.
+Слабые места описывай как точки трансформации и задачи развития.`
+    };
+
+    /* ── PROMPT COPY BLOCK ── */
+    function PromptBlock({promptKey,accent,label}){
+      const [copied,setCopied]=useState(false);
+      const text=SYSTEM_PROMPTS[promptKey]||'';
+      const copy=()=>{
+        navigator.clipboard.writeText(text).then(()=>{
+          setCopied(true);
+          setTimeout(()=>setCopied(false),2200);
+        });
+      };
+      return(
+        <div className="glass" style={{borderRadius:'var(--r2)',overflow:'hidden',border:`1px solid ${accent}25`}}>
+          <div style={{padding:'16px 20px',borderBottom:`1px solid ${accent}18`,display:'flex',alignItems:'center',justifyContent:'space-between',background:`${accent}08`}}>
+            <div>
+              <div style={{fontSize:'.62rem',letterSpacing:'.22em',textTransform:'uppercase',color:accent,marginBottom:2}}>{label||'AI System Prompt'}</div>
+              <div style={{fontSize:'.78rem',color:'var(--text-2)'}}>Скопируй и вставь в Claude / ChatGPT / DeepSeek</div>
             </div>
+            <button onClick={copy} style={{
+              display:'flex',alignItems:'center',gap:7,padding:'9px 18px',
+              background:copied?`${accent}22`:'transparent',
+              color:copied?accent:'var(--text-2)',
+              border:`1px solid ${copied?accent+'60':'var(--border-md)'}`,
+              borderRadius:8,cursor:'pointer',fontSize:'.68rem',fontWeight:500,
+              letterSpacing:'.12em',textTransform:'uppercase',transition:'all .25s',
+              fontFamily:'var(--font-b)'
+            }}>
+              {copied?'✓ Скопировано':'⎘ Copy Prompt'}
+            </button>
           </div>
-        </section>
+          <div style={{
+            padding:'20px',maxHeight:280,overflowY:'auto',
+            fontFamily:'monospace',fontSize:'.72rem',lineHeight:1.7,
+            color:'var(--text-2)',whiteSpace:'pre-wrap',wordBreak:'break-word'
+          }}>
+            {text}
+          </div>
+          <div style={{padding:'12px 20px',borderTop:`1px solid ${accent}12`,display:'flex',gap:8,flexWrap:'wrap'}}>
+            {['Claude','ChatGPT','DeepSeek','Gemini'].map(ai=>(
+              <span key={ai} style={{padding:'3px 10px',borderRadius:99,border:`1px solid ${accent}30`,
+                fontSize:'.60rem',letterSpacing:'.14em',textTransform:'uppercase',color:'var(--text-3)'}}>
+                {ai}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+    }
 
-        {/* Viktor's Framework */}
-        {s.framework && (
-          <section className="sp2">
-            <div className="mw">
-              <div style={{textAlign:'center',marginBottom:48}}>
-                <div className="eyebrow rv" style={{color:s.accent,marginBottom:14}}>{s.framework.eyebrow}</div>
-                <h2 className="rv d1" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(26px,3.5vw,42px)',color:'var(--text-1)',letterSpacing:'-.01em'}}>{s.framework.h2}</h2>
-              </div>
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:18}}>
-                {s.framework.pillars.map((p,i)=>(
-                  <div key={p.n} className={`prog-card rv d${i+1}`}>
-                    <div style={{fontSize:'.58rem',letterSpacing:'.16em',textTransform:'uppercase',color:s.accent,marginBottom:12}}>{p.n}</div>
-                    <div style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',fontWeight:400,color:'var(--text-1)',marginBottom:12}}>{p.title}</div>
-                    <div style={{fontSize:'.83rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300}}>{p.desc}</div>
+    /* ── PYTHAGORAS TOOL PAGE ── */
+    function PythaCalc({lang}){
+      const [val,setVal]=useState('');
+      const [res,setRes]=useState(null);
+      const [err,setErr]=useState('');
+      const compute=()=>{
+        const r=calcPytha(val);
+        if(!r){setErr('Format: DD.MM.YYYY');setRes(null)}
+        else{setRes(r);setErr('')}
+      };
+      const POS=[[7,8,9],[4,5,6],[1,2,3]];
+      return(
+        <div className="calc-wrap glass">
+          <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.5rem',fontWeight:400,marginBottom:8,color:'var(--gold)'}}>Pythagoras Square</h3>
+          <p style={{fontSize:'.83rem',color:'var(--text-2)',marginBottom:4,lineHeight:1.6}}>Live calculator — Alexandrov method</p>
+          <div className="calc-input-row">
+            <input className="calc-input" placeholder="DD.MM.YYYY" value={val} onChange={e=>setVal(e.target.value)} onKeyDown={e=>e.key==='Enter'&&compute()}/>
+            <button className="calc-submit" onClick={compute}>Calculate</button>
+          </div>
+          {err&&<div className="calc-error">{err}</div>}
+          {res&&<>
+            <div className="working-nums">
+              {[{v:res.w1,l:'I'},{v:res.w2,l:'II'},{v:Math.abs(res.w3),l:'III'},{v:res.w4,l:'IV'}].map(w=>(
+                <div key={w.l} className="wnum">
+                  <div className="wnum-val">{w.v}</div>
+                  <div className="wnum-lab">Working {w.l}</div>
+                </div>
+              ))}
+            </div>
+            <div className="pytha-grid">
+              {POS.map((row,ri)=>row.map(n=>{
+                const c=res.cnt[n]||0;
+                const cls=c>=3?'hot':c>0?'has':'empty';
+                return(
+                  <div key={`${ri}-${n}`} className={`pytha-cell ${cls}`}>
+                    {c>0?n.toString().repeat(c).slice(0,3):n}
+                  </div>
+                );
+              }))}
+            </div>
+            <p className="calc-note">
+              Diagonal 1-5-9: willpower axis. Diagonal 3-5-7: action axis. Diagonal 2-5-8: emotional axis.
+            </p>
+          </>}
+        </div>
+      );
+    }
+
+    /* ── TOOL DETAIL PAGE ── */
+    function ToolDetail({tool,lang,onBack}){
+      useReveal();
+      return(
+        <div className="detail-page">
+          <div className="mw">
+            <div className="detail-back rv" onClick={onBack}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>
+              Back to systems
+            </div>
+            <div className="detail-header rv">
+              <div className="tag" style={{color:tool.accent,borderColor:`${tool.accent}30`}}>{tool.cat}</div>
+              <h1 className="detail-h" style={{color:tool.accent}}>{tool.name}</h1>
+              <p className="detail-sub">{tool.desc}</p>
+            </div>
+            <div className="detail-body">
+              <div className="detail-features">
+                {tool.feats.map((f,i)=>(
+                  <div key={i} className={`detail-feat rv d${i+1}`}>
+                    <div className="detail-feat-icon" style={{background:`${tool.accent}15`,color:tool.accent}}>
+                      {['◎','△','☽','∑','⊕','✦'][i]||'◎'}
+                    </div>
+                    <div>
+                      <div className="detail-feat-title">{f}</div>
+                      <div className="detail-feat-desc">AI-powered analysis and personalized guidance for your journey.</div>
+                    </div>
                   </div>
                 ))}
               </div>
+              <div className="rv d2">
+                {(tool.id==='numer'||tool.id==='strategy')
+                  ? <PythaCalc lang={lang}/>
+                  : tool.id==='astro'
+                  ? <PromptBlock promptKey="astro" accent={tool.accent} label="Astrology Oracle · System Prompt"/>
+                  : <div className="glass" style={{padding:32,borderRadius:'var(--r2)',display:'flex',flexDirection:'column',gap:24}}>
+                      <div style={{width:'100%',display:'flex',justifyContent:'center'}}>
+                        <div style={{width:160,height:160}}>
+                          {tool.id==='coach'&&<ArtCoach/>}
+                          {tool.id==='biz'&&<ArtBiz/>}
+                          {tool.id==='svarga'&&<ArtSvarga/>}
+                        </div>
+                      </div>
+                      <button className="btn-p" style={{alignSelf:'flex-start'}}>Start Session →</button>
+                    </div>
+                }
+              </div>
             </div>
-          </section>
-        )}
+            <div style={{textAlign:'center',marginTop:48}} className="rv">
+              <button className="btn-p" onClick={onBack}>← Back to all systems</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
 
-        {/* Programs */}
-        <section className="sp2" style={{background:s.framework?'var(--bg-alt)':'var(--bg)'}}>
+    /* ── FOOTER ── */
+    function Footer({t,onNav}){
+      return(
+        <footer>
           <div className="mw">
-            <div className="eyebrow rv" style={{color:s.accent,marginBottom:36}}>{ui.programs}</div>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:18}}>
-              {s.programs.map((p,i)=>(
-                <div key={p.num} className={`prog-card rv d${i+1}`}>
-                  <div className="prog-num" style={{color:s.accent}}>{p.num}</div>
-                  <div style={{fontFamily:'var(--font-d)',fontSize:'1.2rem',fontWeight:400,color:'var(--text-1)',marginBottom:10,lineHeight:1.3}}>{p.title}</div>
-                  <div style={{fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.78,fontWeight:300,marginBottom:16}}>{p.desc}</div>
-                  <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
-                    {p.tags.map(t=>(
-                      <span key={t} style={{fontSize:'.58rem',letterSpacing:'.09em',textTransform:'uppercase',padding:'4px 10px',background:'var(--gold-f)',border:'1px solid var(--border)',borderRadius:20,color:'var(--text-3)'}}>{t}</span>
-                    ))}
-                  </div>
+            <div className="footer-grid">
+              <div>
+                <div style={{display:'flex',alignItems:'center',gap:10}}>
+                  <div className="nav-logo-mark">L</div>
+                  <div className="footer-brand-h">LifeForge <em style={{fontStyle:'italic'}}>AI</em></div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="sp2" style={{background:s.framework?'var(--bg)':'var(--bg-alt)'}}>
-          <div className="mw">
-            <div className="eyebrow rv" style={{color:s.accent,marginBottom:36}}>{ui.testimonials}</div>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16}}>
-              {s.testimonials.map((tm,i)=>(
-                <div key={tm.name} className={`tcard rv d${i+1}`}>
-                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start'}}>
-                    <div><div className="tcard-name">{tm.name}</div><div className="tcard-city">{tm.city}</div></div>
-                    <div style={{fontFamily:'var(--font-d)',fontSize:'2.2rem',color:s.accent,lineHeight:1,opacity:.35}}>"</div>
-                  </div>
-                  <div className="tcard-text">{tm.text}</div>
+                <p className="footer-brand-sub" style={{marginTop:12}}>Premium AI-powered personal development ecosystem. Unlock your human potential.</p>
+                <div className="footer-soc" style={{marginTop:20}}>
+                  {['T','in','✦'].map(s=><div key={s} className="footer-soc-btn">{s}</div>)}
                 </div>
-              ))}
+              </div>
+              <div>
+                <div className="footer-col-h">{t.col1}</div>
+                <div className="footer-links">
+                  {['Personal Coaching','Business Coaching','Astrology','Numerology','Svarga System','Life Strategy'].map(l=><div key={l} className="footer-link">{l}</div>)}
+                </div>
+              </div>
+              <div>
+                <div className="footer-col-h">{t.col2}</div>
+                <div className="footer-links">
+                  {SPECIALISTS.slice(0,5).map(s=><div key={s.id} className="footer-link">{s.name}</div>)}
+                </div>
+              </div>
+              <div>
+                <div className="footer-col-h">{t.col3}</div>
+                <div className="footer-links">
+                  {['About LifeForge','How it works','Privacy Policy','Terms of Service','Contact'].map(l=><div key={l} className="footer-link">{l}</div>)}
+                </div>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <div className="footer-copy">{t.copy}</div>
+              <div className="footer-author">{t.author} <a href="https://georgiirivera.ai" target="_blank" rel="noopener">Georgii Rivera</a> · <a href="https://t.me/riverapeople" target="_blank" rel="noopener">@riverapeople</a></div>
             </div>
           </div>
-        </section>
+        </footer>
+      );
+    }
 
-        {/* CTA */}
-        <section className="cta-strip">
-          <div style={{position:'relative',zIndex:1}}>
-            <h2 className="rv" style={{fontFamily:'var(--font-d)',fontWeight:400,fontSize:'clamp(28px,5vw,54px)',color:'var(--text-1)',lineHeight:1.1,marginBottom:14,letterSpacing:'-.01em'}}>
-              {ui.cta.title}
-            </h2>
-            <p className="rv d1" style={{fontSize:'.89rem',color:'var(--text-2)',marginBottom:34,lineHeight:1.7,maxWidth:440,margin:'0 auto 34px'}}>
-              {ui.cta.sub}
-            </p>
-            <div className="rv d2" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-              <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-p">{ui.cta.wa}</a>
-              <a href={TELEGRAM} target="_blank" rel="noopener" className="btn-g"><IcoTG s={16}/> {ui.cta.tg}</a>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
+    /* ── APP ── */
+    function App(){
+      const [lang,setLang]=useState('en');
+      const [theme,setTheme]=useState('dark');
+      const [view,setView]=useState('home');
+      const [toolId,setToolId]=useState(null);
+      const specialistsRef=useRef(null);
+      const toolsRef=useRef(null);
 
-  /* ─── Footer ─── */
-  function Footer({ lang }) {
-    const t = UI[lang].footer;
-    return (
-      <footer className="footer-bar">
-        <span style={{fontSize:'.67rem',color:'var(--text-3)',letterSpacing:'.04em'}}>{t.copy}</span>
-        <div className="f-links">{t.links.map(l=><button key={l} className="f-link">{l}</button>)}</div>
-      </footer>
-    );
-  }
+      useEffect(()=>{
+        document.documentElement.setAttribute('lang',lang);
+        document.documentElement.setAttribute('dir',lang==='he'?'rtl':'ltr');
+      },[lang]);
 
-  /* ─── App ─── */
-  function App() {
-    const [lang,  setLang]  = React.useState('en');
-    const [theme, setTheme] = React.useState('dark');
-    const [view,  setView]  = React.useState('portal');
+      useEffect(()=>{
+        document.documentElement.setAttribute('data-theme',theme);
+      },[theme]);
 
-    React.useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
-    const toggleTheme = () => setTheme(t => t==='dark'?'light':'dark');
+      const toggleTheme=()=>setTheme(t=>t==='dark'?'light':'dark');
+      const t=T[lang]||T.en;
+      const tools=TOOLS_DATA[lang]||TOOLS_DATA.en;
+      const currentTool=toolId?tools.find(t=>t.id===toolId):null;
 
-    const handleLang = (l) => { setLang(l); document.documentElement.lang = l; };
+      const scrollToTools=()=>{
+        if(view!=='home')setView('home');
+        setTimeout(()=>document.getElementById('tools')?.scrollIntoView({behavior:'smooth'}),100);
+      };
+      const scrollToSpecs=()=>{
+        if(view!=='home')setView('home');
+        setTimeout(()=>document.getElementById('specialists')?.scrollIntoView({behavior:'smooth'}),100);
+      };
+      const onTool=id=>{setToolId(id);setView('tool');window.scrollTo(0,0)};
+      const onBack=()=>{setView('home');setToolId(null);setTimeout(()=>document.getElementById('tools')?.scrollIntoView({behavior:'smooth'}),80)};
+      const onNav=v=>{
+        if(v==='home'){setView('home');window.scrollTo(0,0)}
+        else if(v==='specialists')scrollToSpecs();
+      };
 
-    const openSpec = (id) => { setView(id); window.scrollTo({top:0,behavior:'instant'}); };
-    const goPortal = ()   => { setView('portal'); window.scrollTo({top:0,behavior:'instant'}); };
+      return(
+        <>
+          <Nav lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} onNav={onNav} t={t.nav}/>
+          {view==='home'&&(
+            <>
+              <Hero t={t.hero} onExplore={scrollToTools} onSpecialists={scrollToSpecs}/>
+              <ToolsSection tools={tools} onTool={onTool} t={t.tools}/>
+              <SpecialistsSection lang={lang} t={t.specialists}/>
+              <Footer t={t.footer} onNav={onNav}/>
+            </>
+          )}
+          {view==='tool'&&currentTool&&(
+            <ToolDetail tool={currentTool} lang={lang} onBack={onBack}/>
+          )}
+        </>
+      );
+    }
 
-    const isPortal = view === 'portal';
-
-    return (
-      <>
-        <Nav lang={lang} setLang={handleLang} theme={theme} toggleTheme={toggleTheme} isPortal={isPortal} onBack={goPortal}/>
-        {isPortal
-          ? <Portal lang={lang} onSelect={openSpec}/>
-          : <SpecDetail lang={lang} specId={view} onBack={goPortal}/>
-        }
-        <Footer lang={lang}/>
-        <a href={WHATSAPP} target="_blank" rel="noopener" className="wa-float" aria-label="WhatsApp"><IcoWA s={26}/></a>
-      </>
-    );
-  }
-
-  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
 </body>
 </html>
