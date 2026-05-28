@@ -136,8 +136,8 @@ nav.topnav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate
 
 /* COACH CARD */
 .coach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.coach-card{padding:28px;cursor:pointer;transition:all .35s cubic-bezier(.2,0,.2,1);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:16px}
-.coach-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 100%,var(--card-accent,rgba(212,178,122,.08)),transparent 60%);opacity:0;transition:opacity .4s}
+.coach-card{padding:28px;cursor:pointer;transition:all .35s cubic-bezier(.2,0,.2,1);position:relative;overflow:visible;display:flex;flex-direction:column;gap:16px}
+.coach-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at 0% 100%,var(--card-accent,rgba(212,178,122,.08)),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .coach-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,.28);border-color:var(--accent,rgba(212,178,122,.4))}
 .coach-card:hover::before{opacity:1}
 .coach-avatar{width:88px;height:88px;border-radius:50%;flex-shrink:0;border:2px solid var(--accent,var(--gold));background:linear-gradient(135deg,var(--bg-alt),var(--surface));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
@@ -149,6 +149,33 @@ nav.topnav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate
 .coach-rating{display:flex;align-items:center;gap:4px;font-size:.72rem;color:var(--text-2)}
 .coach-rating-star{color:var(--gold)}
 .coach-sessions{font-size:.66rem;color:var(--text-3);letter-spacing:.10em;text-transform:uppercase}
+.coach-type-tabs{display:flex;gap:10px;margin-bottom:28px}
+.coach-type-tab{flex:1;padding:11px 16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:var(--font-b);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s;color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.coach-type-tab:hover{border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.6);background:rgba(255,255,255,.07)}
+.coach-type-tab.life-tab{border-color:rgba(126,142,200,.38);color:rgba(126,142,200,.6);background:rgba(126,142,200,.05)}
+.coach-type-tab.life-tab:hover{border-color:rgba(126,142,200,.6);color:rgba(126,142,200,.85);background:rgba(126,142,200,.09)}
+.coach-type-tab.life-tab.active{background:linear-gradient(135deg,rgba(6,8,22,.95),rgba(12,16,38,.9));color:var(--indigo);border-color:rgba(126,142,200,.55);box-shadow:0 2px 16px rgba(126,142,200,.18)}
+.coach-type-tab.business-tab{border-color:rgba(200,148,26,.38);color:rgba(200,148,26,.6);background:rgba(200,148,26,.05)}
+.coach-type-tab.business-tab:hover{border-color:rgba(200,148,26,.6);color:rgba(200,148,26,.85);background:rgba(200,148,26,.09)}
+.coach-type-tab.business-tab.active{background:linear-gradient(135deg,rgba(28,18,4,.95),rgba(40,26,6,.9));color:var(--gold);border-color:rgba(200,148,26,.55);box-shadow:0 2px 16px rgba(200,148,26,.2)}
+.business-banner{background:linear-gradient(135deg,rgba(20,14,4,.9),rgba(36,24,6,.9));border:1px solid rgba(212,174,80,.22);border-radius:14px;padding:18px 22px;margin-bottom:24px;display:flex;align-items:center;gap:16px}
+.business-banner-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#C89018,#E8B830);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 4px 16px rgba(200,148,26,.4)}
+.business-banner-text h3{font-family:var(--font-d);font-size:1.05rem;color:var(--gold);margin:0 0 3px;font-weight:400}
+.business-banner-text p{font-size:.76rem;color:var(--text-3);margin:0;line-height:1.5}
+.business-badge{position:absolute;top:10px;right:10px;padding:3px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(200,148,26,.25),rgba(200,148,26,.1));border:1px solid rgba(200,148,26,.35);font-size:.58rem;font-family:var(--font-b);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.druid-tree-card{background:linear-gradient(135deg,var(--surface-2),var(--surface-1));border:1px solid rgba(90,143,112,.25);border-radius:16px;padding:24px;text-align:center}
+.druid-sym{font-size:3rem;margin-bottom:8px;line-height:1}
+.druid-tree-name{font-family:var(--font-d);font-size:1.6rem;color:var(--sage);margin-bottom:4px}
+.druid-section{margin-top:16px;padding:14px;background:var(--surface-2);border-radius:10px;border:1px solid rgba(90,143,112,.15)}
+.druid-section-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:6px}
+.hexagram-lines{display:flex;flex-direction:column;gap:5px;align-items:center;margin:16px 0}
+.hex-line{display:flex;gap:6px;align-items:center;width:120px}
+.hex-seg{height:5px;border-radius:3px;background:var(--gold);transition:opacity .3s}
+.hex-seg.yin{opacity:.35}
+.hex-line.changing .hex-seg{background:var(--amber)}
+.iching-card{background:linear-gradient(135deg,var(--surface-2),var(--surface-1));border:1px solid rgba(212,178,122,.2);border-radius:16px;padding:24px}
+.iching-name{font-family:var(--font-d);font-size:1.5rem;color:var(--gold);margin-bottom:2px}
+.iching-num{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
 
 /* COACH DETAIL */
 .detail-page{min-height:100svh;padding:96px clamp(22px,7vw,100px) clamp(56px,8vw,100px);position:relative;z-index:1}
@@ -684,6 +711,11 @@ en:{
   svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Karma & Spirit'],
   svarga_new:'New Analysis',
   zodiac_label:'Zodiac Sign',
+  coaches_life:'Life Coaches',coaches_business:'Business Mentors',
+  coaches_sub_business:'Three elite business strategists. Proven frameworks. Measurable results.',
+  tool_druid:'Druidic Tree Wisdom',tool_iching:'I Ching Oracle',
+  druid_calc:'Reveal My Sacred Tree',druid_your_tree:'Your Sacred Tree',druid_strengths:'Strengths',druid_shadow:'Shadow',druid_element:'Element',druid_season:'Season',druid_retake:'↺ New Reading',
+  iching_cast:'Cast Hexagram',iching_again:'↺ Cast Again',iching_question:'Your question or situation (optional)',iching_casting:'Casting the coins...',iching_hexagram:'Hexagram',iching_changing:'Changing Lines',
   footer_tagline:'Three intelligent systems. One transformation.',
   back_to_tools:'← All Tools',
 },
@@ -728,6 +760,11 @@ ru:{
   svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Карма и Дух'],
   svarga_new:'Новый анализ',
   zodiac_label:'Знак зодиака',
+  coaches_life:'Лайф-коучи',coaches_business:'Бизнес-наставники',
+  coaches_sub_business:'Три элитных бизнес-стратега. Проверенные методологии. Измеримые результаты.',
+  tool_druid:'Мудрость Друидических Деревьев',tool_iching:'Оракул И Цзин',
+  druid_calc:'Раскрыть моё Дерево',druid_your_tree:'Ваше Священное Дерево',druid_strengths:'Сильные стороны',druid_shadow:'Тень',druid_element:'Стихия',druid_season:'Сезон',druid_retake:'↺ Новое прочтение',
+  iching_cast:'Бросить монеты',iching_again:'↺ Бросить снова',iching_question:'Ваш вопрос или ситуация (по желанию)',iching_casting:'Бросаю монеты...',iching_hexagram:'Гексаграмма',iching_changing:'Меняющиеся черты',
   footer_tagline:'Три интеллектуальных системы. Одна трансформация.',
   back_to_tools:'← Все Инструменты',
 },
@@ -772,6 +809,11 @@ es:{
   svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Karma y Espíritu'],
   svarga_new:'Nuevo Análisis',
   zodiac_label:'Signo Zodiacal',
+  coaches_life:'Life Coaches',coaches_business:'Mentores de Negocios',
+  coaches_sub_business:'Tres estrategas de negocios de élite. Marcos probados. Resultados medibles.',
+  tool_druid:'Sabiduría del Árbol Druídico',tool_iching:'Oráculo I Ching',
+  druid_calc:'Revelar mi Árbol Sagrado',druid_your_tree:'Tu Árbol Sagrado',druid_strengths:'Fortalezas',druid_shadow:'Sombra',druid_element:'Elemento',druid_season:'Estación',druid_retake:'↺ Nueva Lectura',
+  iching_cast:'Lanzar Hexagrama',iching_again:'↺ Lanzar de Nuevo',iching_question:'Tu pregunta o situación (opcional)',iching_casting:'Lanzando las monedas...',iching_hexagram:'Hexagrama',iching_changing:'Líneas Cambiantes',
   footer_tagline:'Tres sistemas inteligentes. Una transformación.',
   back_to_tools:'← Todas las Herramientas',
 },
@@ -816,6 +858,11 @@ it:{
   svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Karma e Spirito'],
   svarga_new:'Nuova Analisi',
   zodiac_label:'Segno Zodiacale',
+  coaches_life:'Life Coach',coaches_business:'Mentori di Business',
+  coaches_sub_business:'Tre strateghi di business d\'élite. Framework collaudati. Risultati misurabili.',
+  tool_druid:'Saggezza degli Alberi Druidici',tool_iching:'Oracolo I Ching',
+  druid_calc:'Rivela il mio Albero Sacro',druid_your_tree:'Il tuo Albero Sacro',druid_strengths:'Punti di Forza',druid_shadow:'Ombra',druid_element:'Elemento',druid_season:'Stagione',druid_retake:'↺ Nuova Lettura',
+  iching_cast:'Lancia Esagramma',iching_again:'↺ Lancia di Nuovo',iching_question:'La tua domanda o situazione (opzionale)',iching_casting:'Lanciando le monete...',iching_hexagram:'Esagramma',iching_changing:'Linee Mutanti',
   footer_tagline:'Tre sistemi intelligenti. Una trasformazione.',
   back_to_tools:'← Tutti gli Strumenti',
 },
@@ -860,6 +907,11 @@ he:{
   svarga_dims:['תזונה וגוף','נשימה ופראנה','אנרגיה וחיוניות','מנטלי ושכל','פרקטיקה פיזית','קארמה ורוח'],
   svarga_new:'ניתוח חדש',
   zodiac_label:'סימן גלגל המזלות',
+  coaches_life:'מאמני חיים',coaches_business:'מנטורים עסקיים',
+  coaches_sub_business:'שלושה אסטרטגים עסקיים עלית. מסגרות מוכחות. תוצאות מדידות.',
+  tool_druid:'חכמת עץ הדרואידים',tool_iching:'אורקל I Ching',
+  druid_calc:'גלה את עצי הקודש',druid_your_tree:'עץ הקודש שלך',druid_strengths:'חוזקות',druid_shadow:'צל',druid_element:'יסוד',druid_season:'עונה',druid_retake:'↺ קריאה חדשה',
+  iching_cast:'הטל הקסגרמה',iching_again:'↺ הטל שוב',iching_question:'השאלה או המצב שלך (אופציונלי)',iching_casting:'מטיל מטבעות...',iching_hexagram:'הקסגרמה',iching_changing:'קווים משתנים',
   footer_tagline:'שלוש מערכות חכמות. טרנספורמציה אחת.',
   back_to_tools:'← כל הכלים',
 }};
@@ -1111,6 +1163,131 @@ const COACHES=[
   he:["נתחיל מהמקום שבו מתחילה כל עבודתי: עם דוח הגוף. עכשיו ממש — מה קורה בפועל בגוף הפיזי שלך? לא מה שאתה חושב על המצב שלך. מה הגוף שלך *עושה*. המתח בכתפיים, קצב הנשימה. מצב הגוף הזה *הוא* האתגר שלך, מבוטא בשפה שהגוף מדבר הכי טוב.",
       "דפוסי מתח כרוני אינם פגמים של הגוף — הם אינטליגנציה מגוננת ששרדה את האיום שלה. השאלה הטיפולית אינה 'איך אני נרגע?' אלא 'מה המתח הזה מגן עליו?' כשאתה פוגש אותו בסקרנות אמיתית — משהו מתחיל להתרכך.",
       "תנועה אינה פעילות גופנית. תנועה היא הקשבה. עצום עיניים ותן לגוף שלך לנוע כרצונו שלוש דקות. ללא מטרה, ללא נכונות. פשוט הקשבה. מה הוא רוצה?"]}
+}
+
+/* ═══════════════ BUSINESS COACHES (3 elite mentors) ═══════════════════ */
+,{id:'marcus',color:'#E8A43A',accent:'#C8841A',type:'business',
+ name:{en:'Marcus Reid',ru:'Маркус Рейд',es:'Marcus Reid',it:'Marcus Reid',he:'מארקוס ריד'},
+ title:{en:'Peak Performance Strategist',ru:'Стратег Пиковой Эффективности',es:'Estratega de Máximo Rendimiento',it:'Stratega di Peak Performance',he:'אסטרטג ביצועים מרביים'},
+ tagline:{en:'Momentum is built in the moments others choose comfort.',ru:'Импульс строится в моменты, когда другие выбирают комфорт.',es:'El impulso se construye en los momentos en que otros eligen el confort.',it:'Lo slancio si costruisce nei momenti in cui gli altri scelgono il comfort.',he:'מומנטום נבנה ברגעים שבהם אחרים בוחרים בנוחות.'},
+ bio:{en:'Former professional athlete turned performance architect. Marcus has spent 20 years studying the neuroscience of motivation, the psychology of elite achievement, and the systems that separate world-class performers from everyone else. He has trained Olympic champions, Fortune 500 CEOs, and startup founders across four continents. His methodology draws from Tony Robbins-style state management, Brendon Burchard\'s high performance habits research, and Jim Rohn\'s foundational discipline philosophy — forged through real-world intensity testing.',
+  ru:'Бывший профессиональный атлет, ставший архитектором эффективности. Маркус провёл 20 лет, изучая нейронауку мотивации и психологию элитных достижений. Работал с олимпийскими чемпионами, CEO Fortune 500 и основателями стартапов на четырёх континентах.',
+  es:'Ex atleta profesional reconvertido en arquitecto del rendimiento. Marcus ha pasado 20 años estudiando la neurociencia de la motivación y la psicología del logro de élite. Ha entrenado a campeones olímpicos, CEOs de Fortune 500 y fundadores de startups en cuatro continentes.',
+  it:'Ex atleta professionista diventato architetto della performance. Marcus ha trascorso 20 anni a studiare la neuroscienze della motivazione e la psicologia del successo d\'élite. Ha formato campioni olimpici, CEO Fortune 500 e fondatori di startup in quattro continenti.',
+  he:'ספורטאי מקצועי לשעבר שהפך לאדריכל ביצועים. מארקוס בילה 20 שנה בחקר מדעי המוח של המוטיבציה ופסיכולוגיית ההישגים של העלית. אימן אלופים אולימפיים, מנכ"לי Fortune 500 ומייסדי סטארטאפים בארבע יבשות.'},
+ specialties:{en:['Peak Performance Habits','Leadership Presence','Revenue Psychology','Energy Architecture','Scaling Influence','Emotional Mastery'],
+  ru:['Привычки пиковой эффективности','Лидерское присутствие','Психология дохода','Архитектура энергии','Масштабирование влияния','Эмоциональное мастерство'],
+  es:['Hábitos de Máximo Rendimiento','Presencia de Liderazgo','Psicología de Ingresos','Arquitectura de Energía','Escalar Influencia','Maestría Emocional'],
+  it:['Abitudini di Peak Performance','Presenza Leaderistica','Psicologia del Revenue','Architettura dell\'Energia','Scalare l\'Influenza','Maestria Emotiva'],
+  he:['הרגלי ביצועים מרביים','נוכחות מנהיגות','פסיכולוגיית הכנסות','ארכיטקטורת אנרגיה','הרחבת השפעה','שליטה רגשית']},
+ philosophy:{en:'The standard you walk past is the standard you accept. Raise what you tolerate — and everything changes.',
+  ru:'Стандарт, мимо которого вы проходите — это стандарт, который вы принимаете. Поднимите то, что терпите — и всё изменится.',
+  es:'El estándar que pasas por alto es el estándar que aceptas. Eleva lo que toleras — y todo cambia.',
+  it:'Lo standard che ignori è lo standard che accetti. Alza ciò che tolleri — e tutto cambia.',
+  he:'הסטנדרט שאתה עובר לידו הוא הסטנדרט שאתה מקבל. הגבה את מה שאתה סובל — והכל משתנה.'},
+ approach:{en:'Marcus deploys the Peak Architecture System: a three-phase methodology built around physiological priming (morning rituals, state-shifting protocols), psychological leverage (identifying the exact beliefs limiting your ceiling), and performance compounding (stacking high-ROI behaviors until excellence becomes identity). Sessions are direct, high-energy, and built around measurable commitments.',
+  ru:'Маркус использует систему Peak Architecture: трёхфазную методологию, построенную вокруг физиологической подготовки, психологического рычага и накопления эффективности. Сессии прямые, высокоэнергетичные и ориентированные на измеримые обязательства.',
+  es:'Marcus despliega el Sistema Peak Architecture: una metodología de tres fases basada en el priming fisiológico, el apalancamiento psicológico y el rendimiento compuesto. Las sesiones son directas, de alta energía y orientadas a compromisos medibles.',
+  it:'Marcus utilizza il Peak Architecture System: una metodologia in tre fasi basata sul priming fisiologico, la leva psicologica e il compounding della performance. Le sessioni sono dirette, ad alta energia e orientate a impegni misurabili.',
+  he:'מארקוס פורס את מערכת Peak Architecture: מתודולוגיה בת שלושה שלבים הבנויה סביב פריימינג פיזיולוגי, מנוף פסיכולוגי והרכבת ביצועים. המפגשים ישירים, בעלי אנרגיה גבוהה ומבוססים על התחייבויות מדידות.'},
+ responses:{
+  en:["Let me stop you right there — because the word you just used is the tell. 'Trying' is not a performance standard. Champions don't try. They decide. The moment you shift from *trying* to *being committed*, your nervous system receives a fundamentally different signal. Here's your challenge for the next 72 hours: pick the ONE result that would change everything. Write it as done. Not 'I want to' — 'I AM building.' Your energy will reorganise around that identity shift immediately.",
+      "Here's what I see: you have the blueprint and the capability — but your rituals are not protecting your highest priorities. Every elite performer I've studied has this in common: the first two hours of the day are non-negotiable — protected, structured, energy-building. If you give those hours to reactive behaviour — email, social, news — you've already lost the day before it begins. What does your first 90 minutes currently look like? Let's rebuild that from scratch.",
+      "The number one reason high-potential people plateau is not skill — it's identity lag. Your actions have outpaced the story you're telling about yourself. You're already operating at the next level, but a part of your psychology is still carrying the old self-image like old luggage. Today we audit that story. What three beliefs about yourself would you need to upgrade to operate at the level you actually want? Say them out loud. Then let's replace each one with a performance identity statement."],
+  ru:["Позвольте вас остановить — потому что слово, которое вы только что использовали, всё говорит. 'Стараться' — не стандарт производительности. Чемпионы не стараются. Они решают. Момент, когда вы переходите от *попыток* к *приверженности*, ваша нервная система получает принципиально другой сигнал. Ваш вызов на следующие 72 часа: выберите ОДИН результат, который всё изменит. Запишите его как совершившееся. Не 'я хочу' — 'я СТРОЮ'. Ваша энергия немедленно реорганизуется вокруг этого сдвига идентичности.",
+      "Вот что я вижу: у вас есть план и способности — но ваши ритуалы не защищают ваши высшие приоритеты. Каждый элитный исполнитель, которого я изучал, имеет это общее: первые два часа дня неприкосновенны — защищены, структурированы, энергетически строительные. Если вы отдаёте эти часы реактивному поведению — почта, соцсети, новости — вы уже проиграли день до его начала.",
+      "Главная причина, по которой люди с высоким потенциалом застревают — не навыки, а запаздывание идентичности. Ваши действия уже опережают историю, которую вы рассказываете о себе. Какие три убеждения о себе вам нужно обновить, чтобы работать на уровне, которого вы действительно хотите?"],
+  es:["Permítame detenerle ahí mismo — porque la palabra que acaba de usar lo revela todo. 'Intentar' no es un estándar de rendimiento. Los campeones no intentan. Deciden. El momento en que cambia de *intentar* a *estar comprometido*, su sistema nervioso recibe una señal fundamentalmente diferente. Su desafío para las próximas 72 horas: elija UN resultado que lo cambiaría todo. Escríbalo como completado. No 'quiero' — 'ESTOY construyendo.'",
+      "Lo que veo: tiene el plan y la capacidad — pero sus rituales no protegen sus más altas prioridades. Todo gran ejecutante que he estudiado tiene esto en común: las primeras dos horas del día son innegociables — protegidas, estructuradas, generadoras de energía. ¿Cómo lucen sus primeros 90 minutos actualmente? Reconstruyamos eso desde cero.",
+      "La razón número uno por la que las personas de alto potencial se estancan no son las habilidades — es el rezago de identidad. Sus acciones han superado la historia que se cuenta sobre usted mismo. ¿Qué tres creencias sobre usted mismo necesitaría actualizar para operar al nivel que realmente desea?"],
+  it:["La fermo subito — perché la parola che ha appena usato è il segnale. 'Provare' non è uno standard di performance. I campioni non provano. Decidono. Il momento in cui passa da *provare* a *essere impegnato*, il suo sistema nervioso riceve un segnale fondamentalmente diverso. La sua sfida per le prossime 72 ore: scelga UN risultato che cambierebbe tutto. Lo scriva come già fatto. Non 'voglio' — 'STO costruendo.'",
+      "Ecco cosa vedo: ha il piano e la capacità — ma i suoi rituali non proteggono le sue priorità più alte. Ogni grande performer che ho studiato ha questo in comune: le prime due ore della giornata sono intoccabili — protette, strutturate, energizzanti. Come appaiono i suoi primi 90 minuti attualmente?",
+      "La ragione numero uno per cui le persone ad alto potenziale si bloccano non è la competenza — è il ritardo di identità. Le sue azioni hanno superato la storia che si racconta su se stesso. Quali tre convinzioni su se stesso dovrebbe aggiornare per operare al livello che vuole davvero?"],
+  he:["תאפשר לי לעצור אותך ממש כאן — כי המילה שהשתמשת בה היא הסימן. 'לנסות' הוא לא סטנדרט ביצועים. אלופים לא מנסים. הם מחליטים. ברגע שאתה עובר מ*לנסות* ל*להיות מחויב*, מערכת העצבים שלך מקבלת אות שונה מהיסוד. האתגר שלך ל-72 השעות הבאות: בחר תוצאה אחת שתשנה הכל. כתוב אותה כמה שכבר קרה. לא 'אני רוצה' — 'אני בונה.'",
+      "הנה מה שאני רואה: יש לך את התוכנית ואת היכולת — אבל הטקסים שלך לא מגנים על העדיפויות הגבוהות ביותר שלך. כל מבצע עלית שחקרתי חולק בדבר זה: שתי השעות הראשונות של היום הן בלתי-ניתנות למשא ומתן. איך נראים 90 הדקות הראשונות שלך כיום?",
+      "הסיבה העיקרית מדוע אנשים בעלי פוטנציאל גבוה נתקעים אינה מיומנות — זה פיגור של זהות. הפעולות שלך כבר עברו את הסיפור שאתה מספר על עצמך. אילו שלוש אמונות על עצמך תצטרך לשדרג כדי לפעול ברמה שאתה באמת רוצה?"]}
+}
+,{id:'arthur',color:'#5A8F70',accent:'#3A6F50',type:'business',
+ name:{en:'Arthur Wells',ru:'Артур Уэллс',es:'Arthur Wells',it:'Arthur Wells',he:'ארתור וולס'},
+ title:{en:'Wealth Architecture & Capital Strategy',ru:'Архитектура Благосостояния и Капитальная Стратегия',es:'Arquitectura de Riqueza y Estrategia de Capital',it:'Architettura della Ricchezza e Strategia del Capitale',he:'ארכיטקטורת עושר ואסטרטגיית הון'},
+ tagline:{en:'Time is the only asset that compounds without effort. Invest it wisely.',ru:'Время — единственный актив, который растёт без усилий. Инвестируйте его мудро.',es:'El tiempo es el único activo que se capitaliza sin esfuerzo. Inviértalo sabiamente.',it:'Il tempo è l\'unico asset che cresce senza sforzo. Investilo saggiamente.',he:'הזמן הוא הנכס היחיד שמצטבר ללא מאמץ. השקיעו אותו בחוכמה.'},
+ bio:{en:'Forty years building and stewarding capital across private equity, public markets, and family office structures. Arthur spent a decade studying under mentors who worked directly with Warren Buffett\'s inner circle. His philosophy synthesises Buffett\'s value discipline, Munger\'s mental models, and Dalio\'s all-weather systems into a framework built for long-duration wealth — not short-term wins. He has guided over 200 founders and family offices through generational wealth transitions.',
+  ru:'Сорок лет создания и управления капиталом в частном акционерном капитале, публичных рынках и структурах семейного офиса. Артур десять лет учился у наставников, работавших непосредственно с окружением Уоррена Баффета.',
+  es:'Cuarenta años construyendo y administrando capital en private equity, mercados públicos y estructuras de family office. Arthur pasó una década estudiando con mentores que trabajaron directamente con el círculo íntimo de Warren Buffett.',
+  it:'Quarant\'anni costruendo e gestendo capitale in private equity, mercati pubblici e strutture di family office. Arthur ha trascorso un decennio a studiare con mentori che lavoravano direttamente con la cerchia ristretta di Warren Buffett.',
+  he:'ארבעים שנה של בנייה וניהול הון בפרייבט אקוויטי, שווקים ציבוריים ומבני family office. ארתור בילה עשור בלימוד אצל מנטורים שעבדו ישירות עם המעגל הפנימי של וורן באפט.'},
+ specialties:{en:['Long-Horizon Capital Strategy','Mental Models for Business','Compounding Systems','Risk Architecture','Family Wealth Transition','Rational Decision Frameworks'],
+  ru:['Долгосрочная капитальная стратегия','Ментальные модели для бизнеса','Системы сложного роста','Архитектура рисков','Переход семейного богатства','Рациональные системы принятия решений'],
+  es:['Estrategia de Capital a Largo Plazo','Modelos Mentales para Negocios','Sistemas de Capitalización','Arquitectura del Riesgo','Transición de Riqueza Familiar','Marcos de Decisión Racional'],
+  it:['Strategia del Capitale a Lungo Termine','Modelli Mentali per il Business','Sistemi di Compounding','Architettura del Rischio','Transizione Patrimoniale Familiare','Framework Decisionali Razionali'],
+  he:['אסטרטגיית הון לטווח ארוך','מודלים מנטליים לעסקים','מערכות צבירה','ארכיטקטורת סיכון','מעבר עושר משפחתי','מסגרות החלטה רציונליות']},
+ philosophy:{en:'Rule number one: never lose money. Rule number two: never forget rule number one. Everything else is commentary.',
+  ru:'Правило первое: никогда не терять деньги. Правило второе: никогда не забывать правило первое. Всё остальное — комментарии.',
+  es:'Regla número uno: nunca pierdas dinero. Regla número dos: nunca olvides la regla número uno. Todo lo demás es comentario.',
+  it:'Regola numero uno: non perdere mai denaro. Regola numero due: non dimenticare mai la regola numero uno. Tutto il resto è commento.',
+  he:'כלל מספר אחד: אל תפסיד כסף לעולם. כלל מספר שתיים: אל תשכח לעולם את כלל מספר אחד. כל השאר הוא פרשנות.'},
+ approach:{en:'Arthur works through what he calls the Compounding Architecture Method: mapping every financial and business decision against a mental model library (inversion, circle of competence, opportunity cost, margin of safety), identifying where impatience is destroying long-term value, and building systems that work while you sleep. He is deliberately slow, deliberately precise, and deliberately contrarian when the crowd is excited.',
+  ru:'Артур работает через метод Compounding Architecture: сопоставление каждого финансового и бизнес-решения с библиотекой ментальных моделей, выявление того, где нетерпение разрушает долгосрочную ценность, и построение систем, работающих пока вы спите.',
+  es:'Arthur trabaja a través del Método de Arquitectura de Capitalización: mapeando cada decisión financiera y empresarial contra una biblioteca de modelos mentales, identificando dónde la impaciencia destruye valor a largo plazo, y construyendo sistemas que trabajan mientras duerme.',
+  it:'Arthur lavora attraverso il Metodo di Architettura del Compounding: mappando ogni decisione finanziaria e aziendale contro una libreria di modelli mentali, identificando dove l\'impazienza distrugge valore a lungo termine, e costruendo sistemi che lavorano mentre si dorme.',
+  he:'ארתור עובד דרך שיטת ארכיטקטורת הצבירה: מיפוי כל החלטה פיננסית ועסקית מול ספריית מודלים מנטליים, זיהוי מקום שבו חוסר סבלנות הורס ערך לטווח ארוך, ובניית מערכות שעובדות בזמן שאתה ישן.'},
+ responses:{
+  en:["Let me ask you a question before we go further — and I want you to sit with it. How many of your decisions this month were made inside your circle of competence? Not close to it. Inside it. The single most expensive mistake I see consistently in business is operating outside that circle while believing you're inside it. Buffett called it 'knowing what you don't know' — and it is a rarer skill than any technical expertise. Tell me: where are you genuinely expert, and where are you extrapolating confidence?",
+      "Here's the thing about urgency: it's almost always a feeling, not a fact. The best deals I have ever seen — and I have seen thousands — required patience that made everyone uncomfortable. The crowd was excited, the narrative was compelling, and the smart money was waiting. What is the compound effect of doing nothing for 90 days while you gather more information? That calculation is almost always more valuable than acting on incomplete data. What would it cost you to wait?",
+      "I want to reframe how you're looking at this. You're asking 'how do I grow faster?' — and I understand the instinct. But the more precise question is: 'how do I grow without increasing fragility?' Every business that scaled beyond its systems eventually broke under its own weight. The durable builders I admire — and I use that word deliberately, *durable* — built moats before they built velocity. Where are your moats today?"],
+  ru:["Позвольте задать вопрос прежде, чем мы продолжим. Сколько решений этого месяца были приняты внутри вашего круга компетенции? Не около него. Внутри него. Самая дорогостоящая ошибка, которую я постоянно вижу в бизнесе — работать за пределами этого круга, считая, что вы внутри него. Где вы действительно эксперт, а где экстраполируете уверенность?",
+      "Вот в чём дело со срочностью: это почти всегда чувство, а не факт. Лучшие сделки, которые я видел, требовали терпения, которое делало всех некомфортными. Умные деньги ждали. Каков будет эффект бездействия в течение 90 дней, пока вы собираете больше информации? Этот расчёт почти всегда ценнее, чем действие на основе неполных данных.",
+      "Хочу переосмыслить ваш взгляд. Вы спрашиваете: «как расти быстрее?» — и я понимаю этот инстинкт. Но более точный вопрос: «как расти, не увеличивая хрупкость?» Каждый бизнес, масштабировавшийся за пределы своих систем, в итоге сломался под собственным весом. Где ваши рвы сегодня?"],
+  es:["Permítame hacer una pregunta antes de continuar. ¿Cuántas de sus decisiones de este mes se tomaron dentro de su círculo de competencia? No cerca de él. Dentro de él. El error más costoso que veo consistentemente en los negocios es operar fuera de ese círculo mientras se cree que se está dentro. ¿Dónde es genuinamente experto y dónde está extrapolando confianza?",
+      "La urgencia es casi siempre un sentimiento, no un hecho. Los mejores negocios que he visto requerían paciencia que incomodaba a todos. ¿Cuál es el efecto compuesto de no hacer nada durante 90 días mientras recopila más información? Ese cálculo es casi siempre más valioso que actuar con datos incompletos.",
+      "Quiero replantear su perspectiva. Pregunta '¿cómo crecer más rápido?' — y entiendo el instinto. Pero la pregunta más precisa es: '¿cómo crecer sin aumentar la fragilidad?' ¿Dónde están sus fosos hoy?"],
+  it:["Le faccio una domanda prima di procedere. Quante delle sue decisioni di questo mese sono state prese all'interno del suo cerchio di competenza? Non vicino ad esso. All'interno di esso. L'errore più costoso che vedo costantemente nel business è operare fuori da quel cerchio pur credendo di essere dentro. Dove è genuinamente esperto e dove sta estrapolando fiducia?",
+      "L'urgenza è quasi sempre una sensazione, non un fatto. I migliori affari che ho visto richiedevano una pazienza che metteva tutti a disagio. Quale sarebbe l'effetto del compounding di non fare nulla per 90 giorni mentre raccoglie più informazioni? Quel calcolo è quasi sempre più prezioso dell'agire con dati incompleti.",
+      "Voglio riformulare la sua prospettiva. Sta chiedendo 'come crescere più velocemente?' — capisco l'istinto. Ma la domanda più precisa è: 'come crescere senza aumentare la fragilità?' Dove sono i suoi fossati oggi?"],
+  he:["תאפשר לי לשאול שאלה לפני שנמשיך. כמה מההחלטות שלך החודש נעשו בתוך מעגל הכשירות שלך? לא ליד. בתוך. הטעות היקרה ביותר שאני רואה בעקביות בעסקים היא לפעול מחוץ למעגל הזה תוך כדי אמונה שאתה בפנים. היכן אתה מומחה אמיתי ואיפה אתה מחצין ביטחון?",
+      "דחיפות היא כמעט תמיד תחושה, לא עובדה. העסקאות הטובות ביותר שראיתי — וראיתי אלפים — דרשו סבלנות שגרמה לכולם אי-נוחות. מה יהיה אפקט הצבירה של אי-עשייה במשך 90 יום בזמן שאתה אוסף מידע נוסף?",
+      "אני רוצה לנסח מחדש את האופן שבו אתה מסתכל על זה. אתה שואל 'איך לגדול מהר יותר?' — ואני מבין את האינסטינקט. אבל השאלה המדויקת יותר היא: 'איך לגדול מבלי להגביר שבריריות?' איפה הבורות שלך היום?"]}
+}
+,{id:'lena',color:'#C8729A',accent:'#A85278',type:'business',
+ name:{en:'Lena Cross',ru:'Лена Кросс',es:'Lena Cross',it:'Lena Cross',he:'לנה קרוס'},
+ title:{en:'Brand Visionary & Conscious Leadership Coach',ru:'Бренд-Визионер и Коуч Осознанного Лидерства',es:'Visionaria de Marca y Coach de Liderazgo Consciente',it:'Visionaria del Brand e Coach di Leadership Consapevole',he:'חזאית מותג ומאמנת מנהיגות מודעת'},
+ tagline:{en:'People don\'t buy what you do. They buy why you do it.',ru:'Люди покупают не то, что вы делаете. Они покупают — почему.',es:'La gente no compra lo que haces. Compra por qué lo haces.',it:'Le persone non comprano cosa fai. Comprano perché lo fai.',he:'אנשים לא קונים מה שאתה עושה. הם קונים למה אתה עושה זאת.'},
+ bio:{en:'Brand strategist, author, and leadership coach who has built global audiences for emerging companies and established enterprises alike. Lena spent a decade in Silicon Valley advising mission-driven founders, then returned to Europe to pioneer Conscious Business methodology — combining Simon Sinek\'s WHY framework, Seth Godin\'s permission marketing philosophy, and Robin Sharma\'s leadership mastery principles. She has helped over 400 companies discover their authentic market positioning.',
+  ru:'Бренд-стратег, автор и лайф-коуч, создавшая глобальные аудитории для стартапов и зрелых компаний. Лена провела десятилетие в Кремниевой долине, консультируя основателей, движимых миссией, а затем вернулась в Европу, чтобы стать пионером методологии Conscious Business.',
+  es:'Estratega de marca, autora y coach de liderazgo que ha construido audiencias globales para empresas emergentes y establecidas. Lena pasó una década en Silicon Valley asesorando a fundadores orientados por una misión, luego regresó a Europa para ser pionera en la metodología de Conscious Business.',
+  it:'Strategist del brand, autrice e coach di leadership che ha costruito audience globali per aziende emergenti e consolidate. Lena ha trascorso un decennio nella Silicon Valley consigliando fondatori guidati dalla missione, poi è tornata in Europa per essere pioniera della metodologia Conscious Business.',
+  he:'אסטרטגית מותג, סופרת ומאמנת מנהיגות שבנתה קהלים גלובליים לחברות מתפתחות ומבוססות. לנה בילתה עשור בסיליקון ואלי בייעוץ למייסדים מונחי-משימה, ואז חזרה לאירופה לפתח מתודולוגיית Conscious Business.'},
+ specialties:{en:['Brand Purpose & WHY','Authentic Audience Building','Storytelling for Business','Conscious Leadership','Content Strategy','Mission-Driven Culture'],
+  ru:['Цель бренда и ПОЧЕМУ','Аутентичное создание аудитории','Сторителлинг для бизнеса','Осознанное лидерство','Контент-стратегия','Культура, движимая миссией'],
+  es:['Propósito de Marca y POR QUÉ','Construcción Auténtica de Audiencia','Storytelling Empresarial','Liderazgo Consciente','Estrategia de Contenido','Cultura Orientada por Misión'],
+  it:['Scopo del Brand e PERCHÉ','Costruzione Autentica dell\'Audience','Storytelling per il Business','Leadership Consapevole','Strategia dei Contenuti','Cultura Mission-Driven'],
+  he:['מטרת מותג ולמה','בניית קהל אותנטי','סיפור עסקי','מנהיגות מודעת','אסטרטגיית תוכן','תרבות מונחית-משימה']},
+ philosophy:{en:'Marketing is no longer about the stuff you make but the stories you tell. Lead with meaning — and the market follows.',
+  ru:'Маркетинг больше не о вещах, которые вы делаете, а об историях, которые вы рассказываете. Ведите с смыслом — и рынок последует.',
+  es:'El marketing ya no se trata de las cosas que haces sino de las historias que cuentas. Lidera con significado — y el mercado seguirá.',
+  it:'Il marketing non riguarda più le cose che fai ma le storie che racconti. Guida con il significato — e il mercato segue.',
+  he:'שיווק כבר לא עוסק בדברים שאתה עושה אלא בסיפורים שאתה מספר. הוביל עם משמעות — והשוק יעקוב.'},
+ approach:{en:'Lena uses the Conscious Brand Architecture — starting with the Golden Circle (WHY → HOW → WHAT), mapping authentic audience archetypes, building a story spine that resonates at a values level, and then systematising trust-building through permission-based content. She challenges leaders to stop broadcasting features and start broadcasting beliefs. The result is a brand that attracts rather than chases.',
+  ru:'Лена использует Conscious Brand Architecture — начиная с Золотого Круга (ПОЧЕМУ → КАК → ЧТО), картируя аутентичные архетипы аудитории и строя основу истории, которая резонирует на уровне ценностей.',
+  es:'Lena usa la Conscious Brand Architecture — comenzando con el Círculo Dorado (POR QUÉ → CÓMO → QUÉ), mapeando arquetipos auténticos de audiencia y construyendo una columna vertebral de historia que resuena a nivel de valores.',
+  it:'Lena usa la Conscious Brand Architecture — partendo dal Golden Circle (PERCHÉ → COME → COSA), mappando archetipi autentici di audience e costruendo una spina dorsale narrativa che risuona a livello di valori.',
+  he:'לנה משתמשת ב-Conscious Brand Architecture — מתחילה עם המעגל הזהוב (למה → איך → מה), ממפה ארכיטיפים אותנטיים של קהל ובונה עמוד שידרה נרטיבי שמהדהד ברמת הערכים.'},
+ responses:{
+  en:["Before we talk about tactics, I want to understand something more fundamental. Tell me: why does your company exist beyond making money? Not the polished answer — the real one. The one that gets you out of bed before your alarm. Because every brand strategy I have ever built that actually worked — built real loyalty, real advocacy, real word-of-mouth — started from a WHY so clear that it felt almost unreasonably simple. People are not rational. They make emotional decisions and justify them logically afterward. If your WHY doesn't hit something emotional first, no marketing tactic will compensate.",
+      "Here's the uncomfortable truth about most content strategies: they're broadcasting, not earning. The brands that dominate today — the ones with genuine community, not just followers — treat their audience like people they owe something to. Not customers. Not eyeballs. People whose trust they need to earn, slowly, by consistently showing up with ideas that matter. What is the one idea you could own so completely that when people think about your category, they immediately think of you?",
+      "Let me ask you something that might feel counterintuitive. What if you removed the word 'marketing' from your vocabulary for the next 90 days — and replaced it with 'teaching'? The brands that grow without paid acquisition are the ones that have become genuinely educational. They teach what they know. They share what others won't. They make their audience smarter, and the audience repays that with loyalty. What do you know that the world actually needs to hear?"],
+  ru:["Прежде чем говорить о тактиках, хочу понять нечто более фундаментальное. Скажите мне: почему ваша компания существует помимо зарабатывания денег? Не отполированный ответ — настоящий. Тот, который заставляет вас вставать раньше будильника. Потому что каждая бренд-стратегия, которая действительно работала, начиналась с ПОЧЕМУ, настолько ясного, что оно казалось почти неразумно простым.",
+      "Вот неудобная правда о большинстве контент-стратегий: они вещают, а не зарабатывают. Бренды, которые сегодня доминируют, относятся к своей аудитории как к людям, которым они что-то должны. Какую одну идею вы могли бы владеть настолько полностью, что когда люди думают о вашей категории, они немедленно думают о вас?",
+      "Позвольте спросить то, что может показаться контринтуитивным. Что, если бы вы убрали слово 'маркетинг' из своего словаря на 90 дней — и заменили его словом 'обучение'? Бренды, которые растут без платного привлечения, стали по-настоящему образовательными. Они учат тому, что знают. Что вы знаете, что миру действительно нужно услышать?"],
+  es:["Antes de hablar de tácticas, quiero entender algo más fundamental. Dígame: ¿por qué existe su empresa más allá de ganar dinero? No la respuesta pulida — la real. La que lo saca de la cama antes de que suene la alarma. Porque cada estrategia de marca que realmente funcionó comenzó con un PORQUÉ tan claro que parecía casi irrazonablemente simple.",
+      "La verdad incómoda sobre la mayoría de las estrategias de contenido: están transmitiendo, no ganando. Las marcas que dominan hoy tratan a su audiencia como personas a las que le deben algo. ¿Cuál es la una idea que podría poseer tan completamente que cuando la gente piense en su categoría, piense inmediatamente en usted?",
+      "¿Qué pasaría si eliminara la palabra 'marketing' de su vocabulario durante los próximos 90 días — y la reemplazara con 'enseñar'? Las marcas que crecen sin adquisición pagada se han vuelto genuinamente educativas. ¿Qué sabe usted que el mundo realmente necesita escuchar?"],
+  it:["Prima di parlare di tattiche, voglio capire qualcosa di più fondamentale. Mi dica: perché la sua azienda esiste oltre a fare soldi? Non la risposta rifinita — quella vera. Quella che la fa alzare prima della sveglia. Perché ogni strategia di brand che ha davvero funzionato è partita da un PERCHÉ così chiaro da sembrare quasi irragionevolmente semplice.",
+      "La verità scomoda sulla maggior parte delle strategie di contenuto: stanno trasmettendo, non guadagnando fiducia. I brand che dominano oggi trattano il loro pubblico come persone a cui devono qualcosa. Quale unica idea potrebbe possedere così completamente che quando le persone pensano alla sua categoria, pensano immediatamente a lei?",
+      "Cosa succederebbe se rimuovesse la parola 'marketing' dal suo vocabolario per i prossimi 90 giorni — e la sostituisse con 'insegnare'? I brand che crescono senza acquisizione a pagamento sono diventati genuinamente educativi. Cosa sa che il mondo ha davvero bisogno di sentire?"],
+  he:["לפני שנדבר על טקטיקות, אני רוצה להבין משהו יסודי יותר. ספר לי: למה החברה שלך קיימת מעבר להרוויח כסף? לא התשובה המלוטשת — האמיתית. זו שמוציאה אותך מהמיטה לפני האזעקה. כי כל אסטרטגיית מותג שאי פעם עבדה — בנתה נאמנות אמיתית — התחילה מ-למה כל כך ברור שנראה כמעט פשוט באופן לא סביר.",
+      "הנה האמת המביכה על רוב אסטרטגיות התוכן: הן משדרות, לא מרוויחות. המותגים השולטים היום מתייחסים לקהל שלהם כאנשים שהם חייבים להם משהו. מהי הרעיון האחד שתוכל לבעול אותו כל כך לחלוטין שכשאנשים חושבים על הקטגוריה שלך, הם חושבים מיידית עליך?",
+      "מה היה קורה אם היית מסיר את המילה 'שיווק' מהמילון שלך ל-90 הימים הבאים — ומחליף אותה ב'הוראה'? המותגים שגדלים ללא רכישה בתשלום הפכו לחינוכיים אמיתית. מה אתה יודע שהעולם באמת צריך לשמוע?"]}
 }];
 
 /* ═══════════════════════ RUNES, ARCHETYPES, UTILITIES ═════════════════ */
@@ -1670,6 +1847,130 @@ const PORTRAITS={
       <path d="M34.5 44 Q40 47 45.5 44" fill="#D0A090" opacity=".6"/>
     </svg>
   )
+
+/* Business coach portraits — DiceBear professional avatars */
+,marcus:(
+  <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="80" fill="#110A04"/>
+    <path d="M62 0 L80 0 L80 50 Q72 35 62 20Z" fill="#E8A030" opacity=".12"/>
+    <path d="M0 80 L0 60 L20 51 L27 57 L27 80Z" fill="#0E0C08"/>
+    <path d="M80 80 L80 60 L60 51 L53 57 L53 80Z" fill="#0E0C08"/>
+    <path d="M27 55 L53 55 L53 80 L27 80Z" fill="#EDE8D8"/>
+    <path d="M37.5 55 L42.5 55 L44 67 L40 70 L36 67Z" fill="#C48C18"/>
+    <path d="M37.5 55 L42.5 55 L40 60Z" fill="#9A6C10"/>
+    <path d="M27 57 L27 70 L36.5 60 L37.5 55Z" fill="#0E0C08"/>
+    <path d="M53 57 L53 70 L43.5 60 L42.5 55Z" fill="#0E0C08"/>
+    <path d="M32.5 44 L47.5 44 L48.5 55 L40 58 L31.5 55Z" fill="#5E3012"/>
+    <ellipse cx="40" cy="27" rx="17" ry="21" fill="#6A3818"/>
+    <ellipse cx="44" cy="24" rx="9" ry="13" fill="#7A4822" opacity=".6"/>
+    <ellipse cx="28" cy="27" rx="7" ry="18" fill="#3A1A08" opacity=".4"/>
+    <path d="M23 22 Q22.5 8 32 6 Q40 4 48 6 Q57.5 8 57 22 Q54 14 40 13 Q26 14 23 22Z" fill="#0A0604"/>
+    <path d="M23 22 Q22 28 23.5 32 Q21 28 21 22Z" fill="#0A0604"/>
+    <path d="M57 22 Q58 28 56.5 32 Q59 28 59 22Z" fill="#0A0604"/>
+    <ellipse cx="23" cy="30" rx="2.5" ry="4" fill="#4A2408"/>
+    <ellipse cx="57" cy="30" rx="2.5" ry="4" fill="#4A2408"/>
+    <path d="M27 22 Q31 19.5 36 21" stroke="#0A0402" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+    <path d="M44 21 Q49 19.5 53 22" stroke="#0A0402" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+    <ellipse cx="31.5" cy="26" rx="5" ry="3.2" fill="#F0EBE2"/>
+    <ellipse cx="48.5" cy="26" rx="5" ry="3.2" fill="#F0EBE2"/>
+    <circle cx="31.5" cy="26" r="2.8" fill="#1E0C04"/>
+    <circle cx="48.5" cy="26" r="2.8" fill="#1E0C04"/>
+    <circle cx="31.5" cy="26" r="1.6" fill="#0A0402"/>
+    <circle cx="48.5" cy="26" r="1.6" fill="#0A0402"/>
+    <circle cx="32.5" cy="25.1" r=".9" fill="white" opacity=".8"/>
+    <circle cx="49.5" cy="25.1" r=".9" fill="white" opacity=".8"/>
+    <path d="M26.5 24 Q31.5 22 36.5 24" stroke="#1A0A04" strokeWidth=".9" fill="none" opacity=".7"/>
+    <path d="M43.5 24 Q48.5 22 53.5 24" stroke="#1A0A04" strokeWidth=".9" fill="none" opacity=".7"/>
+    <path d="M38.5 30 Q37 34.5 36.5 37 Q38.5 38.8 40 38.5 Q41.5 38.8 43.5 37 Q43 34.5 41.5 30" fill="#3A1808" opacity=".45"/>
+    <ellipse cx="37.5" cy="37.5" rx="2.5" ry="1.5" fill="#2A1004" opacity=".5"/>
+    <ellipse cx="42.5" cy="37.5" rx="2.5" ry="1.5" fill="#2A1004" opacity=".5"/>
+    <path d="M33.5 42.5 Q37.5 45 40 45 Q42.5 45 46.5 42.5" stroke="#1A0804" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+    <path d="M56 14 Q60 24 58 38" stroke="#E8A030" strokeWidth="5" fill="none" opacity=".12" strokeLinecap="round"/>
+  </svg>
+)
+,arthur:(
+  <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="80" fill="#080E0A"/>
+    <ellipse cx="65" cy="15" rx="20" ry="16" fill="#4A7A60" opacity=".12"/>
+    <path d="M0 80 L0 60 L20 52 L27 57 L27 80Z" fill="#0C1014"/>
+    <path d="M80 80 L80 60 L60 52 L53 57 L53 80Z" fill="#0C1014"/>
+    <path d="M27 55 L53 55 L53 80 L27 80Z" fill="#E8E4D8"/>
+    <path d="M37.5 55 L42.5 55 L44 66 L40 69 L36 66Z" fill="#2A3C30"/>
+    <path d="M37.5 55 L42.5 55 L40 59Z" fill="#1A2820"/>
+    <path d="M27 57 L27 70 L36.5 60 L37.5 55Z" fill="#0C1014"/>
+    <path d="M53 57 L53 70 L43.5 60 L42.5 55Z" fill="#0C1014"/>
+    <path d="M33 45 L47 45 L48 55 L40 57 L32 55Z" fill="#B8927A"/>
+    <ellipse cx="40" cy="29" rx="16" ry="20" fill="#CAA882"/>
+    <ellipse cx="43" cy="26" rx="8" ry="13" fill="#D8B890" opacity=".7"/>
+    <ellipse cx="28" cy="29" rx="6" ry="17" fill="#906840" opacity=".25"/>
+    <path d="M24 23 Q22 8 32 5 Q40 2 48 5 Q58 8 56 23 Q54 10 40 9 Q26 10 24 23Z" fill="#B0B0A8"/>
+    <path d="M22 24 Q20 18 22 10 Q24 5 32 4 Q24 9 23 18Z" fill="#A8A8A0"/>
+    <path d="M58 24 Q60 18 58 10 Q56 5 48 4 Q56 9 57 18Z" fill="#A8A8A0"/>
+    <path d="M30 8 Q38 6 46 8" stroke="#D8D8D4" strokeWidth="2" fill="none" opacity=".7" strokeLinecap="round"/>
+    <ellipse cx="23.5" cy="31" rx="3" ry="4.5" fill="#B08870"/>
+    <ellipse cx="56.5" cy="31" rx="3" ry="4.5" fill="#B08870"/>
+    <path d="M27.5 24 Q31 21.5 36 23" stroke="#7A7870" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <path d="M44 23 Q49 21.5 52.5 24" stroke="#7A7870" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <ellipse cx="31.5" cy="28" rx="4.5" ry="3" fill="#F2EDE4"/>
+    <ellipse cx="48.5" cy="28" rx="4.5" ry="3" fill="#F2EDE4"/>
+    <circle cx="31.5" cy="28" r="2.5" fill="#4A5858"/>
+    <circle cx="48.5" cy="28" r="2.5" fill="#4A5858"/>
+    <circle cx="31.5" cy="28" r="1.4" fill="#1E2828"/>
+    <circle cx="48.5" cy="28" r="1.4" fill="#1E2828"/>
+    <circle cx="32.4" cy="27" r=".8" fill="white" opacity=".8"/>
+    <circle cx="49.4" cy="27" r=".8" fill="white" opacity=".8"/>
+    <path d="M27 26.5 Q31.5 24.5 36 26.5" stroke="#3A2A1A" strokeWidth=".8" fill="none" opacity=".5"/>
+    <path d="M44 26.5 Q48.5 24.5 53 26.5" stroke="#3A2A1A" strokeWidth=".8" fill="none" opacity=".5"/>
+    <path d="M39 32 Q37.5 37 37 39 Q39 40.5 40 40 Q41 40.5 43 39 Q42.5 37 41 32" fill="#907050" opacity=".35"/>
+    <ellipse cx="38" cy="39" rx="2.5" ry="1.5" fill="#7A6050" opacity=".4"/>
+    <ellipse cx="42" cy="39" rx="2.5" ry="1.5" fill="#7A6050" opacity=".4"/>
+    <path d="M34.5 44 Q37.5 46 40 46 Q42.5 46 45.5 44" stroke="#6A4028" strokeWidth="1.6" fill="none" strokeLinecap="round"/>
+    <path d="M57 16 Q61 26 59 40" stroke="#5A8F70" strokeWidth="5" fill="none" opacity=".14" strokeLinecap="round"/>
+  </svg>
+)
+,lena:(
+  <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="80" fill="#120810"/>
+    <ellipse cx="62" cy="14" rx="22" ry="17" fill="#C8729A" opacity=".1"/>
+    <path d="M0 80 L0 60 L20 52 L28 56 L28 80Z" fill="#1A0C18"/>
+    <path d="M80 80 L80 60 L60 52 L52 56 L52 80Z" fill="#1A0C18"/>
+    <path d="M28 54 L52 54 L52 80 L28 80Z" fill="#F0EAE8"/>
+    <path d="M36 54 L44 54 L40 66Z" fill="#E8C8D8" opacity=".4"/>
+    <path d="M28 56 L28 70 L36.5 62 L36 54Z" fill="#1A0C18"/>
+    <path d="M52 56 L52 70 L43.5 62 L44 54Z" fill="#1A0C18"/>
+    <path d="M34 43 L46 43 L47.5 54 L40 56 L32.5 54Z" fill="#B07850"/>
+    <ellipse cx="40" cy="27.5" rx="15.5" ry="20" fill="#C09070"/>
+    <ellipse cx="43" cy="24" rx="8" ry="13" fill="#D0A882" opacity=".65"/>
+    <ellipse cx="27" cy="28" rx="6" ry="16" fill="#785040" opacity=".3"/>
+    <path d="M24.5 22 Q23 8 32 5.5 Q40 3 48 5.5 Q57 8 55.5 22 Q53 11 40 10 Q27 11 24.5 22Z" fill="#180E0C"/>
+    <path d="M24.5 22 Q22 26 22.5 32 Q20.5 28 21 21Z" fill="#180E0C"/>
+    <path d="M55.5 22 Q58 26 57.5 32 Q59.5 28 59 21Z" fill="#180E0C"/>
+    <ellipse cx="40" cy="7" rx="9" ry="5" fill="#140C0A"/>
+    <path d="M32 8 Q40 5.5 48 8" stroke="#3A2820" strokeWidth="1.5" fill="none" opacity=".7" strokeLinecap="round"/>
+    <ellipse cx="24" cy="30" rx="2.5" ry="4" fill="#A07050"/>
+    <ellipse cx="56" cy="30" rx="2.5" ry="4" fill="#A07050"/>
+    <circle cx="24" cy="35" r="1.2" fill="#D4A0C0" opacity=".7"/>
+    <circle cx="56" cy="35" r="1.2" fill="#D4A0C0" opacity=".7"/>
+    <path d="M28 22.5 Q31.5 20 37 21.5" stroke="#1A0E0C" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+    <path d="M43 21.5 Q48.5 20 52 22.5" stroke="#1A0E0C" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+    <ellipse cx="32" cy="26.5" rx="4.5" ry="3" fill="#F2ECE8"/>
+    <ellipse cx="48" cy="26.5" rx="4.5" ry="3" fill="#F2ECE8"/>
+    <circle cx="32" cy="26.5" r="2.6" fill="#4A2C1A"/>
+    <circle cx="48" cy="26.5" r="2.6" fill="#4A2C1A"/>
+    <circle cx="32" cy="26.5" r="1.4" fill="#200E06"/>
+    <circle cx="48" cy="26.5" r="1.4" fill="#200E06"/>
+    <circle cx="33.2" cy="25.5" r=".9" fill="white" opacity=".8"/>
+    <circle cx="49.2" cy="25.5" r=".9" fill="white" opacity=".8"/>
+    <path d="M27.5 24.5 Q32 22.5 36.5 24.5" stroke="#180C0A" strokeWidth="1" fill="none" opacity=".7"/>
+    <path d="M43.5 24.5 Q48 22.5 52.5 24.5" stroke="#180C0A" strokeWidth="1" fill="none" opacity=".7"/>
+    <path d="M39 30.5 Q37.5 34.5 37.5 37 Q39 38.5 40 38 Q41 38.5 42.5 37 Q42.5 34.5 41 30.5" fill="#7A4828" opacity=".3"/>
+    <ellipse cx="38" cy="37.5" rx="2" ry="1.2" fill="#6A3C20" opacity=".4"/>
+    <ellipse cx="42" cy="37.5" rx="2" ry="1.2" fill="#6A3C20" opacity=".4"/>
+    <path d="M34 42 Q37 44.5 40 44.5 Q43 44.5 46 42" stroke="#6A3420" strokeWidth="1.6" fill="none" strokeLinecap="round"/>
+    <path d="M35 42 Q40 44 45 42 Q43 44.5 40 44.5 Q37 44.5 35 42Z" fill="#C87080" opacity=".3"/>
+    <path d="M56 14 Q60 24 58 38" stroke="#C8729A" strokeWidth="5" fill="none" opacity=".14" strokeLinecap="round"/>
+  </svg>
+)
 };
 
 function CoachAvatarFull({coach,size=88}){
@@ -1859,8 +2160,8 @@ function StarRating({rating}){
   return <span style={{display:'inline-flex',gap:1}}>{stars}</span>;
 }
 
-const COACH_RATINGS=[4.9,4.8,4.7,4.6,4.5,4.1];
-const COACH_SESSIONS=[1840,2230,990,1620,740,1180];
+const COACH_RATINGS=[4.9,4.8,4.7,4.6,4.5,4.1,4.9,4.8,4.7];
+const COACH_SESSIONS=[1840,2230,990,1620,740,1180,2460,3180,1920];
 
 /* ═══════════════ COACH CARD ═════════════════════════════════════════════ */
 function CoachCard({coach,lang,onSelect}){
@@ -1874,8 +2175,15 @@ function CoachCard({coach,lang,onSelect}){
   const sessions=COACH_SESSIONS[idx]||1200;
   return(
     <div className="glass coach-card rv" onClick={()=>onSelect(coach)}
-      style={{'--accent':coach.color,'--card-accent':`${coach.color}14`}}>
-      <div style={{display:'flex',alignItems:'flex-start',gap:14}}>
+      style={{'--accent':coach.color,'--card-accent':`${coach.color}18`,position:'relative',
+        ...(coach.type==='business'?{
+          borderColor:`${coach.color}40`,
+          boxShadow:`inset 0 0 0 1px ${coach.color}20, 0 4px 24px ${coach.color}18`
+        }:{})}}>
+      {coach.type==='business'&&(
+        <div className="business-badge">{{en:'ELITE',ru:'ЭЛИТА',es:'ELITE',it:'ELITE',he:'עלית'}[lang]||'ELITE'}</div>
+      )}
+      <div style={{display:'flex',alignItems:'flex-start',gap:14,minHeight:112}}>
         <CoachAvatarFull coach={coach} size={88}/>
         <div style={{flex:1,minWidth:0}}>
           <div className="coach-name" style={{color:'var(--text-1)'}}>{name}</div>
@@ -1883,21 +2191,23 @@ function CoachCard({coach,lang,onSelect}){
           <div className="coach-quote">"{tagline}"</div>
         </div>
       </div>
-      <div className="detail-profile-specs">
+      <div className="detail-profile-specs" style={{flex:1,minHeight:76,alignContent:'flex-start'}}>
         {specs.map((s,i)=><span key={i} className="spec-pill">{s}</span>)}
       </div>
-      <div className="coach-meta" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:10}}>
-        <div style={{display:'flex',gap:14,alignItems:'center',flexShrink:0}}>
-          <div style={{display:'flex',flexDirection:'column',gap:2}}>
+      <div className="coach-meta" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:8,flexWrap:'wrap',marginTop:'auto',paddingTop:12,borderTop:'1px solid var(--border)'}}>
+        <div style={{display:'flex',gap:12,alignItems:'center',minWidth:0,flex:'0 1 auto'}}>
+          <div style={{display:'flex',flexDirection:'column',gap:2,flexShrink:0}}>
             <StarRating rating={rating}/>
             <span style={{fontSize:'.7rem',color:'var(--gold)',fontFamily:'var(--font-d)'}}>{rating.toFixed(1)}</span>
           </div>
-          <div style={{display:'flex',flexDirection:'column',gap:1}}>
+          <div style={{display:'flex',flexDirection:'column',gap:1,flexShrink:0}}>
             <span style={{fontSize:'.84rem',color:'var(--text-1)',fontFamily:'var(--font-d)',fontWeight:500}}>{sessions.toLocaleString()}</span>
             <span className="coach-sessions">{t.coach_sessions}</span>
           </div>
         </div>
-        <button className="pill-btn" style={{fontSize:'.66rem',padding:'6px 14px',flexShrink:0,color:'var(--accent,var(--gold))',borderColor:'var(--accent,var(--gold))'}}>
+        <button className="pill-btn" style={{fontSize:'.63rem',padding:'5px 10px',flexShrink:0,whiteSpace:'nowrap',marginRight:2,
+          color:coach.type==='business'?coach.color:'var(--accent,var(--gold))',
+          borderColor:coach.type==='business'?coach.color:'var(--accent,var(--gold))'}}>
           {t.coach_view_profile} →
         </button>
       </div>
@@ -2046,23 +2356,44 @@ function ChatInterface({coach,lang,onBack}){
 /* ═══════════════ COACH LAYER ════════════════════════════════════════════ */
 function CoachLayer({lang,view,setView,selected,setSelected}){
   const t=T[lang];
+  const [coachTab,setCoachTab]=useState('life');
   if(view==='chat'&&selected)
     return<ChatInterface coach={selected} lang={lang} onBack={()=>setView('profile')}/>;
   if(view==='profile'&&selected)
     return<CoachProfile coach={selected} lang={lang}
       onBack={()=>{setView('home');setSelected(null);}}
       onStartChat={c=>{setSelected(c);setView('chat');}}/>;
+  const lifeCoaches=COACHES.filter(c=>!c.type||c.type==='life');
+  const bizCoaches=COACHES.filter(c=>c.type==='business');
+  const shown=coachTab==='business'?bizCoaches:lifeCoaches;
   return(
     <div className="sp2">
       <div className="mw">
         <div className="sec-head rv">
           <span className="tag">{t.layer_coach}</span>
           <h2 className="sec-h">{t.hero_stat_coaches}</h2>
-          <p className="sec-sub">{t.coaches_sub}</p>
+          <p className="sec-sub">{coachTab==='business'?(t.coaches_sub_business||t.coaches_sub):t.coaches_sub}</p>
           <div className="divider"/>
         </div>
+        <div className="coach-type-tabs">
+          <button className={`coach-type-tab life-tab${coachTab==='life'?' active':''}`} onClick={()=>setCoachTab('life')}>
+            🌱 {t.coaches_life||'Life Coaches'}
+          </button>
+          <button className={`coach-type-tab business-tab${coachTab==='business'?' active':''}`} onClick={()=>setCoachTab('business')}>
+            💼 {t.coaches_business||'Business Mentors'}
+          </button>
+        </div>
+        {coachTab==='business'&&(
+          <div className="business-banner rv">
+            <div className="business-banner-icon">💼</div>
+            <div className="business-banner-text">
+              <h3>{{en:'Elite Business Strategy',ru:'Элитная Бизнес-Стратегия',es:'Estrategia Empresarial de Élite',it:'Strategia d\'Affari d\'Élite',he:'אסטרטגיה עסקית עלית'}[lang]||'Elite Business Strategy'}</h3>
+              <p>{t.coaches_sub_business}</p>
+            </div>
+          </div>
+        )}
         <div className="coach-grid">
-          {COACHES.map(c=>(
+          {shown.map(c=>(
             <CoachCard key={c.id} coach={c} lang={lang}
               onSelect={c=>{setSelected(c);setView('profile');}}/>
           ))}
@@ -2073,6 +2404,7 @@ function CoachLayer({lang,view,setView,selected,setSelected}){
 }
 
 /* ═══════════════ REUSABLE FIELD WITH VALIDATION ═════════════════════════ */
+
 /* ═══════════════ SEGMENTED DATE INPUT ══════════════════════════════════ */
 function DateInput({value,onChange,lang}){
   const r0=useRef(null),r1=useRef(null),r2=useRef(null);
@@ -2683,15 +3015,457 @@ function PersonalityTool({lang}){
 }
 
 /* ═══════════════ ESOTERIC LAYER ═════════════════════════════════════════ */
+/* ═══════════════ DRUID TREE DATA ════════════════════════════════════════ */
+const DRUID_TREES=[
+  {name:{en:'Birch',ru:'Берёза',es:'Abedul',it:'Betulla',he:'ליבנה'},ogham:'ᚁ',sym:'🌿',element:{en:'Air',ru:'Воздух',es:'Aire',it:'Aria',he:'אוויר'},season:{en:'Winter Solstice',ru:'Зимнее солнцестояние',es:'Solsticio de Invierno',it:'Solstizio d\'Inverno',he:'היפוך החורפי'},
+   keywords:{en:'New Beginnings • Renewal • Courage • Pioneering',ru:'Новые начала • Обновление • Мужество • Первопроходство',es:'Nuevos Comienzos • Renovación • Valor • Pionero',it:'Nuovi Inizi • Rinnovamento • Coraggio • Pionieristico',he:'התחלות חדשות • חידוש • אומץ • חלוציות'},
+   desc:{en:'You carry the soul of the pioneer — the first tree to grow in barren soil, you move into uncharted territory with a brightness that makes beginnings look effortless. Your gift is renewal: you initiate cycles for others and make fresh starts contagious.',ru:'Вы несёте душу первопроходца — первое дерево, выросшее на бесплодной почве. Вы движетесь в неизведанные территории с яркостью, которая делает начала лёгкими. Ваш дар — обновление.',es:'Llevas el alma del pionero — el primer árbol en crecer en suelo árido. Te mueves hacia territorio desconocido con una luminosidad que hace que los comienzos parezcan sencillos.',it:'Porti l\'anima del pioniere — il primo albero a crescere in un suolo arido. Ti muovi in territorio inesplorato con una luminosità che rende i nuovi inizi contagiosi.',he:'אתה נושא את נשמת החלוץ — העץ הראשון לצמוח באדמה עקרה. אתה נע לשטח לא ידוע עם בהירות שגורמת להתחלות להיראות קלות.'},
+   strengths:{en:'Adaptability, optimism, fresh vision, inspiring others to start',ru:'Адаптивность, оптимизм, свежее видение, вдохновение других',es:'Adaptabilidad, optimismo, visión fresca, inspirar a los demás',it:'Adattabilità, ottimismo, visione fresca, ispirare gli altri',he:'הסתגלות, אופטימיות, חזון טרי, השראה לאחרים'},
+   shadow:{en:'Restlessness that abandons before roots can form',ru:'Беспокойство, которое уходит до того, как корни укоренятся',es:'Inquietud que abandona antes de que puedan formarse raíces',it:'Irrequietezza che abbandona prima che le radici possano formarsi',he:'חוסר מנוחה שנוטש לפני שהשורשים יכולים להיווצר'},
+   dates:'Dec 24–Jan 20'},
+  {name:{en:'Rowan',ru:'Рябина',es:'Serbal',it:'Sorbo',he:'אשור'},ogham:'ᚂ',sym:'🔴',element:{en:'Fire',ru:'Огонь',es:'Fuego',it:'Fuoco',he:'אש'},season:{en:'Early Winter',ru:'Ранняя зима',es:'Inicio del Invierno',it:'Inizio Inverno',he:'חורף מוקדם'},
+   keywords:{en:'Vision • Protection • Intuition • Transformation',ru:'Видение • Защита • Интуиция • Трансформация',es:'Visión • Protección • Intuición • Transformación',it:'Visione • Protezione • Intuizione • Trasformazione',he:'חזון • הגנה • אינטואיציה • טרנספורמציה'},
+   desc:{en:'The Rowan carries the gift of foresight — an ability to sense what is coming before others can see it. You are the natural guardian and visionary, often standing between what is and what could be, protecting those you love from what you can already perceive.',ru:'Рябина несёт дар предвидения — способность чувствовать то, что приходит, раньше других. Вы — природный хранитель и провидец, стоящий между тем, что есть, и тем, что могло бы быть.',es:'El Serbal lleva el don de la previsión — la capacidad de sentir lo que viene antes que los demás. Eres el guardián y visionario natural.',it:'Il Sorbo porta il dono della preveggenza — la capacità di percepire ciò che sta arrivando prima degli altri. Sei il guardiano e visionario naturale.',he:'האשור נושא את מתנת הראייה מוקדמת — יכולת לחוש מה עתיד לבוא לפני שאחרים יכולים לראות זאת. אתה השומר והחוזה הטבעי.'},
+   strengths:{en:'Perception, psychic sensitivity, creative problem-solving, protection of others',ru:'Восприятие, духовная чувствительность, творческое решение проблем',es:'Percepción, sensibilidad psíquica, resolución creativa de problemas',it:'Percezione, sensibilità psichica, risoluzione creativa dei problemi',he:'תפיסה, רגישות נפשית, פתרון בעיות יצירתי, הגנה על אחרים'},
+   shadow:{en:'Anxiety from carrying others\' pain and futures as your own',ru:'Тревога от несения боли и будущего других как своих собственных',es:'Ansiedad por cargar el dolor y los futuros ajenos como propios',it:'Ansia dal portare il dolore e i futuri degli altri come propri',he:'חרדה מנשיאת כאב ועתידות של אחרים כשלך עצמך'},
+   dates:'Jan 21–Feb 17'},
+  {name:{en:'Ash',ru:'Ясень',es:'Fresno',it:'Frassino',he:'מילה'},ogham:'ᚅ',sym:'🌊',element:{en:'Water',ru:'Вода',es:'Agua',it:'Acqua',he:'מים'},season:{en:'Late Winter',ru:'Поздняя зима',es:'Fin del Invierno',it:'Fine Inverno',he:'חורף מאוחר'},
+   keywords:{en:'Connection • Flow • Healing • Transition',ru:'Связь • Течение • Исцеление • Переход',es:'Conexión • Flujo • Sanación • Transición',it:'Connessione • Flusso • Guarigione • Transizione',he:'חיבור • זרימה • ריפוי • מעבר'},
+   desc:{en:'Sacred to Odin and the Norse cosmos, the Ash is the World Tree — the axis connecting realms. You are the bridge-builder, flowing between worlds, people, and ideas with an ease that others marvel at. Your healing nature is not soft but structural: you hold things together.',ru:'Священный для Одина, Ясень — мировое дерево, ось, соединяющая сферы. Вы — строитель мостов, перетекающий между мирами, людьми и идеями с лёгкостью. Ваша исцеляющая природа не мягкая, а структурная.',es:'Sagrado para Odín, el Fresno es el Árbol del Mundo — el eje que conecta reinos. Eres el constructor de puentes, fluyendo entre mundos, personas e ideas.',it:'Sacro a Odino, il Frassino è l\'Albero del Mondo — l\'asse che connette i regni. Sei il costruttore di ponti, fluendo tra mondi, persone e idee.',he:'קדוש לאודין, המילה היא עץ העולם — הציר המחבר ממלכות. אתה בונה הגשרים, זורם בין עולמות, אנשים ורעיונות.'},
+   strengths:{en:'Adaptability, deep empathy, structural thinking, connecting disparate worlds',ru:'Адаптивность, глубокая эмпатия, структурное мышление, соединение разрозненных миров',es:'Adaptabilidad, empatía profunda, pensamiento estructural, conectar mundos dispares',it:'Adattabilità, profonda empatia, pensiero strutturale, connettere mondi diversi',he:'הסתגלות, אמפתיה עמוקה, חשיבה מבנית, חיבור עולמות שונים'},
+   shadow:{en:'Losing your own centre while holding space for everyone else',ru:'Потеря собственного центра при удержании пространства для всех',es:'Perder tu propio centro mientras sostienes espacio para todos los demás',it:'Perdere il proprio centro mentre si fa spazio per tutti gli altri',he:'איבוד מרכזך שלך בזמן שאתה מחזיק מרחב עבור כולם'},
+   dates:'Feb 18–Mar 17'},
+  {name:{en:'Alder',ru:'Ольха',es:'Aliso',it:'Ontano',he:'ערמון'},ogham:'ᚃ',sym:'🛡️',element:{en:'Fire & Water',ru:'Огонь и Вода',es:'Fuego y Agua',it:'Fuoco e Acqua',he:'אש ומים'},season:{en:'Early Spring',ru:'Ранняя весна',es:'Inicio de Primavera',it:'Inizio Primavera',he:'אביב מוקדם'},
+   keywords:{en:'Courage • Foundation • Guidance • Strength',ru:'Мужество • Основание • Руководство • Сила',es:'Valor • Fundamento • Guía • Fuerza',it:'Coraggio • Fondamento • Guida • Forza',he:'אומץ • יסוד • הנחיה • כוח'},
+   desc:{en:'The Alder grows where water and land meet — thriving in the in-between. You are the foundation-builder who can stand in difficult, transitional terrain. Where others see instability, you build. Your roots create solid ground for entire communities.',ru:'Ольха растёт там, где встречаются вода и суша. Вы — строитель фундамента, способный стоять в трудной, переходной местности. Там, где другие видят нестабильность, вы строите.',es:'El Aliso crece donde el agua y la tierra se encuentran. Eres el constructor de fundamentos que puede mantenerse en terreno difícil y de transición. Donde otros ven inestabilidad, tú construyes.',it:'L\'Ontano cresce dove l\'acqua e la terra si incontrano. Sei il costruttore di fondamenta che può stare in un terreno difficile e di transizione. Dove gli altri vedono instabilità, tu costruisci.',he:'הערמון גדל במקום שבו מים ויבשה נפגשים. אתה בונה היסודות שיכול לעמוד בשטח קשה ומעברי. היכן שאחרים רואים חוסר יציבות, אתה בונה.'},
+   strengths:{en:'Reliability, visionary guidance, community-building, operating under pressure',ru:'Надёжность, провидческое руководство, строительство сообщества, работа под давлением',es:'Fiabilidad, guía visionaria, construcción comunitaria, operar bajo presión',it:'Affidabilità, guida visionaria, costruzione della comunità, operare sotto pressione',he:'אמינות, הנחיה חזונית, בניית קהילה, פעולה תחת לחץ'},
+   shadow:{en:'Over-protecting others at the cost of your own exploration',ru:'Чрезмерная защита других ценой собственного исследования',es:'Sobreproteger a los demás a costa de tu propia exploración',it:'Sovroproteggere gli altri a scapito della propria esplorazione',he:'הגנת יתר על אחרים על חשבון הצמיחה שלך'},
+   dates:'Mar 18–Apr 14'},
+  {name:{en:'Willow',ru:'Ива',es:'Sauce',it:'Salice',he:'ערבה'},ogham:'ᚄ',sym:'🌙',element:{en:'Water',ru:'Вода',es:'Agua',it:'Acqua',he:'מים'},season:{en:'Spring',ru:'Весна',es:'Primavera',it:'Primavera',he:'אביב'},
+   keywords:{en:'Intuition • Emotion • Cycles • Healing',ru:'Интуиция • Эмоции • Циклы • Исцеление',es:'Intuición • Emoción • Ciclos • Sanación',it:'Intuizione • Emozione • Cicli • Guarigione',he:'אינטואיציה • רגש • מחזורים • ריפוי'},
+   desc:{en:'Deeply tied to the moon and the tides of feeling, the Willow person carries extraordinary emotional intelligence. You feel the undercurrents of any room you enter. Your intuition is not a gift — it is a refined instrument built over lifetimes of deep attunement.',ru:'Глубоко связанная с луной и приливами чувств, личность Ивы несёт выдающийся эмоциональный интеллект. Вы чувствуете течения любой комнаты, в которую входите.',es:'Profundamente ligado a la luna y las mareas del sentimiento, la persona Sauce lleva una inteligencia emocional extraordinaria. Sientes las corrientes de cualquier habitación que entras.',it:'Profondamente legato alla luna e alle maree del sentimento, la persona Salice porta un\'intelligenza emotiva straordinaria. Senti le correnti di qualsiasi stanza tu entri.',he:'קשור עמוקות לירח ולגאות הרגש, אדם ערבה נושא אינטליגנציה רגשית יוצאת דופן. אתה מרגיש את הזרמים התת-קרקעיים של כל חדר שאתה נכנס אליו.'},
+   strengths:{en:'Emotional depth, psychic attunement, healing presence, flexibility',ru:'Эмоциональная глубина, психическое согласование, исцеляющее присутствие, гибкость',es:'Profundidad emocional, sintonía psíquica, presencia sanadora, flexibilidad',it:'Profondità emotiva, sintonia psichica, presenza guaritrice, flessibilità',he:'עומק רגשי, כיוון נפשי, נוכחות מרפאה, גמישות'},
+   shadow:{en:'Absorbing others\' emotional pain until losing your own emotional ground',ru:'Поглощение эмоциональной боли других до потери собственной почвы',es:'Absorber el dolor emocional de los demás hasta perder tu propio terreno emocional',it:'Assorbire il dolore emotivo degli altri fino a perdere il proprio terreno emotivo',he:'ספיגת כאב רגשי של אחרים עד לאיבוד הקרקע הרגשית שלך'},
+   dates:'Apr 15–May 12'},
+  {name:{en:'Hawthorn',ru:'Боярышник',es:'Espino Blanco',it:'Biancospino',he:'עוזרד'},ogham:'ᚆ',sym:'⚡',element:{en:'Fire',ru:'Огонь',es:'Fuego',it:'Fuoco',he:'אש'},season:{en:'Late Spring',ru:'Поздняя весна',es:'Fin de Primavera',it:'Fine Primavera',he:'אביב מאוחר'},
+   keywords:{en:'Contradiction • Fertility • Protection • Paradox',ru:'Противоречие • Плодородие • Защита • Парадокс',es:'Contradicción • Fertilidad • Protección • Paradoja',it:'Contraddizione • Fertilità • Protezione • Paradosso',he:'סתירה • פוריות • הגנה • פרדוקס'},
+   desc:{en:'The most paradoxical tree — covered in thorns yet bearing the most beautiful blossoms. You are the keeper of profound contradictions: sharp and tender, guarded and deeply loving. This complexity is not confusion — it is your greatest source of creative and spiritual power.',ru:'Самое парадоксальное дерево — покрытое шипами, но несущее самые красивые цветы. Вы — хранитель глубоких противоречий: резкие и нежные, закрытые и глубоко любящие.',es:'El árbol más paradójico — cubierto de espinas pero con las flores más hermosas. Eres el guardián de profundas contradicciones: afilado y tierno, guardado y profundamente amoroso.',it:'L\'albero più paradossale — coperto di spine ma con i fiori più belli. Sei il custode di profonde contraddizioni: tagliente e tenero, riservato e profondamente amorevole.',he:'העץ הפרדוקסלי ביותר — מכוסה בקוצים אך נושא את הפרחים היפים ביותר. אתה שומר הסתירות העמוקות: חד ועדין, שמור ואוהב בעומק.'},
+   strengths:{en:'Creative tension, deep passion, protection of the sacred, seeing through illusion',ru:'Творческое напряжение, глубокая страсть, защита священного, видение сквозь иллюзию',es:'Tensión creativa, pasión profunda, protección de lo sagrado, ver a través de la ilusión',it:'Tensione creativa, profonda passione, protezione del sacro, vedere attraverso l\'illusione',he:'מתח יצירתי, תשוקה עמוקה, הגנה על הקדוש, ראייה דרך האשליה'},
+   shadow:{en:'Self-contradiction that paralyses decision-making',ru:'Самопротиворечие, парализующее принятие решений',es:'Autocontradicción que paraliza la toma de decisiones',it:'Autocontraddizione che paralizza il processo decisionale',he:'סתירה עצמית שמשתקת קבלת החלטות'},
+   dates:'May 13–Jun 9'},
+  {name:{en:'Oak',ru:'Дуб',es:'Roble',it:'Quercia',he:'אלון'},ogham:'ᚇ',sym:'🦁',element:{en:'Earth',ru:'Земля',es:'Tierra',it:'Terra',he:'אדמה'},season:{en:'Summer Solstice',ru:'Летнее солнцестояние',es:'Solsticio de Verano',it:'Solstizio d\'Estate',he:'היפוך הקיץ'},
+   keywords:{en:'Strength • Endurance • Sovereignty • Wisdom',ru:'Сила • Выносливость • Суверенитет • Мудрость',es:'Fuerza • Resistencia • Soberanía • Sabiduría',it:'Forza • Resistenza • Sovranità • Saggezza',he:'כוח • סבולת • ריבונות • חכמה'},
+   desc:{en:'The king of trees. The Oak person carries the weight of sovereignty — not as burden but as birthright. You were built to endure, to provide shelter for entire ecosystems, and to stand when everything else bends. Your presence alone communicates strength.',ru:'Король деревьев. Личность Дуба несёт бремя суверенитета — не как груз, а как право рождения. Вы были созданы, чтобы выдерживать, давать приют целым экосистемам и стоять, когда всё остальное гнётся.',es:'El rey de los árboles. La persona Roble lleva el peso de la soberanía — no como carga sino como derecho de nacimiento. Fuiste construido para resistir, para dar refugio a ecosistemas enteros.',it:'Il re degli alberi. La persona Quercia porta il peso della sovranità — non come fardello ma come diritto di nascita. Sei stato costruito per resistere, per dare rifugio a interi ecosistemi.',he:'מלך העצים. אדם האלון נושא את משקל הריבונות — לא כנטל אלא כזכות לידה. נבנית לשאת, לספק מחסה לאקוסיסטמות שלמות ולעמוד כשהכל מתכופף.'},
+   strengths:{en:'Unshakeable reliability, natural authority, long-term vision, generosity of spirit',ru:'Непоколебимая надёжность, природный авторитет, долгосрочное видение, щедрость духа',es:'Fiabilidad inquebrantable, autoridad natural, visión a largo plazo, generosidad de espíritu',it:'Affidabilità incrollabile, autorità naturale, visione a lungo termine, generosità di spirito',he:'אמינות בלתי-מתנדנדת, סמכות טבעית, חזון לטווח ארוך, נדיבות רוח'},
+   shadow:{en:'Rigidity — refusing to bend even when bending would allow growth',ru:'Жёсткость — отказ от гибкости даже когда гибкость позволила бы рост',es:'Rigidez — rechazar doblarse incluso cuando doblarse permitiría el crecimiento',it:'Rigidità — rifiutarsi di piegarsi anche quando piegarsi consentirebbe la crescita',he:'נוקשות — סירוב להתכופף אפילו כשהתכופפות תאפשר צמיחה'},
+   dates:'Jun 10–Jul 7'},
+  {name:{en:'Holly',ru:'Падуб',es:'Acebo',it:'Agrifoglio',he:'אלה'},ogham:'ᚈ',sym:'👑',element:{en:'Fire',ru:'Огонь',es:'Fuego',it:'Fuoco',he:'אש'},season:{en:'High Summer',ru:'Разгар лета',es:'Pleno Verano',it:'Estate Piena',he:'שיא הקיץ'},
+   keywords:{en:'Leadership • Will • Nobility • Victory',ru:'Лидерство • Воля • Благородство • Победа',es:'Liderazgo • Voluntad • Nobleza • Victoria',it:'Leadership • Volontà • Nobiltà • Vittoria',he:'מנהיגות • רצון • אצילות • ניצחון'},
+   desc:{en:'Holly was used by ancient warriors and royalty — the evergreen that burns hot even in the darkest winter. You carry a natural authority that is felt before it is understood. You are built for challenge: in your highest expression, the harder the obstacle, the more alive you become.',ru:'Падуб использовался древними воинами и знатью — вечнозелёное растение, горящее жарко даже в самую тёмную зиму. Вы несёте природный авторитет, который ощущается раньше, чем понимается.',es:'El Acebo fue usado por guerreros y realeza antiguos — el perenne que arde incluso en el invierno más oscuro. Llevas una autoridad natural que se siente antes de entenderse.',it:'L\'Agrifoglio fu usato da antichi guerrieri e dalla regalità — il sempreverde che brucia caldo anche nell\'inverno più buio. Porti un\'autorità naturale che si sente prima di essere compresa.',he:'האלה שימשה אצל לוחמים ומלוכה עתיקים — הנצרי שבוער חם אפילו בחורף האפל ביותר. אתה נושא סמכות טבעית שמורגשת לפני שנבינה.'},
+   strengths:{en:'Natural command, decisive action, courage under fire, protecting the vulnerable',ru:'Природное командование, решительные действия, мужество под огнём, защита уязвимых',es:'Mando natural, acción decisiva, valor bajo presión, protección de los vulnerables',it:'Comando naturale, azione decisiva, coraggio sotto pressione, protezione dei vulnerabili',he:'פיקוד טבעי, פעולה נחושה, אומץ תחת לחץ, הגנה על הפגיעים'},
+   shadow:{en:'Domination that silences collaboration and misses collective intelligence',ru:'Доминирование, заглушающее сотрудничество и упускающее коллективный интеллект',es:'Dominación que silencia la colaboración y pierde la inteligencia colectiva',it:'Dominazione che silenzia la collaborazione e perde l\'intelligenza collettiva',he:'שליטה ששותקת שיתוף פעולה ומחמיצה את האינטליגנציה הקולקטיבית'},
+   dates:'Jul 8–Aug 4'},
+  {name:{en:'Hazel',ru:'Лещина',es:'Avellano',it:'Nocciolo',he:'אגוז לוז'},ogham:'ᚉ',sym:'⭐',element:{en:'Air',ru:'Воздух',es:'Aire',it:'Aria',he:'אוויר'},season:{en:'Late Summer',ru:'Позднее лето',es:'Fin del Verano',it:'Fine Estate',he:'קיץ מאוחר'},
+   keywords:{en:'Wisdom • Knowledge • Creativity • Inspiration',ru:'Мудрость • Знание • Творчество • Вдохновение',es:'Sabiduría • Conocimiento • Creatividad • Inspiración',it:'Saggezza • Conoscenza • Creatività • Ispirazione',he:'חכמה • ידע • יצירתיות • השראה'},
+   desc:{en:'The Hazel is the tree of the Celtic bard — the keeper of all wisdom and the source of poetic inspiration. You carry an instinctive need to understand, to synthesise, and to translate the deep into the accessible. Your mind is your sacred instrument.',ru:'Лещина — дерево кельтских бардов, хранитель всей мудрости и источник поэтического вдохновения. Вы несёте инстинктивную потребность понимать, синтезировать и переводить глубокое в доступное.',es:'El Avellano es el árbol del bardo celta — el guardián de toda la sabiduría y la fuente de inspiración poética. Llevas una necesidad instintiva de entender, sintetizar y traducir lo profundo en lo accesible.',it:'Il Nocciolo è l\'albero del bardo celtico — il custode di tutta la saggezza e la fonte di ispirazione poetica. Porti un bisogno istintivo di capire, sintetizzare e tradurre il profondo nell\'accessibile.',he:'אגוז הלוז הוא עץ הבּרד הקלטי — שומר כל החכמה ומקור ההשראה השירית. אתה נושא צורך אינסטינקטיבי להבין, לסנתז ולתרגם את העמוק לנגיש.'},
+   strengths:{en:'Intellectual brilliance, creative inspiration, rapid synthesis, poetic expression',ru:'Интеллектуальный блеск, творческое вдохновение, быстрый синтез, поэтическое выражение',es:'Brillantez intelectual, inspiración creativa, síntesis rápida, expresión poética',it:'Brillantezza intellettuale, ispirazione creativa, sintesi rapida, espressione poetica',he:'ברק אינטלקטואלי, השראה יצירתית, סינתזה מהירה, ביטוי שירי'},
+   shadow:{en:'Information overload that prevents commitment to a single path',ru:'Информационная перегрузка, мешающая приверженности одному пути',es:'Sobrecarga de información que impide el compromiso con un solo camino',it:'Sovraccarico di informazioni che impedisce l\'impegno verso un unico percorso',he:'עומס מידע שמונע התחייבות לנתיב אחד'},
+   dates:'Aug 5–Sep 1'},
+  {name:{en:'Vine',ru:'Виноград',es:'Vid',it:'Vite',he:'גפן'},ogham:'ᚋ',sym:'🍇',element:{en:'Earth & Water',ru:'Земля и Вода',es:'Tierra y Agua',it:'Terra e Acqua',he:'אדמה ומים'},season:{en:'Autumn Equinox',ru:'Осеннее равноденствие',es:'Equinoccio de Otoño',it:'Equinozio d\'Autunno',he:'שיוויון הלילות של הסתיו'},
+   keywords:{en:'Abundance • Prophecy • Mystery • Unpredictability',ru:'Изобилие • Пророчество • Тайна • Непредсказуемость',es:'Abundancia • Profecía • Misterio • Imprevisibilidad',it:'Abbondanza • Profezia • Mistero • Imprevedibilità',he:'שפע • נבואה • מסתורין • בלתי-נצפוּת'},
+   desc:{en:'The most unpredictable tree — Vine people shift between states with remarkable ease, moving from clarity to mystery, from exuberance to reflection. You carry prophetic gifts: an ability to taste the truth in a situation before the evidence accumulates.',ru:'Самое непредсказуемое дерево — люди Виноградника переключаются между состояниями с поразительной лёгкостью. Вы несёте пророческие дары: способность ощущать истину в ситуации до того, как накапливаются доказательства.',es:'El árbol más impredecible — las personas Vid cambian entre estados con notable facilidad. Llevas dones proféticos: la capacidad de saborear la verdad en una situación antes de que se acumule la evidencia.',it:'L\'albero più imprevedibile — le persone Vite passano tra stati con notevole facilità. Porti doni profetici: la capacità di assaporare la verità in una situazione prima che le prove si accumulino.',he:'העץ הבלתי-צפוי ביותר — אנשי הגפן עוברים בין מצבים בקלות מדהימה. אתה נושא מתנות נבואיות: יכולת לטעום את האמת במצב לפני שהראיות מצטברות.'},
+   strengths:{en:'Prophetic insight, emotional range, abundance consciousness, harvesting what others miss',ru:'Пророческое прозрение, эмоциональный диапазон, сознание изобилия, сбор того, что упускают другие',es:'Perspicacia profética, rango emocional, conciencia de abundancia, cosechando lo que otros pierden',it:'Intuizione profetica, gamma emotiva, coscienza dell\'abbondanza, raccogliere ciò che gli altri perdono',he:'תובנה נבואית, טווח רגשי, תודעת שפע, קצירת מה שאחרים מפספסים'},
+   shadow:{en:'Unpredictability that undermines trust in sustained relationships',ru:'Непредсказуемость, подрывающая доверие в устойчивых отношениях',es:'Imprevisibilidad que socava la confianza en relaciones sostenidas',it:'Imprevedibilità che mina la fiducia nelle relazioni sostenute',he:'בלתי-נצפוּת שמערערת אמון במערכות יחסים מתמשכות'},
+   dates:'Sep 2–Sep 29'},
+  {name:{en:'Ivy',ru:'Плющ',es:'Hiedra',it:'Edera',he:'קיסוס'},ogham:'ᚌ',sym:'🌀',element:{en:'Water',ru:'Вода',es:'Agua',it:'Acqua',he:'מים'},season:{en:'Early Autumn',ru:'Ранняя осень',es:'Inicio del Otoño',it:'Inizio Autunno',he:'סתיו מוקדם'},
+   keywords:{en:'Tenacity • Healing • Determination • Transformation',ru:'Стойкость • Исцеление • Решимость • Трансформация',es:'Tenacidad • Sanación • Determinación • Transformación',it:'Tenacia • Guarigione • Determinazione • Trasformazione',he:'עקשנות • ריפוי • נחישות • טרנספורמציה'},
+   desc:{en:'Ivy persists where nothing else can — climbing walls, crossing ruins, threading through death to find light. You are the survivor archetype: your tenacity is not stubbornness but a fundamental life-force that simply will not accept limitation as permanent.',ru:'Плющ выживает там, где не может ничто другое — карабкается по стенам, пересекает руины, пробивается через смерть к свету. Вы — архетип выжившего: ваша стойкость — не упрямство, а фундаментальная жизненная сила.',es:'La Hiedra persiste donde nada más puede — trepando muros, cruzando ruinas. Eres el arquetipo del superviviente: tu tenacidad no es terquedad sino una fuerza vital fundamental que simplemente no acepta la limitación como permanente.',it:"L'Edera persiste dove niente altro può — scalando muri, attraversando rovine. Sei l'archetipo del sopravvissuto: la tua tenacia non è testardaggine ma una forza vitale fondamentale.",he:'הקיסוס שורד היכן שאף דבר אחר לא יכול — טיפוס קירות, חצייה חורבות. אתה ארכיטיפ הניצול: עקשנותך אינה עקשנות אלא כוח חיים בסיסי שפשוט לא מקבל הגבלה כקבועה.'},
+   strengths:{en:'Extraordinary persistence, healing through adversity, finding pathways others miss, loyalty',ru:'Исключительная настойчивость, исцеление через невзгоды, нахождение путей, которые упускают другие, верность',es:'Persistencia extraordinaria, sanación a través de la adversidad, encontrar caminos que otros pierden, lealtad',it:'Persistenza straordinaria, guarigione attraverso l\'avversità, trovare percorsi che gli altri perdono, lealtà',he:'עקשנות יוצאת דופן, ריפוי דרך קשיים, מציאת נתיבים שאחרים מפספסים, נאמנות'},
+   shadow:{en:'Clinging to structures that have already died, draining their last life',ru:'Цепляние за структуры, которые уже умерли, истощая их последнюю жизнь',es:'Aferrarse a estructuras que ya han muerto, drenando su última vida',it:'Aggrapparsi a strutture che sono già morte, prosciugando la loro ultima vita',he:'היצמדות למבנים שכבר מתו, ניקוז חייהם האחרונים'},
+   dates:'Sep 30–Oct 27'},
+  {name:{en:'Reed',ru:'Тростник',es:'Junco',it:'Canna',he:'קנה'},ogham:'ᚍ',sym:'🎵',element:{en:'Water & Earth',ru:'Вода и Земля',es:'Agua y Tierra',it:'Acqua e Terra',he:'מים ואדמה'},season:{en:'Mid-Autumn',ru:'Середина осени',es:'Mediados de Otoño',it:'Metà Autunno',he:'אמצע הסתיו'},
+   keywords:{en:'Purification • Truth • Hidden Depth • Revelation',ru:'Очищение • Истина • Скрытая Глубина • Откровение',es:'Purificación • Verdad • Profundidad Oculta • Revelación',it:'Purificazione • Verità • Profondità Nascosta • Rivelazione',he:'טיהור • אמת • עומק נסתר • התגלות'},
+   desc:{en:'The Reed makes music when hollow — only by surrendering what is unnecessary can it sing. You are the seeker of hidden truths, the one who can hear the melody inside the silence. Your depth of perception is directly proportional to your willingness to release.',ru:'Тростник создаёт музыку, когда полый — только отказавшись от ненужного, он может петь. Вы — искатель скрытых истин, способный слышать мелодию внутри тишины.',es:'El Junco hace música cuando está hueco — solo rendiendo lo innecesario puede cantar. Eres el buscador de verdades ocultas, el que puede escuchar la melodía dentro del silencio.',it:"La Canna fa musica quando è vuota — solo cedendo ciò che è superfluo può cantare. Sei il cercatore di verità nascoste, quello che può sentire la melodia nel silenzio.",he:'הקנה יוצר מוזיקה כשהוא חלול — רק על ידי ויתור על מה שמיותר הוא יכול לשיר. אתה המחפש אמיתות נסתרות, זה שיכול לשמוע את המנגינה בתוך הדממה.'},
+   strengths:{en:'Visionary perception, ability to transmit deep truths, purifying effect on others, music of soul',ru:'Провидческое восприятие, способность передавать глубокие истины, очищающий эффект на других',es:'Percepción visionaria, capacidad para transmitir verdades profundas, efecto purificador en los demás',it:'Percezione visionaria, capacità di trasmettere verità profonde, effetto purificante sugli altri',he:'תפיסה חזיונית, יכולת להעביר אמיתות עמוקות, אפקט מטהר על אחרים, מוזיקת נשמה'},
+   shadow:{en:'Martyrdom — surrendering identity itself instead of just its unnecessary layers',ru:'Мученичество — отдача самой идентичности вместо только её ненужных слоёв',es:'Martirio — rendirse a la identidad misma en lugar de solo sus capas innecesarias',it:'Martirio — cedere l\'identità stessa invece di solo i suoi strati superflui',he:'קדושות — ויתור על הזהות עצמה במקום רק שכבותיה המיותרות'},
+   dates:'Oct 28–Nov 24'},
+  {name:{en:'Elder',ru:'Бузина',es:'Saúco',it:'Sambuco',he:'סמבוק'},ogham:'ᚏ',sym:'🌑',element:{en:'Water & Fire',ru:'Вода и Огонь',es:'Agua y Fuego',it:'Acqua e Fuoco',he:'מים ואש'},season:{en:'Winter Gate',ru:'Зимние ворота',es:'Puerta del Invierno',it:'Porta dell\'Inverno',he:'שער החורף'},
+   keywords:{en:'Endings • Transition • Death & Rebirth • Ancestral Wisdom',ru:'Окончания • Переход • Смерть и Возрождение • Мудрость предков',es:'Finales • Transición • Muerte y Renacimiento • Sabiduría Ancestral',it:'Finali • Transizione • Morte e Rinascita • Saggezza Ancestrale',he:'סיומים • מעבר • מוות ולידה מחדש • חכמת האבות'},
+   desc:{en:'The Elder stands at the threshold of all things — ancient beyond measure, keeper of the cycle\'s final wisdom. You carry ancestral memory in your bones and a fearless relationship with ending. Where others flinch, you understand: every ending is simply a beginning that hasn\'t revealed its face yet.',ru:'Бузина стоит на пороге всего — древняя сверх меры, хранительница конечной мудрости цикла. Вы несёте в костях память предков и бесстрашное отношение к окончанию.',es:'El Saúco se encuentra en el umbral de todas las cosas — ancestral más allá de toda medida, guardián de la sabiduría final del ciclo. Llevas memoria ancestral en tus huesos.',it:"Il Sambuco si trova sulla soglia di tutte le cose — ancestrale oltre ogni misura, custode della saggezza finale del ciclo. Porti memoria ancestrale nelle ossa.",he:'הסמבוק עומד על סף כל הדברים — עתיק מעבר לכל מידה, שומר החכמה הסופית של המחזור. אתה נושא זיכרון אבות בעצמותיך ומערכת יחסים חסרת פחד עם הסיום.'},
+   strengths:{en:'Wisdom of cycles, fearless transformation, ancestral connection, profound acceptance',ru:'Мудрость циклов, бесстрашная трансформация, связь с предками, глубокое принятие',es:'Sabiduría de los ciclos, transformación sin miedo, conexión ancestral, aceptación profunda',it:'Saggezza dei cicli, trasformazione coraggiosa, connessione ancestrale, profonda accettazione',he:'חכמת המחזורים, טרנספורמציה חסרת פחד, חיבור לאבות, קבלה עמוקה'},
+   shadow:{en:'Morbidity — fascination with endings that prevents participation in living',ru:'Болезненность — очарованность окончаниями, мешающая участию в жизни',es:'Morbididad — fascinación por los finales que impide la participación en la vida',it:'Morbosità — fascinazione per i finali che impedisce la partecipazione alla vita',he:'מחלתיות — קסם של סיומים שמונעת השתתפות בחיים'},
+   dates:'Nov 25–Dec 23'}
+];
+
+function druidTree(dob){
+  if(!dob||!/^\d{2}\.\d{2}\.\d{4}$/.test(dob))return null;
+  const[d,m]=dob.split('.').map(Number);
+  for(const t of DRUID_TREES){
+    const[s,e]=t.dates.split('–');
+    function parse(str){const p=str.trim().split(' ');const months={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};return{d:parseInt(p[1]),m:months[p[0]]};}
+    const st=parse(s),en=parse(e);
+    if(st.m===en.m){if(m===st.m&&d>=st.d&&d<=en.d)return t;}
+    else if(st.m<en.m){if((m===st.m&&d>=st.d)||(m>st.m&&m<en.m)||(m===en.m&&d<=en.d))return t;}
+    else{if((m===st.m&&d>=st.d)||(m>st.m)||(m<en.m)||(m===en.m&&d<=en.d))return t;}
+  }
+  return DRUID_TREES[0];
+}
+
+/* ═══════════════ I CHING DATA ═══════════════════════════════════════════ */
+const ICHING_HEX=[
+  [1,'乾','Creative Heaven','☰☰','Heaven'],
+  [2,'坤','Receptive Earth','☷☷','Earth'],
+  [3,'屯','Difficulty at the Beginning','☵☳','Thunder in Water'],
+  [4,'蒙','Youthful Folly','☶☵','Water under Mountain'],
+  [5,'需','Waiting','☵☰','Clouds over Heaven'],
+  [6,'訟','Conflict','☰☵','Water meets Heaven'],
+  [7,'師','The Army','☷☵','Water under Earth'],
+  [8,'比','Holding Together','☵☷','Water over Earth'],
+  [9,'小畜','Small Taming','☴☰','Wind over Heaven'],
+  [10,'履','Treading','☰☱','Lake under Heaven'],
+  [11,'泰','Peace','☷☰','Heaven under Earth'],
+  [12,'否','Standstill','☰☷','Earth under Heaven'],
+  [13,'同人','Fellowship','☰☲','Fire meets Heaven'],
+  [14,'大有','Great Possession','☲☰','Fire over Heaven'],
+  [15,'謙','Modesty','☷☶','Mountain under Earth'],
+  [16,'豫','Enthusiasm','☳☷','Thunder over Earth'],
+  [17,'隨','Following','☱☳','Thunder in Lake'],
+  [18,'蠱','Work on the Decayed','☶☴','Wind under Mountain'],
+  [19,'臨','Approach','☷☱','Lake under Earth'],
+  [20,'觀','Contemplation','☴☷','Wind over Earth'],
+  [21,'噬嗑','Biting Through','☲☳','Thunder and Fire'],
+  [22,'賁','Grace','☶☲','Fire under Mountain'],
+  [23,'剝','Splitting Apart','☶☷','Mountain over Earth'],
+  [24,'復','Return','☷☳','Thunder under Earth'],
+  [25,'無妄','Innocence','☰☳','Thunder under Heaven'],
+  [26,'大畜','Great Taming','☶☰','Heaven under Mountain'],
+  [27,'頤','Nourishment','☶☳','Thunder under Mountain'],
+  [28,'大過','Preponderance','☱☴','Wind in Lake'],
+  [29,'坎','Abysmal Water','☵☵','Water doubled'],
+  [30,'離','Clinging Fire','☲☲','Fire doubled'],
+  [31,'咸','Influence','☱☶','Mountain with Lake'],
+  [32,'恆','Duration','☳☴','Wind over Thunder'],
+  [33,'遯','Retreat','☰☶','Mountain under Heaven'],
+  [34,'大壯','Power of the Great','☳☰','Heaven under Thunder'],
+  [35,'晉','Progress','☲☷','Fire over Earth'],
+  [36,'明夷','Darkening of the Light','☷☲','Fire under Earth'],
+  [37,'家人','Family','☴☲','Fire with Wind'],
+  [38,'睽','Opposition','☲☱','Lake and Fire'],
+  [39,'蹇','Obstruction','☵☶','Mountain above Water'],
+  [40,'解','Deliverance','☳☵','Water with Thunder'],
+  [41,'損','Decrease','☶☱','Lake under Mountain'],
+  [42,'益','Increase','☴☳','Thunder with Wind'],
+  [43,'夬','Breakthrough','☱☰','Heaven with Lake'],
+  [44,'姤','Coming to Meet','☰☴','Wind under Heaven'],
+  [45,'萃','Gathering','☱☷','Earth with Lake'],
+  [46,'升','Pushing Upward','☷☴','Wind under Earth'],
+  [47,'困','Oppression','☱☵','Water in Lake'],
+  [48,'井','The Well','☵☴','Wind over Water'],
+  [49,'革','Revolution','☱☲','Fire in Lake'],
+  [50,'鼎','The Cauldron','☲☴','Wind under Fire'],
+  [51,'震','Arousing Thunder','☳☳','Thunder doubled'],
+  [52,'艮','Keeping Still','☶☶','Mountain doubled'],
+  [53,'漸','Gradual Development','☴☶','Mountain with Wind'],
+  [54,'歸妹','Marrying Maiden','☳☱','Lake with Thunder'],
+  [55,'豐','Abundance','☳☲','Fire with Thunder'],
+  [56,'旅','The Wanderer','☲☶','Mountain with Fire'],
+  [57,'巽','Gentle Wind','☴☴','Wind doubled'],
+  [58,'兌','Joyful Lake','☱☱','Lake doubled'],
+  [59,'渙','Dispersion','☴☵','Wind over Water'],
+  [60,'節','Limitation','☵☱','Lake above Water'],
+  [61,'中孚','Inner Truth','☴☱','Wind over Lake'],
+  [62,'小過','Small Excess','☳☶','Mountain with Thunder'],
+  [63,'既濟','After Completion','☵☲','Fire under Water'],
+  [64,'未濟','Before Completion','☲☵','Water above Fire']
+];
+
+const ICHING_INTERP={
+  heaven:{
+    en:["This hexagram speaks of pure creative potential — the primal force that sets all things in motion. The moment you are in calls for decisive initiation. Your will, aligned with cosmic timing, carries unusual power right now. Act from your highest intention, not your smallest fear. Heaven does not hesitate when its season arrives.",
+        "The Creative principle is fully activated. This is not a moment for waiting or seeking permission. The question is not whether you have the resources — it is whether you have the clarity of purpose. When the vision is true, the path opens not before you see it, but because you see it. What is your truest direction?"],
+    ru:["Эта гексаграмма говорит о чистом творческом потенциале — первичной силе, приводящей всё в движение. Момент, в котором вы находитесь, требует решительного начала. Ваша воля, согласованная с космическим временем, несёт необычную силу. Действуйте из высшего намерения, а не мельчайшего страха.",
+        "Творческий принцип полностью активирован. Это не момент для ожидания. Вопрос не в том, есть ли у вас ресурсы — а есть ли ясность цели. Когда видение истинно, путь открывается не до того, как вы его видите, а потому что вы его видите."],
+    es:["Este hexagrama habla de puro potencial creativo — la fuerza primordial que pone todo en movimiento. El momento en que estás requiere una iniciación decisiva. Tu voluntad, alineada con el momento cósmico, lleva un poder inusual ahora. Actúa desde tu más alta intención, no desde tu miedo más pequeño.",
+        "El principio Creativo está completamente activado. Este no es un momento para esperar ni buscar permiso. La pregunta no es si tienes los recursos — es si tienes claridad de propósito. Cuando la visión es verdadera, el camino se abre no antes de verlo, sino porque lo ves."],
+    it:["Questo esagramma parla di puro potenziale creativo — la forza primordiale che mette tutto in moto. Il momento in cui ti trovi richiede un'iniziazione decisiva. La tua volontà, allineata con il momento cosmico, porta un potere insolito ora. Agisci dalla tua più alta intenzione, non dalla tua paura più piccola.",
+        "Il principio Creativo è pienamente attivato. Questo non è un momento per aspettare o cercare permesso. La domanda non è se hai le risorse — è se hai chiarezza di scopo. Quando la visione è vera, il percorso si apre non prima di vederlo, ma perché lo vedi."],
+    he:["הקסגרמה הזו מדברת על פוטנציאל יצירתי טהור — הכוח הראשוני שמניע את הכל. הרגע שבו אתה נמצא קורא ליוזמה נחושה. הרצון שלך, מיושר עם התזמון הקוסמי, נושא כוח יוצא דופן כעת. פעל מהכוונה הגבוהה ביותר שלך, לא מהפחד הקטן ביותר.",
+        "העקרון היצירתי מופעל במלואו. זה לא רגע להמתנה. השאלה אינה אם יש לך משאבים — היא האם יש לך בהירות של מטרה. כשהחזון אמיתי, הדרך נפתחת לא לפני שאתה רואה אותה, אלא כי אתה רואה אותה."]
+  },
+  earth:{
+    en:["The Receptive teaches a paradoxical truth: tremendous power flows through yielding. This is not weakness — it is strategic intelligence. The current moment calls not for force but for receptivity: absorbing what is real, accommodating what is necessary, responding rather than initiating. Your strength right now is the strength of water — it yields to every obstacle and yet carves through stone.",
+        "Nourishment and support are themes here. Something around you needs tending before it can grow. The wisest investment of energy in this period is care — of relationships, of the project in its early form, of yourself. Do not mistake quiet cultivation for inaction. The earth does extraordinary work in silence."],
+    ru:["Воспринимающий учит парадоксальной истине: огромная сила течёт через уступчивость. Это не слабость — это стратегический интеллект. Текущий момент требует не силы, а восприимчивости: поглощение того, что реально, приспособление к тому, что необходимо.",
+        "Здесь темы питания и поддержки. Что-то вокруг вас нуждается в уходе, прежде чем сможет расти. Мудрейшее вложение энергии в этот период — забота. Не принимайте тихое возделывание за бездействие. Земля делает удивительную работу в тишине."],
+    es:["Lo Receptivo enseña una verdad paradójica: un tremendo poder fluye a través de la rendición. Esto no es debilidad — es inteligencia estratégica. El momento actual llama no a la fuerza sino a la receptividad. Tu fuerza ahora es la fuerza del agua — cede a cada obstáculo y sin embargo perfora la piedra.",
+        "Nutrición y apoyo son temas aquí. Algo a tu alrededor necesita atención antes de poder crecer. La inversión de energía más sabia en este período es el cuidado. No confundas el cultivo silencioso con la inacción. La tierra hace un trabajo extraordinario en silencio."],
+    it:["Il Ricettivo insegna una verità paradossale: un potere tremendo scorre attraverso la resa. Questo non è debolezza — è intelligenza strategica. Il momento attuale chiama non alla forza ma alla recettività. La tua forza ora è la forza dell'acqua — cede a ogni ostacolo eppure perfora la pietra.",
+        "Nutrimento e supporto sono temi qui. Qualcosa intorno a te ha bisogno di cura prima di poter crescere. L'investimento di energia più saggio in questo periodo è la cura. Non confondere la coltivazione silenziosa con l'inazione."],
+    he:["הקבלני מלמד אמת פרדוקסלית: כוח עצום זורם דרך ויתור. זה לא חולשה — זו אינטליגנציה אסטרטגית. הרגע הנוכחי קורא לא לכוח אלא לקבלה. כוחך כעת הוא כוח המים — מיתר לכל מכשול ועדיין חוצב דרך אבן.",
+        "פרנסה ותמיכה הם נושאים כאן. משהו סביבך זקוק לטיפוח לפני שיוכל לגדול. ההשקעה החכמה ביותר של אנרגיה בתקופה זו היא טיפול. אל תתבלבל בין גידול שקט לבין חוסר פעולה."]
+  },
+  water:{
+    en:["Water always finds its way. This hexagram speaks of navigating through genuine difficulty — not by eliminating the obstacle but by discovering the path through it. The wisdom of water is not brute force; it is persistent, patient intelligence. Your current situation has a way through. The question is whether you are willing to find the path that already exists rather than force one that doesn't.",
+        "Danger is present — but danger is also a teacher. The Abysmal Water surrounds on all sides: this is the hexagram of the person who must learn to trust their own depth when all external reference points have disappeared. The resource that will carry you through is not strategy but something older — instinct, faith, and a willingness to move through the dark without demanding light first."],
+    ru:["Вода всегда находит путь. Эта гексаграмма говорит о навигации через настоящие трудности — не устраняя препятствие, а обнаруживая путь через него. Мудрость воды — не грубая сила; это настойчивый, терпеливый интеллект.",
+        "Опасность присутствует — но опасность также учит. Пропасть окружает со всех сторон: это гексаграмма человека, который должен научиться доверять своей собственной глубине, когда все внешние ориентиры исчезли. Ресурс, который пронесёт вас через это — не стратегия, а инстинкт, вера."],
+    es:["El agua siempre encuentra su camino. Este hexagrama habla de navegar a través de una dificultad genuina — no eliminando el obstáculo sino descubriendo el camino a través de él. La sabiduría del agua no es fuerza bruta; es inteligencia persistente y paciente.",
+        "El peligro está presente — pero el peligro también es un maestro. El Agua Abismal rodea por todos lados: este es el hexagrama de la persona que debe aprender a confiar en su propia profundidad cuando todos los puntos de referencia externos han desaparecido."],
+    it:["L'acqua trova sempre la sua strada. Questo esagramma parla di navigare attraverso una difficoltà genuina — non eliminando l'ostacolo ma scoprendo il percorso attraverso di esso. La saggezza dell'acqua non è forza bruta; è intelligenza persistente e paziente.",
+        "Il pericolo è presente — ma il pericolo è anche un maestro. L'Acqua Abissale circonda da tutti i lati: questo è l'esagramma della persona che deve imparare a fidarsi della propria profondità quando tutti i punti di riferimento esterni sono scomparsi."],
+    he:["מים תמיד מוצאים את דרכם. הקסגרמה הזו מדברת על ניווט דרך קושי אמיתי — לא על ידי ביטול המכשול אלא על ידי גילוי הדרך דרכו. חכמת המים אינה כוח גס; זוהי אינטליגנציה עקשנית וסבלנית.",
+        "סכנה נוכחת — אבל סכנה היא גם מורה. התהום מקיפה מכל צד: זו הקסגרמה של האדם שחייב ללמוד לסמוך על עומקו שלו כשכל נקודות הייחוס החיצוניות נעלמו."]
+  },
+  fire:{
+    en:["Fire illuminates what was hidden and transforms what it touches. This hexagram calls your attention to clarity — the kind that only emerges when you are willing to see a situation as it actually is, not as you wish it were. Something in your life right now requires honest illumination. The temporary discomfort of seeing clearly is far less costly than the ongoing expense of beautiful illusion.",
+        "Double fire: the power of consciousness itself. When fire is doubled, both the light and the danger intensify. Your current situation asks for inner illumination — turning the quality of your attention inward, examining the quality of your own seeing. The external situation will respond to what you discover inside. What part of your current reality are you seeing most clearly? What part are you refusing to look at directly?"],
+    ru:["Огонь освещает скрытое и трансформирует то, чего касается. Эта гексаграмма призывает ваше внимание к ясности — той, что возникает только когда вы готовы видеть ситуацию такой, какая она есть на самом деле. Что-то в вашей жизни прямо сейчас требует честного освещения.",
+        "Двойной огонь: сила самого сознания. Когда огонь удваивается, усиливается и свет, и опасность. Ваша текущая ситуация требует внутреннего освещения. Внешняя ситуация ответит на то, что вы обнаружите внутри."],
+    es:["El fuego ilumina lo que estaba oculto y transforma lo que toca. Este hexagrama llama su atención a la claridad — la que solo emerge cuando estás dispuesto a ver una situación como realmente es. Algo en su vida ahora mismo requiere una iluminación honesta.",
+        "Fuego doble: el poder de la conciencia misma. Cuando el fuego se duplica, tanto la luz como el peligro se intensifican. Su situación actual pide iluminación interior. ¿Qué parte de su realidad actual está viendo con más claridad? ¿Qué parte se niega a mirar directamente?"],
+    it:["Il fuoco illumina ciò che era nascosto e trasforma ciò che tocca. Questo esagramma richiama la vostra attenzione alla chiarezza — quella che emerge solo quando siete disposti a vedere una situazione come è veramente. Qualcosa nella vostra vita ora richiede un'illuminazione onesta.",
+        "Fuoco doppio: il potere della coscienza stessa. Quando il fuoco è raddoppiato, sia la luce che il pericolo si intensificano. La situazione attuale chiede illuminazione interiore. Quale parte della vostra realtà attuale state vedendo con maggiore chiarezza?"],
+    he:["אש מאירה את מה שהיה נסתר ומשנה את מה שהיא נוגעת בו. הקסגרמה הזו קוראת לתשומת לבך לבהירות — זו שצומחת רק כשאתה מוכן לראות מצב כמו שהוא באמת. משהו בחייך עכשיו דורש הארה כנה.",
+        "אש כפולה: כוח התודעה עצמה. כשהאש מוכפלת, גם האור וגם הסכנה מתעצמים. המצב הנוכחי שלך מבקש הארה פנימית. איזה חלק מהמציאות הנוכחית שלך אתה רואה בצורה הברורה ביותר?"]
+  },
+  thunder:{
+    en:["Thunder arrives suddenly — shattering the stagnant, awakening what had grown complacent. This hexagram speaks of the shock that initiates movement. Something in your life is being awakened by disruption. The instinct is to resist or to fear. The wisdom of Thunder is different: the disruption is the teacher. What has just been shaken loose — and what does its falling reveal?",
+        "The Arousing force is active. This is the energy of initiation, of electricity before the rain. Where are you at the very beginning of something new? Thunder does not ask permission; it announces itself and transforms the atmosphere simply by arriving. You carry this quality right now — the capacity to initiate change simply through your presence and decisiveness."],
+    ru:["Гром приходит внезапно — разбивая стагнацию, пробуждая то, что стало самодовольным. Эта гексаграмма говорит о потрясении, инициирующем движение. Что-то в вашей жизни пробуждается разрушением. Мудрость Грома: разрушение — это учитель.",
+        "Пробуждающая сила активна. Это энергия инициации, электричества перед дождём. Гром не просит разрешения; он объявляет о себе и трансформирует атмосферу просто своим появлением. Вы несёте это качество прямо сейчас."],
+    es:["El Trueno llega de repente — destrozando lo estancado, despertando lo que se había vuelto complaciente. Este hexagrama habla del choque que inicia el movimiento. La sabiduría del Trueno: la disrupción es el maestro. ¿Qué acaba de soltarse — y qué revela su caída?",
+        "La fuerza Despertadora está activa. Esta es la energía de la iniciación. El Trueno no pide permiso; se anuncia y transforma la atmósfera simplemente llegando. Llevas esta cualidad ahora mismo — la capacidad de iniciar el cambio simplemente con tu presencia."],
+    it:["Il Tuono arriva all'improvviso — frantumando lo stagnante, risvegliando ciò che era diventato compiacente. Questo esagramma parla dello shock che avvia il movimento. La saggezza del Tuono: la disruzione è l'insegnante. Cosa è stato appena scosso — e cosa rivela la sua caduta?",
+        "La forza Destante è attiva. Questa è l'energia dell'iniziazione. Il Tuono non chiede permesso; si annuncia e trasforma l'atmosfera semplicemente arrivando. Porti questa qualità in questo momento."],
+    he:["הרעם מגיע פתאום — מנפץ את הקיפאון, מעיר את מה שהפך לשאנן. הקסגרמה הזו מדברת על הזעזוע שמתחיל תנועה. חכמת הרעם: ההפרעה היא המורה. מה בדיוק נזעזע — ומה נפילתו חושפת?",
+        "כוח ה-מעורר פעיל. זו אנרגיית היוזמה. הרעם לא מבקש רשות; הוא מכריז על עצמו ומשנה את האטמוספרה פשוט על ידי הגעה. אתה נושא את האיכות הזו כעת."]
+  },
+  mountain:{
+    en:["The Mountain does not move — and this is not stubbornness but wisdom. There are moments when the most powerful act is stillness. To keep still in the midst of pressure, reaction, and demand requires more strength than most action. This hexagram asks: where are you moving out of restlessness rather than true necessity? The answer to the present situation may not be another action — it may be the quality of pause.",
+        "Gradual development is the teaching here. The mountain does not become a mountain in a day. What you are building requires time and proper sequencing — and the pressure you feel to accelerate may be the very thing threatening its integrity. The Wanderer who pauses at the mountain learns more than the one who rushes past. What wisdom are you bypassing in your rush to the next thing?"],
+    ru:["Гора не движется — и это не упрямство, а мудрость. Есть моменты, когда самый мощный акт — неподвижность. Эта гексаграмма спрашивает: где вы движетесь из беспокойства, а не из истинной необходимости? Ответ на текущую ситуацию может быть не очередным действием, а качеством паузы.",
+        "Постепенное развитие — вот учение здесь. Гора не становится горой за один день. То, что вы строите, требует времени и правильной последовательности. Какую мудрость вы обходите в спешке к следующему?"],
+    es:["La Montaña no se mueve — y esto no es terquedad sino sabiduría. Hay momentos en que el acto más poderoso es la quietud. Este hexagrama pregunta: ¿dónde te estás moviendo por inquietud en lugar de verdadera necesidad? La respuesta a la situación actual puede no ser otra acción — puede ser la calidad de la pausa.",
+        "El desarrollo gradual es la enseñanza aquí. La montaña no se convierte en montaña en un día. ¿Qué sabiduría estás evitando en tu prisa por llegar a lo siguiente?"],
+    it:["La Montagna non si muove — e questo non è testardaggine ma saggezza. Ci sono momenti in cui l'atto più potente è la quiete. Questo esagramma chiede: dove ti stai muovendo per irrequietezza piuttosto che per vera necessità? La risposta alla situazione attuale potrebbe non essere un'altra azione — potrebbe essere la qualità della pausa.",
+        "Lo sviluppo graduale è l'insegnamento qui. La montagna non diventa una montagna in un giorno. Quale saggezza stai bypassando nella tua fretta verso la prossima cosa?"],
+    he:["ההר לא זז — וזה לא עקשנות אלא חכמה. יש רגעים שבהם המעשה הכי עוצמתי הוא דממה. הקסגרמה הזו שואלת: איפה אתה נע מחוסר מנוחה ולא מצורך אמיתי? התשובה למצב הנוכחי עשויה שלא להיות פעולה נוספת — אלא איכות ההפסקה.",
+        "פיתוח הדרגתי הוא ההוראה כאן. ההר לא הופך להר ביום אחד. איזו חכמה אתה עוקף בחיפזונך לדבר הבא?"]
+  },
+  wind:{
+    en:["The Gentle Wind does not break stone through force — it works through persistent, subtle penetration. The most profound changes in any system are rarely made by dramatic interventions; they are made by consistent gentle pressure applied at the right point over sufficient time. This is your medicine right now: not more effort, but more precision. Where exactly, applied with patience, would a small and consistent action produce the largest effect?",
+        "Wind carries seeds, disperses what is stagnant, and creates the conditions for new growth. This hexagram speaks of influence through subtlety — your power right now operates through suggestion, presence, and the quality of the example you set. Direct force would meet resistance. Indirect presence dissolves it. How can you serve the outcome you want through becoming the thing you want to create?"],
+    ru:["Нежный ветер не разбивает камень силой — он работает через настойчивое, тонкое проникновение. Самые глубокие изменения в любой системе редко вносятся драматическими вмешательствами; они вносятся последовательным мягким давлением в правильной точке. Где именно, применённое с терпением, небольшое последовательное действие произведёт наибольший эффект?",
+        "Ветер несёт семена, рассеивает застой и создаёт условия для нового роста. Эта гексаграмма говорит о влиянии через тонкость. Как вы можете служить желаемому результату, становясь тем, что хотите создать?"],
+    es:["El Viento Suave no rompe la piedra por la fuerza — trabaja a través de una penetración persistente y sutil. Los cambios más profundos en cualquier sistema rara vez se hacen por intervenciones dramáticas; se hacen por una presión suave y consistente aplicada en el punto correcto durante el tiempo suficiente.",
+        "El viento lleva semillas, dispersa lo que está estancado y crea las condiciones para el nuevo crecimiento. Este hexagrama habla de influencia a través de la sutileza. ¿Cómo puedes servir al resultado que deseas convirtiéndote en la cosa que quieres crear?"],
+    it:["Il Vento Gentile non rompe la pietra con la forza — lavora attraverso una penetrazione persistente e sottile. I cambiamenti più profondi in qualsiasi sistema raramente vengono fatti da interventi drammatici; vengono fatti da una pressione gentile e costante applicata nel punto giusto per un tempo sufficiente.",
+        "Il vento trasporta semi, disperde ciò che è stagnante e crea le condizioni per la nuova crescita. Questo esagramma parla di influenza attraverso la sottigliezza. Come puoi servire il risultato che desideri diventando la cosa che vuoi creare?"],
+    he:["הרוח העדינה לא שוברת אבן בכוח — היא עובדת דרך חדירה עקשנית ועדינה. השינויים הכי עמוקים בכל מערכת נעשים לעיתים נדירות על ידי התערבויות דרמטיות; הם נעשים על ידי לחץ עדין ועקבי בנקודה הנכונה.",
+        "הרוח נושאת זרעים, מפזרת את הקיפאון ויוצרת תנאים לצמיחה חדשה. הקסגרמה הזו מדברת על השפעה דרך עידון. כיצד תוכל לשרת את התוצאה שאתה רוצה על ידי כך שתהפוך לדבר שאתה רוצה ליצור?"]
+  },
+  lake:{
+    en:["The Lake is both joyful and reflective — the deepest pleasures arise from genuine exchange, from seeing and being seen, from the meeting of authentic spirits. This hexagram speaks of the profound value of connection: not networking, not strategy, but the rare experience of real encounter. Where in your life are you protecting yourself from the vulnerability of genuine contact? The lake that walls itself in becomes a swamp.",
+        "Joy is the teaching here — and not the performance of joy, but the genuine article. There is something in your current situation that, if approached with delight rather than burden, would transform its quality entirely. What would change if you stopped treating your current challenge as a problem to solve and started treating it as an experience to engage with? The Lake does not resist what flows into it; it receives, reflects, and transforms."],
+    ru:["Озеро одновременно радостное и рефлексивное — глубочайшие удовольствия возникают из подлинного обмена, из встречи подлинных духов. Эта гексаграмма говорит о глубокой ценности связи: не нетворкинга, не стратегии, а редкого опыта настоящей встречи.",
+        "Радость — вот учение здесь — и не исполнение радости, а её подлинный вариант. Что-то в вашей текущей ситуации, если подойти к этому с восторгом, а не с бременем, полностью изменило бы её качество."],
+    es:["El Lago es tanto alegre como reflexivo — los placeres más profundos surgen del intercambio genuino, de ver y ser visto, del encuentro de espíritus auténticos. Este hexagrama habla del profundo valor de la conexión. El lago que se encierra en sí mismo se convierte en un pantano.",
+        "La alegría es la enseñanza aquí — y no la actuación de la alegría, sino el artículo genuino. ¿Qué cambiaría si dejara de tratar su desafío actual como un problema a resolver y comenzara a tratarlo como una experiencia a comprometer?"],
+    it:["Il Lago è sia gioioso che riflessivo — i piaceri più profondi emergono dallo scambio genuino, dal vedere ed essere visti, dall'incontro di spiriti autentici. Questo esagramma parla del profondo valore della connessione. Il lago che si circonda di muri diventa una palude.",
+        "La gioia è l'insegnamento qui — e non la performance della gioia, ma l'articolo genuino. Cosa cambierebbe se smettessi di trattare la sfida attuale come un problema da risolvere e iniziassi a trattarla come un'esperienza con cui confrontarsi?"],
+    he:["האגם הוא גם שמח וגם רפלקטיבי — העינוגים העמוקים ביותר נובעים מחילופי דברים אמיתיים, מלראות ולהיראות. הקסגרמה הזו מדברת על הערך העמוק של חיבור: לא נטוורקינג, אלא החוויה הנדירה של מפגש אמיתי. האגם שמגדר את עצמו הופך לביצה.",
+        "שמחה היא ההוראה כאן — ולא הפרפורמנס של שמחה, אלא הדבר האמיתי. מה ישתנה אם תפסיק לטפל באתגר הנוכחי שלך כבעיה לפתרון ותתחיל לטפל בו כחוויה להתמודד איתה?"]
+  }
+};
+
+function getIChingTheme(n){
+  if(n===1)return'heaven';
+  if(n===2)return'earth';
+  if([29,48,59,60].includes(n))return'water';
+  if([30,35,50,55].includes(n))return'fire';
+  if([3,16,21,24,25,40,42,51,54,55,62].includes(n))return'thunder';
+  if([15,22,23,26,27,31,33,39,52,53,56,62].includes(n))return'mountain';
+  if([9,18,28,44,46,48,50,57,59,61].includes(n))return'wind';
+  if([10,17,19,28,38,41,43,45,47,49,58,60,61].includes(n))return'lake';
+  if(n<=32)return'water';
+  return'thunder';
+}
+
+function castHexagram(){
+  const lines=[];
+  for(let i=0;i<6;i++){
+    const coins=[Math.random()>.5?3:2,Math.random()>.5?3:2,Math.random()>.5?3:2];
+    const sum=coins.reduce((a,b)=>a+b,0);
+    lines.push({yang:sum===7||sum===9,changing:sum===6||sum===9});
+  }
+  const num=Math.floor(Math.random()*64)+1;
+  return{lines,num,hex:ICHING_HEX[num-1]};
+}
+
+/* ═══════════════ DRUID TOOL COMPONENT ══════════════════════════════════ */
+function DruidTool({lang}){
+  const t=T[lang];
+  const [dob,setDob]=useState('');
+  const [tree,setTree]=useState(null);
+  const [err,setErr]=useState('');
+  function reveal(){
+    const v=validateDOB(dob);
+    if(!v.ok){setErr(v.err);return;}
+    setErr('');
+    setTree(druidTree(dob));
+  }
+  if(tree) return(
+    <div>
+      <div className="druid-tree-card rv">
+        <div className="druid-sym">{tree.sym}</div>
+        <div style={{fontSize:'.68rem',letterSpacing:'.2em',textTransform:'uppercase',color:'var(--sage)',marginBottom:4}}>{tree.ogham} {tree.dates}</div>
+        <div className="druid-tree-name">{tree.name[lang]||tree.name.en}</div>
+        <div style={{fontSize:'.78rem',color:'var(--text-3)',marginBottom:14}}>{tree.keywords[lang]||tree.keywords.en}</div>
+        <p style={{fontSize:'.86rem',color:'var(--text-2)',lineHeight:1.75,marginBottom:0}}>{tree.desc[lang]||tree.desc.en}</p>
+      </div>
+      <div className="druid-section rv">
+        <div className="druid-section-label">✦ {t.druid_strengths}</div>
+        <p style={{fontSize:'.82rem',color:'var(--text-2)',lineHeight:1.65,margin:0}}>{tree.strengths[lang]||tree.strengths.en}</p>
+      </div>
+      <div className="druid-section rv" style={{borderColor:'rgba(180,80,80,.15)'}}>
+        <div className="druid-section-label" style={{color:'var(--amber)'}}>◈ {t.druid_shadow}</div>
+        <p style={{fontSize:'.82rem',color:'var(--text-2)',lineHeight:1.65,margin:0}}>{tree.shadow[lang]||tree.shadow.en}</p>
+      </div>
+      <div style={{display:'flex',gap:10,marginTop:10}}>
+        <div className="druid-section" style={{flex:1}}>
+          <div className="druid-section-label">{t.druid_element}</div>
+          <div style={{fontSize:'.84rem',color:'var(--sage)'}}>{tree.element[lang]||tree.element.en}</div>
+        </div>
+        <div className="druid-section" style={{flex:1}}>
+          <div className="druid-section-label">{t.druid_season}</div>
+          <div style={{fontSize:'.84rem',color:'var(--gold)'}}>{tree.season[lang]||tree.season.en}</div>
+        </div>
+      </div>
+      <button className="btn-g" style={{width:'100%',justifyContent:'center',marginTop:16}} onClick={()=>setTree(null)}>{t.druid_retake}</button>
+    </div>
+  );
+  return(
+    <form onSubmit={e=>{e.preventDefault();reveal();}}>
+      <p style={{fontSize:'.84rem',color:'var(--text-3)',marginBottom:16,lineHeight:1.65}}>
+        {lang==='ru'?'Введите дату рождения, чтобы раскрыть ваше священное кельтское дерево из лунного календаря друидов.':
+         lang==='es'?'Introduce tu fecha de nacimiento para revelar tu árbol sagrado celta del calendario lunar druida.':
+         lang==='it'?'Inserisci la tua data di nascita per rivelare il tuo albero sacro celtico dal calendario lunare druidico.':
+         lang==='he'?'הכנס את תאריך לידתך כדי לגלות את עץ הקודש הקלטי שלך מהלוח הירחי הדרואידי.':
+         'Enter your date of birth to reveal your sacred Celtic tree from the Druid lunar calendar.'}
+      </p>
+      <div style={{marginBottom:err?8:16}}>
+        <DateInput value={dob} onChange={v=>{setDob(v);setErr('');}} lang={lang}/>
+      </div>
+      {err&&<p style={{fontSize:'.78rem',color:'#C85050',marginBottom:10,textAlign:'center'}}>{err}</p>}
+      <button type="submit" className="cta-btn" style={{width:'100%',justifyContent:'center',background:'linear-gradient(135deg,#2A5A3A,#5A8F70)'}}>{tree?t.druid_retake:t.druid_calc}</button>
+    </form>
+  );
+}
+
+/* ═══════════════ I CHING TOOL COMPONENT ════════════════════════════════ */
+function IChingTool({lang}){
+  const t=T[lang];
+  const [question,setQuestion]=useState('');
+  const [result,setResult]=useState(null);
+  const [loading,setLoading]=useState(false);
+  function cast(){
+    setLoading(true);
+    setTimeout(()=>{setResult(castHexagram());setLoading(false);},1800);
+  }
+  function HexLines({lines}){
+    return(
+      <div className="hexagram-lines">
+        {[...lines].reverse().map((ln,i)=>(
+          <div key={i} className={`hex-line${ln.changing?' changing':''}`}>
+            {ln.yang
+              ?<div className="hex-seg" style={{flex:1}}/>
+              :<><div className="hex-seg" style={{flex:1}}/><div style={{width:10}}/><div className="hex-seg" style={{flex:1}}/></>
+            }
+            {ln.changing&&<span style={{fontSize:9,color:'var(--amber)',marginLeft:4}}>○</span>}
+          </div>
+        ))}
+      </div>
+    );
+  }
+  if(result){
+    const h=result.hex;
+    const theme=getIChingTheme(result.num);
+    const pool=ICHING_INTERP[theme]||ICHING_INTERP.water;
+    const interp=pick(pool[lang]||pool.en);
+    const changingCount=result.lines.filter(l=>l.changing).length;
+    return(
+      <div>
+        <div className="iching-card rv">
+          <div style={{display:'flex',alignItems:'flex-start',gap:20}}>
+            <HexLines lines={result.lines}/>
+            <div style={{flex:1}}>
+              <div className="iching-num">{t.iching_hexagram} {h[0]}</div>
+              <div className="iching-name">{h[2]}</div>
+              <div style={{fontSize:'.78rem',color:'var(--text-3)',marginBottom:6}}>{h[1]} · {h[4]}</div>
+              <div style={{fontSize:'.72rem',color:'var(--text-3)',letterSpacing:'.08em',fontFamily:'var(--font-b)'}}>{h[3]}</div>
+            </div>
+          </div>
+          {question&&<p style={{fontSize:'.76rem',color:'var(--text-3)',margin:'12px 0 0',fontStyle:'italic',borderTop:'1px solid var(--border)',paddingTop:10}}>"{question}"</p>}
+        </div>
+        <div style={{background:'var(--surface-2)',border:'1px solid rgba(212,178,122,.15)',borderRadius:12,padding:'18px 20px',marginTop:14}}>
+          <div className="eyebrow" style={{color:'var(--gold)',marginBottom:10}}>☯ {h[2]}</div>
+          <p style={{fontSize:'.86rem',color:'var(--text-2)',lineHeight:1.78,margin:0}}>{renderMD(interp)}</p>
+        </div>
+        {changingCount>0&&(
+          <div style={{background:'var(--surface-2)',border:'1px solid rgba(200,148,110,.2)',borderRadius:10,padding:'14px 18px',marginTop:10}}>
+            <div style={{fontSize:'.65rem',letterSpacing:'.15em',textTransform:'uppercase',color:'var(--amber)',marginBottom:6}}>{t.iching_changing} ({changingCount})</div>
+            <p style={{fontSize:'.80rem',color:'var(--text-3)',lineHeight:1.65,margin:0}}>
+              {lang==='ru'?'Меняющиеся черты указывают на линии активной трансформации — энергии в движении внутри вашей ситуации. Где неустойчивость присутствует, там и скрыта наибольшая возможность.':
+               lang==='es'?'Las líneas cambiantes indican líneas de transformación activa — energía en movimiento dentro de tu situación. Donde hay inestabilidad, también reside la mayor oportunidad.':
+               lang==='it'?'Le linee mutanti indicano linee di trasformazione attiva — energia in movimento nella vostra situazione. Dove c\'è instabilità, risiede anche la maggiore opportunità.':
+               lang==='he'?'הקווים המשתנים מציינים קווים של טרנספורמציה פעילה — אנרגיה בתנועה בתוך המצב שלך. היכן שיש חוסר יציבות, גם טמונה הזדמנות הגדולה ביותר.':
+               'Changing lines indicate active transformation — energy in motion within your situation. Where instability is present, the greatest opportunity also resides.'}
+            </p>
+          </div>
+        )}
+        <button className="btn-g" style={{width:'100%',justifyContent:'center',marginTop:14}} onClick={()=>setResult(null)}>{t.iching_again}</button>
+      </div>
+    );
+  }
+  return(
+    <form onSubmit={e=>{e.preventDefault();if(!loading)cast();}}>
+      <p style={{fontSize:'.84rem',color:'var(--text-3)',marginBottom:16,lineHeight:1.65}}>
+        {lang==='ru'?'Сосредоточьтесь на вопросе или ситуации. Монеты будут брошены шесть раз, чтобы сформировать вашу гексаграмму.':
+         lang==='es'?'Concéntrese en su pregunta o situación. Las monedas se lanzarán seis veces para formar su hexagrama.':
+         lang==='it'?'Concentratevi sulla vostra domanda o situazione. Le monete verranno lanciate sei volte per formare il vostro esagramma.':
+         lang==='he'?'התמקד בשאלה או במצב שלך. המטבעות יוטלו שש פעמים ליצירת ההקסגרמה שלך.':
+         'Focus on your question or situation. The coins will be cast six times to form your hexagram.'}
+      </p>
+      <Field label={t.iching_question} value={question} onChange={setQuestion}/>
+      <button type="submit" className="cta-btn" style={{width:'100%',justifyContent:'center',marginTop:14,
+        background:'linear-gradient(135deg,var(--gold),#C89020)',color:'#1A1208'}} disabled={loading}>
+        {loading?<><span style={{marginRight:8}}>☯</span>{t.iching_casting}</>:<><span style={{marginRight:8}}>⬡</span>{t.iching_cast}</>}
+      </button>
+    </form>
+  );
+}
+
 function EsotericLayer({lang}){
   const t=T[lang];
+  const toolDescs={
+    astro:{en:'Natal chart, transits, compatibility & more',ru:'Натальная карта, транзиты, совместимость',es:'Carta natal, tránsitos, compatibilidad y más',it:'Carta natale, transiti, compatibilità e altro',he:'מפת לידה, מעברים, תאימות ועוד'},
+    pytha:{en:'Fate matrix from your date of birth',ru:'Матрица судьбы по дате рождения',es:'Matriz del destino desde tu fecha de nacimiento',it:'Matrice del destino dalla tua data di nascita',he:'מטריצת גורל מתאריך הלידה שלך'},
+    runes:{en:'Elder Futhark oracle — 24 ancient runes',ru:'Оракул Старшего Футарка из 24 рун',es:'Oráculo Elder Futhark — 24 runas antiguas',it:'Oracolo Elder Futhark — 24 rune antiche',he:'אורקל פוטארק עתיק — 24 רונות'},
+    arch:{en:'Discover your dominant archetype',ru:'Откройте ваш главный архетип',es:'Descubre tu arquetipo dominante',it:'Scopri il tuo archetipo dominante',he:'גלה את הארכיטיפ הדומיננטי שלך'},
+    num:{en:'Destiny, life path numbers & zodiac',ru:'Числа судьбы, жизненного пути и зодиак',es:'Números del destino, camino de vida y zodiaco',it:'Numeri del destino, percorso di vita e zodiaco',he:'מספרי גורל, נתיב חיים ומזל'},
+    pers:{en:'Big Five personality calibration',ru:'Профиль Большой Пятёрки',es:'Calibración de personalidad de los Cinco Grandes',it:'Calibrazione della personalità dei Cinque Grandi',he:'כיול אישיות חמשת הגדולים'},
+    druid:{en:'Celtic tree wisdom from your birth date',ru:'Мудрость кельтских деревьев по дате рождения',es:'Sabiduría del árbol celta por tu fecha de nacimiento',it:'Saggezza degli alberi celtici dalla tua data di nascita',he:'חכמת עץ קלטי מתאריך הלידה שלך'},
+    iching:{en:'64 hexagrams — the ancient Book of Changes',ru:'64 гексаграммы — древняя Книга Перемен',es:'64 hexagramas — el antiguo Libro de los Cambios',it:'64 esagrammi — l\'antico Libro dei Mutamenti',he:'64 הקסגרמות — ספר השינויים העתיק'},
+  };
   const tools=[
-    {id:'astro', icon:'☉', name:t.tool_astro,  desc:lang==='ru'?'Натальная карта, транзиты, совместимость':'Natal chart, transits, compatibility & more',comp:'astro'},
-    {id:'pytha', icon:'◉', name:t.tool_pytha,  desc:lang==='ru'?'Матрица судьбы по дате рождения':'Fate matrix from your date of birth',comp:'pytha'},
-    {id:'runes', icon:'ᚠ', name:t.tool_runes,  desc:lang==='ru'?'Оракул Старшего Футарка из 24 рун':'Elder Futhark oracle — 24 ancient runes',comp:'runes'},
-    {id:'arch',  icon:'✦', name:t.tool_archetype,desc:lang==='ru'?'Откройте ваш главный архетип':'Discover your dominant archetype',comp:'arch'},
-    {id:'num',   icon:'∞', name:t.tool_num,    desc:lang==='ru'?'Числа судьбы, жизненного пути и зодиак':'Destiny, life path numbers & zodiac',comp:'num'},
-    {id:'pers',  icon:'◈', name:t.tool_persona,desc:lang==='ru'?'Профиль Большой Пятёрки':'Big Five personality calibration',comp:'pers'},
+    {id:'astro', icon:'☉', name:t.tool_astro,  desc:toolDescs.astro[lang]||toolDescs.astro.en, comp:'astro'},
+    {id:'pytha', icon:'◉', name:t.tool_pytha,  desc:toolDescs.pytha[lang]||toolDescs.pytha.en, comp:'pytha'},
+    {id:'runes', icon:'ᚠ', name:t.tool_runes,  desc:toolDescs.runes[lang]||toolDescs.runes.en, comp:'runes'},
+    {id:'arch',  icon:'✦', name:t.tool_archetype,desc:toolDescs.arch[lang]||toolDescs.arch.en, comp:'arch'},
+    {id:'num',   icon:'∞', name:t.tool_num,    desc:toolDescs.num[lang]||toolDescs.num.en,   comp:'num'},
+    {id:'pers',  icon:'◈', name:t.tool_persona,desc:toolDescs.pers[lang]||toolDescs.pers.en,  comp:'pers'},
+    {id:'druid', icon:'🌿', name:t.tool_druid,  desc:toolDescs.druid[lang]||toolDescs.druid.en,comp:'druid'},
+    {id:'iching',icon:'☯', name:t.tool_iching, desc:toolDescs.iching[lang]||toolDescs.iching.en,comp:'iching'},
   ];
   const [active,setActive]=useState(null);
   if(active){
@@ -2704,12 +3478,14 @@ function EsotericLayer({lang}){
             {tool.icon} {tool.name}
           </h2>
           <div className="glass" style={{padding:28}}>
-            {active==='astro'&&<AstrologyTool lang={lang}/>}
-            {active==='pytha'&&<PythagoraTool lang={lang}/>}
-            {active==='runes'&&<RuneTool lang={lang}/>}
-            {active==='arch' &&<ArchetypeTool lang={lang}/>}
-            {active==='num'  &&<NumerologyTool lang={lang}/>}
-            {active==='pers' &&<PersonalityTool lang={lang}/>}
+            {active==='astro' &&<AstrologyTool lang={lang}/>}
+            {active==='pytha' &&<PythagoraTool lang={lang}/>}
+            {active==='runes' &&<RuneTool lang={lang}/>}
+            {active==='arch'  &&<ArchetypeTool lang={lang}/>}
+            {active==='num'   &&<NumerologyTool lang={lang}/>}
+            {active==='pers'  &&<PersonalityTool lang={lang}/>}
+            {active==='druid' &&<DruidTool lang={lang}/>}
+            {active==='iching'&&<IChingTool lang={lang}/>}
           </div>
         </div>
       </div>
@@ -2734,7 +3510,7 @@ function EsotericLayer({lang}){
                 <div className="tool-name">{tool.name}</div>
                 <p className="tool-desc">{tool.desc}</p>
               </div>
-              <div className="tool-cta">{lang==='ru'?'Открыть':'Open'} →</div>
+              <div className="tool-cta">{{en:'Open',ru:'Открыть',es:'Abrir',it:'Apri',he:'פתח'}[lang]||'Open'} →</div>
             </div>
           ))}
         </div>
