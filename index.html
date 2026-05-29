@@ -296,6 +296,8 @@ nav.topnav.scrolled{background:var(--nav-bg);backdrop-filter:blur(28px) saturate
 .svarga-block:nth-child(4){animation-delay:.35s}
 .svarga-block:nth-child(5){animation-delay:.45s}
 .svarga-block:nth-child(6){animation-delay:.55s}
+.svarga-block:nth-child(7){animation-delay:.65s}
+.svarga-block:nth-child(8){animation-delay:.75s}
 @keyframes svarga-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .svarga-block:hover{border-color:rgba(176,126,204,.40);transform:translateX(4px)}
 [dir="rtl"] .svarga-block:hover{transform:translateX(-4px)}
@@ -322,6 +324,39 @@ footer{padding:clamp(40px,6vw,72px) clamp(22px,7vw,100px) 32px;position:relative
 .footer-author a:hover{opacity:.75}
 
 /* MOBILE */
+.depth-toggle{display:flex;gap:2px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:2px;flex-shrink:0}
+.depth-btn{padding:5px 9px;border-radius:6px;font-size:.60rem;font-family:var(--font-b);letter-spacing:.06em;cursor:pointer;border:none;color:var(--text-2);background:transparent;transition:all .2s;white-space:nowrap}
+.depth-btn.active{background:var(--gold);color:#0A0806;font-weight:600}
+.depth-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:6px;font-size:.58rem;font-family:var(--font-b);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);color:var(--text-3);margin-bottom:12px}
+.user-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--border-md);background:var(--surface-2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-family:var(--font-b);color:var(--text-2);transition:all .2s;flex-shrink:0}
+.user-btn.active,.user-btn:hover{border-color:var(--gold);color:var(--gold)}
+.user-dropdown{position:absolute;top:46px;right:0;background:var(--surface);border:1px solid var(--border-md);border-radius:12px;overflow:hidden;min-width:180px;z-index:210;box-shadow:0 12px 36px rgba(0,0,0,.45);direction:ltr}
+.user-dropdown-head{padding:14px 16px 10px;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--text-1);font-weight:500}
+.user-dropdown-sub{font-size:.62rem;color:var(--text-3);margin-top:2px}
+.user-dropdown-item{padding:11px 16px;cursor:pointer;font-size:.75rem;color:var(--text-2);transition:background .15s;display:flex;align-items:center;gap:10px}
+.user-dropdown-item:hover{background:var(--surface-2);color:var(--text-1)}
+.user-dropdown-item.danger{color:#E07070}
+.auth-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+.auth-modal{background:var(--surface);border:1px solid var(--border-md);border-radius:20px;padding:36px 32px;width:100%;max-width:420px;box-shadow:0 24px 64px rgba(0,0,0,.6);position:relative;animation:modal-in .3s cubic-bezier(.2,0,.2,1)}
+@keyframes modal-in{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+.auth-tabs{display:flex;gap:4px;background:var(--surface-2);border-radius:10px;padding:4px;margin-bottom:24px}
+.auth-tab{flex:1;padding:9px;border-radius:7px;border:none;cursor:pointer;font-family:var(--font-b);font-size:.72rem;letter-spacing:.07em;transition:all .25s;color:var(--text-2);background:transparent}
+.auth-tab.active{background:var(--glass-bg);border:1px solid var(--border-md);color:var(--text-1);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.auth-field{margin-bottom:16px}
+.auth-label{font-size:.68rem;font-family:var(--font-b);letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;display:block}
+.auth-input{width:100%;padding:11px 14px;background:var(--surface-2);border:1px solid var(--border-md);border-radius:10px;color:var(--text-1);font-family:var(--font-b);font-size:.85rem;outline:none;transition:border-color .2s;box-sizing:border-box}
+.auth-input:focus{border-color:var(--gold)}
+.auth-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--gold),#C89020);color:#0A0806;border:none;border-radius:10px;font-family:var(--font-b);font-size:.8rem;letter-spacing:.08em;font-weight:700;cursor:pointer;transition:opacity .2s;margin-top:8px}
+.auth-btn:hover{opacity:.88}
+.auth-btn:disabled{opacity:.45;cursor:default}
+.history-entry{padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.history-entry:hover{background:var(--surface-2)}
+.history-entry-type{font-size:.62rem;font-family:var(--font-b);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.history-entry-preview{font-size:.78rem;color:var(--text-2);line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.history-entry-date{font-size:.60rem;color:var(--text-3);margin-top:4px}
+.save-report-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:9px;border:1px solid var(--border-md);background:var(--surface-2);color:var(--text-2);font-size:.68rem;font-family:var(--font-b);letter-spacing:.07em;cursor:pointer;transition:all .2s;margin-top:4px}
+.save-report-btn:hover{border-color:var(--gold);color:var(--gold)}
+.save-report-btn.saved{border-color:rgba(80,180,80,.5);color:rgba(80,200,80,.8)}
 @media(max-width:900px){
   .detail-grid{grid-template-columns:1fr}
   .detail-profile{position:static}
@@ -329,6 +364,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(22px,7vw,100px) 32px;position:relative
   .runes-display{grid-template-columns:1fr}
   nav.topnav{flex-wrap:wrap;height:auto;padding:10px clamp(16px,5vw,32px);gap:8px}
   .nav-controls{order:3;width:100%;justify-content:flex-start;flex-wrap:wrap}
+  .depth-toggle{display:none}
 }
 @media(max-width:640px){
   .form-row{grid-template-columns:1fr}
@@ -491,7 +527,7 @@ body{overflow-x:hidden}
   .detail-grid{grid-template-columns:1fr;gap:32px}
   .detail-profile{position:static}
   .footer-grid{grid-template-columns:repeat(2,1fr);gap:36px}
-  .coaches-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .coaches-grid,.coach-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
 }
 
 /* === TABLET PORTRAIT / LARGE PHONE 768px === */
@@ -508,7 +544,9 @@ body{overflow-x:hidden}
   .hero-ctas .cta-btn,.hero-ctas .btn-g,.hero-ctas .pill-btn{width:100%;justify-content:center}
   .hero-stats{justify-content:flex-start;gap:24px}
 
-  .coaches-grid{grid-template-columns:1fr;gap:14px}
+  .coaches-grid,.coach-grid{grid-template-columns:1fr;gap:14px}
+  .coach-type-tabs{gap:6px}
+  .coach-type-tab{padding:10px 8px;font-size:.66rem}
   .coach-card{padding:20px;border-radius:14px}
   .coach-name{font-size:1.2rem}
   .coach-meta{flex-direction:row;flex-wrap:wrap;gap:12px}
@@ -669,16 +707,51 @@ const {useState,useEffect,useRef,useCallback}=React;
 /* ═══════════════════════════════════════════════════════
    I18N — every visible string is here, nothing hardcoded
    ═══════════════════════════════════════════════════════ */
+/* ═══════════════ USER ACCOUNT — localStorage ═══════════════════════════ */
+const LS={
+  getUser:()=>{try{return JSON.parse(localStorage.getItem('lf_user')||'null');}catch{return null;}},
+  setUser:u=>{try{localStorage.setItem('lf_user',JSON.stringify(u));}catch{}},
+  clearUser:()=>{try{localStorage.removeItem('lf_user');}catch{}},
+  getHistory:()=>{try{return JSON.parse(localStorage.getItem('lf_history')||'[]');}catch{return[];}},
+  addHistory:(entry)=>{try{const h=LS.getHistory().slice(0,49);h.unshift({...entry,id:Date.now(),date:new Date().toISOString()});localStorage.setItem('lf_history',JSON.stringify(h));}catch{}},
+  clearHistory:()=>{try{localStorage.removeItem('lf_history');}catch{}},
+  getDepth:()=>{try{return parseInt(localStorage.getItem('lf_depth')||'2');}catch{return 2;}},
+  setDepth:d=>{try{localStorage.setItem('lf_depth',String(d));}catch{}},
+};
+
+/* ═══════════════ DEPTH ADAPTER ════════════════════════════════════════════ */
+function applyDepth(text,depth){
+  if(!text)return text;
+  if(depth===1){
+    // Simple: first 2 sentences max
+    const sentences=text.match(/[^.!?]+[.!?]+/g)||[text];
+    return sentences.slice(0,2).join(' ').trim();
+  }
+  if(depth===3){
+    return text+'\n\n**Expert synthesis:** The pattern above integrates body, mind, and energy as one system. Sustainable change arises not from isolated interventions but from coherent shifts across all dimensions simultaneously.';
+  }
+  return text; // depth 2 = standard, unchanged
+}
+function applyDepthSvarga(results,depth){
+  if(depth===1) return results.slice(0,4).map(r=>({...r,text:applyDepth(r.text,1)}));
+  if(depth===3){
+    const full=results.map(r=>({...r,text:r.text}));
+    full.push({dim:'synthesis',text:'**Integral Synthesis:** Every dimension analysed above operates as part of a single adaptive system. The most powerful leverage point is the one where the largest number of dimensions converge. Identify which two recommendations above feel most resonant — start there, and the others align naturally in sequence.'});
+    return full;
+  }
+  return results;
+}
+
 const T={
 en:{
-  nav_coaches:'Coaches',nav_esoteric:'Esoteric',nav_svarga:'Svarga',
+  nav_coaches:'Coaches',nav_esoteric:'Esoteric',nav_svarga:'Integral',
   theme_dark:'Dark',theme_light:'Light',
   hero_tag:'PREMIUM PERSONAL DEVELOPMENT PLATFORM',
   hero_title_a:'Life',hero_title_b:'Forge',hero_title_dot:'·',hero_title_c:'AI',
   hero_sub:'Premium personal development. Three intelligent systems. One transformational journey.',
   hero_cta:'Begin Your Journey',hero_cta2:'Explore Systems',
   hero_stat_coaches:'Premium Coaches',hero_stat_systems:'Intelligent Systems',hero_stat_paths:'Transformational Paths',
-  layer_coach:'Coaching System',layer_esoteric:'Esoteric & Analytical',layer_svarga:'Svarga Integral',
+  layer_coach:'Coaching System',layer_esoteric:'Esoteric & Analytical',layer_svarga:'Integral Systems',
   coaches_sub:'Six world-class specialists. Real methodologies. Transformational outcomes.',
   coach_specialties:'Specialties',coach_start:'Start Session',coach_philosophy:'Philosophy',coach_view_profile:'View Full Profile',
   chat_placeholder:"Share what's on your mind...",chat_send:'Send',chat_back:'← Back to Coaches',
@@ -706,10 +779,24 @@ en:{
   num_title:'Numerology Reading',num_name:'Full birth name',num_dob:'Date of birth (DD.MM.YYYY)',num_calc:'Calculate',num_life:'Life Path',num_destiny:'Destiny',num_soul:'Soul Urge',num_persona:'Personality',
   persona_title:'Big Five Personality Profile',persona_reveal:'Generate My Profile',persona_retake:'↺ Recalibrate',
   persona_dims:[['O','Openness','Curious & Creative','Practical & Conventional'],['C','Conscientiousness','Organized & Disciplined','Flexible & Spontaneous'],['E','Extraversion','Outgoing & Energized','Introspective & Reserved'],['A','Agreeableness','Empathetic & Cooperative','Independent & Direct'],['N','Stability','Resilient & Calm','Emotionally Sensitive']],
-  svarga_title:'Svarga Integral System',svarga_sub:'Six-dimensional holistic analysis of your current state',
-  svarga_placeholder:'Describe your current state, challenge, or question in detail...',svarga_submit:'Receive Integral Analysis',svarga_analyzing:'Performing six-dimensional analysis...',
-  svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Karma & Spirit'],
+  svarga_title:'Swarga Approach',svarga_sub:'Eight-dimensional holistic analysis of your current state',
+  svarga_placeholder:'Describe your current state, challenge, or question in detail...',svarga_submit:'Receive Integral Analysis',svarga_analyzing:'Performing holistic analysis...',
+  svarga_dims:['Nutrition & Body','Breathing & Prana','Energy & Vitality','Mental & Mind','Physical Practice','Emotional Regulation','Recovery & Lifestyle','Karma & Spirit'],
   svarga_new:'New Analysis',
+  integral_tab_swarga:'Swarga Approach',integral_tab_biohack:'Biohacking',
+  integral_layer_title:'Integral Systems',integral_layer_sub:'Two intelligent wellness frameworks. One coherent transformation.',
+  biohack_title:'Biohacking Protocols',biohack_sub:'Science-informed lifestyle optimization. Practical. Safe. Effective.',
+  biohack_select:'Choose your focus area',biohack_submit:'Generate Protocol',biohack_analyzing:'Building your protocol...',biohack_new:'↺ New Protocol',
+  biohack_areas:['Sleep Optimization','Focus & Cognition','Energy Management','Stress & Nervous System','Recovery & Performance','Circadian Rhythm'],
+  biohack_area_icons:['😴','🧠','⚡','😌','🏃','🕐'],
+  depth_label:'Depth',depth_simple:'Simple',depth_std:'Standard',depth_deep:'Deep',
+  auth_signin:'Sign In',auth_signup:'Create Account',auth_logout:'Sign Out',auth_profile:'My Profile',auth_history:'My History',
+  auth_name:'Full Name',auth_email:'Email',auth_dob:'Date of Birth (DD.MM.YYYY)',auth_pw:'Password',
+  auth_signin_btn:'Sign In',auth_signup_btn:'Create Account',auth_cancel:'Cancel',
+  auth_welcome:'Welcome back',auth_welcome_new:'Welcome',
+  auth_history_empty:'No saved sessions yet. Generate a reading to save it here.',
+  auth_clear_history:'Clear History',
+  save_report:'Save to history',save_report_done:'Saved ✓',
   zodiac_label:'Zodiac Sign',
   coaches_life:'Life Coaches',coaches_business:'Business Mentors',
   coaches_sub_business:'Three elite business strategists. Proven frameworks. Measurable results.',
@@ -720,14 +807,14 @@ en:{
   back_to_tools:'← All Tools',
 },
 ru:{
-  nav_coaches:'Коучи',nav_esoteric:'Эзотерика',nav_svarga:'Сварга',
+  nav_coaches:'Коучи',nav_esoteric:'Эзотерика',nav_svarga:'Интеграл',
   theme_dark:'Тёмная',theme_light:'Светлая',
   hero_tag:'ПРЕМИАЛЬНАЯ ПЛАТФОРМА ЛИЧНОСТНОГО РАЗВИТИЯ',
   hero_title_a:'Life',hero_title_b:'Forge',hero_title_dot:'·',hero_title_c:'AI',
   hero_sub:'Премиальное личностное развитие. Три интеллектуальных системы. Один трансформационный путь.',
   hero_cta:'Начать Путь',hero_cta2:'Изучить Системы',
   hero_stat_coaches:'Премиальных Коуча',hero_stat_systems:'Интеллектуальных Системы',hero_stat_paths:'Трансформационных Пути',
-  layer_coach:'Система Коучинга',layer_esoteric:'Эзотерика и Аналитика',layer_svarga:'Интегральная Сварга',
+  layer_coach:'Система Коучинга',layer_esoteric:'Эзотерика и Аналитика',layer_svarga:'Интегральные Системы',
   coaches_sub:'Шесть специалистов мирового класса. Реальные методологии. Трансформационные результаты.',
   coach_specialties:'Специализации',coach_start:'Начать Сессию',coach_philosophy:'Философия',coach_view_profile:'Открыть Профиль',
   chat_placeholder:'Поделитесь тем, что у вас на уме...',chat_send:'Отправить',chat_back:'← К Коучам',
@@ -755,10 +842,24 @@ ru:{
   num_title:'Нумерологический Расклад',num_name:'Полное имя при рождении',num_dob:'Дата рождения (ДД.ММ.ГГГГ)',num_calc:'Рассчитать',num_life:'Жизненный Путь',num_destiny:'Судьба',num_soul:'Число Души',num_persona:'Личность',
   persona_title:'Профиль Личности (Большая Пятёрка)',persona_reveal:'Создать Мой Профиль',persona_retake:'↺ Перекалибровать',
   persona_dims:[['O','Открытость','Любопытный и творческий','Практичный и традиционный'],['C','Добросовестность','Организованный и дисциплинированный','Гибкий и спонтанный'],['E','Экстраверсия','Общительный и энергичный','Интроспективный и сдержанный'],['A','Доброжелательность','Эмпатичный и кооперативный','Независимый и прямолинейный'],['N','Стабильность','Стойкий и спокойный','Эмоционально чувствительный']],
-  svarga_title:'Интегральная Система Сварга',svarga_sub:'Шестимерный целостный анализ вашего текущего состояния',
+  svarga_title:'Подход Сварга',svarga_sub:'Восьмимерный целостный анализ вашего текущего состояния',
   svarga_placeholder:'Опишите ваше текущее состояние, задачу или вопрос подробно...',svarga_submit:'Получить Интегральный Анализ',svarga_analyzing:'Выполняю шестимерный анализ...',
-  svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Карма и Дух'],
+  svarga_dims:['Питание и Тело','Дыхание и Прана','Энергия и Жизненность','Ментальное и Разум','Физическая Практика','Эмоциональная Регуляция','Восстановление и Образ Жизни','Карма и Дух'],
   svarga_new:'Новый анализ',
+  integral_tab_swarga:'Подход Сварга',integral_tab_biohack:'Биохакинг',
+  integral_layer_title:'Интегральные Системы',integral_layer_sub:'Два интеллектуальных фреймворка велнеса. Одна трансформация.',
+  biohack_title:'Протоколы Биохакинга',biohack_sub:'Научно обоснованная оптимизация образа жизни. Практично. Безопасно.',
+  biohack_select:'Выберите область фокуса',biohack_submit:'Создать протокол',biohack_analyzing:'Составляю протокол...',biohack_new:'↺ Новый протокол',
+  biohack_areas:['Оптимизация сна','Фокус и когниция','Управление энергией','Стресс и нервная система','Восстановление и результативность','Циркадный ритм'],
+  biohack_area_icons:['😴','🧠','⚡','😌','🏃','🕐'],
+  depth_label:'Глубина',depth_simple:'Кратко',depth_std:'Стандарт',depth_deep:'Глубоко',
+  auth_signin:'Войти',auth_signup:'Создать аккаунт',auth_logout:'Выйти',auth_profile:'Мой профиль',auth_history:'Моя история',
+  auth_name:'Полное имя',auth_email:'Email',auth_dob:'Дата рождения (ДД.ММ.ГГГГ)',auth_pw:'Пароль',
+  auth_signin_btn:'Войти',auth_signup_btn:'Создать аккаунт',auth_cancel:'Отмена',
+  auth_welcome:'С возвращением',auth_welcome_new:'Добро пожаловать',
+  auth_history_empty:'Сохранённых сессий пока нет. Создайте чтение, чтобы сохранить его здесь.',
+  auth_clear_history:'Очистить историю',
+  save_report:'Сохранить в историю',save_report_done:'Сохранено ✓',
   zodiac_label:'Знак зодиака',
   coaches_life:'Лайф-коучи',coaches_business:'Бизнес-наставники',
   coaches_sub_business:'Три элитных бизнес-стратега. Проверенные методологии. Измеримые результаты.',
@@ -769,14 +870,14 @@ ru:{
   back_to_tools:'← Все Инструменты',
 },
 es:{
-  nav_coaches:'Coaches',nav_esoteric:'Esotérico',nav_svarga:'Svarga',
+  nav_coaches:'Coaches',nav_esoteric:'Esotérico',nav_svarga:'Integral',
   theme_dark:'Oscuro',theme_light:'Claro',
   hero_tag:'PLATAFORMA PREMIUM DE DESARROLLO PERSONAL',
   hero_title_a:'Life',hero_title_b:'Forge',hero_title_dot:'·',hero_title_c:'AI',
   hero_sub:'Desarrollo personal premium. Tres sistemas inteligentes. Un viaje transformacional.',
   hero_cta:'Comenzar el Viaje',hero_cta2:'Explorar Sistemas',
   hero_stat_coaches:'Coaches Premium',hero_stat_systems:'Sistemas Inteligentes',hero_stat_paths:'Caminos Transformacionales',
-  layer_coach:'Sistema de Coaching',layer_esoteric:'Esotérico y Analítico',layer_svarga:'Svarga Integral',
+  layer_coach:'Sistema de Coaching',layer_esoteric:'Esotérico y Analítico',layer_svarga:'Sistemas Integrales',
   coaches_sub:'Seis especialistas de clase mundial. Metodologías reales. Resultados transformadores.',
   coach_specialties:'Especialidades',coach_start:'Iniciar Sesión',coach_philosophy:'Filosofía',coach_view_profile:'Ver Perfil Completo',
   chat_placeholder:'Comparte lo que tienes en mente...',chat_send:'Enviar',chat_back:'← Volver a Coaches',
@@ -804,10 +905,24 @@ es:{
   num_title:'Lectura Numerológica',num_name:'Nombre completo de nacimiento',num_dob:'Fecha de nacimiento (DD.MM.AAAA)',num_calc:'Calcular',num_life:'Camino de Vida',num_destiny:'Destino',num_soul:'Impulso del Alma',num_persona:'Personalidad',
   persona_title:'Perfil de Personalidad (Big Five)',persona_reveal:'Generar Mi Perfil',persona_retake:'↺ Recalibrar',
   persona_dims:[['O','Apertura','Curioso y Creativo','Práctico y Convencional'],['C','Responsabilidad','Organizado y Disciplinado','Flexible y Espontáneo'],['E','Extraversión','Sociable y Energético','Introspectivo y Reservado'],['A','Amabilidad','Empático y Cooperativo','Independiente y Directo'],['N','Estabilidad','Resistente y Tranquilo','Emocionalmente Sensible']],
-  svarga_title:'Sistema Svarga Integral',svarga_sub:'Análisis holístico de seis dimensiones de tu estado actual',
+  svarga_title:'Sistema Svarga Integral',svarga_sub:'Análisis holístico de ocho dimensiones de tu estado actual',
   svarga_placeholder:'Describe tu estado actual, desafío o pregunta en detalle...',svarga_submit:'Recibir Análisis Integral',svarga_analyzing:'Realizando análisis de seis dimensiones...',
-  svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Karma y Espíritu'],
+  svarga_dims:['Nutrición y Cuerpo','Respiración y Prana','Energía y Vitalidad','Mental y Mente','Práctica Física','Regulación Emocional','Recuperación y Estilo de Vida','Karma y Espíritu'],
   svarga_new:'Nuevo Análisis',
+  integral_tab_swarga:'Enfoque Swarga',integral_tab_biohack:'Biohacking',
+  integral_layer_title:'Sistemas Integrales',integral_layer_sub:'Dos marcos de bienestar inteligentes. Una transformación coherente.',
+  biohack_title:'Protocolos de Biohacking',biohack_sub:'Optimización del estilo de vida basada en ciencia. Práctica. Segura. Eficaz.',
+  biohack_select:'Elige tu área de enfoque',biohack_submit:'Generar Protocolo',biohack_analyzing:'Creando tu protocolo...',biohack_new:'↺ Nuevo Protocolo',
+  biohack_areas:['Optimización del Sueño','Foco y Cognición','Gestión de Energía','Estrés y Sistema Nervioso','Recuperación y Rendimiento','Ritmo Circadiano'],
+  biohack_area_icons:['😴','🧠','⚡','😌','🏃','🕐'],
+  depth_label:'Profundidad',depth_simple:'Simple',depth_std:'Estándar',depth_deep:'Profundo',
+  auth_signin:'Iniciar sesión',auth_signup:'Crear cuenta',auth_logout:'Cerrar sesión',auth_profile:'Mi perfil',auth_history:'Mi historial',
+  auth_name:'Nombre completo',auth_email:'Correo electrónico',auth_dob:'Fecha de nacimiento (DD.MM.AAAA)',auth_pw:'Contraseña',
+  auth_signin_btn:'Iniciar sesión',auth_signup_btn:'Crear cuenta',auth_cancel:'Cancelar',
+  auth_welcome:'Bienvenido de nuevo',auth_welcome_new:'Bienvenido',
+  auth_history_empty:'Aún no hay sesiones guardadas. Genera una lectura para guardarla aquí.',
+  auth_clear_history:'Borrar historial',
+  save_report:'Guardar en historial',save_report_done:'Guardado ✓',
   zodiac_label:'Signo Zodiacal',
   coaches_life:'Life Coaches',coaches_business:'Mentores de Negocios',
   coaches_sub_business:'Tres estrategas de negocios de élite. Marcos probados. Resultados medibles.',
@@ -818,14 +933,14 @@ es:{
   back_to_tools:'← Todas las Herramientas',
 },
 it:{
-  nav_coaches:'Coach',nav_esoteric:'Esoterico',nav_svarga:'Svarga',
+  nav_coaches:'Coach',nav_esoteric:'Esoterico',nav_svarga:'Integrale',
   theme_dark:'Scuro',theme_light:'Chiaro',
   hero_tag:'PIATTAFORMA PREMIUM DI SVILUPPO PERSONALE',
   hero_title_a:'Life',hero_title_b:'Forge',hero_title_dot:'·',hero_title_c:'AI',
   hero_sub:'Sviluppo personale premium. Tre sistemi intelligenti. Un viaggio trasformativo.',
   hero_cta:'Inizia il Viaggio',hero_cta2:'Esplora i Sistemi',
   hero_stat_coaches:'Coach Premium',hero_stat_systems:'Sistemi Intelligenti',hero_stat_paths:'Percorsi Trasformativi',
-  layer_coach:'Sistema di Coaching',layer_esoteric:'Esoterico e Analitico',layer_svarga:'Svarga Integrale',
+  layer_coach:'Sistema di Coaching',layer_esoteric:'Esoterico e Analitico',layer_svarga:'Sistemi Integrali',
   coaches_sub:'Sei specialisti di classe mondiale. Metodologie reali. Risultati trasformativi.',
   coach_specialties:'Specialità',coach_start:'Inizia Sessione',coach_philosophy:'Filosofia',coach_view_profile:'Visualizza Profilo',
   chat_placeholder:'Condividi ciò che hai in mente...',chat_send:'Invia',chat_back:'← Torna ai Coach',
@@ -853,13 +968,27 @@ it:{
   num_title:'Lettura Numerologica',num_name:'Nome completo di nascita',num_dob:'Data di nascita (GG.MM.AAAA)',num_calc:'Calcola',num_life:'Percorso di Vita',num_destiny:'Destino',num_soul:'Impulso dell\'Anima',num_persona:'Personalità',
   persona_title:'Profilo della Personalità (Big Five)',persona_reveal:'Genera il Mio Profilo',persona_retake:'↺ Ricalibra',
   persona_dims:[['O','Apertura','Curioso e Creativo','Pratico e Convenzionale'],['C','Coscienziosità','Organizzato e Disciplinato','Flessibile e Spontaneo'],['E','Estroversione','Socievole ed Energetico','Introspettivo e Riservato'],['A','Gradevolezza','Empatico e Cooperativo','Indipendente e Diretto'],['N','Stabilità','Resiliente e Calmo','Emotivamente Sensibile']],
-  svarga_title:'Sistema Svarga Integrale',svarga_sub:'Analisi olistica a sei dimensioni del tuo stato attuale',
+  svarga_title:'Sistema Svarga Integrale',svarga_sub:'Analisi olistica a otto dimensioni del tuo stato attuale',
   svarga_placeholder:'Descrivi il tuo stato attuale, sfida o domanda in dettaglio...',svarga_submit:'Ricevi Analisi Integrale',svarga_analyzing:'Eseguendo l\'analisi a sei dimensioni...',
-  svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Karma e Spirito'],
+  svarga_dims:['Nutrizione e Corpo','Respirazione e Prana','Energia e Vitalità','Mentale e Mente','Pratica Fisica','Regolazione Emotiva','Recupero e Stile di Vita','Karma e Spirito'],
   svarga_new:'Nuova Analisi',
   zodiac_label:'Segno Zodiacale',
   coaches_life:'Life Coach',coaches_business:'Mentori di Business',
   coaches_sub_business:'Tre strateghi di business d\'élite. Framework collaudati. Risultati misurabili.',
+  integral_tab_swarga:'Approccio Swarga',integral_tab_biohack:'Biohacking',
+  integral_layer_title:'Sistemi Integrali',integral_layer_sub:'Due framework di benessere intelligenti. Una trasformazione coerente.',
+  biohack_title:'Protocolli di Biohacking',biohack_sub:'Ottimizzazione dello stile di vita basata sulla scienza. Pratica. Sicura. Efficace.',
+  biohack_select:'Scegli la tua area di focus',biohack_submit:'Genera Protocollo',biohack_analyzing:'Costruendo il tuo protocollo...',biohack_new:'↺ Nuovo Protocollo',
+  biohack_areas:['Ottimizzazione del Sonno','Focus e Cognizione','Gestione dell\'Energia','Stress e Sistema Nervoso','Recupero e Performance','Ritmo Circadiano'],
+  biohack_area_icons:['😴','🧠','⚡','😌','🏃','🕐'],
+  depth_label:'Profondità',depth_simple:'Semplice',depth_std:'Standard',depth_deep:'Esperto',
+  auth_signin:'Accedi',auth_signup:'Crea account',auth_logout:'Esci',auth_profile:'Il mio profilo',auth_history:'La mia storia',
+  auth_name:'Nome completo',auth_email:'Email',auth_dob:'Data di nascita (GG.MM.AAAA)',auth_pw:'Password',
+  auth_signin_btn:'Accedi',auth_signup_btn:'Crea account',auth_cancel:'Annulla',
+  auth_welcome:'Bentornato',auth_welcome_new:'Benvenuto',
+  auth_history_empty:'Nessuna sessione salvata. Genera una lettura per salvarla qui.',
+  auth_clear_history:'Cancella cronologia',
+  save_report:'Salva nella cronologia',save_report_done:'Salvato ✓',
   tool_druid:'Saggezza degli Alberi Druidici',tool_iching:'Oracolo I Ching',
   druid_calc:'Rivela il mio Albero Sacro',druid_your_tree:'Il tuo Albero Sacro',druid_strengths:'Punti di Forza',druid_shadow:'Ombra',druid_element:'Elemento',druid_season:'Stagione',druid_retake:'↺ Nuova Lettura',
   iching_cast:'Lancia Esagramma',iching_again:'↺ Lancia di Nuovo',iching_question:'La tua domanda o situazione (opzionale)',iching_casting:'Lanciando le monete...',iching_hexagram:'Esagramma',iching_changing:'Linee Mutanti',
@@ -867,14 +996,14 @@ it:{
   back_to_tools:'← Tutti gli Strumenti',
 },
 he:{
-  nav_coaches:'מאמנים',nav_esoteric:'אזוטרי',nav_svarga:'סוורגה',
+  nav_coaches:'מאמנים',nav_esoteric:'אזוטרי',nav_svarga:'אינטגרלי',
   theme_dark:'כהה',theme_light:'בהיר',
   hero_tag:'פלטפורמת פיתוח אישי פרמיום',
   hero_title_a:'Life',hero_title_b:'Forge',hero_title_dot:'·',hero_title_c:'AI',
   hero_sub:'פיתוח אישי פרמיום. שלוש מערכות חכמות. מסע טרנספורמציה אחד.',
   hero_cta:'התחל את המסע',hero_cta2:'גלה מערכות',
   hero_stat_coaches:'מאמנים פרמיום',hero_stat_systems:'מערכות חכמות',hero_stat_paths:'מסלולי טרנספורמציה',
-  layer_coach:'מערכת האימון',layer_esoteric:'אזוטרי ואנליטי',layer_svarga:'סוורגה אינטגרלי',
+  layer_coach:'מערכת האימון',layer_esoteric:'אזוטרי ואנליטי',layer_svarga:'מערכות אינטגרליות',
   coaches_sub:'שישה מומחים ברמה עולמית. מתודולוגיות אמיתיות. תוצאות טרנספורמטיביות.',
   coach_specialties:'התמחויות',coach_start:'התחל סשן',coach_philosophy:'פילוסופיה',coach_view_profile:'צפה בפרופיל',
   chat_placeholder:'שתף מה שבמחשבתך...',chat_send:'שלח',chat_back:'← חזור למאמנים',
@@ -902,10 +1031,24 @@ he:{
   num_title:'קריאה נומרולוגית',num_name:'שם מלא בלידה',num_dob:'תאריך לידה (DD.MM.YYYY)',num_calc:'חשב',num_life:'נתיב חיים',num_destiny:'גורל',num_soul:'דחף הנשמה',num_persona:'אישיות',
   persona_title:'פרופיל אישיות (Big Five)',persona_reveal:'צור את הפרופיל שלי',persona_retake:'↺ כייל מחדש',
   persona_dims:[['O','פתיחות','סקרן ויצירתי','פרקטי ומסורתי'],['C','מצפוניות','מאורגן ומשמעתי','גמיש וספונטני'],['E','חוצפנות','חברותי ואנרגטי','מופנם ושקט'],['A','נחמדות','אמפתי ושיתופי','עצמאי וישיר'],['N','יציבות','חסין ורגוע','רגיש רגשית']],
-  svarga_title:'מערכת סוורגה אינטגרלית',svarga_sub:'ניתוח הוליסטי בשישה ממדים של מצבך הנוכחי',
-  svarga_placeholder:'תאר את מצבך הנוכחי, האתגר או השאלה בפירוט...',svarga_submit:'קבל ניתוח אינטגרלי',svarga_analyzing:'מבצע ניתוח בשישה ממדים...',
-  svarga_dims:['תזונה וגוף','נשימה ופראנה','אנרגיה וחיוניות','מנטלי ושכל','פרקטיקה פיזית','קארמה ורוח'],
+  svarga_title:'גישת סוורגה',svarga_sub:'ניתוח הוליסטי בשמונה ממדים של מצבך הנוכחי',
+  svarga_placeholder:'תאר את מצבך הנוכחי, האתגר או השאלה בפירוט...',svarga_submit:'קבל ניתוח אינטגרלי',svarga_analyzing:'מבצע ניתוח הוליסטי...',
+  svarga_dims:['תזונה וגוף','נשימה ופראנה','אנרגיה וחיוניות','מנטלי ושכל','פרקטיקה פיזית','ויסות רגשי','התאוששות ואורח חיים','קארמה ורוח'],
   svarga_new:'ניתוח חדש',
+  integral_tab_swarga:'גישת סוורגה',integral_tab_biohack:'ביוהקינג',
+  integral_layer_title:'מערכות אינטגרליות',integral_layer_sub:'שני מסגרות ולנס חכמות. טרנספורמציה אחת קוהרנטית.',
+  biohack_title:'פרוטוקולי ביוהקינג',biohack_sub:'אופטימיזציה של אורח חיים מבוססת מדע. פרקטית. בטוחה. יעילה.',
+  biohack_select:'בחר את תחום המיקוד שלך',biohack_submit:'צור פרוטוקול',biohack_analyzing:'בונה את הפרוטוקול שלך...',biohack_new:'↺ פרוטוקול חדש',
+  biohack_areas:['אופטימיזציית שינה','פוקוס וקוגניציה','ניהול אנרגיה','לחץ ומערכת עצבים','התאוששות וביצועים','קצב צירקדיאני'],
+  biohack_area_icons:['😴','🧠','⚡','😌','🏃','🕐'],
+  depth_label:'עומק',depth_simple:'פשוט',depth_std:'סטנדרטי',depth_deep:'מומחה',
+  auth_signin:'התחברות',auth_signup:'יצירת חשבון',auth_logout:'יציאה',auth_profile:'הפרופיל שלי',auth_history:'ההיסטוריה שלי',
+  auth_name:'שם מלא',auth_email:'אימייל',auth_dob:'תאריך לידה (יי.מ.שנשנש)',auth_pw:'סיסמה',
+  auth_signin_btn:'התחבר',auth_signup_btn:'צור חשבון',auth_cancel:'ביטול',
+  auth_welcome:'ברוך שובך',auth_welcome_new:'ברוך הבא',
+  auth_history_empty:'אין עדיין סשנים שמורים. צור קריאה כדי לשמור אותה כאן.',
+  auth_clear_history:'נקה היסטוריה',
+  save_report:'שמור להיסטוריה',save_report_done:'נשמר ✓',
   zodiac_label:'סימן גלגל המזלות',
   coaches_life:'מאמני חיים',coaches_business:'מנטורים עסקיים',
   coaches_sub_business:'שלושה אסטרטגים עסקיים עלית. מסגרות מוכחות. תוצאות מדידות.',
@@ -1394,7 +1537,7 @@ function useReveal(deps){
 const SVARGA_POOL={
   nutrition:{
     en:["Your body is asking for alignment between what you consume and what you are building. This phase calls for anti-inflammatory foods — leafy greens, turmeric, omega-3 sources. Reduce refined sugar: it creates cortisol spikes that undermine the emotional regulation you seek. Morning hydration before any stimulant is non-negotiable. Three colours minimum per plate as a rule of nutritional intelligence.",
-        "Your energy rhythm suggests adrenal overload. Introduce adaptogenic support: ashwagandha, rhodiola, or holy basil regulate cortisol without sedation. Protein at every meal stabilises blood sugar and reduces the anxiety loop that comes from glycemic instability. The digestive system is the second brain — treat it accordingly."],
+        "Your body may be running on a high-demand rhythm that calls for gentle nutritional support. Adaptogens like ashwagandha or rhodiola can help the body maintain balanced energy through demanding periods. Protein at each meal supports steady blood sugar and a more even, calm state throughout the day. The digestive system plays a significant role in overall wellbeing — treating it with care pays dividends across every dimension."],
     ru:["Ваше тело просит о согласовании между тем, что вы потребляете, и тем, что строите. Эта фаза требует противовоспалительных продуктов — листовая зелень, куркума, источники омега-3. Уменьшите рафинированный сахар. Утреннее увлажнение до любого стимулятора обязательно. Минимум три цвета на тарелке как правило питательного интеллекта.",
         "Ваш энергетический ритм предполагает перегрузку надпочечников. Введите адаптогенную поддержку: ашваганда, родиола регулируют кортизол без седации. Белок при каждом приёме пищи стабилизирует сахар крови и снижает тревожную петлю."],
     es:["Tu cuerpo pide alineación entre lo que consumes y lo que estás construyendo. Esta fase requiere alimentos antiinflamatorios: verduras de hoja verde, cúrcuma, fuentes de omega-3. Reduce el azúcar refinado. La hidratación matutina antes de cualquier estimulante es innegociable. Al menos tres colores en cada plato como regla de inteligencia nutricional.",
@@ -1405,19 +1548,19 @@ const SVARGA_POOL={
         "קצב האנרגיה שלך מרמז על עומס יתר על בלוטות האדרנל. הכנס תמיכה אדפטוגנית: אשוואגנדה ורודיולה מווסתים קורטיזול ללא הרדמה. חלבון בכל ארוחה מייצב רמת סוכר בדם ומפחית את לולאת החרדה."]
   },
   breathing:{
-    en:["The breath is the only autonomic function under conscious control — making it the master key to your nervous system. For your current state: coherent breathing, 5.5 seconds in, 5.5 seconds out, through the nose. Twenty minutes daily. This single practice has more evidence for HRV improvement and anxiety reduction than most pharmaceutical interventions.",
-        "You are likely breathing from the chest, not the diaphragm — the most common physiological error in high-performers. Place one hand on chest, one on belly. The belly moves first and further. Diaphragmatic retraining takes three weeks of conscious practice. The payoff: systemic nervous system regulation."],
-    ru:["Дыхание — единственная автономная функция под сознательным контролем — что делает его мастер-ключом к вашей нервной системе. Для вашего текущего состояния: когерентное дыхание, 5.5 секунд вдох, 5.5 выдох, через нос. Двадцать минут ежедневно.",
-        "Вы, вероятно, дышите грудью, а не диафрагмой — самая распространённая физиологическая ошибка у высокоэффективных людей. Положите одну руку на грудь, другую на живот. Живот двигается первым и больше."],
-    es:["La respiración es la única función autónoma bajo control consciente, lo que la convierte en la llave maestra de tu sistema nervioso. Para tu estado actual: respiración coherente, 5,5 segundos de inhalación, 5,5 de exhalación, por la nariz. Veinte minutos diarios. Esta práctica tiene más evidencia de mejora de la VFC y reducción de la ansiedad que la mayoría de las intervenciones farmacéuticas.",
-        "Probablemente estás respirando desde el pecho, no desde el diafragma — el error fisiológico más común en personas de alto rendimiento. Coloca una mano en el pecho, otra en el vientre. El vientre se mueve primero y más. El reentrenamiento diafragmático requiere tres semanas de práctica consciente."],
-    it:["Il respiro è l'unica funzione autonoma sotto controllo cosciente, rendendolo la chiave maestra del tuo sistema nervioso. Per il tuo stato attuale: respirazione coerente, 5,5 secondi di inspirazione, 5,5 di espirazione, attraverso il naso. Venti minuti al giorno. Questa singola pratica ha più evidenze per il miglioramento della HRV e la riduzione dell'ansia della maggior parte degli interventi farmaceutici.",
-        "Probabilmente stai respirando dal petto, non dal diaframma — l'errore fisiologico più comune nelle persone ad alto rendimento. Metti una mano sul petto, una sulla pancia. La pancia si muove prima e di più. Il riallenamento diaframmatico richiede tre settimane di pratica consapevole."],
-    he:["הנשימה היא הפונקציה האוטונומית היחידה בשליטה מודעת — מה שהופך אותה למפתח הראשי של מערכת העצבים שלך. עבור המצב הנוכחי שלך: נשימה קוהרנטית, 5.5 שניות שאיפה, 5.5 שניות נשיפה, דרך האף. עשרים דקות ביום. לתרגול הזה יש יותר ראיות לשיפור HRV ולהפחתת חרדה מרוב ההתערבויות הפרמקולוגיות.",
-        "כנראה שאתה נושם מהחזה, לא מהסרעפת — השגיאה הפיזיולוגית הנפוצה ביותר אצל בעלי ביצועים גבוהים. שים יד אחת על החזה, אחת על הבטן. הבטן נעה ראשונה ויותר. אימון מחדש של הסרעפת לוקח שלושה שבועות של תרגול מודע."]
+    en:["The breath is the only autonomic function under conscious control — making it the master key to your nervous system. For your current state, try coherent breathing: inhale slowly through the nose for about 5–6 seconds, then exhale gently for the same count. Even 10 minutes daily makes a meaningful difference in how grounded and calm you feel.",
+        "Many people breathe from the chest rather than the diaphragm — it's easy to drift into this pattern, especially during busy or tense periods. Try this: place one hand on your chest, one on your belly, and let the belly rise first. Diaphragmatic breathing becomes natural within two to three weeks of gentle practice. The benefit: a noticeably calmer, more regulated nervous system."],
+    ru:["Дыхание — единственная автономная функция под сознательным контролем, что делает его главным ключом к вашей нервной системе. Попробуйте когерентное дыхание: медленный вдох через нос примерно на 5–6 счётов, затем спокойный выдох на то же время. Даже 10 минут ежедневно заметно улучшают ощущение устойчивости и спокойствия.",
+        "Многие дышат грудью, а не диафрагмой — особенно в напряжённые периоды. Попробуйте: положите одну руку на грудь, другую на живот — пусть живот поднимается первым. Диафрагмальное дыхание становится естественным через 2–3 недели мягкой практики. Результат: заметно более спокойная, регулируемая нервная система."],
+    es:["La respiración es la única función autónoma bajo control consciente — es la llave maestra de tu sistema nervioso. Para tu estado actual, prueba la respiración coherente: inhala suavemente por la nariz durante unos 5–6 segundos, luego exhala con calma el mismo tiempo. Incluso 10 minutos al día marcan una diferencia notable en cómo te sientes de centrado y tranquilo.",
+        "Muchas personas respiran desde el pecho en lugar del diafragma — es fácil caer en este patrón, especialmente en momentos de tensión. Intenta esto: coloca una mano en el pecho y otra en el vientre, y deja que el vientre se eleve primero. La respiración diafragmática se vuelve natural con dos o tres semanas de práctica suave."],
+    it:["Il respiro è l'unica funzione autonoma sotto controllo cosciente, rendendolo la chiave maestra del tuo sistema nervioso. Per il tuo stato attuale, prova la respirazione coerente: inspira lentamente dal naso per circa 5–6 secondi, poi espira con calma per lo stesso tempo. Anche solo 10 minuti al giorno fanno una differenza reale nel modo in cui ti senti radicato e sereno.",
+        "Molte persone respirano dal petto invece che dal diaframma — è facile scivolare in questo schema, specialmente nei periodi intensi. Prova questo: metti una mano sul petto e una sulla pancia, e lascia che la pancia si sollevi per prima. La respirazione diaframmatica diventa naturale dopo due o tre settimane di pratica gentile."],
+    he:["הנשימה היא הפונקציה האוטונומית היחידה בשליטה מודעת — מה שהופך אותה למפתח הראשי של מערכת העצבים שלך. עבור המצב הנוכחי שלך, נסה נשימה קוהרנטית: שאיפה רכה דרך האף למשך כ-5–6 ספירות, ואז נשיפה שקטה לאותו הזמן. אפילו 10 דקות ביום עושות הבדל ניכר בתחושת היציבות והרוגע שלך.",
+        "אנשים רבים נושמים מהחזה ולא מהסרעפת — זה קל לקרות, במיוחד בתקופות עמוסות. נסה זאת: שים יד אחת על החזה ואחת על הבטן, ותן לבטן לעלות ראשונה. נשימה סרעפתית הופכת טבעית תוך שבועיים-שלושה של תרגול עדין."]
   },
   energy:{
-    en:["Your energetic signature shows depletion in the solar plexus — the centre of personal power and agency. The prescription: 15 minutes of direct sun exposure before 10am (no screen intermediary), and a daily power gesture — something physical that signals to your nervous system that you are resourced and capable.",
+    en:["Your energy patterns suggest an opportunity to reconnect with vitality at its source. Consider 15 minutes of natural sunlight in the morning — ideally before 10am, away from screens — alongside a brief physical practice that feels empowering rather than effortful. These simple anchors signal to your nervous system that you are resourced and present.",
         "Energy follows attention. You have been leaking life-force into situations that cannot be resolved by more mental engagement. The Vedic concept of prana requires protection: deliberately choose three things you will not give energy to this week. Not avoidance — conservation for what actually matters."],
     ru:["Ваша энергетическая сигнатура показывает истощение в солнечном сплетении — центре личной силы. Рецепт: 15 минут прямого воздействия солнца до 10 утра и ежедневный силовой жест.",
         "Энергия следует за вниманием. Вы утекаете жизненную силу в ситуации, которые не могут быть разрешены большим ментальным вовлечением. Намеренно выберите три вещи, которым не будете давать энергию на этой неделе."],
@@ -1451,6 +1594,30 @@ const SVARGA_POOL={
         "Il tuo corpo ha portato più tensione di quella che elabora. La fascia memorizza contenuto emotivo irrisolto come schemi cronici di tensione. Il lavoro corporeo quotidiano — anche solo 10 minuti di automassaggio o stretching consapevole — inizia a liberare ciò che l'elaborazione intellettuale non riesce a raggiungere."],
     he:["תנועה היא תרופה — אבל הסוג חשוב. הפרופיל שלך מרמז על מעורבות יתר בתפוקה בעצימות גבוהה ומעורבות חסרה בתנועה משחזרת. הוסף יוגה נידרה או יין יוגה 3 פעמים בשבוע. אלה לא פסיביים — הם כיול פעיל מחדש של מערכת העצבים עם גיבוי מחקרי חזק.",
         "גופך נשא יותר מתח ממה שהוא מעבד. הפשייה מאחסנת תוכן רגשי לא פתור כדפוסי אחיזה כרוניים. עבודת גוף יומית — אפילו 10 דקות של עיסוי עצמי או מתיחה מודעת — מתחילה לשחרר מה שעיבוד אינטלקטואלי לא יכול להגיע אליו."]
+  },
+  emotional:{
+    en:["Emotional regulation is not suppression — it is the capacity to feel fully without being governed by the feeling. Your current state suggests an accumulation of unprocessed emotional charge. The practice: name the emotion precisely (granular labelling measurably reduces amygdala activation), locate it in the body, and breathe into that location for 90 seconds — the natural lifespan of an emotion's chemical wave when it is not fed by narrative.",
+        "You are likely managing emotion through control rather than metabolism — holding the line instead of letting the wave move through. The somatic truth: emotions are energy in motion and require completion. Schedule a daily emotional discharge — vigorous movement, expressive writing, or vocal release — so the nervous system clears its charge instead of storing it as chronic tension."],
+    ru:["Эмоциональная регуляция — это не подавление, а способность чувствовать полностью, не будучи управляемым чувством. Ваше состояние предполагает накопление непереработанного эмоционального заряда. Практика: точно назовите эмоцию, найдите её в теле и дышите в это место 90 секунд — естественная продолжительность химической волны эмоции, когда её не питает нарратив.",
+        "Вероятно, вы управляете эмоциями через контроль, а не через метаболизм — держите оборону вместо того, чтобы позволить волне пройти. Запланируйте ежедневный эмоциональный разряд — интенсивное движение, экспрессивное письмо или голосовое освобождение — чтобы нервная система очищала заряд, а не хранила его как хроническое напряжение."],
+    es:["La regulación emocional no es supresión — es la capacidad de sentir plenamente sin ser gobernado por el sentimiento. Tu estado actual sugiere una acumulación de carga emocional no procesada. La práctica: nombra la emoción con precisión, localízala en el cuerpo y respira hacia ese lugar durante 90 segundos — la vida natural de la onda química de una emoción cuando no se alimenta de narrativa.",
+        "Probablemente gestionas la emoción mediante el control en lugar del metabolismo — sostienes la línea en vez de dejar que la ola atraviese. La verdad somática: las emociones son energía en movimiento y requieren completarse. Programa una descarga emocional diaria — movimiento vigoroso, escritura expresiva o liberación vocal — para que el sistema nervioso limpie su carga en lugar de almacenarla como tensión crónica."],
+    it:["La regolazione emotiva non è soppressione — è la capacità di sentire pienamente senza essere governati dal sentimento. Il tuo stato attuale suggerisce un accumulo di carica emotiva non elaborata. La pratica: nomina l'emozione con precisione, localizzala nel corpo e respira in quel punto per 90 secondi — la vita naturale dell'onda chimica di un'emozione quando non è alimentata dalla narrazione.",
+        "Probabilmente gestisci l'emozione attraverso il controllo anziché il metabolismo — tieni la linea invece di lasciare che l'onda attraversi. La verità somatica: le emozioni sono energia in movimento e richiedono completamento. Programma una scarica emotiva quotidiana — movimento vigoroso, scrittura espressiva o rilascio vocale — affinché il sistema nervoso ripulisca la sua carica invece di immagazzinarla come tensione cronica."],
+    he:["ויסות רגשי אינו דיכוי — זו היכולת להרגיש במלואו מבלי להיות נשלט על ידי הרגש. מצבך הנוכחי מרמז על הצטברות מטען רגשי לא מעובד. התרגול: תן שם מדויק לרגש, אתר אותו בגוף ונשום לתוך אותו מקום במשך 90 שניות — אורך החיים הטבעי של הגל הכימי של רגש כשאינו ניזון מנרטיב.",
+        "כנראה שאתה מנהל רגש דרך שליטה ולא דרך מטבוליזם — מחזיק את הקו במקום לתת לגל לעבור. האמת הסומטית: רגשות הם אנרגיה בתנועה והם דורשים השלמה. תזמן פריקה רגשית יומית — תנועה נמרצת, כתיבה אקספרסיבית או שחרור קולי — כדי שמערכת העצבים תנקה את המטען במקום לאחסן אותו כמתח כרוני."]
+  },
+  recovery:{
+    en:["Recovery is where adaptation actually happens — growth is built in rest, not in effort. Your pattern suggests a recovery deficit: too much output, too little structured restoration. Non-negotiables for this phase: a consistent sleep-wake window (±30 min), a hard digital sunset 60 minutes before bed, and one full day per week with no optimisation agenda. Recovery is the multiplier on everything else.",
+        "Your lifestyle architecture is leaking energy at the seams — the small daily frictions that compound invisibly. Audit your environment: light, noise, the first 30 minutes of your morning, the last 30 of your night. Redesign these four anchors and the rest of the day reorganises around them. Lifestyle is not willpower; it is design."],
+    ru:["Восстановление — это место, где на самом деле происходит адаптация: рост строится в покое, а не в усилии. Ваш паттерн предполагает дефицит восстановления. Необходимое для этой фазы: постоянное окно сна и пробуждения (±30 мин), цифровой закат за 60 минут до сна и один полный день в неделю без повестки оптимизации. Восстановление — множитель для всего остального.",
+        "Архитектура вашего образа жизни теряет энергию по швам — мелкие ежедневные трения, незаметно накапливающиеся. Проведите аудит среды: свет, шум, первые 30 минут утра, последние 30 минут ночи. Переработайте эти четыре якоря — и остальной день перестроится вокруг них. Образ жизни — это не сила воли, это дизайн."],
+    es:["La recuperación es donde realmente ocurre la adaptación — el crecimiento se construye en el descanso, no en el esfuerzo. Tu patrón sugiere un déficit de recuperación. Innegociables para esta fase: una ventana de sueño-vigilia consistente (±30 min), un ocaso digital 60 minutos antes de dormir, y un día completo a la semana sin agenda de optimización. La recuperación es el multiplicador de todo lo demás.",
+        "La arquitectura de tu estilo de vida pierde energía por las costuras — las pequeñas fricciones diarias que se acumulan invisiblemente. Audita tu entorno: luz, ruido, los primeros 30 minutos de tu mañana, los últimos 30 de tu noche. Rediseña estos cuatro anclajes y el resto del día se reorganiza en torno a ellos. El estilo de vida no es fuerza de voluntad; es diseño."],
+    it:["Il recupero è dove avviene realmente l'adattamento — la crescita si costruisce nel riposo, non nello sforzo. Il tuo schema suggerisce un deficit di recupero. Non negoziabili per questa fase: una finestra sonno-veglia costante (±30 min), un tramonto digitale 60 minuti prima di dormire e un giorno intero a settimana senza agenda di ottimizzazione. Il recupero è il moltiplicatore di tutto il resto.",
+        "L'architettura del tuo stile di vita perde energia dalle cuciture — le piccole frizioni quotidiane che si accumulano invisibilmente. Verifica il tuo ambiente: luce, rumore, i primi 30 minuti del mattino, gli ultimi 30 della notte. Riprogetta questi quattro ancoraggi e il resto della giornata si riorganizza attorno ad essi. Lo stile di vita non è forza di volontà; è progettazione."],
+    he:["התאוששות היא המקום שבו ההסתגלות באמת מתרחשת — צמיחה נבנית במנוחה, לא במאמץ. הדפוס שלך מרמז על גירעון התאוששות. בלתי ניתנים למשא ומתן בשלב זה: חלון שינה-עירות עקבי (±30 דקות), שקיעה דיגיטלית 60 דקות לפני השינה, ויום שלם בשבוע ללא אג'נדת אופטימיזציה. התאוששות היא המכפיל של כל השאר.",
+        "ארכיטקטורת אורח החיים שלך מדליפה אנרגיה בתפרים — החיכוכים היומיומיים הקטנים שמצטברים באופן בלתי נראה. בצע ביקורת על הסביבה שלך: אור, רעש, 30 הדקות הראשונות של הבוקר, 30 האחרונות של הלילה. עצב מחדש את ארבעת העוגנים הללו ושאר היום יתארגן סביבם. אורח חיים אינו כוח רצון; זה עיצוב."]
   },
   karma:{
     en:["At the karmic level, you are completing a cycle that began several years ago. What feels like struggle is not punishment — it is the final contraction before expansion. The soul curriculum for this phase is trust: not naive trust, but earned trust in your own resilience and capacity to navigate what arises.",
@@ -1504,9 +1671,341 @@ function renderMD(text){
     i%2===1?<strong key={i} style={{fontWeight:600,color:'var(--text-1)'}}>{p}</strong>:p
   );
 }
-function stripMD(text){return text?text.replace(/\*\*([^*]+)\*\*/g,'$1'):''}function generateSvarga(input,lang){
-  const dims=['nutrition','breathing','energy','mental','body','karma'];
-  return dims.map(d=>({dim:d,text:pick(SVARGA_POOL[d][lang]||SVARGA_POOL[d].en)}));
+function stripMD(text){return text?text.replace(/\*\*([^*]+)\*\*/g,'$1'):''}function generateSvarga(input,lang,depth=2){
+  const dims=['nutrition','breathing','energy','mental','body','emotional','recovery','karma'];
+  const raw=dims.map(d=>({dim:d,text:pick(SVARGA_POOL[d][lang]||SVARGA_POOL[d].en)}));
+  return applyDepthSvarga(raw,depth);
+}
+
+/* ═══════════════ BIOHACKING DATA POOL ══════════════════════════════════════ */
+const BIOHACK_POOL={
+  sleep:{
+    en:{
+      assessment:"Sleep is the master lever of human performance — it determines cognitive function, hormonal balance, emotional regulation, and physical recovery. A consistent, well-architected sleep routine pays compounding returns across every other domain of your life.",
+      protocol:["**Sleep window consistency:** Set a fixed wake time and maintain it even on weekends. Your body's circadian anchor is the morning light, not the evening wind-down. Wake at the same time and your sleep onset will self-correct within 7–10 days.",
+        "**Light hygiene:** Get 5–10 minutes of natural daylight within 30 minutes of waking — ideally outside. In the evening, dim indoor lights 90 minutes before bed and avoid bright screens if possible. These two signals are the most powerful circadian inputs available.",
+        "**Temperature protocol:** The body needs to drop its core temperature by about 1–2°F to fall and stay asleep. A bedroom between 17–19°C (63–67°F) is optimal for most people. A warm shower 60–90 minutes before bed paradoxically speeds sleep onset by accelerating the subsequent temperature drop.",
+        "**Pre-sleep decompression:** Choose one consistent 15–20 minute wind-down practice — light reading, gentle breathing, or a short body scan — and do it in the same way each night. Ritual signals to the brain that transition to sleep is imminent."],
+      morning:"Morning anchor: natural light within 30 min of waking + no phone for first 20 minutes.",
+      evening:"Evening anchor: lights dim at a consistent time + a brief gratitude or reflection practice.",
+      track:"What to notice: how quickly you fall asleep, how rested you feel at your wake time, and your morning energy quality."
+    },
+    ru:{
+      assessment:"Сон — главный рычаг человеческой эффективности. Он определяет когнитивные функции, гормональный баланс, эмоциональную регуляцию и физическое восстановление. Хорошо выстроенная рутина сна даёт накопительную отдачу во всех остальных сферах жизни.",
+      protocol:["**Постоянство окна сна:** Установите фиксированное время пробуждения и придерживайтесь его даже в выходные. Циркадный якорь — это утренний свет, а не вечерний ритуал. Просыпайтесь в одно время — и засыпание нормализуется само за 7–10 дней.",
+        "**Световая гигиена:** Выходите на 5–10 минут на естественный дневной свет в течение 30 минут после пробуждения. Вечером приглушайте свет за 90 минут до сна и по возможности избегайте ярких экранов. Эти два сигнала — самые мощные входные данные для циркадных часов.",
+        "**Температурный протокол:** Для засыпания тело должно снизить температуру ядра примерно на 1°C. Оптимальная температура в спальне — 17–19°C. Тёплый душ за 60–90 минут до сна парадоксально ускоряет засыпание, стимулируя последующее охлаждение.",
+        "**Декомпрессия перед сном:** Выберите одну постоянную практику на 15–20 минут — лёгкое чтение, мягкое дыхание или короткое сканирование тела — и выполняйте её одинаково каждый вечер. Ритуал сигнализирует мозгу, что переход ко сну близок."],
+      morning:"Утренний якорь: естественный свет в течение 30 мин после пробуждения + нет телефона первые 20 минут.",
+      evening:"Вечерний якорь: приглушить свет в постоянное время + краткая практика благодарности или рефлексии.",
+      track:"Что отслеживать: скорость засыпания, ощущение отдохнувшести при пробуждении, качество утренней энергии."
+    },
+    es:{
+      assessment:"El sueño es la palanca maestra del rendimiento humano — determina la función cognitiva, el equilibrio hormonal, la regulación emocional y la recuperación física. Una rutina de sueño bien diseñada genera retornos compuestos en todos los demás dominios de tu vida.",
+      protocol:["**Consistencia de la ventana de sueño:** Establece una hora de despertar fija y mantenla incluso los fines de semana. El ancla circadiana del cuerpo es la luz matutina, no la rutina nocturna. Despierta a la misma hora y el inicio del sueño se autocorregirá en 7–10 días.",
+        "**Higiene de la luz:** Recibe 5–10 minutos de luz natural dentro de los 30 minutos de despertar. Por la noche, reduce las luces interiores 90 minutos antes de dormir. Estas dos señales son las entradas circadianas más poderosas disponibles.",
+        "**Protocolo de temperatura:** La habitación entre 17–19°C es óptima para la mayoría. Una ducha caliente 60–90 minutos antes de dormir paradójicamente acelera el inicio del sueño al estimular el posterior descenso de temperatura.",
+        "**Descompresión pre-sueño:** Elige una práctica constante de 15–20 minutos — lectura ligera, respiración suave o escaneo corporal — y hazla de la misma manera cada noche. El ritual señala al cerebro que la transición al sueño es inminente."],
+      morning:"Ancla matutina: luz natural en los primeros 30 min + sin teléfono los primeros 20 minutos.",
+      evening:"Ancla nocturna: luces atenuadas a una hora consistente + breve práctica de gratitud o reflexión.",
+      track:"Qué notar: velocidad para conciliar el sueño, sensación de descanso al despertar, calidad de la energía matutina."
+    },
+    it:{
+      assessment:"Il sonno è la leva principale delle prestazioni umane — determina la funzione cognitiva, l'equilibrio ormonale, la regolazione emotiva e il recupero fisico. Una routine del sonno ben strutturata genera ritorni composti in tutti gli altri ambiti della tua vita.",
+      protocol:["**Coerenza della finestra del sonno:** Imposta un orario di sveglia fisso e mantienilo anche nei weekend. L'ancora circadiana del corpo è la luce mattutina, non la routine serale. Svegliati alla stessa ora e l'insorgenza del sonno si autocorreggerà in 7–10 giorni.",
+        "**Igiene della luce:** Ricevi 5–10 minuti di luce naturale entro 30 minuti dal risveglio. La sera, attenua le luci interne 90 minuti prima di dormire. Questi due segnali sono gli input circadiani più potenti disponibili.",
+        "**Protocollo di temperatura:** Una camera tra 17–19°C è ottimale per la maggior parte delle persone. Una doccia calda 60–90 minuti prima di dormire paradossalmente accelera l'insorgenza del sonno stimolando il successivo calo di temperatura.",
+        "**Decompressione pre-sonno:** Scegli una pratica costante di 15–20 minuti — lettura leggera, respirazione dolce o una breve scansione corporea — e falla allo stesso modo ogni sera. Il rituale segnala al cervello che la transizione al sonno è imminente."],
+      morning:"Ancora mattutina: luce naturale entro 30 min dal risveglio + niente telefono per i primi 20 minuti.",
+      evening:"Ancora serale: luci attenuate a un'ora costante + breve pratica di gratitudine o riflessione.",
+      track:"Cosa notare: velocità di addormentamento, sensazione di riposo al risveglio, qualità dell'energia mattutina."
+    },
+    he:{
+      assessment:"שינה היא המנוף הראשי של ביצועים אנושיים — היא קובעת תפקוד קוגניטיבי, איזון הורמונלי, ויסות רגשי והתאוששות פיזית. שגרת שינה מעוצבת היטב מניבה תשואות מצטברות בכל תחום אחר של חייך.",
+      protocol:["**עקביות חלון השינה:** קבע שעת השכמה קבועה ושמור עליה גם בסופי שבוע. העוגן הצירקדיאני של הגוף הוא האור הבוקר, לא טקס הערב. השכם באותה שעה ותחילת השינה תתקן את עצמה תוך 7–10 ימים.",
+        "**היגיינת אור:** קבל 5–10 דקות של אור טבעי תוך 30 דקות מההשכמה. בערב, עמם את האורות הפנימיים 90 דקות לפני השינה. שני אותות אלה הם הקלטים הצירקדיאניים החזקים ביותר הזמינים.",
+        "**פרוטוקול טמפרטורה:** חדר שינה בין 17–19°C אופטימלי לרוב האנשים. מקלחת חמה 60–90 דקות לפני השינה מאיצה באופן פרדוקסלי את הירדמות על ידי גירוי הירידה הבאה בטמפרטורה.",
+        "**פירוק מתח לפני שינה:** בחר תרגול עקבי של 15–20 דקות — קריאה קלה, נשימה עדינה או סריקת גוף קצרה — ובצע אותו באותו אופן כל ערב. הריטואל מאותת למוח שהמעבר לשינה קרוב."],
+      morning:"עוגן בוקר: אור טבעי תוך 30 דקות מההשכמה + ללא טלפון ב-20 הדקות הראשונות.",
+      evening:"עוגן ערב: עמעום אורות בשעה עקבית + תרגול קצר של הכרת תודה או רפלקציה.",
+      track:"מה לשים לב: מהירות הירדמות, תחושת רעננות בהשכמה, איכות האנרגיה הבוקרית."
+    }
+  },
+  focus:{
+    en:{
+      assessment:"Cognitive focus is not a fixed trait — it is a trainable capacity that depends on sleep quality, nutritional status, attention management, and strategic work-structure. Most focus problems are architecture problems, not willpower problems.",
+      protocol:["**Work in focused blocks:** The brain reaches peak focused attention in 25–50 minute windows, after which performance degrades. Design your deep work in these blocks with intentional 5–10 minute breaks between. One high-quality focus block outperforms three hours of distracted multitasking.",
+        "**Single-task ruthlessly:** Every task switch costs 15–25 minutes of recovered focus. Batch similar work and eliminate task-switching during deep work periods. Close unused tabs. Notifications off. One thing at a time.",
+        "**Fuel your focus:** The brain runs on glucose and needs adequate hydration to maintain optimal function. A protein-rich meal before a focused work period provides more stable cognitive energy than carbohydrate-heavy alternatives. Caffeine works best when timed 90 minutes after waking, after cortisol naturally peaks.",
+        "**End each session with a capture:** Before closing a work block, write the next single action for this project. This 60-second habit eliminates the cognitive overhead of 'where was I?' and dramatically reduces re-entry friction."],
+      morning:"Morning focus anchor: define your one most important task before opening email or messages.",
+      evening:"Evening capture: spend 5 minutes noting where each open project stands — clear the working memory slate.",
+      track:"What to notice: the quality of your most focused hour, not the quantity of hours worked."
+    },
+    ru:{
+      assessment:"Когнитивный фокус — не фиксированная черта, а тренируемая способность, зависящая от качества сна, питания, управления вниманием и структуры работы. Большинство проблем с концентрацией — это проблемы архитектуры, а не силы воли.",
+      protocol:["**Работайте в сфокусированных блоках:** Мозг достигает пика сосредоточенного внимания в окнах 25–50 минут, после чего производительность падает. Структурируйте глубокую работу в этих блоках с намеренными перерывами 5–10 минут.",
+        "**Выполняйте одну задачу:** Каждое переключение задач стоит 15–25 минут восстановленного фокуса. Группируйте похожую работу. Во время глубокой работы — уведомления отключены, одна задача.",
+        "**Питайте фокус:** Богатая белком еда перед периодом сосредоточенной работы обеспечивает более стабильную когнитивную энергию. Кофеин работает лучше всего через 90 минут после пробуждения, когда кортизол естественно достигает пика.",
+        "**Завершайте каждую сессию захватом:** Перед закрытием рабочего блока запишите следующее единственное действие для этого проекта. Это устраняет когнитивный оверхед 'с чего я остановился?'."],
+      morning:"Утренний якорь фокуса: определите одну наиважнейшую задачу до открытия почты или сообщений.",
+      evening:"Вечерний захват: потратьте 5 минут на фиксацию статуса каждого открытого проекта.",
+      track:"Что отслеживать: качество вашего самого сосредоточенного часа, а не количество отработанных часов."
+    },
+    es:{
+      assessment:"El enfoque cognitivo no es un rasgo fijo — es una capacidad entrenable que depende de la calidad del sueño, el estado nutricional, la gestión de la atención y la estructura del trabajo. La mayoría de los problemas de concentración son problemas de arquitectura, no de fuerza de voluntad.",
+      protocol:["**Trabaja en bloques de enfoque:** El cerebro alcanza su pico de atención concentrada en ventanas de 25–50 minutos. Diseña tu trabajo profundo en estos bloques con descansos intencionales de 5–10 minutos.",
+        "**Realiza una sola tarea implacablemente:** Cada cambio de tarea cuesta 15–25 minutos de enfoque recuperado. Agrupa trabajo similar. Durante el trabajo profundo — sin notificaciones, una cosa a la vez.",
+        "**Alimenta tu enfoque:** Una comida rica en proteínas antes de un período de trabajo concentrado proporciona energía cognitiva más estable. La cafeína funciona mejor 90 minutos después de despertar.",
+        "**Captura al final de cada sesión:** Antes de cerrar un bloque de trabajo, escribe la siguiente acción única para este proyecto. Este hábito de 60 segundos elimina la fricción de reentrada."],
+      morning:"Ancla matutina de enfoque: define tu tarea más importante antes de abrir el correo o los mensajes.",
+      evening:"Captura nocturna: dedica 5 minutos a anotar el estado de cada proyecto abierto.",
+      track:"Qué notar: la calidad de tu hora más enfocada, no la cantidad de horas trabajadas."
+    },
+    it:{
+      assessment:"La concentrazione cognitiva non è un tratto fisso — è una capacità allenabile che dipende dalla qualità del sonno, dallo stato nutrizionale, dalla gestione dell'attenzione e dalla struttura del lavoro. La maggior parte dei problemi di concentrazione sono problemi di architettura, non di forza di volontà.",
+      protocol:["**Lavora in blocchi di focus:** Il cervello raggiunge il picco di attenzione concentrata in finestre di 25–50 minuti. Progetta il tuo lavoro profondo in questi blocchi con pause intenzionali di 5–10 minuti.",
+        "**Esegui un'unica attività:** Ogni cambio di compito costa 15–25 minuti di focus recuperato. Raggruppa lavori simili. Durante il lavoro profondo — niente notifiche, una cosa alla volta.",
+        "**Alimenta il tuo focus:** Un pasto ricco di proteine prima di un periodo di lavoro concentrato fornisce energia cognitiva più stabile. La caffeina funziona meglio 90 minuti dopo il risveglio.",
+        "**Cattura a fine sessione:** Prima di chiudere un blocco di lavoro, scrivi la prossima singola azione per questo progetto."],
+      morning:"Ancora mattutina del focus: definisci il tuo compito più importante prima di aprire email o messaggi.",
+      evening:"Cattura serale: dedica 5 minuti a notare dove si trova ogni progetto aperto.",
+      track:"Cosa notare: la qualità della tua ora più concentrata, non la quantità di ore lavorate."
+    },
+    he:{
+      assessment:"פוקוס קוגניטיבי אינו תכונה קבועה — זו יכולת שניתן לאמן, התלויה באיכות השינה, המצב התזונתי, ניהול הקשב ומבנה העבודה. רוב בעיות הריכוז הן בעיות ארכיטקטורה, לא בעיות כוח רצון.",
+      protocol:["**עבוד בבלוקים ממוקדים:** המוח מגיע לשיא הקשב הממוקד בחלונות של 25–50 דקות. תכנן את העבודה העמוקה שלך בבלוקים אלה עם הפסקות מכוונות של 5–10 דקות.",
+        "**עשה משימה אחת בלבד:** כל החלפת משימה עולה 15–25 דקות של פוקוס שהתאושש. קבץ עבודות דומות. במהלך עבודה עמוקה — הודעות כבויות, דבר אחד בכל פעם.",
+        "**הזן את הפוקוס שלך:** ארוחה עשירה בחלבון לפני תקופת עבודה ממוקדת מספקת אנרגיה קוגניטיבית יציבה יותר. קפאין פועל הכי טוב 90 דקות לאחר ההשכמה.",
+        "**לכוד בסוף כל סשן:** לפני סגירת בלוק עבודה, כתוב את הפעולה הבאה היחידה לפרויקט זה."],
+      morning:"עוגן בוקר לפוקוס: הגדר את המשימה החשובה ביותר שלך לפני פתיחת מייל או הודעות.",
+      evening:"לכידת ערב: קדש 5 דקות לרישום מצב כל פרויקט פתוח.",
+      track:"מה לשים לב: איכות השעה הממוקדת ביותר שלך, לא כמות השעות שעבדת."
+    }
+  },
+  energy:{
+    en:{
+      assessment:"Sustainable energy is the result of aligned biological systems — not of pushing harder. Energy problems almost always trace to one or more of: disrupted sleep, blood sugar instability, chronic stress without recovery, or depleted movement patterns.",
+      protocol:["**Anchor your cortisol curve:** Cortisol is your natural energy hormone — it peaks 30–45 minutes after waking and declines through the day. Working with this curve means scheduling your most demanding work in the first 4–6 hours after waking, and lighter work in the afternoon.",
+        "**Stabilize blood sugar:** Energy crashes in the mid-afternoon usually trace to blood sugar swings. Reduce refined carbohydrates, add protein and healthy fat to each meal, and eat at regular intervals. These changes produce more consistent energy than any stimulant.",
+        "**Move to energize:** A 10–15 minute walk, especially after meals, markedly improves energy and cognitive clarity. The body is designed for regular low-intensity movement interspersed through the day — this is different from a single workout session.",
+        "**Protect your recovery windows:** Energy is produced in recovery, not in effort. Every high-demand period needs a corresponding lower-demand recovery period. Brief intentional pauses (5 minutes of eyes closed, slow breathing) between intense tasks compound significantly over a week."],
+      morning:"Morning energy anchor: 10 minutes of light movement or a short walk within the first hour of waking.",
+      evening:"Evening recovery: a genuine wind-down period before sleep — not screen time but actual rest.",
+      track:"What to notice: your energy pattern across the day — when it peaks, when it dips, what preceded each."
+    },
+    ru:{
+      assessment:"Устойчивая энергия — результат слаженной работы биологических систем, а не большего давления. Проблемы с энергией почти всегда связаны с одним или несколькими факторами: нарушенный сон, нестабильность сахара в крови, хронический стресс без восстановления или обеднённые паттерны движения.",
+      protocol:["**Закрепите кортизоловую кривую:** Кортизол — ваш естественный гормон энергии. Он достигает пика через 30–45 минут после пробуждения. Самую требовательную работу планируйте в первые 4–6 часов после пробуждения.",
+        "**Стабилизируйте сахар в крови:** Падения энергии во второй половине дня обычно связаны с колебаниями сахара. Уменьшите рафинированные углеводы, добавьте белок и полезные жиры к каждому приёму пищи.",
+        "**Двигайтесь для энергии:** Прогулка 10–15 минут, особенно после еды, заметно улучшает энергию и когнитивную ясность. Тело создано для регулярного движения низкой интенсивности в течение дня.",
+        "**Защищайте периоды восстановления:** Энергия производится в восстановлении. Каждый период высокой нагрузки нуждается в соответствующем периоде меньшей нагрузки. Краткие намеренные паузы между интенсивными задачами накапливаются значительно."],
+      morning:"Утренний энергетический якорь: 10 минут лёгкого движения в первый час после пробуждения.",
+      evening:"Вечернее восстановление: настоящий период успокоения перед сном — не экраны, а реальный отдых.",
+      track:"Что отслеживать: паттерн энергии в течение дня — когда она достигает пика, когда падает, что предшествовало каждому."
+    },
+    es:{
+      assessment:"La energía sostenible es el resultado de sistemas biológicos alineados, no de esforzarse más. Los problemas de energía casi siempre se remontan a uno o más de: sueño alterado, inestabilidad del azúcar en sangre, estrés crónico sin recuperación o patrones de movimiento empobrecidos.",
+      protocol:["**Ancla tu curva de cortisol:** El cortisol es tu hormona de energía natural — alcanza su pico 30–45 minutos después de despertar. Programa tu trabajo más exigente en las primeras 4–6 horas.",
+        "**Estabiliza el azúcar en sangre:** Los bajones de energía de media tarde casi siempre se deben a fluctuaciones de azúcar. Reduce los carbohidratos refinados, añade proteína y grasa saludable a cada comida.",
+        "**Muévete para energizarte:** Una caminata de 10–15 minutos, especialmente después de las comidas, mejora notablemente la energía y la claridad cognitiva.",
+        "**Protege tus ventanas de recuperación:** La energía se produce en la recuperación, no en el esfuerzo. Cada período de alta exigencia necesita un período de baja exigencia correspondiente."],
+      morning:"Ancla matutina de energía: 10 minutos de movimiento ligero en la primera hora tras despertar.",
+      evening:"Recuperación nocturna: un período genuino de descanso antes de dormir — no tiempo de pantalla sino descanso real.",
+      track:"Qué notar: tu patrón de energía a lo largo del día — cuándo alcanza su pico, cuándo decae, qué lo precedió."
+    },
+    it:{
+      assessment:"L'energia sostenibile è il risultato di sistemi biologici allineati, non di maggiore sforzo. I problemi energetici quasi sempre risalgono a uno o più fattori: sonno disturbato, instabilità glicemica, stress cronico senza recupero o schemi di movimento impoveriti.",
+      protocol:["**Ancora la tua curva del cortisolo:** Il cortisolo è il tuo ormone naturale dell'energia — raggiunge il picco 30–45 minuti dopo il risveglio. Pianifica il lavoro più impegnativo nelle prime 4–6 ore.",
+        "**Stabilizza la glicemia:** I cali energetici nel pomeriggio quasi sempre risalgono a oscillazioni glicemiche. Riduci i carboidrati raffinati, aggiungi proteine e grassi sani ad ogni pasto.",
+        "**Muoviti per energizzarti:** Una camminata di 10–15 minuti, specialmente dopo i pasti, migliora notevolmente l'energia e la chiarezza cognitiva.",
+        "**Proteggi le tue finestre di recupero:** L'energia si produce nel recupero, non nello sforzo. Ogni periodo ad alta richiesta necessita di un corrispondente periodo a bassa richiesta."],
+      morning:"Ancora mattutina energetica: 10 minuti di movimento leggero nella prima ora dal risveglio.",
+      evening:"Recupero serale: un periodo genuino di riposo prima di dormire — non tempo davanti agli schermi ma vero riposo.",
+      track:"Cosa notare: il tuo schema energetico durante il giorno — quando raggiunge il picco, quando cala, cosa lo ha preceduto."
+    },
+    he:{
+      assessment:"אנרגיה בת-קיימא היא תוצאה של מערכות ביולוגיות מיושרות — לא של דחיפה חזקה יותר. בעיות אנרגיה כמעט תמיד קשורות לאחד או יותר מ: שינה מופרעת, אי-יציבות של סוכר בדם, לחץ כרוני ללא התאוששות או דפוסי תנועה מדולדלים.",
+      protocol:["**עגן את עקומת הקורטיזול שלך:** קורטיזול הוא הורמון האנרגיה הטבעי שלך — הוא מגיע לשיא 30–45 דקות לאחר ההשכמה. תזמן את העבודה הדורשנית ביותר שלך ב-4–6 השעות הראשונות לאחר ההשכמה.",
+        "**ייצב את רמת הסוכר בדם:** ירידות אנרגיה בשעות אחר הצהריים כמעט תמיד קשורות לתנודות בסוכר. הפחת פחמימות מעובדות, הוסף חלבון ושומן בריא לכל ארוחה.",
+        "**התנועע כדי להתאושש:** הליכה של 10–15 דקות, במיוחד לאחר ארוחות, משפרת באופן ניכר אנרגיה ובהירות קוגניטיבית.",
+        "**הגן על חלונות ההתאוששות שלך:** אנרגיה מיוצרת בהתאוששות, לא במאמץ. כל תקופה של דרישה גבוהה צריכה תקופת דרישה נמוכה מקבילה."],
+      morning:"עוגן בוקר לאנרגיה: 10 דקות של תנועה קלה בשעה הראשונה לאחר ההשכמה.",
+      evening:"התאוששות ערב: תקופת הרגעה אמיתית לפני השינה — לא זמן מסך אלא מנוחה ממשית.",
+      track:"מה לשים לב: דפוס האנרגיה שלך לאורך היום — מתי הוא מגיע לשיא, מתי הוא יורד, מה קדם לכל אחד."
+    }
+  },
+  stress:{
+    en:{
+      assessment:"Stress itself is not the problem — stress without adequate recovery is. The nervous system is designed to move between states of activation and rest. When it gets stuck in sustained activation, the downstream effects touch every aspect of wellbeing. The goal is not to eliminate stress but to develop a more responsive, resilient nervous system.",
+      protocol:["**Physiological sigh on demand:** The fastest evidence-based way to downregulate the nervous system in real time: a double inhale through the nose (inhale, then a brief extra inhale to top up the lungs), followed by a long, slow exhale through the mouth. One or two cycles visibly shift autonomic state within seconds.",
+        "**Cold exposure — gentle entry:** Brief cold water at the end of a shower (30 seconds, working up to 2–3 minutes over time) has solid research support for mood, resilience, and stress tolerance. The practice trains the nervous system to return to calm faster after activation.",
+        "**Nature contact:** Even 20 minutes in a natural setting measurably lowers cortisol. This is not metaphor — it is a consistent physiological finding. Build in one genuine outdoor period daily, especially during high-demand phases.",
+        "**Boundary your inputs:** Stress is significantly amplified by information overload and relentless availability. Designate 2–3 windows for checking messages per day rather than continuous monitoring. The quality of your attention improves; the perceived stress load reduces."],
+      morning:"Morning regulation: 5 minutes of slow breathing or light movement before engaging with the day's demands.",
+      evening:"Evening decompression: identify and name one source of stress from today — naming reduces physiological stress response.",
+      track:"What to notice: where in the body you hold tension, and what reliably reduces it."
+    },
+    ru:{
+      assessment:"Стресс сам по себе не является проблемой — проблемой является стресс без адекватного восстановления. Нервная система создана для перемещения между состояниями активации и покоя. Когда она застревает в длительной активации, последствия затрагивают каждый аспект благополучия.",
+      protocol:["**Физиологический вздох по требованию:** Самый быстрый способ снизить тонус нервной системы в реальном времени: двойной вдох через нос (вдох, затем краткий дополнительный вдох), затем долгий медленный выдох через рот. Один-два цикла заметно меняют автономное состояние.",
+        "**Мягкое воздействие холодом:** Короткое холодное облитие в конце душа (30 секунд, постепенно до 2–3 минут) имеет solid исследовательскую поддержку для настроения и устойчивости к стрессу.",
+        "**Контакт с природой:** Даже 20 минут в естественной обстановке заметно снижают кортизол. Включите один настоящий период на открытом воздухе ежедневно.",
+        "**Ограничьте входящие:** Стресс значительно усиливается перегрузкой информацией. Определите 2–3 окна для проверки сообщений в день вместо непрерывного мониторинга."],
+      morning:"Утренняя регуляция: 5 минут медленного дыхания или лёгкого движения до встречи с дневными требованиями.",
+      evening:"Вечерняя декомпрессия: назовите один источник стресса сегодняшнего дня — называние снижает физиологическую реакцию на стресс.",
+      track:"Что отслеживать: где в теле вы держите напряжение и что надёжно снижает его."
+    },
+    es:{
+      assessment:"El estrés en sí mismo no es el problema — el estrés sin recuperación adecuada sí lo es. El sistema nervioso está diseñado para moverse entre estados de activación y descanso. El objetivo no es eliminar el estrés sino desarrollar un sistema nervioso más responsivo y resiliente.",
+      protocol:["**Suspiro fisiológico bajo demanda:** La forma más rápida de regular el sistema nervioso: una doble inhalación por la nariz (inhala, luego una breve inhalación extra), seguida de una larga exhalación lenta por la boca. Uno o dos ciclos cambian visiblemente el estado autonómico.",
+        "**Exposición suave al frío:** Agua fría breve al final de la ducha (30 segundos, aumentando gradualmente) tiene sólido respaldo investigativo para el ánimo y la tolerancia al estrés.",
+        "**Contacto con la naturaleza:** Incluso 20 minutos en un entorno natural reduce mediblemente el cortisol. Incorpora un período genuino al aire libre diariamente.",
+        "**Delimita tus inputs:** El estrés se amplifica significativamente por la sobrecarga informativa. Designa 2–3 ventanas para revisar mensajes al día en lugar de monitoreo continuo."],
+      morning:"Regulación matutina: 5 minutos de respiración lenta o movimiento ligero antes de enfrentarte a las exigencias del día.",
+      evening:"Descompresión nocturna: identifica y nombra una fuente de estrés de hoy — nombrarla reduce la respuesta fisiológica al estrés.",
+      track:"Qué notar: dónde en el cuerpo sostienes la tensión y qué la reduce de manera confiable."
+    },
+    it:{
+      assessment:"Lo stress in sé non è il problema — lo stress senza adeguato recupero lo è. Il sistema nervioso è progettato per muoversi tra stati di attivazione e riposo. L'obiettivo non è eliminare lo stress ma sviluppare un sistema nervioso più responsivo e resiliente.",
+      protocol:["**Sospiro fisiologico su richiesta:** Il modo più rapido per regolare il sistema nervioso: un doppio respiro dal naso (inspira, poi una breve inspirazione extra), seguito da una lunga, lenta espirazione dalla bocca.",
+        "**Esposizione dolce al freddo:** Breve acqua fredda alla fine della doccia (30 secondi, aumentando gradualmente) ha solido supporto ricercato per umore e resilienza allo stress.",
+        "**Contatto con la natura:** Anche 20 minuti in un ambiente naturale abbassa misurabilmente il cortisolo. Inserisci un genuino periodo all'aperto quotidianamente.",
+        "**Delimita i tuoi input:** Lo stress è amplificato dall'overload informativo. Designa 2–3 finestre per controllare i messaggi al giorno invece del monitoraggio continuo."],
+      morning:"Regolazione mattutina: 5 minuti di respirazione lenta o movimento leggero prima di affrontare le richieste del giorno.",
+      evening:"Decompressione serale: identifica e nomina una fonte di stress di oggi — nominarla riduce la risposta fisiologica allo stress.",
+      track:"Cosa notare: dove nel corpo tieni la tensione e cosa la riduce in modo affidabile."
+    },
+    he:{
+      assessment:"לחץ בעצמו אינו הבעיה — לחץ ללא התאוששות מספקת הוא הבעיה. מערכת העצבים מעוצבת לנוע בין מצבי הפעלה ומנוחה. המטרה אינה לבטל לחץ אלא לפתח מערכת עצבים מגיבה וחסינה יותר.",
+      protocol:["**אנחה פיזיולוגית לפי דרישה:** הדרך המהירה ביותר לווסת את מערכת העצבים: שאיפה כפולה דרך האף (שאיפה, ואז שאיפה קצרה נוספת), ואחריה נשיפה ארוכה ואיטית דרך הפה.",
+        "**חשיפה עדינה לקור:** מים קרים קצרים בסוף המקלחת (30 שניות, תוך כדי עלייה הדרגתית) נתמכים היטב במחקרים לשיפור מצב הרוח וסובלנות ללחץ.",
+        "**מגע עם הטבע:** אפילו 20 דקות בסביבה טבעית מורידות קורטיזול באופן מדיד. שלב תקופה אמיתית בחוץ מדי יום.",
+        "**הגבל את הקלטים שלך:** לחץ מוגבר באופן משמעותי על ידי עומס מידע. ייחד 2–3 חלונות לבדיקת הודעות ביום במקום ניטור רציף."],
+      morning:"ויסות בוקר: 5 דקות של נשימה איטית או תנועה קלה לפני מפגש עם דרישות היום.",
+      evening:"פירוק לחץ ערב: זהה ושם מקור לחץ אחד מהיום — שמות מפחיתות את התגובה הפיזיולוגית ללחץ.",
+      track:"מה לשים לב: היכן בגוף אתה מחזיק מתח ומה מפחית אותו באופן אמין."
+    }
+  },
+  recovery:{
+    en:{
+      assessment:"Recovery is the invisible half of performance — it is where adaptation, integration, and growth actually occur. Most people treat recovery as passive (doing nothing) when effective recovery is active and structured. The body responds to what you do in recovery windows just as it responds to training.",
+      protocol:["**Strategic deload days:** Build at least one genuine low-demand day into each week — not just low exercise, but genuinely lower cognitive and emotional demand. This is not laziness; it is the condition under which regeneration occurs.",
+        "**Post-exertion protocol:** After intense physical or cognitive effort: 5–10 minutes of gentle movement (walking, stretching), followed by slow breathing. This deliberately closes the stress response loop and signals the nervous system that the demand period is complete.",
+        "**Sleep as recovery priority:** All physical recovery happens during sleep — muscle repair, immune function, hormonal reset. Compressing sleep to get more done is reliably counterproductive over any meaningful time horizon.",
+        "**Social recovery:** Genuine connection with people who energize rather than drain you is physiologically restorative. Even one meaningful conversation per day measurably affects biomarkers of stress and wellbeing."],
+      morning:"Morning recovery check-in: on a scale of 1–10, how restored do you feel? Let the answer inform how you plan the day.",
+      evening:"Evening recovery audit: what depleted you today, and what genuinely restored you? Adjust tomorrow accordingly.",
+      track:"What to notice: your recovery rate — how quickly you return to feeling resourced after a demanding period."
+    },
+    ru:{
+      assessment:"Восстановление — невидимая половина результативности — это место, где на самом деле происходят адаптация, интеграция и рост. Большинство людей считают восстановление пассивным (ничегонеделание), тогда как эффективное восстановление активно и структурировано.",
+      protocol:["**Стратегические дни разгрузки:** Включите хотя бы один настоящий день с низкими требованиями в каждую неделю — не только меньше упражнений, но и реально более низкая когнитивная и эмоциональная нагрузка.",
+        "**Протокол после нагрузки:** После интенсивных физических или когнитивных усилий: 5–10 минут мягкого движения, затем медленное дыхание. Это намеренно закрывает петлю стрессовой реакции.",
+        "**Сон как приоритет восстановления:** Всё физическое восстановление происходит во сне. Сжатие сна ради большей продуктивности надёжно контрпродуктивно в долгосрочной перспективе.",
+        "**Социальное восстановление:** Подлинная связь с людьми, которые вас заряжают, а не истощают, физиологически восстанавливает."],
+      morning:"Утренняя проверка восстановления: по шкале 1–10, насколько отдохнувшим вы себя чувствуете? Позвольте ответу определить план дня.",
+      evening:"Вечерний аудит восстановления: что истощило вас сегодня, и что по-настоящему восстановило? Скорректируйте завтра.",
+      track:"Что отслеживать: скорость вашего восстановления — как быстро вы возвращаетесь к ощущению ресурсности после требовательного периода."
+    },
+    es:{
+      assessment:"La recuperación es la mitad invisible del rendimiento — es donde realmente ocurren la adaptación, la integración y el crecimiento. La mayoría de las personas tratan la recuperación como pasiva cuando la recuperación efectiva es activa y estructurada.",
+      protocol:["**Días de descarga estratégica:** Incluye al menos un día genuinamente de baja exigencia en cada semana — no solo menos ejercicio, sino genuinamente menor demanda cognitiva y emocional.",
+        "**Protocolo post-esfuerzo:** Después de un esfuerzo físico o cognitivo intenso: 5–10 minutos de movimiento suave, seguido de respiración lenta. Esto cierra deliberadamente el bucle de respuesta al estrés.",
+        "**El sueño como prioridad de recuperación:** Toda la recuperación física ocurre durante el sueño. Comprimir el sueño para hacer más es consistentemente contraproducente.",
+        "**Recuperación social:** La conexión genuina con personas que te energizan en lugar de agotarte es fisiológicamente restauradora."],
+      morning:"Check-in matutino de recuperación: en una escala del 1–10, ¿cómo de restaurado te sientes? Deja que la respuesta informe la planificación del día.",
+      evening:"Auditoría nocturna de recuperación: ¿qué te agotó hoy y qué te restauró genuinamente? Ajusta mañana en consecuencia.",
+      track:"Qué notar: tu tasa de recuperación — qué tan rápido regresas a sentirte con recursos después de un período exigente."
+    },
+    it:{
+      assessment:"Il recupero è la metà invisibile delle prestazioni — è dove avvengono realmente adattamento, integrazione e crescita. La maggior parte delle persone tratta il recupero come passivo quando un recupero efficace è attivo e strutturato.",
+      protocol:["**Giorni di scarico strategico:** Inserisci almeno un giorno genuinamente a bassa richiesta in ogni settimana — non solo meno esercizio, ma genuinamente minore richiesta cognitiva ed emotiva.",
+        "**Protocollo post-sforzo:** Dopo uno sforzo fisico o cognitivo intenso: 5–10 minuti di movimento dolce, seguito da respirazione lenta. Questo chiude deliberatamente il loop di risposta allo stress.",
+        "**Il sonno come priorità di recupero:** Tutto il recupero fisico avviene durante il sonno. Comprimere il sonno per fare di più è costantemente controproducente.",
+        "**Recupero sociale:** La connessione genuina con persone che ti energizzano piuttosto che prosciugarti è fisiologicamente rigenerante."],
+      morning:"Check-in mattutino di recupero: su una scala da 1–10, quanto ti senti ristabilito? Lascia che la risposta informi la pianificazione della giornata.",
+      evening:"Audit serale di recupero: cosa ti ha esaurito oggi e cosa ti ha genuinamente ristabilito? Adatta domani di conseguenza.",
+      track:"Cosa notare: il tuo tasso di recupero — quanto velocemente ritorni a sentirti con risorse dopo un periodo impegnativo."
+    },
+    he:{
+      assessment:"התאוששות היא המחצית הבלתי נראית של ביצועים — זה המקום שבו ההסתגלות, האינטגרציה והצמיחה מתרחשות באמת. רוב האנשים מתייחסים להתאוששות כפסיבית כאשר התאוששות יעילה היא פעילה ומובנית.",
+      protocol:["**ימי פריקה אסטרטגיים:** שלב לפחות יום אחד של דרישה נמוכה אמיתית בכל שבוע — לא רק פחות פעילות גופנית, אלא דרישה קוגניטיבית ורגשית נמוכה אמיתית.",
+        "**פרוטוקול לאחר מאמץ:** לאחר מאמץ פיזי או קוגניטיבי אינטנסיבי: 5–10 דקות של תנועה עדינה, ואחריה נשימה איטית. זה סוגר באופן מכוון את לולאת תגובת הלחץ.",
+        "**שינה כעדיפות להתאוששות:** כל ההתאוששות הפיזית מתרחשת במהלך השינה. דחיסת שינה כדי לעשות יותר היא עקבית לא פרודוקטיבית.",
+        "**התאוששות חברתית:** קשר אמיתי עם אנשים שממלאים אותך ולא מרוקנים אותך הוא משחזר מבחינה פיזיולוגית."],
+      morning:"בדיקת בוקר להתאוששות: בסולם 1–10, כמה משוחזר אתה מרגיש? תן לתשובה להנחות את תכנון היום.",
+      evening:"ביקורת ערב להתאוששות: מה ריקן אותך היום ומה משחזר אותך באמת? התאם מחר בהתאם.",
+      track:"מה לשים לב: קצב ההתאוששות שלך — כמה מהר אתה חוזר לתחושת משאביות לאחר תקופה דורשת."
+    }
+  },
+  circadian:{
+    en:{
+      assessment:"Your circadian rhythm is a master clock that regulates virtually every biological process — sleep, metabolism, hormone release, immune function, mood, and cognition. Modern life consistently disrupts it through irregular schedules, artificial light, and late eating. Restoring circadian alignment is one of the highest-return investments in long-term health.",
+      protocol:["**Morning light as the master reset:** Bright outdoor light in the first 30–60 minutes of waking is the single most powerful input to your circadian clock. Even 5–10 minutes on an overcast day is significantly more effective than indoor light. This signal sets the timing of cortisol, melatonin, and body temperature for the following 24 hours.",
+        "**Eating window alignment:** The digestive system has its own circadian rhythm. Eating most calories in the first two-thirds of the day and finishing eating 2–3 hours before sleep significantly improves metabolic health, sleep quality, and next-day energy. This is sometimes called 'time-restricted eating' — it requires no calorie counting.",
+        "**Evening light management:** Blue light from screens signals 'daytime' to the brain even at 10pm. Wearing blue-light filtering glasses after sunset, or switching screens to warm/dim mode, preserves natural melatonin onset. The difference in sleep quality is often noticeable within a few days.",
+        "**Social rhythm anchoring:** Regular mealtimes, wake times, and social interactions all reinforce circadian timing. Even one or two consistent daily anchors — coffee at the same time, a morning ritual, a regular evening practice — measurably improve circadian robustness."],
+      morning:"Circadian anchor: outdoor light in the first hour + eat your first meal within 60–90 minutes of waking.",
+      evening:"Evening anchor: consistent wind-down time + dim light environment + last meal 2–3 hours before sleep.",
+      track:"What to notice: your natural energy rhythm across the day, when alertness peaks, when it naturally declines."
+    },
+    ru:{
+      assessment:"Ваш циркадный ритм — это главные часы, регулирующие практически каждый биологический процесс: сон, метаболизм, выброс гормонов, иммунную функцию, настроение и когниции. Современная жизнь постоянно нарушает его нерегулярными расписаниями, искусственным светом и поздним приёмом пищи.",
+      protocol:["**Утренний свет как главный сброс:** Яркий уличный свет в первые 30–60 минут после пробуждения — самый мощный вход для ваших циркадных часов. Даже 5–10 минут в пасмурный день значительно эффективнее домашнего освещения.",
+        "**Согласование окна приёма пищи:** Употребление большей части калорий в первые две трети дня и завершение приёма пищи за 2–3 часа до сна значительно улучшает метаболическое здоровье и качество сна.",
+        "**Управление вечерним освещением:** Синий свет от экранов сигнализирует мозгу о 'дневном времени' даже в 22:00. Использование очков с фильтрацией синего света или переключение на тёплый/тусклый режим сохраняет естественное начало мелатонина.",
+        "**Закрепление социального ритма:** Регулярное время приёма пищи, пробуждения и социальные взаимодействия — всё это укрепляет циркадный ритм."],
+      morning:"Циркадный якорь: уличный свет в первый час + первый приём пищи в течение 60–90 минут после пробуждения.",
+      evening:"Вечерний якорь: постоянное время ухода ко сну + приглушённое освещение + последний приём пищи за 2–3 часа до сна.",
+      track:"Что отслеживать: ваш естественный энергетический ритм в течение дня, когда бдительность достигает пика и когда она естественно снижается."
+    },
+    es:{
+      assessment:"Tu ritmo circadiano es un reloj maestro que regula prácticamente cada proceso biológico. La vida moderna lo disrumpe constantemente con horarios irregulares, luz artificial y comidas tardías. Restaurar la alineación circadiana es una de las inversiones de mayor rendimiento en salud a largo plazo.",
+      protocol:["**Luz matutina como reinicio maestro:** La luz exterior brillante en los primeros 30–60 minutos de despertar es el input más poderoso para tu reloj circadiano. Incluso 5–10 minutos en un día nublado es significativamente más efectivo que la luz interior.",
+        "**Alineación de la ventana de alimentación:** Consumir la mayoría de las calorías en los primeros dos tercios del día y terminar de comer 2–3 horas antes de dormir mejora significativamente la salud metabólica y la calidad del sueño.",
+        "**Gestión de la luz nocturna:** La luz azul de las pantallas señala 'de día' al cerebro incluso a las 22h. Usar gafas de filtro de luz azul o cambiar a modo cálido/tenue preserva el inicio natural de la melatonina.",
+        "**Anclaje del ritmo social:** Horarios regulares de comidas, despertar e interacciones sociales refuerzan el ritmo circadiano."],
+      morning:"Ancla circadiana: luz exterior en la primera hora + primera comida a los 60–90 minutos de despertar.",
+      evening:"Ancla nocturna: hora de dormir consistente + ambiente de luz tenue + última comida 2–3 horas antes de dormir.",
+      track:"Qué notar: tu ritmo natural de energía a lo largo del día, cuándo alcanza el pico de alerta y cuándo decae naturalmente."
+    },
+    it:{
+      assessment:"Il tuo ritmo circadiano è un orologio principale che regola praticamente ogni processo biologico. La vita moderna lo disturba costantemente con orari irregolari, luce artificiale e pasti tardivi. Ripristinare l'allineamento circadiano è uno degli investimenti a più alto rendimento nella salute a lungo termine.",
+      protocol:["**Luce mattutina come reset principale:** La luce esterna brillante nei primi 30–60 minuti dal risveglio è il segnale più potente per il tuo orologio circadiano. Anche 5–10 minuti in una giornata nuvolosa è significativamente più efficace della luce interna.",
+        "**Allineamento della finestra alimentare:** Consumare la maggior parte delle calorie nei primi due terzi della giornata e smettere di mangiare 2–3 ore prima di dormire migliora significativamente la salute metabolica e la qualità del sonno.",
+        "**Gestione della luce serale:** La luce blu degli schermi segnala 'giorno' al cervello anche alle 22. Indossare occhiali filtranti la luce blu o passare alla modalità calda/tenue preserva l'insorgenza naturale della melatonina.",
+        "**Ancoraggio del ritmo sociale:** Orari regolari dei pasti, dell'orario di sveglia e le interazioni sociali rinforzano il ritmo circadiano."],
+      morning:"Ancora circadiana: luce esterna nella prima ora + primo pasto entro 60–90 minuti dal risveglio.",
+      evening:"Ancora serale: orario di riposo consistente + ambiente a luce tenue + ultimo pasto 2–3 ore prima di dormire.",
+      track:"Cosa notare: il tuo ritmo naturale di energia durante il giorno, quando l'allerta raggiunge il picco e quando declina naturalmente."
+    },
+    he:{
+      assessment:"הקצב הצירקדיאני שלך הוא שעון ראשי המסדיר כמעט כל תהליך ביולוגי. החיים המודרניים משבשים אותו באופן עקבי עם לוחות זמנים לא סדירים, אור מלאכותי ואכילה מאוחרת. שיקום היישור הצירקדיאני הוא אחת ההשקעות בעלות התשואה הגבוהה ביותר בבריאות ארוכת טווח.",
+      protocol:["**אור הבוקר כאיפוס ראשי:** אור חיצוני בהיר ב-30–60 הדקות הראשונות לאחר ההשכמה הוא הקלט החזק ביותר לשעון הצירקדיאני שלך. אפילו 5–10 דקות ביום מעונן יעיל משמעותית יותר מאור פנים.",
+        "**יישור חלון האכילה:** צריכת רוב הקלוריות בשני שלישי הראשונים של היום וסיום האכילה 2–3 שעות לפני השינה משפרים באופן משמעותי את הבריאות המטבולית ואיכות השינה.",
+        "**ניהול אור ערב:** אור כחול ממסכים מאותת 'יום' למוח אפילו בשעה 22:00. לבישת משקפיים לסינון אור כחול או מעבר למצב חמים/עמום שומרת על תחילת מלטונין טבעית.",
+        "**עיגון קצב חברתי:** זמני ארוחות קבועים, שעת השכמה ואינטרקציות חברתיות — כולם מחזקים את הקצב הצירקדיאני."],
+      morning:"עוגן צירקדיאני: אור חיצוני בשעה הראשונה + ארוחה ראשונה תוך 60–90 דקות מההשכמה.",
+      evening:"עוגן ערב: שעת שינה עקבית + סביבת אור עמום + ארוחה אחרונה 2–3 שעות לפני השינה.",
+      track:"מה לשים לב: קצב האנרגיה הטבעי שלך לאורך היום, מתי השגיאות מגיעות לשיא ומתי הן יורדות באופן טבעי."
+    }
+  }
+};
+
+const BIOHACK_AREAS=['sleep','focus','energy','stress','recovery','circadian'];
+
+function generateBiohack(areaIdx,lang,depth=2){
+  const area=BIOHACK_AREAS[areaIdx]||'sleep';
+  const pool=BIOHACK_POOL[area];
+  const d=pool[lang]||pool.en;
+  if(depth===1){
+    return{assessment:applyDepth(d.assessment,1),protocol:[d.protocol[0]],morning:d.morning,evening:d.evening,track:d.track};
+  }
+  if(depth===3){
+    return{...d,protocol:d.protocol,synthesis:`**Expert integration:** The ${area} protocols above represent the highest-leverage, evidence-supported entry points for this domain. For maximum impact, implement one protocol at a time for 7–10 days before adding the next. Sustainable change is built sequentially, not simultaneously.`};
+  }
+  return{...d,protocol:d.protocol.slice(0,3)};
 }
 function coachReply(id,lang,idx){
   const c=COACHES.find(x=>x.id===id);
@@ -1987,12 +2486,13 @@ function CoachAvatarFull({coach,size=88}){
 }
 
 /* ═══════════════ NAV ═══════════════════════════════════════════════════ */
-function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
+function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView,depth,setDepth,user,onAuthOpen,onLogout,onProfileOpen}){
   const t=T[lang];
   const langs=['en','ru','es','it','he'];
   const [scrolled,setScrolled]=useState(false);
   const [langOpen,setLangOpen]=useState(false);
   const [drawerOpen,setDrawerOpen]=useState(false);
+  const [userOpen,setUserOpen]=useState(false);
   useEffect(()=>{
     const h=()=>setScrolled(window.scrollY>20);
     window.addEventListener('scroll',h,{passive:true});
@@ -2047,6 +2547,39 @@ function Nav({lang,setLang,theme,setTheme,layer,setLayer,setView}){
                   {l}
                 </div>
               ))}
+            </div>
+          )}
+        </div>
+        {/* Depth toggle */}
+        <div className="depth-toggle" title={t.depth_label||'Depth'}>
+          {[[1,t.depth_simple||'S'],[2,t.depth_std||'✦'],[3,t.depth_deep||'D']].map(([d,label])=>(
+            <button key={d} className={`depth-btn${depth===d?' active':''}`}
+              onClick={()=>{setDepth(d);LS.setDepth(d);}}>{label}</button>
+          ))}
+        </div>
+        {/* User account button */}
+        <div style={{position:'relative'}}>
+          <button className={`user-btn${userOpen?' active':''}`} onClick={()=>setUserOpen(o=>!o)}
+            title={user?user.name:(t.auth_signin||'Sign In')}>
+            {user?user.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase():'👤'}
+          </button>
+          {userOpen&&(
+            <div className="user-dropdown" onClick={()=>setUserOpen(false)}>
+              {user?(
+                <>
+                  <div className="user-dropdown-head">
+                    <div>{user.name}</div>
+                    <div className="user-dropdown-sub">{user.email}</div>
+                  </div>
+                  <div className="user-dropdown-item" onClick={onProfileOpen}>📋 {t.auth_history||'My History'}</div>
+                  <div className="user-dropdown-item danger" onClick={onLogout}>↩ {t.auth_logout||'Sign Out'}</div>
+                </>
+              ):(
+                <>
+                  <div className="user-dropdown-item" onClick={onAuthOpen}>👤 {t.auth_signin||'Sign In'}</div>
+                  <div className="user-dropdown-item" onClick={onAuthOpen}>✦ {t.auth_signup||'Create Account'}</div>
+                </>
+              )}
             </div>
           )}
         </div>
@@ -3520,70 +4053,320 @@ function EsotericLayer({lang}){
 }
 
 /* ═══════════════ SVARGA LAYER ═══════════════════════════════════════════ */
-function SvargaLayer({lang}){
+/* ─── Swarga Panel (was SvargaLayer) ────────────────────────────────────── */
+function SwargaPanel({lang,depth,onSaveReport}){
   const t=T[lang];
   const dims=t.svarga_dims||[];
-  const dimIcons=['🌿','🌬','⚡','🧠','🏃','✨'];
+  const dimIcons=['🌿','🌬','⚡','🧠','🏃','💗','🌙','✨','🔮'];
   const [input,setInput]=useState('');
   const [loading,setLoading]=useState(false);
   const [results,setResults]=useState(null);
+  const [saved,setSaved]=useState(false);
   function analyze(){
     if(!input.trim())return;
-    setLoading(true);
+    setLoading(true);setSaved(false);
     setTimeout(()=>{
-      setResults(generateSvarga(input,lang));
+      setResults(generateSvarga(input,lang,depth));
       setLoading(false);
-    },1800+Math.random()*600);
+    },1600+Math.random()*700);
   }
-  function reset(){setResults(null);setInput('');}
+  function reset(){setResults(null);setInput('');setSaved(false);}
+  function handleSave(){
+    if(onSaveReport)onSaveReport({type:'swarga',lang,summary:input.slice(0,120),depth});
+    setSaved(true);
+  }
+  return(
+    <div>
+      <div className="sec-head rv" style={{marginBottom:28}}>
+        <span className="tag" style={{background:'var(--purple-f)',borderColor:'rgba(176,126,204,.25)',color:'var(--purple)'}}>{t.svarga_title||'Swarga Approach'}</span>
+        <p className="sec-sub">{t.svarga_sub}</p>
+      </div>
+      {!results&&!loading&&(
+        <div className="svarga-input-wrap rv">
+          <div className="glass" style={{padding:28}}>
+            <textarea className="form-textarea" value={input} onChange={e=>setInput(e.target.value)}
+              onKeyDown={e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))analyze();}}
+              placeholder={t.svarga_placeholder} style={{minHeight:140,marginBottom:16,
+                background:'var(--surface-2)',border:'1px solid var(--border-md)',
+                borderRadius:10,color:'var(--text-1)',width:'100%',padding:'12px 16px',
+                fontFamily:'var(--font-b)',fontSize:'.9rem',outline:'none',resize:'vertical'}}/>
+            <button className="cta-btn" style={{justifyContent:'center',background:'linear-gradient(135deg,var(--purple),#7E8EC8)',width:'100%'}}
+              onClick={analyze} disabled={!input.trim()}>
+              {t.svarga_submit}
+            </button>
+          </div>
+        </div>
+      )}
+      {loading&&(
+        <div className="svarga-loading">
+          <div className="svarga-loader" style={{borderTopColor:'var(--purple)'}}/>
+          <p className="svarga-loading-text">{t.svarga_analyzing}</p>
+        </div>
+      )}
+      {results&&(
+        <div>
+          <div className="svarga-result">
+            {results.map((block,i)=>(
+              <div key={i} className="svarga-block glass">
+                <div className="svarga-block-head">
+                  <div className="svarga-block-icon">{dimIcons[i]||'✦'}</div>
+                  <div><div className="svarga-block-title">{dims[i]||block.dim}</div></div>
+                </div>
+                <div className="svarga-block-body">{renderMD(block.text)}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{display:'flex',gap:12,justifyContent:'center',marginTop:28,flexWrap:'wrap'}}>
+            <button className="btn-g" onClick={reset}>↺ {t.svarga_new}</button>
+            <button className={`save-report-btn${saved?' saved':''}`} onClick={handleSave}>
+              {saved?(t.save_report_done||'Saved ✓'):(t.save_report||'Save to history')}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Biohacking Panel ───────────────────────────────────────────────────── */
+function BiohackingPanel({lang,depth,onSaveReport}){
+  const t=T[lang];
+  const areas=t.biohack_areas||BIOHACK_AREAS.map(a=>a);
+  const areaIcons=t.biohack_area_icons||['😴','🧠','⚡','😌','🏃','🕐'];
+  const [selected,setSelected]=useState(null);
+  const [loading,setLoading]=useState(false);
+  const [result,setResult]=useState(null);
+  const [saved,setSaved]=useState(false);
+  function generate(idx){
+    setSelected(idx);setLoading(true);setResult(null);setSaved(false);
+    setTimeout(()=>{
+      setResult(generateBiohack(idx,lang,depth));
+      setLoading(false);
+    },1400+Math.random()*800);
+  }
+  function reset(){setResult(null);setSelected(null);setSaved(false);}
+  function handleSave(){
+    if(onSaveReport)onSaveReport({type:'biohacking',lang,summary:(areas[selected]||''),depth});
+    setSaved(true);
+  }
+  if(!result&&!loading) return(
+    <div>
+      <div className="sec-head rv" style={{marginBottom:28}}>
+        <span className="tag" style={{background:'rgba(80,200,160,.12)',borderColor:'rgba(80,200,160,.25)',color:'rgba(80,200,160,.9)'}}>{t.biohack_title||'Biohacking Protocols'}</span>
+        <p className="sec-sub">{t.biohack_sub}</p>
+      </div>
+      <p style={{textAlign:'center',color:'var(--text-3)',fontSize:'.82rem',marginBottom:22}}>{t.biohack_select||'Choose your focus area'}</p>
+      <div className="tools-grid rv" style={{maxWidth:760,margin:'0 auto'}}>
+        {areas.map((area,i)=>(
+          <div key={i} className="glass tool-card" style={{cursor:'pointer',transition:'all .3s',textAlign:'center',padding:'22px 16px'}}
+            onClick={()=>generate(i)}
+            onMouseEnter={e=>{e.currentTarget.style.borderColor='rgba(80,200,160,.4)';e.currentTarget.style.transform='translateY(-2px)';}}
+            onMouseLeave={e=>{e.currentTarget.style.borderColor='';e.currentTarget.style.transform='';}}>
+            <div style={{fontSize:28,marginBottom:10}}>{areaIcons[i]}</div>
+            <div style={{fontFamily:'var(--font-d)',fontSize:'1rem',color:'var(--text-1)'}}>{area}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+  if(loading) return(
+    <div className="svarga-loading">
+      <div className="svarga-loader" style={{borderTopColor:'rgba(80,200,160,.9)'}}/>
+      <p className="svarga-loading-text">{t.biohack_analyzing||'Building your protocol...'}</p>
+    </div>
+  );
+  const d=result;
+  return(
+    <div style={{maxWidth:840,margin:'0 auto'}}>
+      <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:24}}>
+        <div style={{fontSize:28}}>{areaIcons[selected]}</div>
+        <div>
+          <h3 style={{fontFamily:'var(--font-d)',fontSize:'1.3rem',color:'var(--text-1)',margin:0}}>{areas[selected]}</h3>
+          <p style={{color:'var(--text-3)',fontSize:'.75rem',margin:'3px 0 0'}}>{t.biohack_title}</p>
+        </div>
+      </div>
+      {/* Assessment */}
+      <div className="svarga-block glass" style={{marginBottom:14,borderColor:'rgba(80,200,160,.2)'}}>
+        <div className="svarga-block-head">
+          <div className="svarga-block-icon" style={{background:'rgba(80,200,160,.12)',border:'1px solid rgba(80,200,160,.25)',color:'rgba(80,200,160,.9)'}}>🔍</div>
+          <div><div className="svarga-block-title">Assessment</div></div>
+        </div>
+        <div className="svarga-block-body">{renderMD(d.assessment)}</div>
+      </div>
+      {/* Protocol steps */}
+      {d.protocol.map((step,i)=>(
+        <div key={i} className="svarga-block glass" style={{marginBottom:14,borderColor:'rgba(80,200,160,.15)'}}>
+          <div className="svarga-block-head">
+            <div className="svarga-block-icon" style={{background:'rgba(80,200,160,.10)',border:'1px solid rgba(80,200,160,.2)',color:'rgba(80,200,160,.8)',fontSize:14,fontWeight:700}}>{i+1}</div>
+            <div><div className="svarga-block-title">Protocol {i+1}</div></div>
+          </div>
+          <div className="svarga-block-body">{renderMD(step)}</div>
+        </div>
+      ))}
+      {/* Anchors */}
+      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:14}}>
+        {[['☀',d.morning],['🌙',d.evening]].map(([icon,text],i)=>(
+          <div key={i} className="glass" style={{padding:'16px 18px',borderRadius:12,borderColor:'rgba(80,200,160,.15)'}}>
+            <div style={{fontSize:20,marginBottom:8}}>{icon}</div>
+            <div style={{fontSize:'.8rem',color:'var(--text-2)',lineHeight:1.6}}>{renderMD(text)}</div>
+          </div>
+        ))}
+      </div>
+      {/* Track */}
+      <div className="svarga-block glass" style={{borderColor:'rgba(80,200,160,.15)',opacity:.85}}>
+        <div className="svarga-block-head">
+          <div className="svarga-block-icon" style={{background:'rgba(80,200,160,.08)',border:'1px solid rgba(80,200,160,.18)',color:'rgba(80,200,160,.75)'}}>📊</div>
+          <div><div className="svarga-block-title">What to track</div></div>
+        </div>
+        <div className="svarga-block-body">{renderMD(d.track)}</div>
+      </div>
+      {d.synthesis&&(
+        <div className="svarga-block glass" style={{marginTop:14,borderColor:'rgba(80,200,160,.25)'}}>
+          <div className="svarga-block-body" style={{color:'rgba(80,200,160,.85)'}}>{renderMD(d.synthesis)}</div>
+        </div>
+      )}
+      <div style={{display:'flex',gap:12,justifyContent:'center',marginTop:28,flexWrap:'wrap'}}>
+        <button className="btn-g" onClick={reset}>↺ {t.biohack_new||'New Protocol'}</button>
+        <button className={`save-report-btn${saved?' saved':''}`} onClick={handleSave}>
+          {saved?(t.save_report_done||'Saved ✓'):(t.save_report||'Save to history')}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Integral Layer (Swarga + Biohacking) ───────────────────────────────── */
+function IntegralLayer({lang,depth,user,onSaveReport}){
+  const t=T[lang];
+  const [subTab,setSubTab]=useState('swarga');
+  const isHe=lang==='he';
   return(
     <div className="sp2">
       <div className="mw">
         <div className="sec-head rv">
-          <span className="tag" style={{background:'var(--purple-f)',borderColor:'rgba(176,126,204,.25)',color:'var(--purple)'}}>{t.svarga_title}</span>
+          <span className="tag" style={{background:'var(--purple-f)',borderColor:'rgba(176,126,204,.25)',color:'var(--purple)'}}>
+            {t.integral_layer_title||'Integral Systems'}
+          </span>
           <h2 className="sec-h">{t.layer_svarga}</h2>
-          <p className="sec-sub">{t.svarga_sub}</p>
+          <p className="sec-sub">{t.integral_layer_sub}</p>
           <div className="divider" style={{background:'linear-gradient(90deg,transparent,var(--purple),transparent)'}}/>
         </div>
-        {!results&&!loading&&(
-          <div className="svarga-input-wrap rv">
-            <div className="glass" style={{padding:28}}>
-              <textarea className="form-textarea" value={input} onChange={e=>setInput(e.target.value)}
-                placeholder={t.svarga_placeholder} style={{minHeight:140,marginBottom:16,
-                  background:'var(--surface-2)',border:'1px solid var(--border-md)',
-                  borderRadius:10,color:'var(--text-1)',width:'100%',padding:'12px 16px',
-                  fontFamily:'var(--font-b)',fontSize:'.9rem',outline:'none',resize:'vertical'}}/>
-              <button className="cta-btn" style={{justifyContent:'center',background:'linear-gradient(135deg,var(--purple),#7E8EC8)',width:'100%'}}
-                onClick={analyze} disabled={!input.trim()}>
-                {t.svarga_submit}
-              </button>
+        {/* Sub-tab switcher */}
+        <div style={{display:'flex',gap:8,marginBottom:32,justifyContent:'center'}}>
+          {[['swarga',t.integral_tab_swarga||'Swarga Approach','var(--purple)','rgba(176,126,204,.25)'],
+            ['biohacking',t.integral_tab_biohack||'Biohacking','rgba(80,200,160,.9)','rgba(80,200,160,.25)']
+          ].map(([id,label,color,border])=>(
+            <button key={id}
+              onClick={()=>setSubTab(id)}
+              style={{padding:'11px 24px',borderRadius:12,border:`1px solid ${subTab===id?border:'var(--border)'}`,
+                background:subTab===id?`linear-gradient(135deg,${color}18,${color}08)`:'var(--surface-2)',
+                color:subTab===id?color:'var(--text-2)',
+                fontFamily:'var(--font-b)',fontSize:'.75rem',letterSpacing:'.08em',textTransform:'uppercase',
+                cursor:'pointer',transition:'all .3s',
+                boxShadow:subTab===id?`0 2px 16px ${color}22`:undefined}}>
+              {id==='swarga'?'🌿 ':'⚡ '}{label}
+            </button>
+          ))}
+        </div>
+        {subTab==='swarga'&&<SwargaPanel lang={lang} depth={depth} onSaveReport={onSaveReport}/>}
+        {subTab==='biohacking'&&<BiohackingPanel lang={lang} depth={depth} onSaveReport={onSaveReport}/>}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Auth Modal ─────────────────────────────────────────────────────────── */
+function AuthModal({lang,onClose,onLogin}){
+  const t=T[lang];
+  const [tab,setTab]=useState('signin');
+  const [name,setName]=useState('');
+  const [email,setEmail]=useState('');
+  const [pw,setPw]=useState('');
+  const [err,setErr]=useState('');
+  const isHe=lang==='he';
+  function submit(e){
+    e.preventDefault();
+    if(!email.trim()||!pw.trim()){setErr('Please fill all required fields.');return;}
+    if(tab==='signup'&&!name.trim()){setErr('Please enter your name.');return;}
+    const existing=LS.getUser();
+    if(tab==='signin'){
+      if(!existing||existing.email!==email.trim()){setErr('No account found. Please create one.');return;}
+      if(existing.pw!==btoa(pw)){setErr('Incorrect password.');return;}
+      onLogin(existing);
+    }else{
+      const u={name:name.trim()||email.split('@')[0],email:email.trim(),pw:btoa(pw),created:new Date().toISOString()};
+      onLogin(u);
+    }
+  }
+  return(
+    <div className="auth-modal-backdrop" onClick={e=>{if(e.target===e.currentTarget)onClose();}}>
+      <div className="auth-modal" dir={isHe?'rtl':'ltr'}>
+        <button onClick={onClose} style={{position:'absolute',top:16,right:16,background:'none',border:'none',cursor:'pointer',color:'var(--text-3)',fontSize:18}}>✕</button>
+        <div style={{fontFamily:'var(--font-d)',fontSize:'1.5rem',color:'var(--text-1)',marginBottom:6}}>LifeForge<em style={{color:'var(--gold)',fontStyle:'italic'}}>·</em>AI</div>
+        <p style={{color:'var(--text-3)',fontSize:'.78rem',marginBottom:20}}>{tab==='signin'?(t.auth_welcome||'Welcome back'):(t.auth_welcome_new||'Welcome')}</p>
+        <div className="auth-tabs">
+          {[['signin',t.auth_signin||'Sign In'],['signup',t.auth_signup||'Create Account']].map(([id,label])=>(
+            <button key={id} className={`auth-tab${tab===id?' active':''}`} onClick={()=>{setTab(id);setErr('');}}>{label}</button>
+          ))}
+        </div>
+        <form onSubmit={submit}>
+          {tab==='signup'&&(
+            <div className="auth-field">
+              <label className="auth-label">{t.auth_name||'Full Name'}</label>
+              <input className="auth-input" value={name} onChange={e=>setName(e.target.value)} placeholder="Alexandra Smith" autoComplete="name"/>
             </div>
+          )}
+          <div className="auth-field">
+            <label className="auth-label">{t.auth_email||'Email'}</label>
+            <input className="auth-input" type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" autoComplete="email" required/>
           </div>
-        )}
-        {loading&&(
-          <div className="svarga-loading">
-            <div className="svarga-loader" style={{borderTopColor:'var(--purple)'}}/>
-            <p className="svarga-loading-text">{t.svarga_analyzing}</p>
+          <div className="auth-field">
+            <label className="auth-label">{t.auth_pw||'Password'}</label>
+            <input className="auth-input" type="password" value={pw} onChange={e=>setPw(e.target.value)} placeholder="••••••••" autoComplete={tab==='signin'?'current-password':'new-password'} required/>
           </div>
-        )}
-        {results&&(
+          {err&&<p style={{color:'#E07070',fontSize:'.74rem',marginBottom:10}}>{err}</p>}
+          <button type="submit" className="auth-btn">{tab==='signin'?(t.auth_signin_btn||'Sign In'):(t.auth_signup_btn||'Create Account')}</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Profile / History Modal ────────────────────────────────────────────── */
+function ProfileModal({lang,user,onClose}){
+  const t=T[lang];
+  const [history,setHistory]=useState(()=>LS.getHistory());
+  const isHe=lang==='he';
+  const typeLabel={swarga:t.svarga_title||'Swarga',biohacking:t.biohack_title||'Biohacking',astro:'Astrology',pytha:'Numerology',rune:'Rune Oracle',iching:'I Ching',druid:'Druidic Tree'};
+  function clearHistory(){LS.clearHistory();setHistory([]);}
+  return(
+    <div className="auth-modal-backdrop" onClick={e=>{if(e.target===e.currentTarget)onClose();}}>
+      <div className="auth-modal" dir={isHe?'rtl':'ltr'} style={{maxWidth:480,maxHeight:'80vh',display:'flex',flexDirection:'column',padding:0,overflow:'hidden'}}>
+        <div style={{padding:'24px 28px 16px',borderBottom:'1px solid var(--border)',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
           <div>
-            <div className="svarga-result">
-              {results.map((block,i)=>(
-                <div key={i} className="svarga-block glass">
-                  <div className="svarga-block-head">
-                    <div className="svarga-block-icon">{dimIcons[i]||'✦'}</div>
-                    <div>
-                      <div className="svarga-block-title">{dims[i]||block.dim}</div>
-                    </div>
-                  </div>
-                  <div className="svarga-block-body">{renderMD(block.text)}</div>
-                </div>
-              ))}
-            </div>
-            <div style={{textAlign:'center',marginTop:28}}>
-              <button className="btn-g" onClick={reset}>↺ {t.svarga_new}</button>
-            </div>
+            <div style={{fontFamily:'var(--font-d)',fontSize:'1.15rem',color:'var(--text-1)'}}>{user?user.name:(t.auth_history||'My History')}</div>
+            {user&&<div style={{fontSize:'.68rem',color:'var(--text-3)',marginTop:2}}>{user.email}</div>}
+          </div>
+          <button onClick={onClose} style={{background:'none',border:'none',cursor:'pointer',color:'var(--text-3)',fontSize:18}}>✕</button>
+        </div>
+        <div style={{overflowY:'auto',flex:1}}>
+          {history.length===0?(
+            <div style={{padding:'32px 28px',textAlign:'center',color:'var(--text-3)',fontSize:'.8rem'}}>{t.auth_history_empty}</div>
+          ):(
+            history.map(h=>(
+              <div key={h.id} className="history-entry">
+                <div className="history-entry-type">{typeLabel[h.type]||h.type}</div>
+                <div className="history-entry-preview">{h.summary||'—'}</div>
+                <div className="history-entry-date">{new Date(h.date).toLocaleDateString(lang==='he'?'he-IL':lang,{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div>
+              </div>
+            ))
+          )}
+        </div>
+        {history.length>0&&(
+          <div style={{padding:'14px 28px',borderTop:'1px solid var(--border)',textAlign:'center'}}>
+            <button className="btn-g" style={{fontSize:'.68rem',color:'#E07070',borderColor:'rgba(224,112,112,.35)'}} onClick={clearHistory}>
+              {t.auth_clear_history||'Clear History'}
+            </button>
           </div>
         )}
       </div>
@@ -3803,6 +4586,10 @@ function App(){
   const [view,setView]=useState('home');
   const [selected,setSelected]=useState(null);
   const [legalDoc,setLegalDoc]=useState(null);
+  const [depth,setDepth]=useState(()=>LS.getDepth());
+  const [user,setUser]=useState(()=>LS.getUser());
+  const [authOpen,setAuthOpen]=useState(false);
+  const [profileOpen,setProfileOpen]=useState(false);
 
   useEffect(()=>{
     document.documentElement.setAttribute('data-theme',theme);
@@ -3831,7 +4618,12 @@ function App(){
   return(
     <React.Fragment>
       <Nav lang={lang} setLang={l=>setLang(l)} theme={theme} setTheme={setTheme}
-        layer={layer} setLayer={l=>navigate(l)} setView={setView}/>
+        layer={layer} setLayer={l=>navigate(l)} setView={setView}
+        depth={depth} setDepth={setDepth}
+        user={user}
+        onAuthOpen={()=>setAuthOpen(true)}
+        onLogout={()=>{LS.clearUser();setUser(null);}}
+        onProfileOpen={()=>setProfileOpen(true)}/>
       <main style={{minHeight:'100svh',paddingTop:66}}>
         {legalDoc?(
           <LegalPage docId={legalDoc} lang={lang} onBack={closeLegal}/>
@@ -3847,13 +4639,15 @@ function App(){
               <CoachLayer lang={lang} view={view} setView={setView}
                 selected={selected} setSelected={setSelected}/>
             )}
-            {layer==='esoteric'&&<EsotericLayer lang={lang}/>}
-            {layer==='svarga'&&<SvargaLayer lang={lang}/>}
+            {layer==='esoteric'&&<EsotericLayer lang={lang} depth={depth}/>}
+            {layer==='svarga'&&<IntegralLayer lang={lang} depth={depth} user={user} onSaveReport={(entry)=>{LS.addHistory(entry);}}/>}
           </>
         )}
       </main>
       <Footer lang={lang} onLegalOpen={openLegal} onNavigate={l=>navigate(l)}/>
       <ScrollTop/>
+      {authOpen&&<AuthModal lang={lang} onClose={()=>setAuthOpen(false)} onLogin={u=>{LS.setUser(u);setUser(u);setAuthOpen(false);}}/>}
+      {profileOpen&&<ProfileModal lang={lang} user={user} onClose={()=>setProfileOpen(false)}/>}
     </React.Fragment>
   );
 }
